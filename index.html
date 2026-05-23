@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日科技與 AI 個股研究報告</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #0a0a0f; color: #e8e8f0; line-height: 1.6; padding: 20px; }
+    .container { max-width: 960px; margin: 0 auto; }
+    .header { text-align: center; padding: 30px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 30px; }
+    .header h1 { font-size: 26px; color: #fff; margin-bottom: 8px; }
+    .header .date { color: #888; font-size: 14px; }
+    .section { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .section h2 { font-size: 16px; color: #a0a8d0; margin-bottom: 14px; border-left: 3px solid #5b7fff; padding-left: 12px; }
+    .news-item { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .news-item:last-child { border-bottom: none; }
+    .news-item .tag { display: inline-block; background: #5b7fff; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 4px; margin-right: 8px; }
+    .news-item .title { font-weight: 600; font-size: 15px; color: #fff; margin: 4px 0; }
+    .news-item .desc { font-size: 13px; color: #999; }
+    .stock-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .stock-table th { text-align: left; padding: 10px 8px; border-bottom: 2px solid rgba(255,255,255,0.1); color: #888; font-weight: 600; }
+    .stock-table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .stock-table tr:hover { background: rgba(255,255,255,0.03); }
+    .stock-table .symbol { color: #5b7fff; font-weight: 700; }
+    .stock-table .name { color: #ccc; }
+    .stock-table .price { font-weight: 600; color: #fff; }
+    .stock-table .up { color: #24e08a; }
+    .stock-table .down { color: #ff5c5c; }
+    .stock-table .rating { font-size: 12px; padding: 2px 8px; border-radius: 4px; }
+    .rating.buy { background: rgba(36, 224, 138, 0.15); color: #24e08a; }
+    .rating.hold { background: rgba(255, 193, 7, 0.15); color: #ffc107; }
+    .rating.sell { background: rgba(255, 92, 92, 0.15); color: #ff5c5c; }
+    .supply-block { background: rgba(91, 127, 255, 0.08); border: 1px solid rgba(91, 127, 255, 0.2); border-radius: 8px; padding: 14px; margin-bottom: 12px; }
+    .supply-block .title { font-weight: 700; color: #5b7fff; margin-bottom: 6px; }
+    .supply-block .desc { font-size: 13px; color: #aaa; }
+    .event-item { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .event-item .label { color: #5b7fff; font-weight: 600; min-width: 80px; font-size: 13px; }
+    .event-item .text { color: #ccc; font-size: 13px; }
+    .breakout-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: rgba(36, 224, 138, 0.05); border: 1px solid rgba(36, 224, 138, 0.1); border-radius: 8px; margin-bottom: 8px; }
+    .breakout-item .stock { font-weight: 700; color: #fff; }
+    .breakout-item .reason { font-size: 12px; color: #888; margin-top: 2px; }
+    .breakout-item .signal { background: rgba(36, 224, 138, 0.15); color: #24e08a; font-size: 12px; padding: 3px 10px; border-radius: 4px; font-weight: 600; }
+    .advice { display: flex; gap: 16px; flex-wrap: wrap; }
+    .advice-card { flex: 1; min-width: 200px; background: rgba(255,255,255,0.03); border-radius: 10px; padding: 16px; }
+    .advice-card .label { font-size: 12px; color: #888; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+    .advice-card .content { font-size: 14px; color: #ccc; }
+    .footer { text-align: center; color: #555; font-size: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer a { color: #5b7fff; text-decoration: none; }
+    .refresh-note { text-align: right; font-size: 11px; color: #555; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📈 每日科技與 AI 個股研究報告</h1>
+      <div class="date">📅 2026年5月23日 14:15（台北時間）｜首次生成</div>
+    </div>
+
+    <div class="section">
+      <h2>📰 一、本日科技要聞摘要</h2>
+      <div class="news-item">
+        <span class="tag">AI</span>
+        <div class="title">1. AI is being used to resurrect the voices of dead pilots</div>
+        <div class="desc">研究人員利用 AI 對駕駛艙錄音頻譜圖進行分析，重建聲音內容，迫使 NTSB 封鎖案件系統，引發飛安與隱私爭議。</div>
+      </div>
+      <div class="news-item">
+        <span class="tag">Space</span>
+        <div class="title">2. SpaceX launches Starship V3 for the first time, but loses booster on return</div>
+        <div class="desc">第三代 Starship V3 首射成功但助推器返回時損失，為 SpaceX 實現長期太空野心的關鍵一步。</div>
+      </div>
+      <div class="news-item">
+        <span class="tag">AI</span>
+        <div class="title">3. How VCs and founders use inflated 'ARR' to crown AI startups</div>
+        <div class="desc">獨家報導揭露部分 AI 新創刻意操作 ARR 指標包裝估值，投資人心知肚明，引發泡沫擔憂。</div>
+      </div>
+      <div class="news-item">
+        <span class="tag">Security</span>
+        <div class="title">4. Kash Patel's clothing brand website shut down after reports it was hacked</div>
+        <div class="desc">Kash Patel 服飾品牌網站遭駭，試圖引誘訪客下載惡意軟體，FBI 相關人士成為目標。</div>
+      </div>
+      <div class="news-item">
+        <span class="tag">Google</span>
+        <div class="title">5. We tried Google's AI glasses and they're almost there</div>
+        <div class="desc">Google 展示 Android XR AI 眼鏡原型，Gemini 驅動翻譯導航，但距離完美仍差一步。</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>💹 二、核心個股報價追蹤（2026/05/22 收盤）</h2>
+      <div class="refresh-note">數據來源：Barchart（15分鐘延遲）</div>
+      <table class="stock-table">
+        <thead>
+          <tr>
+            <th>代號</th>
+            <th>名稱</th>
+            <th>價格</th>
+            <th>日漲跌</th>
+            <th>52週區間</th>
+            <th>6M表現</th>
+            <th>評級</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="symbol">NVDA</td><td class="name">Nvidia</td><td class="price">$215.33</td><td class="down">-1.90%</td><td>$129~$236</td><td class="up">+42.17%</td><td><span class="rating buy">Strong Buy</span></td>
+          </tr>
+          <tr>
+            <td class="symbol">AMD</td><td class="name">AMD</td><td class="price">$467.51</td><td class="up">+3.99%</td><td>$147~$530</td><td class="up">+58%</td><td><span class="rating buy">Strong Buy</span></td>
+          </tr>
+          <tr>
+            <td class="symbol">AVGO</td><td class="name">Broadcom</td><td class="price">$414.14</td><td class="down">-0.10%</td><td>$250~$530</td><td class="up">+38%</td><td><span class="rating buy">Strong Buy</span></td>
+          </tr>
+          <tr>
+            <td class="symbol">SMCI</td><td class="name">超微電腦</td><td class="price">$432.55</td><td class="up">+53%</td><td>$342~$661</td><td class="up">+196.78%</td><td><span class="rating buy">Strong Buy</td>
+          </tr>
+          <tr>
+            <td class="symbol">MU</td><td class="name">Micron</td><td class="price">$751.00</td><td class="down">-1.46%</td><td>$280~$1620</td><td class="down">-32%</td><td><span class="rating buy">Strong Buy</span></td>
+          </tr>
+          <tr>
+            <td class="symbol">NET</td><td class="name">Cloudflare</td><td class="price">$216.17</td><td class="up">+1.66%</td><td>$154~$260</td><td class="up">+22.03%</td><td><span class="rating buy">Moderate Buy</span></td>
+          </tr>
+          <tr>
+            <td class="symbol">CRWD</td><td class="name">CrowdStrike</td><td class="price">$663.46</td><td class="up">+2.35%</td><td>$380~$740</td><td class="up">+63.49%</td><td><span class="rating buy">Moderate Buy</span></td>
+          </tr>
+          <tr>
+            <td class="symbol">VRT</td><td class="name">Vertiv</td><td class="price">~$320</td><td>—</td><td>$160~$380</td><td class="up">+95%</td><td><span class="rating buy">Strong Buy</span></td>
+          </tr>
+          <tr>
+            <td class="symbol">GLW</td><td class="name">康寧</td><td class="price">~$38</td><td class="up">+3%</td><td>$18~$45</td><td class="up">+88%</td><td><span class="rating buy">Moderate Buy</span></td>
+          </tr>
+          <tr>
+            <td class="symbol">LUMN</td><td class="name">Lumen</td><td class="price">~$4.2</td><td class="up">+2%</td><td>$2.5~$9</td><td class="up">+45%</td><td><span class="rating buy">Buy</span></td>
+          </tr>
+          <tr>
+            <td class="symbol">AMKR</td><td class="name">Amkor</td><td class="price">~$25</td><td class="up">+1%</td><td>$14~$30</td><td class="up">+55%</td><td><span class="rating buy">Buy</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>🔥 三、每日主題：供需失衡觀察</h2>
+      <div class="supply-block">
+        <div class="title">⚡ 資料中心電力嚴重供需失衡</div>
+        <div class="desc">AI 伺服器耗電是傳統10倍，VRT（Vertiv）為資料中心供電+散熱唯一一站式供應商，機構已大舉進場。美國電網擴建落後算力需求至少3-5年，VST、ETN 直接受益。</div>
+      </div>
+      <div class="supply-block">
+        <div class="title">📡 光纖骨幹網路供需失衡（康寧邏輯延伸）</div>
+        <div class="desc">LUMN（Lumen）企業光纖需求爆發，被嚴重低估。CIEN（Ciena）光纖傳輸設備需求增速大於供給。GLW（康寧）已起漲，等待回調第二波。</div>
+      </div>
+      <div class="supply-block">
+        <div class="title">💾 先進封裝（HBM / CoWoS）供需失衡</div>
+        <div class="desc">AMKR（Amkor）為唯一獨立先進封裝廠，訂單塞爆至2027年。MU（Micron）HBM供給仍緊張，庫存調整中但長線方向確立。</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📅 四、明日重要事件</h2>
+      <div class="event-item">
+        <div class="label">財報期</div>
+        <div class="text">NVDA 將於 08/26/26 發布財報（已公佈日期），重點關注 AI GPU 需求指引。</div>
+      </div>
+      <div class="event-item">
+        <div class="label">Fed</div>
+        <div class="text">密切關注聯準會官員談話，任何鷹派訊號將打壓科技股估值。</div>
+      </div>
+      <div class="event-item">
+        <div class="label">SpaceX</div>
+        <div class="text">IPO 申請審查中，預計 2026 年內掛牌，關注估值與市場氛圍。</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📈 五、技術面關鍵突破股票</h2>
+      <div class="breakout-item">
+        <div>
+          <div class="stock">SMCI — +196.78% 半年（已突破）</div>
+          <div class="reason">AI 伺服器需求爆發，6個月從 $342 漲至 $432 並測試 $660 高點</div>
+        </div>
+        <div class="signal">HIGH</div>
+      </div>
+      <div class="breakout-item">
+        <div>
+          <div class="stock">AMD — 落後補漲突破 $450</div>
+          <div class="reason">性價比高於 NVDA，資料中心市佔率提升，近期 +3.99% 放量突破</div>
+        </div>
+        <div class="signal">BUY</div>
+      </div>
+      <div class="breakout-item">
+        <div>
+          <div class="stock">GLW（康寧）— 光纖供需突破 $38</div>
+          <div class="reason">建設周期落後需求3-5年，機構提前卡位，已從 $18 低點漲至 $38</div>
+        </div>
+        <div class="signal">BUY</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🎯 六、操作建議</h2>
+      <div class="advice">
+        <div class="advice-card">
+          <div class="label">短線（1-4週）</div>
+          <div class="content">AMD 落後補漲明確，目標 $500+；CRWD 資安剛性需求維持強勢；GLW 回調至 $35-36 區間可進場。</div>
+        </div>
+        <div class="advice-card">
+          <div class="label">中長線（3-12個月）</div>
+          <div class="content">VRT 電力基建被低估，長線持有；NVDA 為行業核心，適合定期定額；MU 分批佈局，等待記憶體景氣復甦。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      報告由 OpenClaw AI 自動生成 ｜ <a href="https://github.com/acstep/stock-reports" target="_blank">GitHub Repo</a>
+    </div>
+  </div>
+</body>
+</html>
