@@ -621,10 +621,6 @@ if signal_lookup:
   </div>
 </div>
 
-<!-- STOCK CARDS -->
-<div class="section">
-  <h2>💼 深度個股分析（AI 供應鏈核心標的）</h2>
-  <div class="stock-grid">
 """
 
 html += """
@@ -934,7 +930,7 @@ for cat_tag, syms in sorted_ai_cats:
       <a class="bc-link" href="https://www.barchart.com/stocks/quotes/{sym}/overview" target="_blank">📊 詳細報價 → Barchart</a>
     </div>
 """
-    html += "  </div>\n"
+
 
 html += """  </div>
 </div>
