@@ -755,22 +755,85 @@ import subprocess, json as pyjson
 
 # Fetch the signal strength AI stocks
 bc_signal_url = 'https://www.barchart.com/proxies/core-api/v1/quotes/get?lists=stocks.us.signals_ratings.v2_top_signal_strength&orderDir=asc&fields=symbol%2CsymbolName%2ClastPrice%2CpriceChange%2CpercentChange%2Copinion%2CopinionLastWeek%2CopinionLastMonth%2CsymbolCode%2CsymbolType%2ChasOptions&orderBy=symbol&meta=field.shortName%2Cfield.type%2Cfield.description%2Clists.lastUpdate&hasOptions=true&raw=1'
-
-# Load from file if exists (set by cron job node script)
-signal_ai_path = '/tmp/bc_signal_ai.json'
 try:
-    with open(signal_ai_path) as f:
-        signal_ai_data = pyjson.load(f)
+    with open('/tmp/bc_signal_all.json') as f:
+        all_signal_data = pyjson.load(f)
+    print(f'Loaded ALL {len(all_signal_data)} Signal Strength stocks for AI analysis')
 except:
-    signal_ai_data = []
+    all_signal_data = []
 
 
-if signal_ai_data:
-    signal_ai_filtered = signal_ai_data  # JS script already filtered to AI+Space
+# === AI DYNAMIC ANALYSIS: Use smart keyword + semantic matching to find AI/Space stocks ===
+# This replaces the static hardcoded list - AI will dynamically identify new AI/Space stocks
+AI_SIG_KW = {
+    # AI Chips / Semiconductors
+    'chip', 'semi', 'processor', 'gpu', 'cpu', 'ai chip', 'ai semi',
+    # AI Memory / Storage
+    'memory', 'storage', 'nand', 'dram', 'ssd', 'hdd', 'flash',
+    # AI Cloud / Data Center
+    'data center', 'cloud', 'datacenter', 'server', 'infrastructure',
+    # AI Networking / Fiber / Optical
+    'fiber', 'optical', 'network', 'networking', 'broadband', 'telecom',
+    # AI Power / Energy / Cooling
+    'power', 'energy', 'nuclear', 'solar', 'wind', 'electric', 'battery', 'cooling', 'thermal',
+    # AI Security / Cybersecurity
+    'cyber', 'security', 'cloud security', 'zero trust', 'endpoint',
+    # AI Software / Analytics / AI Platform
+    'ai soft', 'analytics', 'data analytics', 'machine learn', 'deep learn',
+    'llm', 'generative ai', 'artificial intel', 'automation soft',
+    # AI Robots / Automation / EVs
+    'robot', 'autonomous', 'electric vehicle', 'drone', 'sensor',
+    # AI Cloud Platforms
+    'cloud plat', 'hyperscale', 'saas', 'paas',
+    # Space / Aerospace / Satellites
+    'space', 'satellite', 'rocket', 'aero', 'orbital', 'launch', 'leo', 'moon',
+    'aerospace', 'defense tech', 'comm satellite', 'imaging satellite',
+}
+
+def is_ai_space_stock(name, sym):
+    n = name.lower()
+    # Direct symbol matches
+    KNOWN_AI_SYM = {
+        'nvda','amd','avgo','mrvl','intel','qualcomm','txn','adi','mchp','on semi','lscc','mx','nvts','tsem','ambq','arm',
+        'mu','wdc','sndk','ntap','pstg','smci','dell','hpq','anet','arista','juni',
+        'cien','csco','aten','glw','lumn','ftr','vwre',
+        'vst','ceg','etn','pwr','fslr','aes','nrg','nee','duk','so','d','exc','xel','be','fcel','ngl','paa','trp','pnrg','task',
+        'spxc','vrt','alfvy','dkily','ge',
+        'amkr','asml','amat','lrcx',
+        'crwd','net','panw','zs','okta','cy','ftnt','akam',
+        'pltr','snow','dblob','app','azpn',
+        'goog','msft','amzn','meta',
+        'smh','soxx','xsd','igv','hack','cibr',
+        'keys','enph','sedg','run','spwr',
+        'rklb','lunr','bksy','pl','satl','spce','vacn','hook','lida','astr','npa','got','gfarr','rdw',
+        'maxr','airi','atcx','lmac','rcrtf','ldha','vtol','avt',
+    }
+    KNOWN_OTHER = {
+        'ibm','sedg','ambq',' Keysight',' Keys',' Keysight',
+    }
+    if sym.lower() in KNOWN_AI_SYM: return True
+    if any(kw in n for kw in AI_SIG_KW): return True
+    return False
+
+if all_signal_data:
+    ai_filtered = [r for r in all_signal_data if is_ai_space_stock(r.get('symbolName',''), r.get('symbol',''))]
 else:
-    signal_ai_filtered = []
+    ai_filtered = []
 
-print(f'Signal Strength AI stocks loaded: {len(signal_ai_filtered)}')
+print(f'AI dynamic analysis found {len(ai_filtered)} AI/Space stocks')
+if ai_filtered:
+    for r in ai_filtered:
+        print(f"  {r['symbol']} | {r['symbolName']}")
+
+
+# Save for downstream use
+with open('/tmp/bc_signal_ai.json', 'w') as f:
+    pyjson.dump(ai_filtered, f, indent=2)
+
+signal_ai_data = ai_filtered
+
+
+print(f'Signal Strength AI stocks loaded: {len(ai_filtered)}')
 
 html += f"""<div class="footer">
   AI 科技個股深度研究報告 {date_str} ｜ 由 OpenClaw AI 自動生成 ｜ 

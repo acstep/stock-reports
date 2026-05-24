@@ -1,48 +1,13 @@
 #!/usr/bin/env node
 /**
- * Fetch Barchart Top 1% Signal Strength AI-related stocks
- * Broad AI infra filter: chips, memory, storage, networking, power, cooling, security, software, cloud
+ * Fetch ALL Barchart Top 1% Signal Strength stocks
+ * AI analysis will be done in Python to dynamically identify AI/Space related stocks
  */
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
 
 const EMAIL = 'MarkConner7735@outlook.com';
-const PASSWORD = 'Tech20222@';
-
-// Broad AI infrastructure + SPACE/AEROSPACE/SATELLITES symbols
-const AI_SET = new Set([
-  // AI CHIPS/GPU/SEMICON
-  'NVDA','AMD','AVGO','MRVL','INTC','QCOM','TXN','ADI','MCHP','ON','LSCC','MX','NVTS','TSEM','AMBQ','ARM','IBM',
-  // AI MEMORY/STORAGE
-  'MU','WDC','SNDK','NTAP','PSTG','SMCI','DELL','HPQ',
-  // AI SERVERS/DATACENTER
-  'SMCI','DELL','HPQ','ANET','ARISTA','JNPR',
-  // AI NETWORKING/FIBER/OPTICAL
-  'CIEN','CSCO','ATEN','GLW','LUMN','FTR','VWRE',
-  // AI POWER/ENERGY
-  'VST','CEG','ETN','PWR','FSLR','AES','NRG','NEE','DUK','SO','D','EXC','XEL','BE','FCEL','NGL','PAA','TRP','PNRG','TUSK',
-  // AI COOLING
-  'SPXC','VRT',
-  // AI PACKAGING
-  'AMKR','ASML','AMAT','LRCX',
-  // AI SECURITY
-  'CRWD','NET','PANW','ZS','OKTA','CY','FTNT','AKAM',
-  // AI SOFTWARE/DATA
-  'PLTR','SNOW','DLOB','AI','APP','AZPN',
-  // AI CLOUD
-  'GOOGL','MSFT','AMZN','META',
-  // AI ETFs
-  'SMH','SOXX','XSD','IGV','HACK','CIBR',
-  // OTHERS
-  'KEYS','ENPH','SEDG','RUN','SPWR',
-]);
-
-// Space/Aerospace/Satellite symbols
-const SPACE_SET = new Set([
-  'RKLB','LUNR','BKSY','PL','SATL',
-  'SPCE','VACN','HOOK','LIDA','ASTR','NPA','GOT','GFARR','RDW',
-  'MAXR','AIRI','ATCX','LMAC','RCRTF','LDHA','VTOL','AVT',
-]);
+const PASSWORD = '***';
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -80,16 +45,24 @@ const SPACE_SET = new Set([
   }, xsrfToken, cookieStr);
 
   const allRows = result.data || [];
+  console.log(`Fetched ALL ${allRows.length} Signal Strength stocks`);
   
-  const aiRows = allRows.filter(r => AI_SET.has(r.symbol) || SPACE_SET.has(r.symbol));
+  // Save ALL stocks - AI analysis done in Python
+  fs.writeFileSync('/tmp/bc_signal_all.json', JSON.stringify(allRows, null, 2));
+  console.log('Saved to /tmp/bc_signal_all.json');
   
-  console.log(`Found ${aiRows.length} AI-related Top Signal Strength stocks:`);
-  aiRows.forEach(r => {
-    console.log(`  ${r.symbol} | ${r.symbolName} | $${r.lastPrice} | ${r.percentChange} | ${r.opinion}`);
+  // Also keep the ai_filtered version for backwards compat
+  const AI_KEYWORDS = ['ai','artificial','machine learning','semicon','chip','gpu','memory','data center','cloud','cyber','security','network','fiber','optical','power','energy','cooling','robot','sensor','automation','software','serv','nvidia','amd','micron','broadcom','qualcomm','intel','marvell','lattice','navitas','tower semi','magnachip','ambiq','arm','cisco','arista','juniper','ciena','lumen','corning','a10','on semi','bloom energy','energy','power','cool','heat','battery','nuclear','solar','wind','fuel cell','datacenter','storage','ssd','hdd','nand','dram','hyperscale','rocket','space','satellite','aero','launch','orbital','leo','moon','aerospace','planet lab','blacksky','satellogic'];
+  const SPACE_SYM = new Set(['RKLB','LUNR','BKSY','PL','SATL','SPCE','VACN','HOOK','LIDA','ASTR','NPA','GOT','GFARR','RDW','MAXR','AIRI','ATCX','LMAC','RCRTF','LDHA','VTOL','AVT']);
+  
+  const aiRows = allRows.filter(r => {
+    const name = (r.symbolName || '').toLowerCase();
+    return AI_KEYWORDS.some(k => name.includes(k)) || SPACE_SYM.has(r.symbol);
   });
   
   fs.writeFileSync('/tmp/bc_signal_ai.json', JSON.stringify(aiRows, null, 2));
-  console.log(`Written ${aiRows.length} stocks to /tmp/bc_signal_ai.json`);
+  console.log(`AI/Space filter found ${aiRows.length} stocks`);
+  aiRows.forEach(r => console.log(`  ${r.symbol} | ${r.symbolName}`));
   
   await browser.close();
 })().catch(e => { console.error('ERROR:', e.message); process.exit(1); });
