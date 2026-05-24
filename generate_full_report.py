@@ -672,25 +672,57 @@ categories = {
 for cat_name, syms in categories.items():
     cat_stocks = [(s, final_data[s]) for s in syms if s in final_data]
     if not cat_stocks: continue
-    
-    html += f"""<div class="section">
-  <div class="cat-header">
-    <div class="cat-icon">{cat_name.split()[0]}</div>
-    <div class="cat-title">{cat_name.split()[1] if len(cat_name.split())>1 else cat_name}</div>
+
+# Build category groups from final_data that have signal_lookup data (i.e., came from Signal Strength)
+sig_final_syms = set()
+for sym in final_data:
+    if sym in signal_lookup:
+        sig_final_syms.add(sym)
+
+# Group by category tag
+from collections import defaultdict
+cat_groups = defaultdict(list)
+for sym in sig_final_syms:
+    tag = final_data[sym].get('tag', '其他')
+    cat_groups[tag].append(sym)
+
+# Sort categories by relevance
+CAT_ORDER = ['🤖 AI 晶片/半導體','💾 AI 記憶體/封裝','🖥️ AI 伺服器/資料中心','📡 AI 網路/光纖','⚡ AI 電力/能源','🧊 AI 散熱/冷卻','🔐 AI 資安','🤖 AI 軟體/雲端','🚀 商業航太/衛星','其他']
+def cat_sort_key(t):
+    for i,c in enumerate(CAT_ORDER):
+        if t.startswith(c.split()[0]): return i
+    return 99
+
+sorted_cats = sorted(cat_groups.items(), key=lambda x: cat_sort_key(x[0]))
+
+html += f"""
+
+<div class="section">
+  <h2>💼 深度個股分析（AI 供應鏈核心標的）</h2>
+  <p style="color:#8090b0;font-size:13px;margin-bottom:20px">以下所有個股均來自 Barchart Top 1% Signal Strength 強勢股名單，點符號可連結至 Barchart 詳細報價。</p>
+  <div class="stock-grid">
+"""
+
+for cat_tag, syms in sorted_cats:
+    cat_name = cat_tag.split()[-1] if cat_tag else '其他'
+    html += f"""  <div class="cat-header">
+    <div class="cat-icon">{cat_tag.split()[0]}</div>
+    <div class="cat-title">{cat_name} ({len(syms)}檔)</div>
   </div>
   <div class="stock-grid">
 """
-    
-    for sym, d in cat_stocks:
+    for sym in sorted(syms, key=lambda s: (signal_lookup.get(s,{}).get("from_low_pct") or 0), reverse=True):
+        d = final_data[sym]
+        info = signal_lookup.get(sym, {})
         score_c = '#24e08a' if d['score']>=8 else '#5b7fff' if d['score']>=5 else '#ffc107' if d['score']>=3 else '#666'
         cc = change_cls(d.get('change'))
         
         html += f"""    <div class="stock-card">
       <div class="card-header">
         <div>
-          <div class="sym">{sym}</div>
+          <div class="sym"><a href="https://www.barchart.com/stocks/quotes/{sym}/overview" target="_blank" class="bc-link">{sym}</a></div>
           <div class="name">{d['name']}</div>
-          <span class="tag">{d.get('tag','')} {d.get('category','')}</span>
+          <span class="tag">{d.get('tag','')}</span>
         </div>
         <div class="score-badge" style="background:rgba(91,127,255,0.1);color:{score_c}">{d['score']}分</div>
       </div>
@@ -699,34 +731,27 @@ for cat_name, syms in categories.items():
         <div class="price">{d.get('price','—')}</div>
         <div class="change {cc}">{d.get('change','—')}</div>
       </div>
-      <div class="range">52週區間 {d.get('low52','—')} ~ {d.get('high52','—')}</div>
+      <div class="range">52週 {d.get('low52','—')} ~ {d.get('high52','—')}</div>
       
       <div class="metrics">
         <div class="metric"><div class="val">{d.get('pe','—')}</div><div class="lbl">P/E</div></div>
         <div class="metric"><div class="val">{d.get('beta','—')}</div><div class="lbl">Beta</div></div>
         <div class="metric"><div class="val">{d.get('mktcap','—')}</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">{d.get('analysts','?')}位</div><div class="lbl">分析師</div></div>
+        <div class="metric"><div class="val">{info.get('opinion','100% Buy').replace('100% ','')}</div><div class="lbl">信號</div></div>
       </div>
       
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>{d.get('eps','—')}</td></tr>
-        <tr><td>年營收</td><td>{d.get('sales','—')}</td></tr>
-        <tr><td>年淨利</td><td>{d.get('income','—')}</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">{d.get('rating','—')}</td></tr>
-      </table>
-      
       <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：{d.get('category','—')}</div>
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 {d.get('category','—')}</div>
         <div class="sig" style="color:#c0c8e0">{d.get('desc','')[:200]}</div>
         <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：{d.get('supply','')[:150]}</div>
-        {" ".join([f'<div class="sig">{s}</div>' for s in d.get('signals',[])])}
       </div>
       
       <a class="bc-link" href="https://www.barchart.com/stocks/quotes/{sym}/overview" target="_blank">📊 詳細報價 → Barchart</a>
     </div>
 """
-    
-    html += """  </div>
+    html += "  </div>\n"
+
+html += """  </div>
 </div>
 """
 
