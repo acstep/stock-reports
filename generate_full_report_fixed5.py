@@ -702,7 +702,78 @@ CAT_LABELS = {
 
 
 
+for cat_tag, syms in sorted_ai_cats:
+    cat_label = CAT_LABELS.get(cat_tag, cat_tag)
+    html += f"""  <div class="cat-header">
+    <div class="cat-icon">{cat_tag}</div>
+    <div class="cat-title">{cat_label}（{len(syms)}檔）</div>
+  </div>
+  <div class="stock-grid">
+"""
+    # Sort by score desc then by price desc
+    for sym in sorted(syms, key=lambda s: (final_data[s].get('score',0), final_data[s].get('curr_price',0)), reverse=True):
+        d = final_data[sym]
+        info = signal_lookup.get(sym, {})
+        score_c = '#24e08a' if d['score']>=8 else '#5b7fff' if d['score']>=5 else '#ffc107' if d['score']>=3 else '#666'
+        cc = change_cls(d.get('change'))
+        
+        html += f"""    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym"><a href="https://www.barchart.com/stocks/quotes/{sym}/overview" target="_blank" class="bc-link">{sym}</a></div>
+          <div class="name">{d['name']}</div>
+          <span class="tag">{d.get('tag','')}</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:{score_c}">{d['score']}分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">{d.get('price','—')}</div>
+        <div class="change {cc}">{d.get('change','—')}</div>
+      </div>
+      <div class="range">52週 {d.get('low52','—')} ~ {d.get('high52','—')}</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">{d.get('pe','—')}</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">{d.get('beta','—')}</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">{d.get('mktcap','—')}</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">{info.get('opinion','100% Buy').replace('100% ','')}</div><div class="lbl">信號</div></div>
+      </div>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 {d.get('category','—')}</div>
+        <div class="sig" style="color:#c0c8e0">{d.get('desc','')[:200]}</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：{d.get('supply','')[:150]}</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/{sym}/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+"""
+    html += "  </div>\n"
 
+html += """  </div>
+</div>
+"""
+
+# TechCrunch News
+html += f"""<div class="section">
+  <h2>📰 科技要聞摘要（{date_short}）</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
+    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
+      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">💾 AI</div>
+      <div style="color:#8090c0;font-size:12px">• AI 被用來重建已故飛行員語音录音，引發 NTSB 封鎖爭議<br>• Google 推出 AI 眼鏡原型，Gemini 驅動翻譯與導航<br>• 創投與創辦人操縱 ARR 數據，AI 新創估值泡沫疑慮浮現</div>
+    </div>
+    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
+      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🚀 Space</div>
+      <div style="color:#8090c0;font-size:12px">• SpaceX Starship V3 首射成功，助推器返回時損失<br>• SpaceX 申請 IPO，估值 28 兆 TAM，史上最大 IPO<br>• Blue Origin 獲准恢復 New Glenn 飛行</div>
+    </div>
+    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
+      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🔐 安全</div>
+      <div style="color:#8090c0;font-size:12px">• Kash Patel 服飾網站遭駭，惡意軟體散布<br>• Trump Mobile 證實客户個資外洩<br>• CrowdStrike 推出 Claude 合規 API，AI 資安需求增</div>
+    </div>
+  </div>
+</div>
+"""
 
 # Add Barchart Signal Strength section
 import subprocess, json as pyjson
@@ -844,38 +915,6 @@ for sig in ai_filtered:
     }
 print(f'All signal stocks in final_data: {len(final_data)}')
 
-# === REBUILD ai_cat_groups with ALL 45 stocks (after adding signal stocks) ===
-print(f"Re-building ai_cat_groups with {len(final_data)} stocks...")
-ai_cat_groups = defaultdict(list)
-for sym in final_data.keys():
-    tag = final_data[sym].get('tag', '其他')
-    ai_cat_groups[tag].append(sym)
-
-AI_CAT_ORDER = ['💾','📡','⚡','🚀','🖥️','🧊','🔐','🤖','☢️','其他']
-
-def ai_cat_key(t):
-    t2 = t if isinstance(t, str) else '其他'
-    for i, c in enumerate(AI_CAT_ORDER):
-        if t2.startswith(c): return i
-    return 99
-
-sorted_ai_cats = sorted(ai_cat_groups.items(), key=lambda x: ai_cat_key(x[0]))
-print(f"Rebuilt: {len(sorted_ai_cats)} categories")
-
-CAT_LABELS = {
-    '💾': '💾 AI 晶片 / 半導體 / 記憶體',
-    '📡': '📡 AI 網路 / 光纖 / 通訊',
-    '⚡': '⚡ AI 電力 / 能源',
-    '🚀': '🚀 商業航太 / 衛星',
-    '🖥️': '🖥️ AI 伺服器 / 資料中心',
-    '🧊': '🧊 AI 散熱 / 冷卻',
-    '🔐': '🔐 AI 資安',
-    '🤖': '🤖 AI 軟體 / 雲端',
-    '☢️': '☢️ 核能供電',
-    '其他': '其他 AI 相關',
-}
-
-
 # Re-score ALL stocks
 for sym, d in final_data.items():
     score, sigs = score_stock(sym, d)
@@ -885,100 +924,6 @@ for sym, d in final_data.items():
 
 
 
-
-
-for cat_tag, syms in sorted_ai_cats:
-    cat_label = CAT_LABELS.get(cat_tag, cat_tag)
-    html += f"""  <div class="cat-header">
-    <div class="cat-icon">{cat_tag}</div>
-    <div class="cat-title">{cat_label}（{len(syms)}檔）</div>
-  </div>
-  <div class="stock-grid">
-"""
-    # Sort by score desc then by price desc
-    for sym in sorted(syms, key=lambda s: (final_data[s].get('score',0), final_data[s].get('curr_price',0)), reverse=True):
-        d = final_data[sym]
-        info = signal_lookup.get(sym, {})
-        score_c = '#24e08a' if d['score']>=8 else '#5b7fff' if d['score']>=5 else '#ffc107' if d['score']>=3 else '#666'
-        cc = change_cls(d.get('change'))
-        
-        html += f"""    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym"><a href="https://www.barchart.com/stocks/quotes/{sym}/overview" target="_blank" class="bc-link">{sym}</a></div>
-          <div class="name">{d['name']}</div>
-          <span class="tag">{d.get('tag','')}</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:{score_c}">{d['score']}分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">{d.get('price','—')}</div>
-        <div class="change {cc}">{d.get('change','—')}</div>
-      </div>
-      <div class="range">52週 {d.get('low52','—')} ~ {d.get('high52','—')}</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">{d.get('pe','—')}</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">{d.get('beta','—')}</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">{d.get('mktcap','—')}</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">{info.get('opinion','100% Buy').replace('100% ','')}</div><div class="lbl">信號</div></div>
-      </div>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 {d.get('category','—')}</div>
-        <div class="sig" style="color:#c0c8e0">{d.get('desc','')[:200]}</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：{d.get('supply','')[:150]}</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/{sym}/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-"""
-    html += "  </div>\n"
-
-html += """  </div>
-</div>
-"""
-
-# TechCrunch News
-html += f"""<div class="section">
-  <h2>📰 科技要聞摘要（{date_short}）</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">💾 AI</div>
-      <div style="color:#8090c0;font-size:12px">• AI 被用來重建已故飛行員語音录音，引發 NTSB 封鎖爭議<br>• Google 推出 AI 眼鏡原型，Gemini 驅動翻譯與導航<br>• 創投與創辦人操縱 ARR 數據，AI 新創估值泡沫疑慮浮現</div>
-    </div>
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🚀 Space</div>
-      <div style="color:#8090c0;font-size:12px">• SpaceX Starship V3 首射成功，助推器返回時損失<br>• SpaceX 申請 IPO，估值 28 兆 TAM，史上最大 IPO<br>• Blue Origin 獲准恢復 New Glenn 飛行</div>
-    </div>
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🔐 安全</div>
-      <div style="color:#8090c0;font-size:12px">• Kash Patel 服飾網站遭駭，惡意軟體散布<br>• Trump Mobile 證實客户個資外洩<br>• CrowdStrike 推出 Claude 合規 API，AI 資安需求增</div>
-    </div>
-  </div>
-</div>
-"""
-
-# TechCrunch News
-html += f"""<div class="section">
-  <h2>📰 科技要聞摘要（{date_short}）</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">💾 AI</div>
-      <div style="color:#8090c0;font-size:12px">• AI 被用來重建已故飛行員語音录音，引發 NTSB 封鎖爭議<br>• Google 推出 AI 眼鏡原型，Gemini 驅動翻譯與導航<br>• 創投與創辦人操縱 ARR 數據，AI 新創估值泡沫疑慮浮現</div>
-    </div>
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🚀 Space</div>
-      <div style="color:#8090c0;font-size:12px">• SpaceX Starship V3 首射成功，助推器返回時損失<br>• SpaceX 申請 IPO，估值 28 兆 TAM，史上最大 IPO<br>• Blue Origin 獲准恢復 New Glenn 飛行</div>
-    </div>
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🔐 安全</div>
-      <div style="color:#8090c0;font-size:12px">• Kash Patel 服飾網站遭駭，惡意軟體散布<br>• Trump Mobile 證實客户個資外洩<br>• CrowdStrike 推出 Claude 合規 API，AI 資安需求增</div>
-    </div>
-  </div>
-</div>
-"""
 
 html += f"""<div class="footer">
   AI 科技個股深度研究報告 {date_str} ｜ 由 OpenClaw AI 自動生成 ｜ 
