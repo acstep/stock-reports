@@ -68,6 +68,23 @@
   .news-block li::before { content: '▸ '; color: var(--blue); }
   .footer { text-align: center; color: var(--text2); font-size: 0.78rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
   @media (max-width: 600px) { th, td { padding: 8px 6px; font-size: 0.78rem; } .price { font-size: 1.3rem; } }
+
+  .bc-link {
+    color: #58a6ff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s;
+  }
+  .bc-link:hover {
+    color: #79c0ff;
+    text-decoration: underline;
+  }
+  .bc-link::after {
+    content: ' ↗';
+    font-size: 0.7em;
+    opacity: 0.7;
+  }
+
 </style>
 </head>
 <body>
@@ -115,55 +132,55 @@
   </thead>
   <tbody>
     <tr>
-      <td>ENPH</td><td>Enphase Energy</td><td>$64.03</td><td class="chg-pos">+21.06%</td><td>$64.94</td><td>$25.78</td><td class="chg-neg">-1.4%</td><td class="chg-pos">+148%</td><td>10.8M</td><td><span class="score s-mid">7</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/ENPH/overview" target="_blank" class="bc-link">ENPH</a></td><td>Enphase Energy</td><td>$64.03</td><td class="chg-pos">+21.06%</td><td>$64.94</td><td>$25.78</td><td class="chg-neg">-1.4%</td><td class="chg-pos">+148%</td><td>10.8M</td><td><span class="score s-mid">7</span></td>
     </tr>
     <tr>
-      <td>SMCI</td><td>Super Micro Computer</td><td>$35.58</td><td class="chg-pos">+14.63%</td><td>$62.36</td><td>$19.48</td><td class="chg-neg">-43%</td><td class="chg-pos">+83%</td><td>38.5M</td><td><span class="score s-mid">7</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/SMCI/overview" target="_blank" class="bc-link">SMCI</a></td><td>Super Micro Computer</td><td>$35.58</td><td class="chg-pos">+14.63%</td><td>$62.36</td><td>$19.48</td><td class="chg-neg">-43%</td><td class="chg-pos">+83%</td><td>38.5M</td><td><span class="score s-mid">7</span></td>
     </tr>
     <tr>
-      <td>CRWD</td><td>CrowdStrike</td><td>$663.46</td><td class="chg-pos">+11.68%</td><td>$674.84</td><td>$342.72</td><td class="chg-neg">-1.7%</td><td class="chg-pos">+94%</td><td>2.7M</td><td><span class="score s-high">8</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank" class="bc-link">CRWD</a></td><td>CrowdStrike</td><td>$663.46</td><td class="chg-pos">+11.68%</td><td>$674.84</td><td>$342.72</td><td class="chg-neg">-1.7%</td><td class="chg-pos">+94%</td><td>2.7M</td><td><span class="score s-high">8</span></td>
     </tr>
     <tr>
-      <td>VST</td><td>Vistra Corp</td><td>$156.27</td><td class="chg-pos">+11.88%</td><td>$219.82</td><td>$132.66</td><td class="chg-neg">-29%</td><td class="chg-pos">+18%</td><td>5.8M</td><td><span class="score s-high">8.5</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank" class="bc-link">VST</a></td><td>Vistra Corp</td><td>$156.27</td><td class="chg-pos">+11.88%</td><td>$219.82</td><td>$132.66</td><td class="chg-neg">-29%</td><td class="chg-pos">+18%</td><td>5.8M</td><td><span class="score s-high">8.5</span></td>
     </tr>
     <tr>
-      <td>CEG</td><td>Constellation Energy</td><td>$294.07</td><td class="chg-pos">+10.06%</td><td>$412.70</td><td>$243.30</td><td class="chg-neg">-29%</td><td class="chg-pos">+21%</td><td>2.7M</td><td><span class="score s-high">8.5</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank" class="bc-link">CEG</a></td><td>Constellation Energy</td><td>$294.07</td><td class="chg-pos">+10.06%</td><td>$412.70</td><td>$243.30</td><td class="chg-neg">-29%</td><td class="chg-pos">+21%</td><td>2.7M</td><td><span class="score s-high">8.5</span></td>
     </tr>
     <tr>
-      <td>AMD</td><td>AMD</td><td>$467.51</td><td class="chg-pos">+10.24%</td><td>$481.41</td><td>$108.62</td><td class="chg-neg">-2.9%</td><td class="chg-pos">+330%</td><td>34.6M</td><td><span class="score s-high">8</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/AMD/overview" target="_blank" class="bc-link">AMD</a></td><td><a href="https://www.barchart.com/stocks/quotes/AMD/overview" target="_blank" class="bc-link">AMD</a></td><td>$467.51</td><td class="chg-pos">+10.24%</td><td>$481.41</td><td>$108.62</td><td class="chg-neg">-2.9%</td><td class="chg-pos">+330%</td><td>34.6M</td><td><span class="score s-high">8</span></td>
     </tr>
     <tr>
-      <td>NET</td><td>Cloudflare</td><td>$216.17</td><td class="chg-pos">+9.42%</td><td>$260.00</td><td>$158.83</td><td class="chg-neg">-17%</td><td class="chg-pos">+36%</td><td>2.1M</td><td><span class="score s-high">7.5</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/NET/overview" target="_blank" class="bc-link">NET</a></td><td>Cloudflare</td><td>$216.17</td><td class="chg-pos">+9.42%</td><td>$260.00</td><td>$158.83</td><td class="chg-neg">-17%</td><td class="chg-pos">+36%</td><td>2.1M</td><td><span class="score s-high">7.5</span></td>
     </tr>
     <tr>
-      <td>CIEN</td><td>Ciena Corporation</td><td>$583.74</td><td class="chg-pos">+5.28%</td><td>$599.50</td><td>$70.77</td><td class="chg-neg">-2.6%</td><td class="chg-pos">+725%</td><td>1.4M</td><td><span class="score s-high">8</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank" class="bc-link">CIEN</a></td><td>Ciena Corporation</td><td>$583.74</td><td class="chg-pos">+5.28%</td><td>$599.50</td><td>$70.77</td><td class="chg-neg">-2.6%</td><td class="chg-pos">+725%</td><td>1.4M</td><td><span class="score s-high">8</span></td>
     </tr>
     <tr>
-      <td>MU</td><td>Micron Technology</td><td>$751.00</td><td class="chg-pos">+3.63%</td><td>$818.67</td><td>$92.22</td><td class="chg-neg">-8.3%</td><td class="chg-pos">+714%</td><td>35.5M</td><td><span class="score s-high">8</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank" class="bc-link">MU</a></td><td>Micron Technology</td><td>$751.00</td><td class="chg-pos">+3.63%</td><td>$818.67</td><td>$92.22</td><td class="chg-neg">-8.3%</td><td class="chg-pos">+714%</td><td>35.5M</td><td><span class="score s-high">8</span></td>
     </tr>
     <tr>
-      <td>SPXC</td><td>SPX Technologies</td><td>$207.80</td><td class="chg-pos">+3.39%</td><td>$246.68</td><td>$150.50</td><td class="chg-neg">-16%</td><td class="chg-pos">+38%</td><td>0.38M</td><td><span class="score s-mid">6.5</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/SPXC/overview" target="_blank" class="bc-link">SPXC</a></td><td>SPX Technologies</td><td>$207.80</td><td class="chg-pos">+3.39%</td><td>$246.68</td><td>$150.50</td><td class="chg-neg">-16%</td><td class="chg-pos">+38%</td><td>0.38M</td><td><span class="score s-mid">6.5</span></td>
     </tr>
     <tr>
-      <td>PLTR</td><td>Palantir</td><td>$136.88</td><td class="chg-pos">+2.16%</td><td>$207.52</td><td>$118.93</td><td class="chg-neg">-34%</td><td class="chg-pos">+15%</td><td>27.3M</td><td><span class="score s-mid">6</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank" class="bc-link">PLTR</a></td><td>Palantir</td><td>$136.88</td><td class="chg-pos">+2.16%</td><td>$207.52</td><td>$118.93</td><td class="chg-neg">-34%</td><td class="chg-pos">+15%</td><td>27.3M</td><td><span class="score s-mid">6</span></td>
     </tr>
     <tr>
-      <td>GLW</td><td>Corning</td><td>$194.05</td><td class="chg-pos">+1.17%</td><td>$211.79</td><td>$48.62</td><td class="chg-neg">-8.4%</td><td class="chg-pos">+299%</td><td>8.3M</td><td><span class="score s-mid">6</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank" class="bc-link">GLW</a></td><td>Corning</td><td>$194.05</td><td class="chg-pos">+1.17%</td><td>$211.79</td><td>$48.62</td><td class="chg-neg">-8.4%</td><td class="chg-pos">+299%</td><td>8.3M</td><td><span class="score s-mid">6</span></td>
     </tr>
     <tr>
-      <td>ETN</td><td>Eaton Corporation</td><td>$391.35</td><td class="chg-neg">-2.03%</td><td>$435.43</td><td>$311.90</td><td class="chg-neg">-10%</td><td class="chg-pos">+25%</td><td>2.3M</td><td><span class="score s-mid">6</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/ETN/overview" target="_blank" class="bc-link">ETN</a></td><td>Eaton Corporation</td><td>$391.35</td><td class="chg-neg">-2.03%</td><td>$435.43</td><td>$311.90</td><td class="chg-neg">-10%</td><td class="chg-pos">+25%</td><td>2.3M</td><td><span class="score s-mid">6</span></td>
     </tr>
     <tr>
-      <td>AVGO</td><td>Broadcom</td><td>$414.14</td><td class="chg-neg">-2.60%</td><td>$442.36</td><td>$231.13</td><td class="chg-neg">-6.4%</td><td class="chg-pos">+79%</td><td>14.0M</td><td><span class="score s-mid">7</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/AVGO/overview" target="_blank" class="bc-link">AVGO</a></td><td>Broadcom</td><td>$414.14</td><td class="chg-neg">-2.60%</td><td>$442.36</td><td>$231.13</td><td class="chg-neg">-6.4%</td><td class="chg-pos">+79%</td><td>14.0M</td><td><span class="score s-mid">7</span></td>
     </tr>
     <tr>
-      <td>NVDA</td><td>NVIDIA</td><td>$215.33</td><td class="chg-neg">-4.43%</td><td>$236.54</td><td>$132.92</td><td class="chg-neg">-9.0%</td><td class="chg-pos">+62%</td><td>166.9M</td><td><span class="score s-mid">7</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank" class="bc-link">NVDA</a></td><td><a href="https://www.barchart.com/stocks/quotes/NVIDIA/overview" target="_blank" class="bc-link">NVIDIA</a></td><td>$215.33</td><td class="chg-neg">-4.43%</td><td>$236.54</td><td>$132.92</td><td class="chg-neg">-9.0%</td><td class="chg-pos">+62%</td><td>166.9M</td><td><span class="score s-mid">7</span></td>
     </tr>
     <tr>
-      <td>LUMN</td><td>Lumen Technologies</td><td>$9.41</td><td class="chg-neg">-6.37%</td><td>$11.95</td><td>$3.37</td><td class="chg-neg">-21%</td><td class="chg-pos">+179%</td><td>8.0M</td><td><span class="score s-low">4</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/LUMN/overview" target="_blank" class="bc-link">LUMN</a></td><td>Lumen Technologies</td><td>$9.41</td><td class="chg-neg">-6.37%</td><td>$11.95</td><td>$3.37</td><td class="chg-neg">-21%</td><td class="chg-pos">+179%</td><td>8.0M</td><td><span class="score s-low">4</span></td>
     </tr>
     <tr>
-      <td>AMKR</td><td>Amkor Technology</td><td>$65.75</td><td class="chg-neg">-6.54%</td><td>$79.23</td><td>$17.79</td><td class="chg-neg">-17%</td><td class="chg-pos">+270%</td><td>5.9M</td><td><span class="score s-low">5</span></td>
+      <td><a href="https://www.barchart.com/stocks/quotes/AMKR/overview" target="_blank" class="bc-link">AMKR</a></td><td>Amkor Technology</td><td>$65.75</td><td class="chg-neg">-6.54%</td><td>$79.23</td><td>$17.79</td><td class="chg-neg">-17%</td><td class="chg-pos">+270%</td><td>5.9M</td><td><span class="score s-low">5</span></td>
     </tr>
   </tbody>
 </table>
@@ -171,7 +188,7 @@
 <h2 class="section-title">🔥 強勢股深度分析</h2>
 <div class="analysis-grid">
   <div class="stock-card">
-    <h3><span class="sym">VST · Vistra Corp</span><span class="tag tag-hot">★★★★</span></h3>
+    <h3><a href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank" class="bc-link"><span class="sym">VST ·</a> Vistra Corp</span><span class="tag tag-hot">★★★★</span></h3>
     <div class="price-line">
       <span class="price">$156.27</span>
       <span class="change chg-pos">+11.88%</span>
@@ -190,7 +207,7 @@
   </div>
 
   <div class="stock-card">
-    <h3><span class="sym">CEG · Constellation Energy</span><span class="tag tag-hot">★★★★</span></h3>
+    <h3><a href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank" class="bc-link"><span class="sym">CEG ·</a> Constellation Energy</span><span class="tag tag-hot">★★★★</span></h3>
     <div class="price-line">
       <span class="price">$294.07</span>
       <span class="change chg-pos">+10.06%</span>
@@ -228,7 +245,7 @@
   </div>
 
   <div class="stock-card">
-    <h3><span class="sym">CRWD · CrowdStrike</span><span class="tag tag-hot">★★★</span></h3>
+    <h3><a href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank" class="bc-link"><span class="sym">CRWD ·</a> CrowdStrike</span><span class="tag tag-hot">★★★</span></h3>
     <div class="price-line">
       <span class="price">$663.46</span>
       <span class="change chg-pos">+11.68%</span>
@@ -247,7 +264,7 @@
   </div>
 
   <div class="stock-card">
-    <h3><span class="sym">SMCI · Super Micro Computer</span><span class="tag tag-watch">★★</span></h3>
+    <h3><a href="https://www.barchart.com/stocks/quotes/SMCI/overview" target="_blank" class="bc-link"><span class="sym">SMCI ·</a> Super Micro Computer</span><span class="tag tag-watch">★★</span></h3>
     <div class="price-line">
       <span class="price">$35.58</span>
       <span class="change chg-pos">+14.63%</span>
@@ -266,7 +283,7 @@
   </div>
 
   <div class="stock-card">
-    <h3><span class="sym">CIEN · Ciena</span><span class="tag tag-hot">★★★</span></h3>
+    <h3><a href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank" class="bc-link"><span class="sym">CIEN ·</a> Ciena</span><span class="tag tag-hot">★★★</span></h3>
     <div class="price-line">
       <span class="price">$583.74</span>
       <span class="change chg-pos">+5.28%</span>
@@ -285,7 +302,7 @@
   </div>
 
   <div class="stock-card">
-    <h3><span class="sym">MU · Micron</span><span class="tag tag-watch">★★</span></h3>
+    <h3><a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank" class="bc-link"><span class="sym">MU ·</a> Micron</span><span class="tag tag-watch">★★</span></h3>
     <div class="price-line">
       <span class="price">$751.00</span>
       <span class="change chg-pos">+3.63%</span>
@@ -304,7 +321,7 @@
   </div>
 
   <div class="stock-card">
-    <h3><span class="sym">ENPH · Enphase</span><span class="tag tag-watch">★★</span></h3>
+    <h3><a href="https://www.barchart.com/stocks/quotes/ENPH/overview" target="_blank" class="bc-link"><span class="sym">ENPH ·</a> Enphase</span><span class="tag tag-watch">★★</span></h3>
     <div class="price-line">
       <span class="price">$64.03</span>
       <span class="change chg-pos">+21.06%</span>
@@ -323,7 +340,7 @@
   </div>
 
   <div class="stock-card">
-    <h3><span class="sym">NVDA · NVIDIA</span><span class="tag tag-watch">★★</span></h3>
+    <h3><a href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank" class="bc-link"><span class="sym">NVDA ·</a> NVIDIA</span><span class="tag tag-watch">★★</span></h3>
     <div class="price-line">
       <span class="price">$215.33</span>
       <span class="change chg-neg">-4.43%</span>
@@ -400,23 +417,23 @@
     </tr>
   </thead>
   <tbody>
-    <tr><td>🥇 1</td><td>VST</td><td><span class="score s-high">8.5</span></td><td>AI 電力剛需，距高點合理</td><td>現價佈局，目標 $190+</td></tr>
-    <tr><td>🥈 2</td><td>CEG</td><td><span class="score s-high">8.5</span></td><td>核能龍頭，長期合約鎖營收</td><td>$285–295 區間買入</td></tr>
-    <tr><td>🥉 3</td><td>MU</td><td><span class="score s-high">8</span></td><td>HBM 記憶體壟斷，AI 最確定受益</td><td>$700–750 佈局</td></tr>
-    <tr><td>4</td><td>CRWD</td><td><span class="score s-high">8</span></td><td>資安剛需，即將破新高</td><td>突破 $675 跟進</td></tr>
-    <tr><td>5</td><td>AMD</td><td><span class="score s-high">8</span></td><td>MI300X 放量，市佔率提升</td><td>突破 $481 追入</td></tr>
-    <tr><td>6</td><td>CIEN</td><td><span class="score s-high">8</span></td><td>光纖骨幹，即將挑戰新高</td><td>現價進，突破 $600 加碼</td></tr>
-    <tr><td>7</td><td>NET</td><td><span class="score s-high">7.5</span></td><td>邊緣 AI CDN，開發者生態</td><td>$195–210 區間關注</td></tr>
-    <tr><td>8</td><td>NVDA</td><td><span class="score s-mid">7</span></td><td>GPU 霸主，Blackwell 催化劑</td><td>$200–215 回調買入</td></tr>
-    <tr><td>9</td><td>SMCI</td><td><span class="score s-mid">7</span></td><td>AI 伺服器，估值修復</td><td>$32–36 分批佈局</td></tr>
-    <tr><td>10</td><td>ENPH</td><td><span class="score s-mid">7</span></td><td>太陽能微逆變器，高點附近</td><td>觀望，等 $55 以下</td></tr>
-    <tr><td>11</td><td>AVGO</td><td><span class="score s-mid">7</span></td><td>網路晶片，穩健但非核心 AI</td><td>回調 $380 再考慮</td></tr>
-    <tr><td>12</td><td>SPXC</td><td><span class="score s-mid">6.5</span></td><td>散熱主題，低估值</td><td>持續追蹤</td></tr>
-    <tr><td>13</td><td>PLTR</td><td><span class="score s-mid">6</span></td><td>政府 AI，慢熱型</td><td>長線佈局，不急</td></tr>
-    <tr><td>14</td><td>GLW</td><td><span class="score s-mid">6</span></td><td>光纖被動受益，彈性一般</td><td>$175–185 區間</td></tr>
-    <tr><td>15</td><td>ETN</td><td><span class="score s-mid">6</span></td><td>配電設備，跟漲電力</td><td>等回調再進</td></tr>
-    <tr><td>16</td><td>AMKR</td><td><span class="score s-low">5</span></td><td>封裝測試，今天大跌</td><td>觀望基本面</td></tr>
-    <tr><td>17</td><td>LUMN</td><td><span class="score s-low">4</span></td><td>營收下滑，資金流出</td><td>回避</td></tr>
+    <tr><td>🥇 1</td><td><a href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank" class="bc-link">VST</a></td><td><span class="score s-high">8.5</span></td><td>AI 電力剛需，距高點合理</td><td>現價佈局，目標 $190+</td></tr>
+    <tr><td>🥈 2</td><td><a href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank" class="bc-link">CEG</a></td><td><span class="score s-high">8.5</span></td><td>核能龍頭，長期合約鎖營收</td><td>$285–295 區間買入</td></tr>
+    <tr><td>🥉 3</td><td><a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank" class="bc-link">MU</a></td><td><span class="score s-high">8</span></td><td>HBM 記憶體壟斷，AI 最確定受益</td><td>$700–750 佈局</td></tr>
+    <tr><td>4</td><td><a href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank" class="bc-link">CRWD</a></td><td><span class="score s-high">8</span></td><td>資安剛需，即將破新高</td><td>突破 $675 跟進</td></tr>
+    <tr><td>5</td><td><a href="https://www.barchart.com/stocks/quotes/AMD/overview" target="_blank" class="bc-link">AMD</a></td><td><span class="score s-high">8</span></td><td>MI300X 放量，市佔率提升</td><td>突破 $481 追入</td></tr>
+    <tr><td>6</td><td><a href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank" class="bc-link">CIEN</a></td><td><span class="score s-high">8</span></td><td>光纖骨幹，即將挑戰新高</td><td>現價進，突破 $600 加碼</td></tr>
+    <tr><td>7</td><td><a href="https://www.barchart.com/stocks/quotes/NET/overview" target="_blank" class="bc-link">NET</a></td><td><span class="score s-high">7.5</span></td><td>邊緣 AI CDN，開發者生態</td><td>$195–210 區間關注</td></tr>
+    <tr><td>8</td><td><a href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank" class="bc-link">NVDA</a></td><td><span class="score s-mid">7</span></td><td>GPU 霸主，Blackwell 催化劑</td><td>$200–215 回調買入</td></tr>
+    <tr><td>9</td><td><a href="https://www.barchart.com/stocks/quotes/SMCI/overview" target="_blank" class="bc-link">SMCI</a></td><td><span class="score s-mid">7</span></td><td>AI 伺服器，估值修復</td><td>$32–36 分批佈局</td></tr>
+    <tr><td>10</td><td><a href="https://www.barchart.com/stocks/quotes/ENPH/overview" target="_blank" class="bc-link">ENPH</a></td><td><span class="score s-mid">7</span></td><td>太陽能微逆變器，高點附近</td><td>觀望，等 $55 以下</td></tr>
+    <tr><td>11</td><td><a href="https://www.barchart.com/stocks/quotes/AVGO/overview" target="_blank" class="bc-link">AVGO</a></td><td><span class="score s-mid">7</span></td><td>網路晶片，穩健但非核心 AI</td><td>回調 $380 再考慮</td></tr>
+    <tr><td>12</td><td><a href="https://www.barchart.com/stocks/quotes/SPXC/overview" target="_blank" class="bc-link">SPXC</a></td><td><span class="score s-mid">6.5</span></td><td>散熱主題，低估值</td><td>持續追蹤</td></tr>
+    <tr><td>13</td><td><a href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank" class="bc-link">PLTR</a></td><td><span class="score s-mid">6</span></td><td>政府 AI，慢熱型</td><td>長線佈局，不急</td></tr>
+    <tr><td>14</td><td><a href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank" class="bc-link">GLW</a></td><td><span class="score s-mid">6</span></td><td>光纖被動受益，彈性一般</td><td>$175–185 區間</td></tr>
+    <tr><td>15</td><td><a href="https://www.barchart.com/stocks/quotes/ETN/overview" target="_blank" class="bc-link">ETN</a></td><td><span class="score s-mid">6</span></td><td>配電設備，跟漲電力</td><td>等回調再進</td></tr>
+    <tr><td>16</td><td><a href="https://www.barchart.com/stocks/quotes/AMKR/overview" target="_blank" class="bc-link">AMKR</a></td><td><span class="score s-low">5</span></td><td>封裝測試，今天大跌</td><td>觀望基本面</td></tr>
+    <tr><td>17</td><td><a href="https://www.barchart.com/stocks/quotes/LUMN/overview" target="_blank" class="bc-link">LUMN</a></td><td><span class="score s-low">4</span></td><td>營收下滑，資金流出</td><td>回避</td></tr>
   </tbody>
 </table>
 
