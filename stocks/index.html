@@ -3,1874 +3,925 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🚀 AI & 商業航太美股研究報告｜2026-05-24</title>
+<title>AI 科技個股深度研究報告｜2026-05-24</title>
 <style>
-/* ===== CSS VARIABLES ===== */
-:root {
-  --bg: #080810;
-  --bg2: #0c0c1a;
-  --bg3: #10101f;
-  --bg-card: rgba(255,255,255,0.03);
-  --bg-glass: rgba(12,12,26,0.7);
-  --border: rgba(255,255,255,0.07);
-  --border-hover: rgba(91,127,255,0.35);
-  --text: #e0e4f0;
-  --text-dim: #7880a0;
-  --text-muted: #444660;
-  --accent: #5b7fff;
-  --accent-glow: rgba(91,127,255,0.2);
-  --green: #24e08a;
-  --green-bg: rgba(36,224,138,0.1);
-  --red: #ff5c5c;
-  --red-bg: rgba(255,92,92,0.1);
-  --gold: #ffd700;
-  --purple: #a855f7;
-  --cyan: #06b6d4;
-  --orange: #f97316;
-  --pink: #ec4899;
-  --yellow: #ffc107;
-}
-
-/* ===== RESET ===== */
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;padding:0}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#08080f;color:#e0e4f0;line-height:1.65;padding:0}
+.wrap{max-width:1200px;margin:0 auto;padding:16px}
 
-/* ===== LAYOUT ===== */
-.wrap{max-width:1260px;margin:0 auto;padding:20px 24px}
-.up{color:var(--green)}
-.down{color:var(--red)}
+/* HERO */
+.hero{background:linear-gradient(135deg,#08081a 0%,#0f1030 100%);border:1px solid rgba(91,127,255,0.25);border-radius:20px;padding:36px 40px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(91,127,255,0.08) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-size:30px;color:#fff;margin-bottom:8px;letter-spacing:-0.5px}
+.hero .sub{color:#7880a0;font-size:13px;margin-bottom:4px}
+.hero .badges{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.badge{background:rgba(91,127,255,0.12);border:1px solid rgba(91,127,255,0.25);color:#8090d0;border-radius:20px;padding:5px 14px;font-size:11px}
+.badge.green{background:rgba(36,224,138,0.08);border-color:rgba(36,224,138,0.25);color:#24e08a}
 
-/* ===== GLASS MORPHISM CARD ===== */
-.glass{background:var(--bg-glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:20px}
-.glass:hover{border-color:var(--border-hover)}
+/* SECTIONS */
+.section{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:24px;margin-bottom:22px}
+.section h2{font-size:14px;color:#8090c0;text-transform:uppercase;letter-spacing:1.5px;border-left:3px solid #5b7fff;padding-left:12px;margin-bottom:18px}
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulseGlow{0%,100%{box-shadow:0 0 20px rgba(36,224,138,0.15)}50%{box-shadow:0 0 40px rgba(36,224,138,0.3)}}
-@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+/* STOCK CARDS GRID */
+.stock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.stock-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;transition:all 0.2s}
+.stock-card:hover{border-color:rgba(91,127,255,0.3);background:rgba(91,127,255,0.04)}
+.stock-card .card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.stock-card .sym{font-size:18px;font-weight:700;color:#5b7fff}
+.stock-card .score-badge{font-size:18px;font-weight:800;padding:4px 12px;border-radius:8px;text-align:center;min-width:44px}
+.stock-card .name{font-size:12px;color:#7880a0;margin-top:2px}
+.stock-card .tag{display:inline-block;background:rgba(91,127,255,0.15);color:#8090d0;font-size:10px;padding:2px 8px;border-radius:4px;margin-top:4px}
+.stock-card .price-row{display:flex;gap:12px;align-items:baseline;margin:8px 0}
+.stock-card .price{font-size:22px;font-weight:700;color:#fff}
+.stock-card .change{font-size:13px;font-weight:600;padding:3px 10px;border-radius:6px}
+.stock-card .change.up{background:rgba(36,224,138,0.15);color:#24e08a}
+.stock-card .change.down{background:rgba(255,92,92,0.15);color:#ff5c5c}
+.stock-card .range{font-size:11px;color:#555;margin-top:2px}
 
-.animate-in{animation:fadeUp 0.5s ease forwards}
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.metric{text-align:center;padding:8px;background:rgba(0,0,0,0.2);border-radius:8px}
+.metric .val{font-size:14px;font-weight:700;color:#c0c8e0}
+.metric .lbl{font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.5px}
 
-/* ===== HERO SECTION ===== */
-.hero{
-  background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 50%,#0a0825 100%);
-  border:1px solid rgba(91,127,255,0.2);
-  border-radius:24px;
-  padding:48px 52px;
-  margin-bottom:32px;
-  position:relative;
-  overflow:hidden;
-}
-.hero::before{
-  content:'';
-  position:absolute;
-  top:-60%;
-  right:-10%;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle,rgba(91,127,255,0.08) 0%,transparent 70%);
-  pointer-events:none;
-}
-.hero::after{
-  content:'';
-  position:absolute;
-  bottom:0;left:0;right:0;
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(91,127,255,0.4),rgba(36,224,138,0.3),transparent);
-}
-
-.hero-eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:rgba(91,127,255,0.08);
-  border:1px solid rgba(91,127,255,0.2);
-  color:var(--accent);
-  font-size:11px;
-  font-weight:600;
-  padding:4px 12px;
-  border-radius:20px;
-  margin-bottom:16px;
-  letter-spacing:0.5px;
-  text-transform:uppercase;
-}
-
-.hero h1{
-  font-size:38px;
-  color:#fff;
-  margin-bottom:12px;
-  letter-spacing:-0.5px;
-  background:linear-gradient(90deg,#fff,#c8d0f0);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-
-.hero-sub{
-  color:var(--text-dim);
-  font-size:14px;
-  margin-bottom:24px;
-}
-
-.hero-stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-bottom:24px;
-}
-
-.stat-card{
-  background:rgba(0,0,0,0.3);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:18px 20px;
-  text-align:center;
-  transition:all 0.3s;
-}
-.stat-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
-.stat-card .stat-val{
-  font-size:26px;
-  font-weight:800;
-  color:#fff;
-  margin-bottom:4px;
-}
-.stat-card .stat-val.green{color:var(--green)}
-.stat-card .stat-val.red{color:var(--red)}
-.stat-card .stat-val.cyan{color:var(--cyan)}
-.stat-card .stat-lbl{
-  font-size:11px;
-  color:var(--text-muted);
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-.hero-badges{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-.badge{
-  background:rgba(91,127,255,0.1);
-  border:1px solid rgba(91,127,255,0.2);
-  color:#8090d0;
-  border-radius:20px;
-  padding:5px 14px;
-  font-size:11px;
-}
-.badge.green{
-  background:rgba(36,224,138,0.08);
-  border-color:rgba(36,224,138,0.2);
-  color:var(--green);
-}
-.badge.purple{
-  background:rgba(168,85,247,0.08);
-  border-color:rgba(168,85,247,0.2);
-  color:var(--purple);
-}
-
-.mood-indicator{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  background:rgba(36,224,138,0.08);
-  border:1px solid rgba(36,224,138,0.2);
-  border-radius:12px;
-  padding:8px 16px;
-  font-size:13px;
-  font-weight:600;
-  color:var(--green);
-  margin-top:20px;
-}
-.mood-dot{
-  width:8px;height:8px;
-  border-radius:50%;
-  background:var(--green);
-  animation:pulseGlow 2s ease infinite;
-}
-
-/* ===== SECTION HEADERS ===== */
-.section{margin-bottom:28px}
-.section-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:20px;
-  padding-bottom:12px;
-  border-bottom:1px solid var(--border);
-}
-.section-header h2{
-  font-size:15px;
-  color:var(--text-dim);
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-weight:600;
-}
-.section-icon{font-size:22px}
-
-/* ===== CATEGORY BANNER ===== */
-.cat-group{margin-bottom:24px}
-.cat-header-bar{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px 18px;
-  border-radius:14px;
-  margin-bottom:12px;
-  position:relative;
-  overflow:hidden;
-}
-.cat-header-bar::before{
-  content:'';
-  position:absolute;
-  left:0;top:0;bottom:0;
-  width:4px;
-  border-radius:2px;
-}
-.cat-header-bar .cat-emoji{font-size:20px}
-.cat-header-bar .cat-title{
-  font-size:15px;
-  font-weight:700;
-  color:#fff;
-}
-.cat-header-bar .cat-count{
-  margin-left:auto;
-  font-size:11px;
-  color:var(--text-muted);
-  background:rgba(0,0,0,0.3);
-  padding:2px 10px;
-  border-radius:10px;
-}
-
-/* category accent colors */
-.cat-chip{background: var(--chip-bg,rgba(91,127,255,0.1));border-left-color:var(--chip-color,var(--accent));}
-.cat-chip{var(--chip-color,#5b7fff)}
-
-.cat-chip.chip-blue .cat-header-bar{background:rgba(91,127,255,0.08);border-left:4px solid #5b7fff}
-.cat-chip.chip-green .cat-header-bar{background:rgba(36,224,138,0.08);border-left:4px solid var(--green)}
-.cat-chip.chip-cyan .cat-header-bar{background:rgba(6,182,212,0.08);border-left:4px solid var(--cyan)}
-.cat-chip.chip-orange .cat-header-bar{background:rgba(249,115,22,0.08);border-left:4px solid var(--orange)}
-.cat-chip.chip-purple .cat-header-bar{background:rgba(168,85,247,0.08);border-left:4px solid var(--purple)}
-.cat-chip.chip-pink .cat-header-bar{background:rgba(236,72,153,0.08);border-left:4px solid var(--pink)}
-.cat-chip.chip-gold .cat-header-bar{background:rgba(255,215,0,0.08);border-left:4px solid var(--gold)}
-.cat-chip.chip-red .cat-header-bar{background:rgba(255,92,92,0.08);border-left:4px solid var(--red)}
-
-/* ===== SIGNAL STOCK CARDS ===== */
-.signal-cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-  gap:10px;
-}
-.signal-card{
-  background:rgba(0,0,0,0.25);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:14px;
-  transition:all 0.2s;
-  display:flex;
-  flex-direction:column;
-  gap:4px;
-}
-.signal-card:hover{
-  border-color:var(--border-hover);
-  background:rgba(91,127,255,0.04);
-  transform:translateY(-2px);
-}
-.signal-card .sc-sym{
-  font-size:16px;
-  font-weight:800;
-  color:var(--accent);
-  letter-spacing:0.5px;
-}
-.signal-card .sc-price{
-  font-size:14px;
-  font-weight:700;
-  color:#fff;
-}
-.signal-card .sc-change{
-  font-size:12px;
-  font-weight:600;
-  padding:2px 7px;
-  border-radius:5px;
-  display:inline-block;
-  width:fit-content;
-}
-.signal-card .sc-change.up{background:var(--green-bg);color:var(--green)}
-.signal-card .sc-change.down{background:var(--red-bg);color:var(--red)}
-.signal-card .sc-badge{
-  font-size:10px;
-  font-weight:700;
-  color:var(--green);
-  background:var(--green-bg);
-  padding:2px 8px;
-  border-radius:5px;
-  margin-top:4px;
-  display:inline-block;
-  width:fit-content;
-}
-
-/* ===== DEEP ANALYSIS CARDS ===== */
-.stock-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  gap:16px;
-}
-.stock-card{
-  background:var(--bg-glass);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:20px;
-  transition:all 0.25s;
-  position:relative;
-  overflow:hidden;
-}
-.stock-card::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:2px;
-  background:linear-gradient(90deg,var(--accent),transparent);
-  opacity:0;
-  transition:opacity 0.25s;
-}
-.stock-card:hover::before{opacity:1}
-.stock-card:hover{
-  border-color:var(--border-hover);
-  background:rgba(12,12,26,0.85);
-  box-shadow:0 8px 40px rgba(91,127,255,0.1);
-  transform:translateY(-3px);
-}
-
-.stock-card .card-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  margin-bottom:14px;
-}
-.stock-card .card-left{display:flex;flex-direction:column;gap:3px}
-.stock-card .sym{font-size:20px;font-weight:800;color:var(--accent)}
-.stock-card .name{font-size:12px;color:var(--text-dim)}
-.stock-card .tag{
-  display:inline-block;
-  background:rgba(91,127,255,0.1);
-  color:#8090d0;
-  font-size:10px;
-  padding:2px 8px;
-  border-radius:5px;
-  margin-top:4px;
-  width:fit-content;
-}
-
-.score-badge{
-  background:rgba(91,127,255,0.1);
-  color:var(--green);
-  font-size:15px;
-  font-weight:800;
-  padding:5px 12px;
-  border-radius:10px;
-  text-align:center;
-  min-width:44px;
-  border:1px solid rgba(36,224,138,0.2);
-}
-
-.price-row{display:flex;gap:10px;align-items:baseline;margin:10px 0}
-.price{font-size:22px;font-weight:700;color:#fff}
-.change{
-  font-size:13px;
-  font-weight:600;
-  padding:3px 10px;
-  border-radius:6px;
-}
-.change.up{background:var(--green-bg);color:var(--green)}
-.change.down{background:var(--red-bg);color:var(--red)}
-
-.range{font-size:11px;color:var(--text-muted);margin-top:2px}
-
-.metrics{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:6px;
-  margin:12px 0;
-}
-.metric{
-  text-align:center;
-  padding:8px 4px;
-  background:rgba(0,0,0,0.25);
-  border-radius:8px;
-  border:1px solid var(--border);
-}
-.metric .val{font-size:13px;font-weight:700;color:var(--text)}
-.metric .lbl{font-size:9px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
-
-.fin-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:12px}
-.fin-table td{padding:6px 10px;border-bottom:1px solid var(--border)}
-.fin-table td:first-child{color:var(--text-muted)}
-.fin-table td:last-child{color:var(--text);font-weight:600}
-
+/* SUPPLY/SIGNALS */
 .signals{margin-top:10px}
-.sig{
-  font-size:11px;
-  color:var(--text-dim);
-  padding:4px 0;
-  border-bottom:1px solid rgba(255,255,255,0.03);
-  line-height:1.5;
-}
+.sig{font-size:11px;color:#aaa;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
 .sig:last-child{border-bottom:none}
-.sig::before{content:'→ ';color:var(--accent)}
+.sig::before{content:'→ ';color:#5b7fff}
 
-.bc-link{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  background:rgba(91,127,255,0.08);
-  border:1px solid rgba(91,127,255,0.2);
-  color:var(--accent);
-  padding:6px 14px;
-  border-radius:10px;
-  text-decoration:none;
-  font-size:12px;
-  margin-top:12px;
-  transition:all 0.2s;
-  width:fit-content;
-}
-.bc-link:hover{
-  background:rgba(91,127,255,0.15);
-  border-color:var(--accent);
-  text-decoration:none;
-}
+/* FINANCIAL TABLE */
+.fin-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}
+.fin-table td{padding:7px 12px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.fin-table td:first-child{color:#556;color:#556}
+.fin-table td:last-child{color:#a0a8d0;font-weight:600}
 
-/* ===== RANK TABLE ===== */
+/* RANKINGS */
 .rank-table{width:100%;border-collapse:collapse;font-size:13px}
-.rank-table th{
-  text-align:left;
-  padding:10px 12px;
-  border-bottom:2px solid rgba(255,255,255,0.08);
-  color:var(--text-muted);
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-.rank-table td{padding:11px 12px;border-bottom:1px solid rgba(255,255,255,0.04)}
-.rank-table tr{transition:background 0.15s}
-.rank-table tr:hover{background:rgba(91,127,255,0.04)}
-.rank-num{font-size:24px;font-weight:800;color:#222;width:40px;text-align:center}
-.rank-num.t1{color:var(--gold);font-size:28px;text-shadow:0 0 20px rgba(255,215,0,0.4)}
-.rank-num.t2{color:#c0c0c0;font-size:26px}
-.rank-num.t3{color:#cd7f32;font-size:24px}
-.rating-badge{
-  display:inline-block;
-  padding:3px 10px;
-  border-radius:6px;
-  font-size:11px;
-  font-weight:700;
-}
-.rb-buy{background:var(--green-bg);color:var(--green);border:1px solid rgba(36,224,138,0.25)}
-.rb-mbuy{background:rgba(91,127,255,0.1);color:var(--accent);border:1px solid rgba(91,127,255,0.25)}
-.rb-hold{background:rgba(255,193,7,0.1);color:var(--yellow);border:1px solid rgba(255,193,7,0.25)}
+.rank-table th{text-align:left;padding:10px 12px;border-bottom:2px solid rgba(255,255,255,0.1);color:#556080;font-size:10px;text-transform:uppercase;letter-spacing:1px}
+.rank-table td{padding:12px 12px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.rank-table tr:hover{background:rgba(255,255,255,0.02)}
+.rank-num{font-size:22px;font-weight:800;color:#222;width:40px;text-align:center}
+.rank-num.t1{color:#ffd700;font-size:26px}
+.rank-num.t2{color:#c0c0c0;font-size:24px}
+.rank-num.t3{color:#cd7f32;font-size:22px}
+.rating-badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600}
+.rb-buy{background:rgba(36,224,138,0.15);color:#24e08a}
+.rb-mbuy{background:rgba(91,127,255,0.15);color:#5b7fff}
+.rb-hold{background:rgba(255,193,7,0.12);color:#ffc107}
 
-/* ===== SUPPLY LOGIC BOX ===== */
-.supply-box{
-  background:rgba(91,127,255,0.06);
-  border:1px solid rgba(91,127,255,0.15);
-  border-radius:14px;
-  padding:16px 18px;
-  margin-bottom:12px;
-}
-.supply-box .title{
-  font-weight:700;
-  color:var(--accent);
-  margin-bottom:6px;
-  font-size:13px;
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-.supply-box .desc{font-size:12px;color:var(--text-dim);line-height:1.8}
+/* NAV TABS */
+.nav-tabs{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap}
+.nav-tab{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#8090c0;padding:8px 16px;border-radius:10px;font-size:13px;cursor:pointer;transition:all 0.2s}
+.nav-tab:hover,.nav-tab.active{background:rgba(91,127,255,0.15);border-color:rgba(91,127,255,0.4);color:#8090d0}
 
-/* ===== NEWS CARDS ===== */
-.news-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:14px;
-}
-.news-card{
-  background:rgba(0,0,0,0.25);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:16px 18px;
-  transition:all 0.2s;
-}
-.news-card:hover{border-color:var(--border-hover)}
-.news-card .news-cat{
-  font-size:11px;
-  font-weight:700;
-  padding:2px 8px;
-  border-radius:5px;
-  display:inline-block;
-  margin-bottom:8px;
-}
-.news-card .news-title{
-  font-size:13px;
-  font-weight:700;
-  color:var(--text);
-  line-height:1.5;
-  margin-bottom:6px;
-}
-.news-card .news-title a{color:var(--text);text-decoration:none}
-.news-card .news-title a:hover{color:var(--accent)}
-.news-card .news-sum{font-size:11px;color:var(--text-dim);line-height:1.6}
+/* CAT SECTION */
+.cat-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.cat-icon{font-size:24px}
+.cat-title{font-size:16px;font-weight:700;color:#fff}
 
-/* ===== INTRO BOX ===== */
-.intro-box{
-  background:rgba(36,224,138,0.05);
-  border:1px solid rgba(36,224,138,0.15);
-  border-radius:16px;
-  padding:18px 22px;
-  margin-bottom:20px;
-  position:relative;
-  overflow:hidden;
-}
-.intro-box::before{
-  content:'';
-  position:absolute;
-  left:0;top:0;bottom:0;
-  width:3px;
-  background:var(--green);
-  border-radius:2px;
-}
-.intro-box .intro-title{
-  font-weight:700;
-  color:var(--green);
-  font-size:14px;
-  margin-bottom:8px;
-}
-.intro-box .intro-desc{
-  font-size:12px;
-  color:var(--text-dim);
-  line-height:1.8;
-}
-.intro-box .intro-desc b{color:var(--text)}
+/* SUPPLY LOGIC */
+.supply-box{background:rgba(91,127,255,0.06);border:1px solid rgba(91,127,255,0.15);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.supply-box .title{font-weight:700;color:#5b7fff;margin-bottom:6px;font-size:13px}
+.supply-box .desc{font-size:12px;color:#a0a8d0;line-height:1.8}
 
-/* ===== SUPPLY HIGHLIGHT ===== */
-.supply-highlight{
-  background:linear-gradient(135deg,rgba(91,127,255,0.06),rgba(36,224,138,0.04));
-  border:1px solid rgba(91,127,255,0.2);
-  border-radius:18px;
-  padding:22px 24px;
-  margin-top:24px;
-  position:relative;
-  overflow:hidden;
-}
-.supply-highlight::before{
-  content:'';
-  position:absolute;
-  top:-50%;right:-20%;
-  width:400px;height:400px;
-  background:radial-gradient(circle,rgba(91,127,255,0.06) 0%,transparent 70%);
-  pointer-events:none;
-}
-.supply-highlight .sh-title{
-  font-size:15px;
-  font-weight:800;
-  color:#fff;
-  margin-bottom:16px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-.supply-highlight .sh-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:12px;
-}
-.sh-item{
-  background:rgba(0,0,0,0.3);
-  border-radius:10px;
-  padding:12px 14px;
-}
-.sh-item .sh-icon{font-size:16px;margin-bottom:6px}
-.sh-item .sh-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px}
-.sh-item .sh-desc{font-size:11px;color:var(--text-dim);line-height:1.6}
+/* FOOTER */
+.footer{text-align:center;color:#444;font-size:11px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05)}
+.footer a{color:#5b7fff;text-decoration:none}
 
-/* ===== FOOTER ===== */
-.footer{
-  text-align:center;
-  color:var(--text-muted);
-  font-size:12px;
-  margin-top:48px;
-  padding-top:24px;
-  border-top:1px solid var(--border);
-}
-.footer::before{
-  content:'';
-  display:block;
-  width:200px;
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(91,127,255,0.3),rgba(36,224,138,0.2),transparent);
-  margin:0 auto 24px;
-}
-.footer a{color:var(--accent);text-decoration:none}
-.footer a:hover{text-decoration:underline}
+.hidden{display:none}
 
-/* ===== NAV TABS ===== */
-.nav-tabs{display:flex;gap:6px;margin-bottom:24px;flex-wrap:wrap}
-.nav-tab{
-  background:rgba(255,255,255,0.04);
-  border:1px solid var(--border);
-  color:var(--text-dim);
-  padding:8px 18px;
-  border-radius:12px;
-  font-size:13px;
-  cursor:pointer;
-  transition:all 0.2s;
-}
-.nav-tab:hover,.nav-tab.active{
-  background:rgba(91,127,255,0.12);
-  border-color:rgba(91,127,255,0.3);
-  color:var(--text);
-}
+/* BARCHART LINK */
+.bc-link{display:inline-block;background:rgba(91,127,255,0.1);color:#5b7fff;padding:6px 12px;border-radius:8px;text-decoration:none;font-size:12px;margin-top:10px}
+.bc-link:hover{background:rgba(91,127,255,0.2)}
 
-/* ===== SCORE RANKING SECTION ===== */
-.rank-section{
-  background:var(--bg-glass);
-  backdrop-filter:blur(20px);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:24px;
-  margin-bottom:28px;
-  overflow-x:auto;
-}
-
-/* ===== MOBILE ===== */
 @media(max-width:768px){
-  .hero{padding:28px 20px}
-  .hero h1{font-size:26px}
-  .hero-stats{grid-template-columns:1fr;gap:10px}
-  .stock-grid{grid-template-columns:1fr}
-  .signal-cards{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
-  .nav-tabs{flex-wrap:wrap}
+.stock-grid{grid-template-columns:1fr}
+.metrics{grid-template-columns:repeat(2,1fr)}
 }
-
-/* ===== TABLE SIGNAL ===== */
-.tg{width:100%;border-collapse:collapse;font-size:13px}
-.tg th{
-  padding:8px 10px;
-  text-align:left;
-  background:rgba(91,127,255,0.06);
-  border-bottom:1px solid rgba(91,127,255,0.2);
-  color:var(--text-dim);
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-.tg td{
-  padding:9px 10px;
-  border-bottom:1px solid rgba(255,255,255,0.04);
-}
-.tg tr:hover td{background:rgba(91,127,255,0.03)}
-.tg .up{color:var(--green)}
-.tg .down{color:var(--red)}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<!-- ========== HERO ========== -->
-<div class="hero animate-in">
-  <div class="hero-eyebrow">🚀 AI &amp; 商業航太美股研究報告</div>
-  <h1>🤖 AI &amp; 商業航太美股研究報告</h1>
-  <div class="hero-sub">📅 2026年05月24日（日）16:44 台北時間｜Barchart Top 1% Signal Strength</div>
-
-  <div class="hero-stats">
-    <div class="stat-card">
-      <div class="stat-val green">33</div>
-      <div class="stat-lbl">Top 1% Signal Stocks</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-val cyan">+16.77%</div>
-      <div class="stat-lbl">今日最大漲幅（DELL）</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-val green">🟢 順勢多頭</div>
-      <div class="stat-lbl">市場情緒</div>
-    </div>
-  </div>
-
-  <div class="hero-badges">
-    <span class="badge green">100% Buy 信號</span>
+<!-- HERO -->
+<div class="hero">
+  <h1>📊 AI 科技個股深度研究報告</h1>
+  <div class="sub">📅 2026年05月24日 16:51（台北時間）｜覆蓋 20+ 檔核心 AI 供應鏈股票</div>
+  <div class="badges">
     <span class="badge">AI 資料中心建設</span>
-    <span class="badge purple">供給落後需求 3-5 年</span>
+    <span class="badge green">供給落後需求 3-5 年</span>
     <span class="badge">機構提前卡位</span>
     <span class="badge">每週一～五自動更新</span>
-    <span class="badge">Barchart 數據（已登入 LILI）</span>
-  </div>
-
-  <div class="mood-indicator">
-    <div class="mood-dot"></div>
-    市場情緒：順勢多頭 — 33 檔 Top 1% Signal Strength 強勢股
+    <span class="badge">Barchart 數據（已登入）</span>
   </div>
 </div>
 
-<!-- ========== INTRO ========== -->
-<div class="intro-box animate-in" style="animation-delay:0.1s">
-  <div class="intro-title">📡 什麼是 Top 1% Signal Strength？</div>
-  <div class="intro-desc">
-    <b>Signal Strength</b> 是 Barchart 付費會員專屬技術指標，衡量買/賣信號相對於歷史的強度。<b>Top 1%</b> 為史上最強級別。<br>
-    <b>100% Buy</b> = 完全買入信號，強度 Top 1%，所有技術指標共識強烈看漲。<br>
-    <b>⚠️ 注意</b>：強勢股不代表不會回調，請結合深度分析報告的估值與基本面综合判斷。
-  </div>
-</div>
-
-<!-- ========== SIGNAL STRENGTH SECTION (CATEGORY ORG) ========== -->
-<div class="section animate-in" style="animation-delay:0.15s">
-  <div class="section-header">
-    <span class="section-icon">🏆</span>
-    <h2>Barchart Top 1% Signal Strength 強勢股（按類別分類）</h2>
-  </div>
-
-  <!-- 💾 AI 晶片/半導體 -->
-  <div class="cat-group chip-blue">
-    <div class="cat-header-bar">
-      <span class="cat-emoji">💾</span>
-      <span class="cat-title">AI 晶片 / 半導體</span>
-      <span class="cat-count">14 檔</span>
-    </div>
-    <div class="signal-cards">
-      <a href="https://www.barchart.com/stocks/quotes/AMD/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">AMD</div>
-        <div class="sc-price">$467.51</div>
-        <div class="sc-change up">+3.99%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/ARM/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">ARM</div>
-        <div class="sc-price">$306.51</div>
-        <div class="sc-change up">+2.78%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">NVDA</div>
-        <div class="sc-price">$215.33</div>
-        <div class="sc-change down">-1.90%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/INTC/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">INTC</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/TXN/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">TXN</div>
-        <div class="sc-price">$309.21</div>
-        <div class="sc-change up">+3.63%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/MRVL/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">MRVL</div>
-        <div class="sc-price">$196.33</div>
-        <div class="sc-change up">+2.96%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/AVGO/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">AVGO</div>
-        <div class="sc-price">$414.14</div>
-        <div class="sc-change down">-0.10%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/LSCC/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">LSCC</div>
-        <div class="sc-price">$143.22</div>
-        <div class="sc-change up">+2.78%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/MX/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">MX</div>
-        <div class="sc-price">$5.52</div>
-        <div class="sc-change down">-4.17%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/NVTS/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">NVTS</div>
-        <div class="sc-price">$29.25</div>
-        <div class="sc-change up">+19.98%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/TSEM/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">TSEM</div>
-        <div class="sc-price">$283.43</div>
-        <div class="sc-change up">+1.58%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/AMBQ/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">AMBQ</div>
-        <div class="sc-price">$81.67</div>
-        <div class="sc-change up">+6.67%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/ON/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">ON</div>
-        <div class="sc-price">$116.20</div>
-        <div class="sc-change up">+6.01%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/SNDK/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">SNDK</div>
-        <div class="sc-price">$1,478.69</div>
-        <div class="sc-change down">-4.12%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- 💾 AI 記憶體/儲存 -->
-  <div class="cat-group chip-cyan">
-    <div class="cat-header-bar">
-      <span class="cat-emoji">💾</span>
-      <span class="cat-title">AI 記憶體 / 儲存</span>
-      <span class="cat-count">4 檔</span>
-    </div>
-    <div class="signal-cards">
-      <a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">MU</div>
-        <div class="sc-price">$751.00</div>
-        <div class="sc-change down">-1.46%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/WDC/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">WDC</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/SNDK/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">SNDK</div>
-        <div class="sc-price">$1,478.69</div>
-        <div class="sc-change down">-4.12%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/NTAP/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">NTAP</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- 🖥️ AI 伺服器/資料中心 -->
-  <div class="cat-group chip-green">
-    <div class="cat-header-bar">
-      <span class="cat-emoji">🖥️</span>
-      <span class="cat-title">AI 伺服器 / 資料中心</span>
-      <span class="cat-count">3 檔</span>
-    </div>
-    <div class="signal-cards">
-      <a href="https://www.barchart.com/stocks/quotes/DELL/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">DELL</div>
-        <div class="sc-price">$295.19</div>
-        <div class="sc-change up" style="font-size:14px;font-weight:800">+16.77%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/SMCI/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">SMCI</div>
-        <div class="sc-price">$35.58</div>
-        <div class="sc-change up">+6.34%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/HPQ/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">HPQ</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- 📡 AI 網路/光纖 -->
-  <div class="cat-group chip-purple">
-    <div class="cat-header-bar">
-      <span class="cat-emoji">📡</span>
-      <span class="cat-title">AI 網路 / 光纖</span>
-      <span class="cat-count">5 檔</span>
-    </div>
-    <div class="signal-cards">
-      <a href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">CIEN</div>
-        <div class="sc-price">$583.74</div>
-        <div class="sc-change down">-0.59%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/CSCO/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">CSCO</div>
-        <div class="sc-price">$120.41</div>
-        <div class="sc-change up">+1.87%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/ATEN/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">ATEN</div>
-        <div class="sc-price">$29.16</div>
-        <div class="sc-change up">+2.93%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">GLW</div>
-        <div class="sc-price">$38.50</div>
-        <div class="sc-change up">+3.00%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/LUMN/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">LUMN</div>
-        <div class="sc-price">$4.20</div>
-        <div class="sc-change up">+2.00%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- ⚡ AI 電力/能源 -->
-  <div class="cat-group chip-orange">
-    <div class="cat-header-bar">
-      <span class="cat-emoji">⚡</span>
-      <span class="cat-title">AI 電力 / 能源</span>
-      <span class="cat-count">10 檔</span>
-    </div>
-    <div class="signal-cards">
-      <a href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">VST</div>
-        <div class="sc-price">$156.27</div>
-        <div class="sc-change up">+4.82%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">CEG</div>
-        <div class="sc-price">$294.07</div>
-        <div class="sc-change up">+2.88%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/ETN/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">ETN</div>
-        <div class="sc-price">$391.35</div>
-        <div class="sc-change up">+2.58%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/PWR/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">PWR</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/BE/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">BE</div>
-        <div class="sc-price">$302.49</div>
-        <div class="sc-change down">-1.75%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/FCEL/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">FCEL</div>
-        <div class="sc-price">$25.01</div>
-        <div class="sc-change down">-5.19%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/NGL/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">NGL</div>
-        <div class="sc-price">$18.11</div>
-        <div class="sc-change up">+2.78%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/PAA/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">PAA</div>
-        <div class="sc-price">$24.15</div>
-        <div class="sc-change up">+1.98%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/TRP/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">TRP</div>
-        <div class="sc-price">$70.91</div>
-        <div class="sc-change up">+0.50%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/PNRG/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">PNRG</div>
-        <div class="sc-price">$259.24</div>
-        <div class="sc-change up">+4.54%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/TUSK/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">TUSK</div>
-        <div class="sc-price">$3.25</div>
-        <div class="sc-change down">-4.69%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- 🧊 AI 散熱/液冷 -->
-  <div class="cat-group chip-cyan">
-    <div class="cat-header-bar">
-      <span class="cat-emoji">🧊</span>
-      <span class="cat-title">AI 散熱 / 液冷</span>
-      <span class="cat-count">2 檔</span>
-    </div>
-    <div class="signal-cards">
-      <a href="https://www.barchart.com/stocks/quotes/SPXC/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">SPXC</div>
-        <div class="sc-price">$207.80</div>
-        <div class="sc-change up">+1.17%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/VRT/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">VRT</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- 🔐 AI 資安 -->
-  <div class="cat-group chip-pink">
-    <div class="cat-header-bar">
-      <span class="cat-emoji">🔐</span>
-      <span class="cat-title">AI 資安</span>
-      <span class="cat-count">3 檔</span>
-    </div>
-    <div class="signal-cards">
-      <a href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">CRWD</div>
-        <div class="sc-price">$663.46</div>
-        <div class="sc-change up">+2.35%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/NET/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">NET</div>
-        <div class="sc-price">$216.17</div>
-        <div class="sc-change up">+1.66%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/PANW/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">PANW</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- 🤖 AI 軟體 -->
-  <div class="cat-group chip-gold">
-    <div class="cat-header-bar">
-      <span class="cat-emoji">🤖</span>
-      <span class="cat-title">AI 軟體</span>
-      <span class="cat-count">2 檔</span>
-    </div>
-    <div class="signal-cards">
-      <a href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">PLTR</div>
-        <div class="sc-price">$258.88</div>
-        <div class="sc-change up">+5.20%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/SNOW/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">SNOW</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- ☁️ AI 雲端平台 -->
-  <div class="cat-group chip-blue">
-    <div class="cat-header-bar">
-      <span class="cat-emoji">☁️</span>
-      <span class="cat-title">AI 雲端平台</span>
-      <span class="cat-count">4 檔</span>
-    </div>
-    <div class="signal-cards">
-      <a href="https://www.barchart.com/stocks/quotes/GOOG/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">GOOG</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/MSFT/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">MSFT</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/AMZN/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">AMZN</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/META/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">META</div>
-        <div class="sc-price">—</div>
-        <div class="sc-change up">—</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- 🚀 商業航太/衛星 -->
-  <div class="cat-group chip-red">
-    <div class="cat-header-bar">
-      <span class="cat-emoji">🚀</span>
-      <span class="cat-title">商業航太 / 衛星</span>
-      <span class="cat-count">6 檔</span>
-    </div>
-    <div class="signal-cards">
-      <a href="https://www.barchart.com/stocks/quotes/RKLB/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">RKLB</div>
-        <div class="sc-price">$135.76</div>
-        <div class="sc-change up">+8.22%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/LUNR/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">LUNR</div>
-        <div class="sc-price">$38.26</div>
-        <div class="sc-change up">+11.74%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/BKSY/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">BKSY</div>
-        <div class="sc-price">$47.87</div>
-        <div class="sc-change up">+7.21%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/PL/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">PL</div>
-        <div class="sc-price">$44.35</div>
-        <div class="sc-change up">+4.40%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/SATL/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">SATL</div>
-        <div class="sc-price">$10.61</div>
-        <div class="sc-change up">+10.06%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-      <a href="https://www.barchart.com/stocks/quotes/AVT/overview" target="_blank" class="signal-card bc-link-card">
-        <div class="sc-sym">AVT</div>
-        <div class="sc-price">$85.91</div>
-        <div class="sc-change up">+3.01%</div>
-        <div class="sc-badge">100% Buy</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- AI供需邏輯亮點 -->
-  <div class="supply-highlight">
-    <div class="sh-title">💡 AI 供需邏輯亮點</div>
-    <div class="sh-grid">
-      <div class="sh-item">
-        <div class="sh-icon">⚡</div>
-        <div class="sh-name">資料中心電力缺口</div>
-        <div class="sh-desc">美國電網擴建落後算力需求 3-5 年。VST/CEG/ETN 直接受益核能與電網基建</div>
-      </div>
-      <div class="sh-item">
-        <div class="sh-icon">🧊</div>
-        <div class="sh-name">液冷革命</div>
-        <div class="sh-desc">GPU 熱密度從 300W→1000W+，液冷供給嚴重落後。VRT 已被機構買爆</div>
-      </div>
-      <div class="sh-item">
-        <div class="sh-icon">📡</div>
-        <div class="sh-name">光纖骨幹網路</div>
-        <div class="sh-desc">光纖工廠建設需 3-5 年，供需缺口早已出現。GLW 從 $18→$38 已驗證</div>
-      </div>
-      <div class="sh-item">
-        <div class="sh-icon">💾</div>
-        <div class="sh-name">先進封裝供需失衡</div>
-        <div class="sh-desc">CoWoS/HBM 擴產需 18-24 個月，需求增速 >100%/年，供給極度受限</div>
-      </div>
-      <div class="sh-item">
-        <div class="sh-icon">☢️</div>
-        <div class="sh-name">核能稀有資產</div>
-        <div class="sh-desc">Microsoft/Google/Amazon 爭搶核能供電，核電廠執照成戰略稀有資源</div>
-      </div>
-      <div class="sh-item">
-        <div class="sh-icon">🚀</div>
-        <div class="sh-name">商業航太爆發</div>
-        <div class="sh-desc">SpaceX IPO 申請、Starship V3 首射成功，商業航太邏輯升溫</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ========== SCORE RANKINGS ========== -->
-<div class="rank-section animate-in" style="animation-delay:0.2s">
-  <div class="section-header">
-    <span class="section-icon">🏆</span>
-    <h2>早期信號評分排名（低估值 / 機構佈局 / 技術底部 / Beta / 分析師評級）</h2>
-  </div>
+<!-- SCORE RANKINGS -->
+<div class="section">
+  <h2>🏆 早期信號評分排名（評分維度：低估值/機構佈局/技術底部/Beta/分析師評級）</h2>
   <table class="rank-table">
     <thead><tr>
       <th>#</th><th>股票</th><th>價格</th><th>日漲跌</th><th>52週區間</th><th>Beta</th><th>P/E</th><th>評級</th><th>市值</th><th>評分</th><th>核心信號</th>
     </tr></thead>
     <tbody>
 <tr>
-  <td class="rank-num t1">1</td>
-  <td><div class="sym" style="color:var(--accent)">NVDA</div><div style="color:var(--text-muted);font-size:11px">輝達 Nvidia</div><span class="tag">💾 AI 晶片</span></td>
-  <td><span style="font-weight:700;color:#fff">$215.33</span></td>
-  <td><span class="change down">-1.90%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:236.54</div><div style="color:var(--text-muted);font-size:11px">L:129.16</div></td>
-  <td style="text-align:center;font-weight:600">2.25</td>
-  <td style="text-align:center;color:var(--yellow);font-weight:600">39.41</td>
-  <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:var(--text-muted);font-size:10px">49位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$5.3T</td>
-  <td style="font-weight:800;font-size:22px;color:var(--green);text-align:center">10</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">離52W低點僅+-68.0%，機構低檔佈局 / 價格處52週區間底部-82%，爆發空間大</td>
-</tr>
+      <td class="rank-num t1">1</td>
+      <td><div class="sym" style="color:#5b7fff">NVDA</div><div style="color:#556;font-size:11px">輝達 Nvidia</div><span class="tag">💾 AI 晶片</span></td>
+      <td><span style="font-weight:700;color:#fff">$215.33</span></td>
+      <td><span class="change down">-1.90%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:236.54</div><div style="color:#444;font-size:11px">L:129.16</div></td>
+      <td style="text-align:center;font-weight:600">2.25</td>
+      <td style="text-align:center;color:#ffc107;font-weight:600">39.41</td>
+      <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:#555;font-size:10px">49位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$5.3T</td>
+      <td style="font-weight:800;font-size:20px;color:#24e08a;text-align:center">10</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點僅+-68.0%，機構低檔佈局 / 價格處52週區間底部-82%，爆發空間大</td>
+    </tr>
 <tr>
-  <td class="rank-num t2">2</td>
-  <td><div class="sym" style="color:var(--accent)">VST</div><div style="color:var(--text-muted);font-size:11px">Vistra</div><span class="tag">⚡ 資料中心電力</span></td>
-  <td><span style="font-weight:700;color:#fff">$156.27</span></td>
-  <td><span class="change up">+4.82%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:219.82</div><div style="color:var(--text-muted);font-size:11px">L:132.66</div></td>
-  <td style="text-align:center;font-weight:600">1.43</td>
-  <td style="text-align:center;color:var(--green);font-weight:600">18.44</td>
-  <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:var(--text-muted);font-size:10px">17位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$50B</td>
-  <td style="font-weight:800;font-size:22px;color:var(--green);text-align:center">8</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">離52W低點僅+17.8%，機構低檔佈局 / 價格處52週區間底部27%，爆發空間大</td>
-</tr>
+      <td class="rank-num t2">2</td>
+      <td><div class="sym" style="color:#5b7fff">VST</div><div style="color:#556;font-size:11px">Vistra</div><span class="tag">⚡ 資料中心電力</span></td>
+      <td><span style="font-weight:700;color:#fff">$156.27</span></td>
+      <td><span class="change up">+4.82%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:219.82</div><div style="color:#444;font-size:11px">L:132.66</div></td>
+      <td style="text-align:center;font-weight:600">1.43</td>
+      <td style="text-align:center;color:#24e08a;font-weight:600">18.44</td>
+      <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:#555;font-size:10px">17位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$50B</td>
+      <td style="font-weight:800;font-size:20px;color:#24e08a;text-align:center">8</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點僅+17.8%，機構低檔佈局 / 價格處52週區間底部27%，爆發空間大</td>
+    </tr>
 <tr>
-  <td class="rank-num t3">3</td>
-  <td><div class="sym" style="color:var(--accent)">CEG</div><div style="color:var(--text-muted);font-size:11px">Constellation Energy</div><span class="tag">☢️ 核能供電</span></td>
-  <td><span style="font-weight:700;color:#fff">$294.07</span></td>
-  <td><span class="change up">+2.88%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:412.7</div><div style="color:var(--text-muted);font-size:11px">L:243.3</div></td>
-  <td style="text-align:center;font-weight:600">1.14</td>
-  <td style="text-align:center;color:var(--yellow);font-weight:600">28.15</td>
-  <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:var(--text-muted);font-size:10px">20位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$61B</td>
-  <td style="font-weight:800;font-size:22px;color:var(--accent);text-align:center">6</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">離52W低點+20.9%，已脫離底部 / 價格處52週區間底部30%，爆發空間大</td>
-</tr>
+      <td class="rank-num t3">3</td>
+      <td><div class="sym" style="color:#5b7fff">CEG</div><div style="color:#556;font-size:11px">Constellation Energy</div><span class="tag">☢️ 核能供電</span></td>
+      <td><span style="font-weight:700;color:#fff">$294.07</span></td>
+      <td><span class="change up">+2.88%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:412.7</div><div style="color:#444;font-size:11px">L:243.3</div></td>
+      <td style="text-align:center;font-weight:600">1.14</td>
+      <td style="text-align:center;color:#ffc107;font-weight:600">28.15</td>
+      <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:#555;font-size:10px">20位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$61B</td>
+      <td style="font-weight:800;font-size:20px;color:#5b7fff;text-align:center">6</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點+20.9%，已脫離底部 / 價格處52週區間底部30%，爆發空間大</td>
+    </tr>
 <tr>
-  <td class="rank-num ">4</td>
-  <td><div class="sym" style="color:var(--accent)">AMKR</div><div style="color:var(--text-muted);font-size:11px">Amkor Technology</div><span class="tag">📦 先進封裝</span></td>
-  <td><span style="font-weight:700;color:#fff">$25.50</span></td>
-  <td><span class="change up">+1.0%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:79.23</div><div style="color:var(--text-muted);font-size:11px">L:17.79</div></td>
-  <td style="text-align:center;font-weight:600">2.29</td>
-  <td style="text-align:center;color:var(--yellow);font-weight:600">39.14</td>
-  <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:var(--text-muted);font-size:10px">20位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$2B</td>
-  <td style="font-weight:800;font-size:22px;color:var(--accent);text-align:center">6</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">離52W低點+43.3%，已脫離底部 / 價格處52週區間底部13%，爆發空間大</td>
-</tr>
+      <td class="rank-num ">4</td>
+      <td><div class="sym" style="color:#5b7fff">AMKR</div><div style="color:#556;font-size:11px">Amkor Technology</div><span class="tag">📦 先進封裝</span></td>
+      <td><span style="font-weight:700;color:#fff">$25.50</span></td>
+      <td><span class="change up">+1.0%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:79.23</div><div style="color:#444;font-size:11px">L:17.79</div></td>
+      <td style="text-align:center;font-weight:600">2.29</td>
+      <td style="text-align:center;color:#ffc107;font-weight:600">39.14</td>
+      <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:#555;font-size:10px">20位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$2B</td>
+      <td style="font-weight:800;font-size:20px;color:#5b7fff;text-align:center">6</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點+43.3%，已脫離底部 / 價格處52週區間底部13%，爆發空間大</td>
+    </tr>
 <tr>
-  <td class="rank-num ">5</td>
-  <td><div class="sym" style="color:var(--accent)">MU</div><div style="color:var(--text-muted);font-size:11px">美光科技 Micron</div><span class="tag">💾 記憶體</span></td>
-  <td><span style="font-weight:700;color:#fff">$503.49</span></td>
-  <td><span class="change up">+1.41%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:818.67</div><div style="color:var(--text-muted);font-size:11px">L:90.93</div></td>
-  <td style="text-align:center;font-weight:600">1.91</td>
-  <td style="text-align:center;color:var(--yellow);font-weight:600">34.4</td>
-  <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:var(--text-muted);font-size:10px">41位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$859B</td>
-  <td style="font-weight:800;font-size:22px;color:var(--yellow);text-align:center">4</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">Strong Buy（41位分析師）</td>
-</tr>
+      <td class="rank-num ">5</td>
+      <td><div class="sym" style="color:#5b7fff">MU</div><div style="color:#556;font-size:11px">美光科技 Micron</div><span class="tag">💾 記憶體</span></td>
+      <td><span style="font-weight:700;color:#fff">$503.49</span></td>
+      <td><span class="change up">+1.41%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:818.67</div><div style="color:#444;font-size:11px">L:90.93</div></td>
+      <td style="text-align:center;font-weight:600">1.91</td>
+      <td style="text-align:center;color:#ffc107;font-weight:600">34.4</td>
+      <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:#555;font-size:10px">41位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$859B</td>
+      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">4</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">Strong Buy（41位分析師）</td>
+    </tr>
 <tr>
-  <td class="rank-num ">6</td>
-  <td><div class="sym" style="color:var(--accent)">SPXC</div><div style="color:var(--text-muted);font-size:11px">SPX Technologies</div><span class="tag">🧊 資料中心散熱</span></td>
-  <td><span style="font-weight:700;color:#fff">$207.80</span></td>
-  <td><span class="change up">+1.17%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:246.68</div><div style="color:var(--text-muted);font-size:11px">L:147.39</div></td>
-  <td style="text-align:center;font-weight:600">1.31</td>
-  <td style="text-align:center;color:var(--yellow);font-weight:600">29.11</td>
-  <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:var(--text-muted);font-size:10px">16位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$10B</td>
-  <td style="font-weight:800;font-size:22px;color:var(--yellow);text-align:center">4</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">離52W低點+41.0%，已脫離底部 / Strong Buy（16位分析師）</td>
-</tr>
+      <td class="rank-num ">6</td>
+      <td><div class="sym" style="color:#5b7fff">SPXC</div><div style="color:#556;font-size:11px">SPX Technologies</div><span class="tag">🧊 資料中心散熱</span></td>
+      <td><span style="font-weight:700;color:#fff">$207.80</span></td>
+      <td><span class="change up">+1.17%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:246.68</div><div style="color:#444;font-size:11px">L:147.39</div></td>
+      <td style="text-align:center;font-weight:600">1.31</td>
+      <td style="text-align:center;color:#ffc107;font-weight:600">29.11</td>
+      <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:#555;font-size:10px">16位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$10B</td>
+      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">4</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點+41.0%，已脫離底部 / Strong Buy（16位分析師）</td>
+    </tr>
 <tr>
-  <td class="rank-num ">7</td>
-  <td><div class="sym" style="color:var(--accent)">AMD</div><div style="color:var(--text-muted);font-size:11px">超微半導體 AMD</div><span class="tag">💾 AI 晶片</span></td>
-  <td><span style="font-weight:700;color:#fff">$467.51</span></td>
-  <td><span class="change up">+3.99%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:481.41</div><div style="color:var(--text-muted);font-size:11px">L:107.67</div></td>
-  <td style="text-align:center;font-weight:600">2.4</td>
-  <td style="text-align:center;color:var(--red);font-weight:600">124.67</td>
-  <td><span class="rating-badge rb-buy">Buy</span><br><span style="color:var(--text-muted);font-size:10px">45位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$733B</td>
-  <td style="font-weight:800;font-size:22px;color:var(--yellow);text-align:center">3</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">價格已達52週區間頂部，風險報酬比惡化 / Beta=2.4，市場情緒聚焦</td>
-</tr>
+      <td class="rank-num ">7</td>
+      <td><div class="sym" style="color:#5b7fff">AMD</div><div style="color:#556;font-size:11px">超微半導體 AMD</div><span class="tag">💾 AI 晶片</span></td>
+      <td><span style="font-weight:700;color:#fff">$467.51</span></td>
+      <td><span class="change up">+3.99%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:481.41</div><div style="color:#444;font-size:11px">L:107.67</div></td>
+      <td style="text-align:center;font-weight:600">2.4</td>
+      <td style="text-align:center;color:#ff5c5c;font-weight:600">124.67</td>
+      <td><span class="rating-badge rb-buy">Buy</span><br><span style="color:#555;font-size:10px">45位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$733B</td>
+      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">3</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">價格已達52週區間頂部，風險報酬比惡化 / Beta=2.4，市場情緒聚焦</td>
+    </tr>
 <tr>
-  <td class="rank-num ">8</td>
-  <td><div class="sym" style="color:var(--accent)">LUMN</div><div style="color:var(--text-muted);font-size:11px">Lumen Technologies</div><span class="tag">📡 企業光纖</span></td>
-  <td><span style="font-weight:700;color:#fff">$4.20</span></td>
-  <td><span class="change up">+2.0%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:9.0</div><div style="color:var(--text-muted);font-size:11px">L:2.5</div></td>
-  <td style="text-align:center;font-weight:600">1.65</td>
-  <td style="text-align:center;color:var(--green);font-weight:600">0.0</td>
-  <td><span class="rating-badge rb-hold">Hold</span><br><span style="color:var(--text-muted);font-size:10px">15位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$4B</td>
-  <td style="font-weight:800;font-size:22px;color:var(--yellow);text-align:center">3</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">價格處52週區間底部26%，爆發空間大</td>
-</tr>
+      <td class="rank-num ">8</td>
+      <td><div class="sym" style="color:#5b7fff">LUMN</div><div style="color:#556;font-size:11px">Lumen Technologies</div><span class="tag">📡 企業光纖</span></td>
+      <td><span style="font-weight:700;color:#fff">$4.20</span></td>
+      <td><span class="change up">+2.0%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:9.0</div><div style="color:#444;font-size:11px">L:2.5</div></td>
+      <td style="text-align:center;font-weight:600">1.65</td>
+      <td style="text-align:center;color:#24e08a;font-weight:600">0.0</td>
+      <td><span class="rating-badge rb-hold">Hold</span><br><span style="color:#555;font-size:10px">15位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$4B</td>
+      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">3</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">價格處52週區間底部26%，爆發空間大</td>
+    </tr>
 <tr>
-  <td class="rank-num ">9</td>
-  <td><div class="sym" style="color:var(--accent)">NET</div><div style="color:var(--text-muted);font-size:11px">Cloudflare</div><span class="tag">🔐 AI 網路/資安</span></td>
-  <td><span style="font-weight:700;color:#fff">$216.17</span></td>
-  <td><span class="change up">+1.66%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:260.0</div><div style="color:var(--text-muted);font-size:11px">L:154.93</div></td>
-  <td style="text-align:center;font-weight:600">1.67</td>
-  <td style="text-align:center;color:var(--green);font-weight:600">0.0</td>
-  <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:var(--text-muted);font-size:10px">33位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$75B</td>
-  <td style="font-weight:800;font-size:22px;color:var(--yellow);text-align:center">3</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">離52W低點+39.5%，已脫離底部</td>
-</tr>
+      <td class="rank-num ">9</td>
+      <td><div class="sym" style="color:#5b7fff">NET</div><div style="color:#556;font-size:11px">Cloudflare</div><span class="tag">📡🔐 AI 網路/安全</span></td>
+      <td><span style="font-weight:700;color:#fff">$216.17</span></td>
+      <td><span class="change up">+1.66%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:260.0</div><div style="color:#444;font-size:11px">L:154.93</div></td>
+      <td style="text-align:center;font-weight:600">1.67</td>
+      <td style="text-align:center;color:#24e08a;font-weight:600">0.0</td>
+      <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:#555;font-size:10px">33位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$75B</td>
+      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">3</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點+39.5%，已脫離底部</td>
+    </tr>
 <tr>
-  <td class="rank-num ">10</td>
-  <td><div class="sym" style="color:var(--accent)">PLTR</div><div style="color:var(--text-muted);font-size:11px">Palantir</div><span class="tag">🤖 AI 大數據分析</span></td>
-  <td><span style="font-weight:700;color:#fff">$258.88</span></td>
-  <td><span class="change up">+5.2%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:587.0</div><div style="color:var(--text-muted);font-size:11px">L:60.0</div></td>
-  <td style="text-align:center;font-weight:600">2.5</td>
-  <td style="text-align:center;color:var(--green);font-weight:600">0.0</td>
-  <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:var(--text-muted);font-size:10px">30位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$55B</td>
-  <td style="font-weight:800;font-size:22px;color:var(--yellow);text-align:center">3</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">Beta=2.5，市場情緒聚焦</td>
-</tr>
+      <td class="rank-num ">10</td>
+      <td><div class="sym" style="color:#5b7fff">PLTR</div><div style="color:#556;font-size:11px">Palantir</div><span class="tag">🤖 AI 大數據分析</span></td>
+      <td><span style="font-weight:700;color:#fff">$258.88</span></td>
+      <td><span class="change up">+5.2%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:587.0</div><div style="color:#444;font-size:11px">L:60.0</div></td>
+      <td style="text-align:center;font-weight:600">2.5</td>
+      <td style="text-align:center;color:#24e08a;font-weight:600">0.0</td>
+      <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:#555;font-size:10px">30位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$55B</td>
+      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">3</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">Beta=2.5，市場情緒聚焦</td>
+    </tr>
 <tr>
-  <td class="rank-num ">11</td>
-  <td><div class="sym" style="color:var(--accent)">ETN</div><div style="color:var(--text-muted);font-size:11px">Eaton</div><span class="tag">⚡ 資料中心配電</span></td>
-  <td><span style="font-weight:700;color:#fff">$391.35</span></td>
-  <td><span class="change up">+2.58%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:435.43</div><div style="color:var(--text-muted);font-size:11px">L:311.9</div></td>
-  <td style="text-align:center;font-weight:600">1.24</td>
-  <td style="text-align:center;color:var(--yellow);font-weight:600">31.22</td>
-  <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:var(--text-muted);font-size:10px">31位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$46B</td>
-  <td style="font-weight:800;font-size:22px;color:#666;text-align:center">2</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">離52W低點+25.5%，已脫離底部</td>
-</tr>
+      <td class="rank-num ">11</td>
+      <td><div class="sym" style="color:#5b7fff">ETN</div><div style="color:#556;font-size:11px">Eaton</div><span class="tag">⚡ 資料中心配電</span></td>
+      <td><span style="font-weight:700;color:#fff">$391.35</span></td>
+      <td><span class="change up">+2.58%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:435.43</div><div style="color:#444;font-size:11px">L:311.9</div></td>
+      <td style="text-align:center;font-weight:600">1.24</td>
+      <td style="text-align:center;color:#ffc107;font-weight:600">31.22</td>
+      <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:#555;font-size:10px">31位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$46B</td>
+      <td style="font-weight:800;font-size:20px;color:#666;text-align:center">2</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點+25.5%，已脫離底部</td>
+    </tr>
 <tr>
-  <td class="rank-num ">12</td>
-  <td><div class="sym" style="color:var(--accent)">CIEN</div><div style="color:var(--text-muted);font-size:11px">Ciena</div><span class="tag">📡 光纖傳輸設備</span></td>
-  <td><span style="font-weight:700;color:#fff">$50.25</span></td>
-  <td><span class="change up">+1.5%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:60.2</div><div style="color:var(--text-muted);font-size:11px">L:28.5</div></td>
-  <td style="text-align:center;font-weight:600">1.3</td>
-  <td style="text-align:center;color:var(--yellow);font-weight:600">32.1</td>
-  <td><span class="rating-badge rb-buy">Buy</span><br><span style="color:var(--text-muted);font-size:10px">18位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$9B</td>
-  <td style="font-weight:800;font-size:22px;color:#666;text-align:center">2</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">Buy（18位分析師）</td>
-</tr>
+      <td class="rank-num ">12</td>
+      <td><div class="sym" style="color:#5b7fff">CIEN</div><div style="color:#556;font-size:11px">Ciena</div><span class="tag">📡 光纖傳輸設備</span></td>
+      <td><span style="font-weight:700;color:#fff">$50.25</span></td>
+      <td><span class="change up">+1.5%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:60.2</div><div style="color:#444;font-size:11px">L:28.5</div></td>
+      <td style="text-align:center;font-weight:600">1.3</td>
+      <td style="text-align:center;color:#ffc107;font-weight:600">32.1</td>
+      <td><span class="rating-badge rb-buy">Buy</span><br><span style="color:#555;font-size:10px">18位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$9B</td>
+      <td style="font-weight:800;font-size:20px;color:#666;text-align:center">2</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">Buy（18位分析師）</td>
+    </tr>
 <tr>
-  <td class="rank-num ">13</td>
-  <td><div class="sym" style="color:var(--accent)">SMCI</div><div style="color:var(--text-muted);font-size:11px">超微電腦 Super Micro</div><span class="tag">🖥️ AI 伺服器</span></td>
-  <td><span style="font-weight:700;color:#fff">$35.58</span></td>
-  <td><span class="change up">+6.34%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:62.36</div><div style="color:var(--text-muted);font-size:11px">L:19.48</div></td>
-  <td style="text-align:center;font-weight:600">1.69</td>
-  <td style="text-align:center;color:var(--green);font-weight:600">18.49</td>
-  <td><span class="rating-badge rb-hold">Hold</span><br><span style="color:var(--text-muted);font-size:10px">19位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$20B</td>
-  <td style="font-weight:800;font-size:22px;color:#666;text-align:center">1</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px"></td>
-</tr>
+      <td class="rank-num ">13</td>
+      <td><div class="sym" style="color:#5b7fff">SMCI</div><div style="color:#556;font-size:11px">超微電腦 Super Micro</div><span class="tag">🖥️ AI 伺服器</span></td>
+      <td><span style="font-weight:700;color:#fff">$35.58</span></td>
+      <td><span class="change up">+6.34%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:62.36</div><div style="color:#444;font-size:11px">L:19.48</div></td>
+      <td style="text-align:center;font-weight:600">1.69</td>
+      <td style="text-align:center;color:#24e08a;font-weight:600">18.49</td>
+      <td><span class="rating-badge rb-hold">Hold</span><br><span style="color:#555;font-size:10px">19位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$20B</td>
+      <td style="font-weight:800;font-size:20px;color:#666;text-align:center">1</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px"></td>
+    </tr>
 <tr>
-  <td class="rank-num ">14</td>
-  <td><div class="sym" style="color:var(--accent)">AVGO</div><div style="color:var(--text-muted);font-size:11px">博通 Broadcom</div><span class="tag">📡 AI 網路/ASIC</span></td>
-  <td><span style="font-weight:700;color:#fff">$414.14</span></td>
-  <td><span class="change down">-0.10%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:442.36</div><div style="color:var(--text-muted);font-size:11px">L:226.18</div></td>
-  <td style="text-align:center;font-weight:600">1.43</td>
-  <td style="text-align:center;color:var(--yellow);font-weight:600">32.47</td>
-  <td><span class="rating-badge rb-buy">Buy</span><br><span style="color:var(--text-muted);font-size:10px">42位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$1.96T</td>
-  <td style="font-weight:800;font-size:22px;color:#666;text-align:center">1</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px">價格已達52週區間頂部，風險報酬比惡化 / Buy（42位分析師）</td>
-</tr>
+      <td class="rank-num ">14</td>
+      <td><div class="sym" style="color:#5b7fff">AVGO</div><div style="color:#556;font-size:11px">博通 Broadcom</div><span class="tag">📡 AI 網路/ASIC</span></td>
+      <td><span style="font-weight:700;color:#fff">$414.14</span></td>
+      <td><span class="change down">-0.10%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:442.36</div><div style="color:#444;font-size:11px">L:226.18</div></td>
+      <td style="text-align:center;font-weight:600">1.43</td>
+      <td style="text-align:center;color:#ffc107;font-weight:600">32.47</td>
+      <td><span class="rating-badge rb-buy">Buy</span><br><span style="color:#555;font-size:10px">42位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$1.96T</td>
+      <td style="font-weight:800;font-size:20px;color:#666;text-align:center">1</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px">價格已達52週區間頂部，風險報酬比惡化 / Buy（42位分析師）</td>
+    </tr>
 <tr>
-  <td class="rank-num ">15</td>
-  <td><div class="sym" style="color:var(--accent)">GLW</div><div style="color:var(--text-muted);font-size:11px">康寧 Corning</div><span class="tag">📡 光纖/玻璃基板</span></td>
-  <td><span style="font-weight:700;color:#fff">$38.50</span></td>
-  <td><span class="change up">+3.0%</span></td>
-  <td><div style="color:var(--text-dim);font-size:11px">H:45.2</div><div style="color:var(--text-muted);font-size:11px">L:18.0</div></td>
-  <td style="text-align:center;font-weight:600">1.14</td>
-  <td style="text-align:center;color:var(--red);font-weight:600">67.17</td>
-  <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:var(--text-muted);font-size:10px">25位覆蓋</span></td>
-  <td style="font-size:12px;color:var(--text-dim)">$29B</td>
-  <td style="font-weight:800;font-size:22px;color:#666;text-align:center">1</td>
-  <td style="font-size:11px;color:var(--text-dim);max-width:200px"></td>
-</tr>
+      <td class="rank-num ">15</td>
+      <td><div class="sym" style="color:#5b7fff">GLW</div><div style="color:#556;font-size:11px">康寧 Corning</div><span class="tag">📡 光纖/玻璃基板</span></td>
+      <td><span style="font-weight:700;color:#fff">$38.50</span></td>
+      <td><span class="change up">+3.0%</span></td>
+      <td><div style="color:#a0a8d0;font-size:11px">H:45.2</div><div style="color:#444;font-size:11px">L:18.0</div></td>
+      <td style="text-align:center;font-weight:600">1.14</td>
+      <td style="text-align:center;color:#ff5c5c;font-weight:600">67.17</td>
+      <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:#555;font-size:10px">25位覆蓋</span></td>
+      <td style="font-size:12px;color:#8090c0">$29B</td>
+      <td style="font-weight:800;font-size:20px;color:#666;text-align:center">1</td>
+      <td style="font-size:11px;color:#8090c0;max-width:200px"></td>
+    </tr>
     </tbody>
   </table>
 </div>
 
-<!-- ========== DEEP ANALYSIS CARDS ========== -->
-<div class="section animate-in" style="animation-delay:0.25s">
-  <div class="section-header">
-    <span class="section-icon">💼</span>
-    <h2>深度個股分析（AI 供應鏈核心標的）</h2>
+<!-- BARCHART SIGNAL STRENGTH TABLE -->
+<div class="section">
+  <h2>🏆 Barchart Top 1% Signal Strength — AI 相關個股（強勢股深度分析區）</h2>
+  <div style="margin-bottom:14px;padding:12px;background:rgba(36,224,138,0.05);border:1px solid rgba(36,224,138,0.15);border-radius:10px">
+    <div style="color:#24e08a;font-weight:700;margin-bottom:6px">📡 什麼是 Top 1% Signal Strength？</div>
+    <div style="color:#8090b0;font-size:12px;line-height:1.8">
+      <b>信號強度（Signal Strength）</b>是 Barchart 付費會員專屬技術指標，衡量買/賣信號相對於歷史的強度。<b>Top 1%</b> 為史上最強級別，只有前 1% 股票能達到。<br>
+      <b>100% Buy</b> = 完全買入信號，強度 Top 1%，表示所有技術指標共識強烈看漲。<br>
+      <b>此區為「強勢股」區</b> — 這些股票已經被市場力量推升至技術面最強位置，適合順勢而為。<br>
+      <b>⚠️ 注意</b>：強勢股不代表不會回調，請結合深度分析報告的估值與基本面综合判斷。<br>
+      <b>🔄 每日更新</b>：資料來源 Barchart，2026/05/22 19:41 ET 更新
+    </div>
   </div>
-  <div class="stock-grid">
-
-    <!-- NVDA -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">NVDA</div>
-          <div class="name">輝達 Nvidia</div>
-          <span class="tag">💾 AI 晶片</span>
-        </div>
-        <div class="score-badge">10分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$215.33</div>
-        <div class="change down">-1.90%</div>
-      </div>
-      <div class="range">52週區間 129.16 ~ 236.54</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">39.41</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">2.25</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$5.3T</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">49位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$4.57</td></tr>
-        <tr><td>年營收</td><td>$215,938M</td></tr>
-        <tr><td>年淨利</td><td>$120,067M</td></tr>
-        <tr><td>評級</td><td style="color:var(--green)">Strong Buy</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：AI 晶片龍頭</div>
-        <div class="sig" style="color:var(--text)">全球 AI GPU 壟斷者，H100/H200 需求超預期，Blackwell 架構領先對手至少 2 年</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：GPU 供給遠低於需求，H100 租金持續上漲 20%</div>
-        <div class="sig">離52W低點僅+-68.0%，機構低檔佈局</div>
-        <div class="sig">價格處52週區間底部-82%，爆發空間大</div>
-        <div class="sig">Strong Buy（49位分析師）</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
-    <!-- VST -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">VST</div>
-          <div class="name">Vistra</div>
-          <span class="tag">⚡ 資料中心電力</span>
-        </div>
-        <div class="score-badge">8分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$156.27</div>
-        <div class="change up">+4.82%</div>
-      </div>
-      <div class="range">52週區間 132.66 ~ 219.82</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">18.44</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.43</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$50B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">17位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$8.48</td></tr>
-        <tr><td>年營收</td><td>$17,738M</td></tr>
-        <tr><td>年淨利</td><td>$944M</td></tr>
-        <tr><td>評級</td><td style="color:var(--green)">Strong Buy</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：美國電力零售</div>
-        <div class="sig" style="color:var(--text)">美國最大電力零售商之一，天然氣+核電雙軌供電，直接簽約大型資料中心</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：美國電網擴建落後算力需求 3-5 年，供需失衡明確</div>
-        <div class="sig">離52W低點僅+17.8%，機構低檔佈局</div>
-        <div class="sig">價格處52週區間底部27%，爆發空間大</div>
-        <div class="sig">Strong Buy（17位分析師）</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
-    <!-- CEG -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">CEG</div>
-          <div class="name">Constellation Energy</div>
-          <span class="tag">☢️ 核能供電</span>
-        </div>
-        <div class="score-badge">6分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$294.07</div>
-        <div class="change up">+2.88%</div>
-      </div>
-      <div class="range">52週區間 243.3 ~ 412.7</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">28.15</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.14</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$61B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">20位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$10.45</td></tr>
-        <tr><td>年營收</td><td>$24,500M</td></tr>
-        <tr><td>年淨利</td><td>$2,900M</td></tr>
-        <tr><td>評級</td><td style="color:var(--green)">Strong Buy</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：核電廠運營</div>
-        <div class="sig" style="color:var(--text)">美國最大核電廠運營商，Microsoft/Google 爭相簽署核能供電協議</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：核能執照為稀有資產，新建核電廠需 10+ 年</div>
-        <div class="sig">離52W低點+20.9%，已脫離底部</div>
-        <div class="sig">價格處52週區間底部30%，爆發空間大</div>
-        <div class="sig">Strong Buy（20位分析師）</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
-    <!-- AMKR -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">AMKR</div>
-          <div class="name">Amkor Technology</div>
-          <span class="tag">📦 先進封裝</span>
-        </div>
-        <div class="score-badge">6分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$25.50</div>
-        <div class="change up">+1.0%</div>
-      </div>
-      <div class="range">52週區間 17.79 ~ 79.23</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">39.14</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">2.29</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$2B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">20位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$0.65</td></tr>
-        <tr><td>年營收</td><td>$7,000M</td></tr>
-        <tr><td>年淨利</td><td>$600M</td></tr>
-        <tr><td>評級</td><td style="color:var(--green)">Moderate Buy</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：先進封裝</div>
-        <div class="sig" style="color:var(--text)">全球唯一獨立先進封裝廠，為蘋果、NVDA 提供 CoWoS/HBM 封裝服務</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：CoWoS 需求增速 >100%/年，供給極度受限</div>
-        <div class="sig">離52W低點+43.3%，已脫離底部</div>
-        <div class="sig">價格處52週區間底部13%，爆發空間大</div>
-        <div class="sig">Beta=2.29，市場情緒聚焦</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/AMKR/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
-    <!-- MU -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">MU</div>
-          <div class="name">美光科技 Micron</div>
-          <span class="tag">💾 記憶體</span>
-        </div>
-        <div class="score-badge">4分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$503.49</div>
-        <div class="change up">+1.41%</div>
-      </div>
-      <div class="range">52週區間 90.93 ~ 818.67</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">34.4</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.91</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$859B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">41位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$14.64</td></tr>
-        <tr><td>年營收</td><td>$37,378M</td></tr>
-        <tr><td>年淨利</td><td>$8,539M</td></tr>
-        <tr><td>評級</td><td style="color:var(--green)">Strong Buy</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：HBM 記憶體</div>
-        <div class="sig" style="color:var(--text)">HBM3 主要供應商之一（與 SK Hynix 並列），AI 伺服器記憶體需求爆發</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：HBM 供給受限三星與 SK，擴產需 18-24 個月，供需缺口持續</div>
-        <div class="sig">Strong Buy（41位分析師）</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
-    <!-- SPXC -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">SPXC</div>
-          <div class="name">SPX Technologies</div>
-          <span class="tag">🧊 資料中心散熱</span>
-        </div>
-        <div class="score-badge">4分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$207.80</div>
-        <div class="change up">+1.17%</div>
-      </div>
-      <div class="range">52週區間 147.39 ~ 246.68</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">29.11</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.31</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$10B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">16位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$7.12</td></tr>
-        <tr><td>年營收</td><td>$5,200M</td></tr>
-        <tr><td>年淨利</td><td>$540M</td></tr>
-        <tr><td>評級</td><td style="color:var(--green)">Strong Buy</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：資料中心散熱</div>
-        <div class="sig" style="color:var(--text)">資料中心通風與冷卻設備龍頭，旗下 Marley 散熱系統，液冷需求爆發</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：液冷系統產能擴張需 12-18 個月，供需缺口明確</div>
-        <div class="sig">離52W低點+41.0%，已脫離底部</div>
-        <div class="sig">Strong Buy（16位分析師）</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/SPXC/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
-    <!-- AMD -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">AMD</div>
-          <div class="name">超微半導體 AMD</div>
-          <span class="tag">💾 AI 晶片</span>
-        </div>
-        <div class="score-badge">3分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$467.51</div>
-        <div class="change up">+3.99%</div>
-      </div>
-      <div class="range">52週區間 107.67 ~ 481.41</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">124.67</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">2.4</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$733B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">45位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$4.57</td></tr>
-        <tr><td>年營收</td><td>$34,639M</td></tr>
-        <tr><td>年淨利</td><td>$4,335M</td></tr>
-        <tr><td>評級</td><td style="color:var(--green)">Buy</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：AI GPU</div>
-        <div class="sig" style="color:var(--text)">MI300X GPU 在資料中心滲透率持續提升，性價比高於 NVDA</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：MI300X 產能擴張中，2026 年有望搶下更多市佔</div>
-        <div class="sig">價格已達52週區間頂部，風險報酬比惡化</div>
-        <div class="sig">Beta=2.4，市場情緒聚焦</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/AMD/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
-    <!-- LUMN -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">LUMN</div>
-          <div class="name">Lumen Technologies</div>
-          <span class="tag">📡 企業光纖</span>
-        </div>
-        <div class="score-badge">3分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$4.20</div>
-        <div class="change up">+2.0%</div>
-      </div>
-      <div class="range">52週區間 2.5 ~ 9.0</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.65</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$4B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">15位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>-$0.30</td></tr>
-        <tr><td>年營收</td><td>$14,000M</td></tr>
-        <tr><td>年淨利</td><td>-$1,200M</td></tr>
-        <tr><td>評級</td><td style="color:var(--yellow)">Hold</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：企業光纖</div>
-        <div class="sig" style="color:var(--text)">被嚴重低估的企業光纖網路股，擁有美國最大企業光纖骨幹網路之一</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：企業光纖建設落後需求，光纖網路價值被嚴重低估</div>
-        <div class="sig">價格處52週區間底部26%，爆發空間大</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/LUMN/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
-    <!-- CRWD -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">CRWD</div>
-          <div class="name">CrowdStrike</div>
-          <span class="tag">🔐 AI 資安</span>
-        </div>
-        <div class="score-badge">1分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$663.46</div>
-        <div class="change up">+2.35%</div>
-      </div>
-      <div class="range">52週區間 342.72 ~ 674.84</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">2.29</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$1.64T</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">49位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$4.57</td></tr>
-        <tr><td>年營收</td><td>$4,812M</td></tr>
-        <tr><td>年淨利</td><td>-$162M</td></tr>
-        <tr><td>評級</td><td style="color:var(--yellow)">Hold</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：雲端資安</div>
-        <div class="sig" style="color:var(--text)">AI 時代雲端資安龍頭，Falcon 平台保護企業 AI 工作負載，近 3 個月 +63%</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：AI 用越多=資安風險越大=資安預算越多</div>
-        <div class="sig">價格已達52週區間頂部，風險報酬比惡化</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
-    <!-- GLW -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">GLW</div>
-          <div class="name">康寧 Corning</div>
-          <span class="tag">📡 光纖/玻璃基板</span>
-        </div>
-        <div class="score-badge">1分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$38.50</div>
-        <div class="change up">+3.0%</div>
-      </div>
-      <div class="range">52週區間 18.0 ~ 45.2</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">67.17</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.14</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$29B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">25位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$0.57</td></tr>
-        <tr><td>年營收</td><td>$14,000M</td></tr>
-        <tr><td>年淨利</td><td>$1,200M</td></tr>
-        <tr><td>評級</td><td style="color:var(--green)">Moderate Buy</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：光纖+玻璃基板</div>
-        <div class="sig" style="color:var(--text)">全球最大光纖線纜廠商，同時壟斷 AI/AIPC 先進封裝玻璃基板市場</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：光纖工廠建設需 3-5 年，供需失衡已確認</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
-    <!-- PLTR -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">PLTR</div>
-          <div class="name">Palantir</div>
-          <span class="tag">🤖 AI 大數據分析</span>
-        </div>
-        <div class="score-badge">3分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$258.88</div>
-        <div class="change up">+5.2%</div>
-      </div>
-      <div class="range">52週區間 60.0 ~ 587.0</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">2.5</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$55B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">30位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$1.27</td></tr>
-        <tr><td>年營收</td><td>$2,200M</td></tr>
-        <tr><td>年淨利</td><td>$386M</td></tr>
-        <tr><td>評級</td><td style="color:var(--green)">Moderate Buy</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：AI 大數據分析</div>
-        <div class="sig" style="color:var(--text)">AI 政府/國防大數據分析龍頭，Commercial 業務快速增長</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：國防 AI 預算持續增加，市場佔有率領先</div>
-        <div class="sig">Beta=2.5，市場情緒聚焦</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
-    <!-- NET -->
-    <div class="stock-card">
-      <div class="card-top">
-        <div class="card-left">
-          <div class="sym">NET</div>
-          <div class="name">Cloudflare</div>
-          <span class="tag">📡🔐 AI 網路/資安</span>
-        </div>
-        <div class="score-badge">3分</div>
-      </div>
-      <div class="price-row">
-        <div class="price">$216.17</div>
-        <div class="change up">+1.66%</div>
-      </div>
-      <div class="range">52週區間 154.93 ~ 260.0</div>
-      <div class="metrics">
-        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.67</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$75B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">33位</div><div class="lbl">分析師</div></div>
-      </div>
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>-$0.26</td></tr>
-        <tr><td>年營收</td><td>$2,168M</td></tr>
-        <tr><td>年淨利</td><td>-$102M</td></tr>
-        <tr><td>評級</td><td style="color:var(--green)">Moderate Buy</td></tr>
-      </table>
-      <div class="signals">
-        <div class="sig" style="color:var(--text-dim);font-weight:600;margin-bottom:4px">📋 基本面：CDN+零信任資安</div>
-        <div class="sig" style="color:var(--text)">AI 時代 CDN + 零信任資安 + 邊緣運算核心，與 Anthropic 合作 AI 安全代理</div>
-        <div class="sig" style="color:var(--green);font-weight:600">⚡ 供需邏輯：邊緣運算需求爆發，Cloudflare 節點網路覆蓋 300+ 城市</div>
-        <div class="sig">離52W低點+39.5%，已脫離底部</div>
-      </div>
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/NET/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-
+  
+  <h3 style="color:#8090c0;font-size:12px;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">📋 信號強度總表（按距 52W 低點排序）</h3>
+  <div style="overflow-x:auto;margin-bottom:20px">
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <thead>
+      <tr style="background:rgba(91,127,255,0.08);border-bottom:1px solid rgba(91,127,255,0.2)">
+        <th style="padding:8px 10px;text-align:left;color:#8090c0">代號</th>
+        <th style="padding:8px 10px;text-align:left;color:#8090c0">名稱</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">現價</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">日漲跌</th>
+        <th style="padding:8px 10px;text-align:center;color:#8090c0">距 52W 低</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">52W 低</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">52W 高</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">P/E</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">市值</th>
+        <th style="padding:8px 10px;text-align:center;color:#8090c0">評級</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/AMBQ/overview" target="_blank" class="bc-link">AMBQ</a></td>
+          <td style="color:#c0c8e0">Ambiq Micro Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$81.67</td>
+          <td style="text-align:right" class="up">+6.67%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/ARM/overview" target="_blank" class="bc-link">ARM</a></td>
+          <td style="color:#c0c8e0">Arm Holdings Plc ADR</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$306.51</td>
+          <td style="text-align:right" class="up">+2.78%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/ATEN/overview" target="_blank" class="bc-link">ATEN</a></td>
+          <td style="color:#c0c8e0">A10 Networks Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$29.16</td>
+          <td style="text-align:right" class="up">+2.93%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/AVT/overview" target="_blank" class="bc-link">AVT</a></td>
+          <td style="color:#c0c8e0">Avnet Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$85.91</td>
+          <td style="text-align:right" class="up">+3.01%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/BE/overview" target="_blank" class="bc-link">BE</a></td>
+          <td style="color:#c0c8e0">Bloom Energy Corp Cl A</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$302.49</td>
+          <td style="text-align:right" class="down">-1.75%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/BKSY/overview" target="_blank" class="bc-link">BKSY</a></td>
+          <td style="color:#c0c8e0">Blacksky Technology Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$47.87</td>
+          <td style="text-align:right" class="up">+7.21%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/BTSG/overview" target="_blank" class="bc-link">BTSG</a></td>
+          <td style="color:#c0c8e0">Brightspring Health Services Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$58.50</td>
+          <td style="text-align:right" class="up">+0.88%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank" class="bc-link">CIEN</a></td>
+          <td style="color:#c0c8e0">Ciena Corp</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$583.74</td>
+          <td style="text-align:right" class="down">-0.59%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/CPRX/overview" target="_blank" class="bc-link">CPRX</a></td>
+          <td style="color:#c0c8e0">Catalyst Pharm Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$31.26</td>
+          <td style="text-align:right" class="down">-0.06%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/CSCO/overview" target="_blank" class="bc-link">CSCO</a></td>
+          <td style="color:#c0c8e0">Cisco Systems Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$120.41</td>
+          <td style="text-align:right" class="up">+1.87%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/ETON/overview" target="_blank" class="bc-link">ETON</a></td>
+          <td style="color:#c0c8e0">Eton Pharmaceutcials Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$32.59</td>
+          <td style="text-align:right" class="down">-6.89%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/FCEL/overview" target="_blank" class="bc-link">FCEL</a></td>
+          <td style="color:#c0c8e0">Fuelcell Energy Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$25.01</td>
+          <td style="text-align:right" class="down">-5.19%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/INTC/overview" target="_blank" class="bc-link">INTC</a></td>
+          <td style="color:#c0c8e0">Intel Corp</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$119.84</td>
+          <td style="text-align:right" class="up">+1.13%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/JAZZ/overview" target="_blank" class="bc-link">JAZZ</a></td>
+          <td style="color:#c0c8e0">Jazz Pharma Plc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$239.83</td>
+          <td style="text-align:right" class="up">+0.18%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/LSCC/overview" target="_blank" class="bc-link">LSCC</a></td>
+          <td style="color:#c0c8e0">Lattice Semicond</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$143.22</td>
+          <td style="text-align:right" class="up">+2.78%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/LUNR/overview" target="_blank" class="bc-link">LUNR</a></td>
+          <td style="color:#c0c8e0">Intuitive Machines Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$38.26</td>
+          <td style="text-align:right" class="up">+11.74%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/MRVL/overview" target="_blank" class="bc-link">MRVL</a></td>
+          <td style="color:#c0c8e0">Marvell Technology Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$196.33</td>
+          <td style="text-align:right" class="up">+2.96%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank" class="bc-link">MU</a></td>
+          <td style="color:#c0c8e0">Micron Technology</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$751.00</td>
+          <td style="text-align:right" class="down">-1.46%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/MX/overview" target="_blank" class="bc-link">MX</a></td>
+          <td style="color:#c0c8e0">Magnachip Semiconductor Corp</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$5.52</td>
+          <td style="text-align:right" class="down">-4.17%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/NGL/overview" target="_blank" class="bc-link">NGL</a></td>
+          <td style="color:#c0c8e0">Ngl Energy Partners LP</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$18.11</td>
+          <td style="text-align:right" class="up">+2.78%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/NVTS/overview" target="_blank" class="bc-link">NVTS</a></td>
+          <td style="color:#c0c8e0">Navitas Semiconductor Corp</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$29.25</td>
+          <td style="text-align:right" class="up">+19.98%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/ON/overview" target="_blank" class="bc-link">ON</a></td>
+          <td style="color:#c0c8e0">On Semiconductor</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$116.20</td>
+          <td style="text-align:right" class="up">+6.01%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/PAA/overview" target="_blank" class="bc-link">PAA</a></td>
+          <td style="color:#c0c8e0">Plains All American Pipeline LP</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$24.15</td>
+          <td style="text-align:right" class="up">+1.98%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/PL/overview" target="_blank" class="bc-link">PL</a></td>
+          <td style="color:#c0c8e0">Planet Labs Pbc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$44.35</td>
+          <td style="text-align:right" class="up">+4.40%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/PNRG/overview" target="_blank" class="bc-link">PNRG</a></td>
+          <td style="color:#c0c8e0">Primeenergy Corp</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$259.24</td>
+          <td style="text-align:right" class="up">+4.54%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/RKLB/overview" target="_blank" class="bc-link">RKLB</a></td>
+          <td style="color:#c0c8e0">Rocket Lab Corporation</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$135.76</td>
+          <td style="text-align:right" class="up">+8.22%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/RPRX/overview" target="_blank" class="bc-link">RPRX</a></td>
+          <td style="color:#c0c8e0">Royalty Pharma Plc Cl A</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$54.50</td>
+          <td style="text-align:right" class="up">+1.77%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/SATL/overview" target="_blank" class="bc-link">SATL</a></td>
+          <td style="color:#c0c8e0">Satellogic Inc Cl A</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$10.61</td>
+          <td style="text-align:right" class="up">+10.06%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/TRP/overview" target="_blank" class="bc-link">TRP</a></td>
+          <td style="color:#c0c8e0">TC Energy Corp</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$70.91</td>
+          <td style="text-align:right" class="up">+0.50%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/TSEM/overview" target="_blank" class="bc-link">TSEM</a></td>
+          <td style="color:#c0c8e0">Tower Semiconductor</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$283.43</td>
+          <td style="text-align:right" class="up">+1.58%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr><tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/TUSK/overview" target="_blank" class="bc-link">TUSK</a></td>
+          <td style="color:#c0c8e0">Mammoth Energy Services Inc</td>
+          <td style="text-align:right;font-weight:700;color:#fff">$3.25</td>
+          <td style="text-align:right" class="down">-4.69%</td>
+          <td style="text-align:center">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right;color:#a0a8d0">—</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">—</td>
+          <td style="color:#24e08a;font-weight:600">100% Buy</td>
+        </tr>
+    </tbody>
+  </table>
   </div>
 </div>
 
-<!-- ========== SUPPLY/SIGNALS ========== -->
-<div class="section animate-in" style="animation-delay:0.3s">
-  <div class="section-header">
-    <span class="section-icon">🔥</span>
-    <h2>供需失衡核心邏輯</h2>
+<div class="section">
+  <h3 style="color:#8090c0;font-size:12px;text-transform:uppercase;letter-spacing:1px;border-left:3px solid #24e08a;padding-left:10px;margin-bottom:16px">💡 強勢股精選速覽（點擊查看詳細）</h3>
+  <div class="stock-grid">
+  <div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">AMBQ</div>
+              <div style="color:#556;font-size:11px">Ambiq Micro Inc</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$81.67</div>
+              <div style="font-size:12px" class="up">+6.67%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/AMBQ/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div><div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">ARM</div>
+              <div style="color:#556;font-size:11px">Arm Holdings Plc ADR</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$306.51</div>
+              <div style="font-size:12px" class="up">+2.78%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/ARM/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div><div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">ATEN</div>
+              <div style="color:#556;font-size:11px">A10 Networks Inc</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$29.16</div>
+              <div style="font-size:12px" class="up">+2.93%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/ATEN/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div><div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">AVT</div>
+              <div style="color:#556;font-size:11px">Avnet Inc</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$85.91</div>
+              <div style="font-size:12px" class="up">+3.01%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/AVT/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div><div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">BE</div>
+              <div style="color:#556;font-size:11px">Bloom Energy Corp Cl A</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$302.49</div>
+              <div style="font-size:12px" class="down">-1.75%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/BE/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div><div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">BKSY</div>
+              <div style="color:#556;font-size:11px">Blacksky Technology Inc</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$47.87</div>
+              <div style="font-size:12px" class="up">+7.21%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/BKSY/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div><div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">BTSG</div>
+              <div style="color:#556;font-size:11px">Brightspring Health Services Inc</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$58.50</div>
+              <div style="font-size:12px" class="up">+0.88%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/BTSG/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div><div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">CIEN</div>
+              <div style="color:#556;font-size:11px">Ciena Corp</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$583.74</div>
+              <div style="font-size:12px" class="down">-0.59%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div><div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">CPRX</div>
+              <div style="color:#556;font-size:11px">Catalyst Pharm Inc</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$31.26</div>
+              <div style="font-size:12px" class="down">-0.06%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/CPRX/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div><div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">CSCO</div>
+              <div style="color:#556;font-size:11px">Cisco Systems Inc</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$120.41</div>
+              <div style="font-size:12px" class="up">+1.87%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/CSCO/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div><div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">ETON</div>
+              <div style="color:#556;font-size:11px">Eton Pharmaceutcials Inc</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$32.59</div>
+              <div style="font-size:12px" class="down">-6.89%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/ETON/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div><div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">FCEL</div>
+              <div style="color:#556;font-size:11px">Fuelcell Energy Inc</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">$25.01</div>
+              <div style="font-size:12px" class="down">-5.19%</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">100% Buy</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 —</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E — · 市值 —</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/FCEL/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div>
   </div>
+</div>
+
+<!-- STOCK CARDS -->
+<div class="section">
+  <h2>💼 深度個股分析（AI 供應鏈核心標的）</h2>
+  <div class="stock-grid">
+
+
+<div class="section">
+  <h2>🔥 供需失衡核心邏輯（康寧邏輯延伸版）</h2>
   <div class="supply-box">
     <div class="title">📡 光纖骨幹網路供需失衡</div>
     <div class="desc">AI 資料傳輸需求爆發，光纖工廠建設周期 3-5 年，供需缺口早在 2025 年已出現。GLW（康寧）從 $18 漲至 $38（+111%）已驗證此邏輯。LUMN 企業光纖需求被嚴重低估，CIEN 為光纖傳輸設備廠。</div>
@@ -1897,42 +948,787 @@ a:hover{text-decoration:underline}
   </div>
 </div>
 
-<!-- ========== NEWS ========== -->
-<div class="section animate-in" style="animation-delay:0.35s">
-  <div class="section-header">
-    <span class="section-icon">📰</span>
-    <h2>科技要聞摘要（2026/05/24）</h2>
+<div class="section">
+  <div class="cat-header">
+    <div class="cat-icon">💾</div>
+    <div class="cat-title">AI</div>
   </div>
-  <div class="news-grid">
-    <div class="news-card">
-      <div class="news-cat" style="background:rgba(91,127,255,0.1);color:var(--accent)">💾 AI</div>
-      <div class="news-title"><a href="#">AI 被用來重建已故飛行員語音录音，引發 NTSB 封鎖爭議</a></div>
-      <div class="news-title"><a href="#">Google 推出 AI 眼鏡原型，Gemini 驅動翻譯與導航</a></div>
-      <div class="news-title"><a href="#">創投與創辦人操縱 ARR 數據，AI 新創估值泡沫疑慮浮現</a></div>
+  <div class="stock-grid">
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">NVDA</div>
+          <div class="name">輝達 Nvidia</div>
+          <span class="tag">💾 AI 晶片</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#24e08a">10分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$215.33</div>
+        <div class="change down">-1.90%</div>
+      </div>
+      <div class="range">52週區間 129.16 ~ 236.54</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">39.41</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">2.25</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$5.3T</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">49位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$4.57</td></tr>
+        <tr><td>年營收</td><td>$215,938M</td></tr>
+        <tr><td>年淨利</td><td>$120,067M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 晶片</div>
+        <div class="sig" style="color:#c0c8e0">全球 AI GPU 龍頭，H100/H200 需求壟斷，Blackwell 下一代架構領先對手至少 2 年。資料中心營收佔比 >80%，直接受益 AI 算力需求。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：GPU 供給遠低於需求，H100 租金持續上漲 20%。</div>
+        <div class="sig">離52W低點僅+-68.0%，機構低檔佈局</div> <div class="sig">價格處52週區間底部-82%，爆發空間大</div> <div class="sig">Beta=2.25，市場情緒聚焦</div> <div class="sig">Strong Buy（49位分析師）</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank">📊 詳細報價 → Barchart</a>
     </div>
-    <div class="news-card">
-      <div class="news-cat" style="background:rgba(249,115,22,0.1);color:var(--orange)">🚀 Space</div>
-      <div class="news-title"><a href="#">SpaceX Starship V3 首射成功，助推器返回時損失</a></div>
-      <div class="news-title"><a href="#">SpaceX 申請 IPO，估值 28 兆 TAM，史上最大 IPO</a></div>
-      <div class="news-title"><a href="#">Blue Origin 獲准恢復 New Glenn 飛行</a></div>
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">AMD</div>
+          <div class="name">超微半導體 AMD</div>
+          <span class="tag">💾 AI 晶片</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">3分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$467.51</div>
+        <div class="change up">+3.99%</div>
+      </div>
+      <div class="range">52週區間 107.67 ~ 481.41</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">124.67</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">2.4</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$733B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">45位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$4.57</td></tr>
+        <tr><td>年營收</td><td>$34,639M</td></tr>
+        <tr><td>年淨利</td><td>$4,335M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 晶片</div>
+        <div class="sig" style="color:#c0c8e0">MI300X GPU 在資料中心滲透率持續提升，性價比高於 NVDA。Zen 5 CPU 市場份額擴大，EPYC 伺服器處理器受益雲端擴張。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：MI300X 產能擴張中，2026 年有機會在資料中心搶下更多市佔。</div>
+        <div class="sig">價格已達52週區間頂部，風險報酬比惡化</div> <div class="sig">Beta=2.4，市場情緒聚焦</div> <div class="sig">Buy（45位分析師）</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/AMD/overview" target="_blank">📊 詳細報價 → Barchart</a>
     </div>
-    <div class="news-card">
-      <div class="news-cat" style="background:rgba(236,72,153,0.1);color:var(--pink)">🔐 安全</div>
-      <div class="news-title"><a href="#">Kash Patel 服飾網站遭駭，惡意軟體散布</a></div>
-      <div class="news-title"><a href="#">Trump Mobile 證實客户個資外洩</a></div>
-      <div class="news-title"><a href="#">CrowdStrike 推出 Claude 合規 API，AI 資安需求增</a></div>
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">AVGO</div>
+          <div class="name">博通 Broadcom</div>
+          <span class="tag">📡 AI 網路/ASIC</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">1分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$414.14</div>
+        <div class="change down">-0.10%</div>
+      </div>
+      <div class="range">52週區間 226.18 ~ 442.36</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">32.47</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.43</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$1.96T</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">42位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$23.00</td></tr>
+        <tr><td>年營收</td><td>$63,887M</td></tr>
+        <tr><td>年淨利</td><td>$23,126M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 網路/ASIC</div>
+        <div class="sig" style="color:#c0c8e0">AI 資料中心網路交換器、客製化 ASIC（Google TPU、Meta 資料中心）核心供應商。PE 32x 合理，Beta 1.43 波動低於同業。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：ASIC 訂單能見度佳，但來自華為等中國廠商營收有風險。</div>
+        <div class="sig">價格已達52週區間頂部，風險報酬比惡化</div> <div class="sig">Buy（42位分析師）</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/AVGO/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">MU</div>
+          <div class="name">美光科技 Micron</div>
+          <span class="tag">💾 記憶體</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">4分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$503.49</div>
+        <div class="change up">+1.41%</div>
+      </div>
+      <div class="range">52週區間 90.93 ~ 818.67</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">34.4</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.91</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$859B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">41位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$14.64</td></tr>
+        <tr><td>年營收</td><td>$37,378M</td></tr>
+        <tr><td>年淨利</td><td>$8,539M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：記憶體</div>
+        <div class="sig" style="color:#c0c8e0">HBM3 主要供應商之一（與 SK Hynix 並列），AI 伺服器記憶體需求爆發。股價從 $818 高點回落至 $503，估值進入合理區間。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：HBM 供給受限三星與 SK，擴產需 18-24 個月，供需缺口持續。</div>
+        <div class="sig">Strong Buy（41位分析師）</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank">📊 詳細報價 → Barchart</a>
     </div>
   </div>
 </div>
-
-<!-- ========== FOOTER ========== -->
+<div class="section">
+  <div class="cat-header">
+    <div class="cat-icon">🖥️</div>
+    <div class="cat-title">AI</div>
+  </div>
+  <div class="stock-grid">
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">SMCI</div>
+          <div class="name">超微電腦 Super Micro</div>
+          <span class="tag">🖥️ AI 伺服器</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">1分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$35.58</div>
+        <div class="change up">+6.34%</div>
+      </div>
+      <div class="range">52週區間 19.48 ~ 62.36</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">18.49</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.69</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$20B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">19位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$1.93</td></tr>
+        <tr><td>年營收</td><td>$21,972M</td></tr>
+        <tr><td>年淨利</td><td>$1,049M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Hold</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 伺服器</div>
+        <div class="sig" style="color:#c0c8e0">全球最大 AI 伺服器系統整合商，直接受益 Microsoft/Google/Amazon/OAI 資料中心建設。已從低點 $19.48 暴漲至 $35.58（+82%）。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：訂單能見度極高，但組裝產能仍是瓶頸，積壓訂單創歷史新高。</div>
+        
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/SMCI/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="cat-header">
+    <div class="cat-icon">⚡</div>
+    <div class="cat-title">資料中心電力基建</div>
+  </div>
+  <div class="stock-grid">
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">VST</div>
+          <div class="name">Vistra</div>
+          <span class="tag">⚡ 資料中心電力</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#24e08a">8分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$156.27</div>
+        <div class="change up">+4.82%</div>
+      </div>
+      <div class="range">52週區間 132.66 ~ 219.82</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">18.44</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.43</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$50B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">17位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$8.48</td></tr>
+        <tr><td>年營收</td><td>$17,738M</td></tr>
+        <tr><td>年淨利</td><td>$944M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：資料中心電力</div>
+        <div class="sig" style="color:#c0c8e0">美國最大電力零售商之一，擁有天然氣 + 核電雙軌供電。直接簽約大型資料中心（Microsoft 等），AI 用電需求是核心成長引擎。PE 18.4 便宜。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：美國電網擴建落後算力需求 3-5 年，長期供需失衡明確。</div>
+        <div class="sig">離52W低點僅+17.8%，機構低檔佈局</div> <div class="sig">價格處52週區間底部27%，爆發空間大</div> <div class="sig">Strong Buy（17位分析師）</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">ETN</div>
+          <div class="name">Eaton</div>
+          <span class="tag">⚡ 資料中心配電</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">2分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$391.35</div>
+        <div class="change up">+2.58%</div>
+      </div>
+      <div class="range">52週區間 311.9 ~ 435.43</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">31.22</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.24</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$46B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">31位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$12.53</td></tr>
+        <tr><td>年營收</td><td>$24,700M</td></tr>
+        <tr><td>年淨利</td><td>$3,240M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Moderate Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：資料中心配電</div>
+        <div class="sig" style="color:#c0c8e0">全球最大配電設備廠之一，智慧配電系統（Smart Grid）用於資料中心。AI 資料中心擴張直接拉動配電盤、變壓器需求。PE 31x，分析师 Moderate Buy。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：電網設備擴產需要 2-3 年，供需缺口明確。</div>
+        <div class="sig">離52W低點+25.5%，已脫離底部</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/ETN/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">CEG</div>
+          <div class="name">Constellation Energy</div>
+          <span class="tag">☢️ 核能供電</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#5b7fff">6分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$294.07</div>
+        <div class="change up">+2.88%</div>
+      </div>
+      <div class="range">52週區間 243.3 ~ 412.7</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">28.15</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.14</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$61B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">20位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$10.45</td></tr>
+        <tr><td>年營收</td><td>$24,500M</td></tr>
+        <tr><td>年淨利</td><td>$2,900M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：核能供電</div>
+        <div class="sig" style="color:#c0c8e0">美國最大核電廠運營商，擁有 12+ 座核反應爐。Microsoft/Google 爭相簽署核能供電協議，因為核能是唯一能提供 24/7 清淨能源的選項。PE 28x。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：核能執照為稀有資產，新建核電廠需 10+ 年，現有執照電廠成戰略資源。</div>
+        <div class="sig">離52W低點+20.9%，已脫離底部</div> <div class="sig">價格處52週區間底部30%，爆發空間大</div> <div class="sig">Strong Buy（20位分析師）</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="cat-header">
+    <div class="cat-icon">🧊</div>
+    <div class="cat-title">散熱與冷卻系統</div>
+  </div>
+  <div class="stock-grid">
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">SPXC</div>
+          <div class="name">SPX Technologies</div>
+          <span class="tag">🧊 資料中心散熱</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">4分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$207.80</div>
+        <div class="change up">+1.17%</div>
+      </div>
+      <div class="range">52週區間 147.39 ~ 246.68</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">29.11</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.31</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$10B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">16位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$7.12</td></tr>
+        <tr><td>年營收</td><td>$5,200M</td></tr>
+        <tr><td>年淨利</td><td>$540M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：資料中心散熱</div>
+        <div class="sig" style="color:#c0c8e0">資料中心通風與冷卻設備龍頭，旗下品牌包括 Marley 散熱系統。液冷需求爆發，但 SPXC 尚未被市場充分定價，市值僅 $10B。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：液冷系統產能擴張需要 12-18 個月，供需缺口明確。</div>
+        <div class="sig">離52W低點+41.0%，已脫離底部</div> <div class="sig">Strong Buy（16位分析師）</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/SPXC/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">VRT</div>
+          <div class="name">Vertiv Holdings</div>
+          <span class="tag">⚡🧊 供電+散熱</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">0分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">—</div>
+        <div class="change ">—</div>
+      </div>
+      <div class="range">52週區間 — ~ —</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">—</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">0</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">—K</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">—位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>—</td></tr>
+        <tr><td>年營收</td><td>—</td></tr>
+        <tr><td>年淨利</td><td>—</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">—</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：供電+散熱</div>
+        <div class="sig" style="color:#c0c8e0">資料中心供電 + 散熱 + 機電一站式服務，液冷系統行業龍頭。AI 伺服器耗電是傳統 10 倍，散熱需求爆發。Beta 2.0+ 高波動代表資金聚焦。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：液冷系統供給嚴重落後需求，Vertiv 為少數能做到大型資料中心完整方案的廠商。</div>
+        
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/VRT/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="cat-header">
+    <div class="cat-icon">📡</div>
+    <div class="cat-title">光纖與通訊基建</div>
+  </div>
+  <div class="stock-grid">
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">GLW</div>
+          <div class="name">康寧 Corning</div>
+          <span class="tag">📡 光纖/玻璃基板</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">1分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$38.50</div>
+        <div class="change up">+3.0%</div>
+      </div>
+      <div class="range">52週區間 18.0 ~ 45.2</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">67.17</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.14</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$29B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">25位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$0.57</td></tr>
+        <tr><td>年營收</td><td>$14,000M</td></tr>
+        <tr><td>年淨利</td><td>$1,200M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Moderate Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：光纖/玻璃基板</div>
+        <div class="sig" style="color:#c0c8e0">全球最大光纖線纜廠商，同時壟斷 AI/AIPC 先進封裝玻璃基板市場。AI 資料傳輸需求爆發，光纖建設落後需求 3-5 年。股價已從 $18 漲至 $38（+111%）。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：光纖工廠建設需要 3-5 年，需求增速 >100%/年，供需失衡已確認。</div>
+        
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">LUMN</div>
+          <div class="name">Lumen Technologies</div>
+          <span class="tag">📡 企業光纖</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">3分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$4.20</div>
+        <div class="change up">+2.0%</div>
+      </div>
+      <div class="range">52週區間 2.5 ~ 9.0</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.65</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$4B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">15位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>-$0.30</td></tr>
+        <tr><td>年營收</td><td>$14,000M</td></tr>
+        <tr><td>年淨利</td><td>-$1,200M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Hold</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：企業光纖</div>
+        <div class="sig" style="color:#c0c8e0">被嚴重低估的企業光纖網路股，擁有美國最大企業光纖骨幹網路之一。AI 資料傳輸需求爆發，LUMN 企業業務訂單超預期。股價仍在低點。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：企業光纖建設落後需求，光纖網路價值被嚴重低估。</div>
+        <div class="sig">價格處52週區間底部26%，爆發空間大</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/LUMN/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">CIEN</div>
+          <div class="name">Ciena</div>
+          <span class="tag">📡 光纖傳輸設備</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">2分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$50.25</div>
+        <div class="change up">+1.5%</div>
+      </div>
+      <div class="range">52週區間 28.5 ~ 60.2</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">32.1</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.3</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$9B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">18位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$1.52</td></tr>
+        <tr><td>年營收</td><td>$3,800M</td></tr>
+        <tr><td>年淨利</td><td>$350M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：光纖傳輸設備</div>
+        <div class="sig" style="color:#c0c8e0">光纖傳輸設備核心供應商，幫助電信運營商升級骨幹網路以支援 AI 流量爆發。中國市場份額大但有地緣風險。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：電信運營商光纖升級需求，2026-2027 年採購預算大增。</div>
+        <div class="sig">Buy（18位分析師）</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="cat-header">
+    <div class="cat-icon">💾</div>
+    <div class="cat-title">先進封裝與記憶體</div>
+  </div>
+  <div class="stock-grid">
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">AMKR</div>
+          <div class="name">Amkor Technology</div>
+          <span class="tag">📦 先進封裝</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#5b7fff">6分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$25.50</div>
+        <div class="change up">+1.0%</div>
+      </div>
+      <div class="range">52週區間 17.79 ~ 79.23</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">39.14</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">2.29</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$2B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">20位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$0.65</td></tr>
+        <tr><td>年營收</td><td>$7,000M</td></tr>
+        <tr><td>年淨利</td><td>$600M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Moderate Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：先進封裝</div>
+        <div class="sig" style="color:#c0c8e0">全球唯一獨立先進封裝廠，為蘋果、NVIDIA 等提供 CoWoS/HBM 封裝服務。訂單能見度直達 2027 年，股價落後同業。PE 39x。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：CoWoS 先進封裝需求增速 >100%/年，但全球僅少數廠能做，供給極度受限。</div>
+        <div class="sig">離52W低點+43.3%，已脫離底部</div> <div class="sig">價格處52週區間底部13%，爆發空間大</div> <div class="sig">Beta=2.29，市場情緒聚焦</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/AMKR/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">MU</div>
+          <div class="name">美光科技 Micron</div>
+          <span class="tag">💾 記憶體</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">4分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$503.49</div>
+        <div class="change up">+1.41%</div>
+      </div>
+      <div class="range">52週區間 90.93 ~ 818.67</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">34.4</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.91</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$859B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">41位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$14.64</td></tr>
+        <tr><td>年營收</td><td>$37,378M</td></tr>
+        <tr><td>年淨利</td><td>$8,539M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：記憶體</div>
+        <div class="sig" style="color:#c0c8e0">HBM3 主要供應商之一（與 SK Hynix 並列），AI 伺服器記憶體需求爆發。股價從 $818 高點回落至 $503，估值進入合理區間。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：HBM 供給受限三星與 SK，擴產需 18-24 個月，供需缺口持續。</div>
+        <div class="sig">Strong Buy（41位分析師）</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <div class="cat-header">
+    <div class="cat-icon">🔐</div>
+    <div class="cat-title">AI</div>
+  </div>
+  <div class="stock-grid">
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">CRWD</div>
+          <div class="name">CrowdStrike</div>
+          <span class="tag">🔐 AI 資安</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">1分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$663.46</div>
+        <div class="change up">+2.35%</div>
+      </div>
+      <div class="range">52週區間 342.72 ~ 674.84</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">2.29</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$1.64T</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">49位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$4.57</td></tr>
+        <tr><td>年營收</td><td>$4,812M</td></tr>
+        <tr><td>年淨利</td><td>-$162M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Hold</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 資安</div>
+        <div class="sig" style="color:#c0c8e0">AI 時代雲端資安龍頭，Falcon 平台保護企業 AI 工作負載。AI 用越多 = 資安風險越大 = 資安預算越多。股價近 3 個月 +63%。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：資安市場增速加快，AI 監管新規將進一步拉動企業資安預算。</div>
+        <div class="sig">價格已達52週區間頂部，風險報酬比惡化</div> <div class="sig">Beta=2.29，市場情緒聚焦</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">NET</div>
+          <div class="name">Cloudflare</div>
+          <span class="tag">📡🔐 AI 網路/安全</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">3分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$216.17</div>
+        <div class="change up">+1.66%</div>
+      </div>
+      <div class="range">52週區間 154.93 ~ 260.0</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">1.67</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$75B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">33位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>-$0.26</td></tr>
+        <tr><td>年營收</td><td>$2,168M</td></tr>
+        <tr><td>年淨利</td><td>-$102M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Moderate Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 網路/安全</div>
+        <div class="sig" style="color:#c0c8e0">AI 時代 CDN + 零信任資安 + 邊緣運算核心。與 Anthropic 合作 AI 安全代理，進軍 AI 安全市場。技術面強勢，6 個月 +22%。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：邊緣運算需求爆發，Cloudflare 節點網路覆蓋 300+ 城市。</div>
+        <div class="sig">離52W低點+39.5%，已脫離底部</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/NET/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+    <div class="stock-card">
+      <div class="card-header">
+        <div>
+          <div class="sym">PLTR</div>
+          <div class="name">Palantir</div>
+          <span class="tag">🤖 AI 大數據分析</span>
+        </div>
+        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">3分</div>
+      </div>
+      
+      <div class="price-row">
+        <div class="price">$258.88</div>
+        <div class="change up">+5.2%</div>
+      </div>
+      <div class="range">52週區間 60.0 ~ 587.0</div>
+      
+      <div class="metrics">
+        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
+        <div class="metric"><div class="val">2.5</div><div class="lbl">Beta</div></div>
+        <div class="metric"><div class="val">$55B</div><div class="lbl">市值</div></div>
+        <div class="metric"><div class="val">30位</div><div class="lbl">分析師</div></div>
+      </div>
+      
+      <table class="fin-table">
+        <tr><td>EPS（TTM）</td><td>$1.27</td></tr>
+        <tr><td>年營收</td><td>$2,200M</td></tr>
+        <tr><td>年淨利</td><td>$386M</td></tr>
+        <tr><td>評級</td><td style="color:#24e08a">Moderate Buy</td></tr>
+      </table>
+      
+      <div class="signals">
+        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 大數據分析</div>
+        <div class="sig" style="color:#c0c8e0">AI 政府/國防大數據分析龍頭， Gotham/Apollo 平台獲得美國國防部大單。AI 應用於軍事指揮控制、情報分析。Commercial 業務快速增長。</div>
+        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：國防 AI 預算持續增加，Palantir 在政府 AI 市場佔有率領先。</div>
+        <div class="sig">Beta=2.5，市場情緒聚焦</div>
+      </div>
+      
+      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    </div>
+  </div>
+</div>
+<div class="section">
+  <h2>📰 科技要聞摘要（2026/05/24）</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
+    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
+      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">💾 AI</div>
+      <div style="color:#8090c0;font-size:12px">• AI 被用來重建已故飛行員語音录音，引發 NTSB 封鎖爭議<br>• Google 推出 AI 眼鏡原型，Gemini 驅動翻譯與導航<br>• 創投與創辦人操縱 ARR 數據，AI 新創估值泡沫疑慮浮現</div>
+    </div>
+    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
+      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🚀 Space</div>
+      <div style="color:#8090c0;font-size:12px">• SpaceX Starship V3 首射成功，助推器返回時損失<br>• SpaceX 申請 IPO，估值 28 兆 TAM，史上最大 IPO<br>• Blue Origin 獲准恢復 New Glenn 飛行</div>
+    </div>
+    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
+      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🔐 安全</div>
+      <div style="color:#8090c0;font-size:12px">• Kash Patel 服飾網站遭駭，惡意軟體散布<br>• Trump Mobile 證實客户個資外洩<br>• CrowdStrike 推出 Claude 合規 API，AI 資安需求增</div>
+    </div>
+  </div>
+</div>
 <div class="footer">
-  🚀 AI &amp; 商業航太美股研究報告 ｜ 2026年05月24日 16:44（台北時間）<br>
-  由 OpenClaw AI 自動生成 ｜ 數據來源：Barchart（已登入 LILI 帳號）｜ 技術分析：Barchart Opinion<br>
-  🌐 <a href="https://acstep.github.io/stock-reports">acstep.github.io/stock-reports</a> ｜
+  AI 科技個股深度研究報告 2026年05月24日 16:51 ｜ 由 OpenClaw AI 自動生成 ｜ 
+  數據來源：Barchart（已登入 LILI 帳號）｜ 技術分析：Barchart Opinion<br>
+  🌐 <a href="https://acstep.github.io/stock-reports">acstep.github.io/stock-reports</a> ｜ 
   📂 <a href="https://github.com/acstep/stock-reports">GitHub Repo</a>
 </div>
-
 </div>
 </body>
 </html>
