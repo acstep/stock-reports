@@ -1,13 +1,84 @@
 #!/usr/bin/env python3
 """生成完整詳細的個股研究報告"""
-import json, re, os
+import json, re, os, time, urllib.request
 from datetime import datetime, timezone
 
 DATA_FILE = '/tmp/bc_full_data.json'
 WORKDIR = '/home/matt/.openclaw/workspace/stock-reports'
 
+# === FETCH LIVE PRICES FROM YAHOO (with retry) ===
+def fetch_price(sym, retries=2):
+    for attempt in range(retries):
+        try:
+            url = f'https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval=1d&range=5d'
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/125.0.0.0 Safari/537.36'})
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                d = json.loads(resp.read())
+                r = d['chart']['result'][0]
+                meta = r['meta']
+                curr = meta.get('regularMarketPrice')
+                prev = meta.get('chartPreviousClose')
+                chg = round((curr - prev) / prev * 100, 2) if prev and curr else 0
+                high52 = meta.get('fiftyTwoWeekHigh')
+                low52 = meta.get('fiftyTwoWeekLow')
+                name = meta.get('shortName', sym)
+                from_low = round((curr - low52) / low52 * 100, 1) if low52 and curr else None
+                return {'price': curr, 'change': chg, 'high52': high52, 'low52': low52, 'name': name, 'from_low_pct': from_low, 'pe': meta.get('trailingPE'), 'eps': meta.get('trailingEps'), 'volume': meta.get('regularMarketVolume'), 'mktcap': meta.get('marketCap')}
+        except Exception as e:
+            if attempt < retries - 1:
+                time.sleep(3)
+    return None
+
+# Try to load live prices
+try:
+    with open('/tmp/signal_live_prices.json') as f:
+        live_prices = json.load(f)
+    print(f'Loaded live prices for {len(live_prices)} stocks')
+except:
+    live_prices = {}
+    print('No live prices available')
+
+# Load Barchart Signal Strength data
+try:
+    with open('/tmp/bc_signal_ai.json') as f:
+        bc_signal = json.load(f)
+    print(f'Loaded {len(bc_signal)} Barchart Signal Strength AI stocks')
+except:
+    bc_signal = []
+    print('No Barchart signal data')
+
+# Build signal lookup (prefer live prices, fallback to Barchart data)
+signal_lookup = {}
+for r in bc_signal:
+    sym = r.get('symbol')
+    live = live_prices.get(sym, {})
+    price = live.get('price') or r.get('lastPrice')
+    chg = live.get('change') or r.get('percentChange', '0%').replace('%', '')
+    if isinstance(chg, str):
+        try: chg = float(chg)
+        except: chg = 0
+    signal_lookup[sym] = {
+        'price': price,
+        'change': chg,
+        'high52': live.get('high52') or None,
+        'low52': live.get('low52') or None,
+        'name': live.get('name') or r.get('symbolName', sym),
+        'from_low_pct': live.get('from_low_pct') or None,
+        'opinion': r.get('opinion', '100% Buy'),
+        'opinion_last_week': r.get('opinionLastWeek', ''),
+        'opinion_last_month': r.get('opinionLastMonth', ''),
+        'source': 'barchart_signal',
+        'pe': live.get('pe'),
+        'eps': live.get('eps'),
+        'volume': live.get('volume'),
+        'mktcap': live.get('mktcap'),
+    }
+
+print(f'Signal lookup built: {len(signal_lookup)} stocks')
+
 with open(DATA_FILE) as f:
     raw_data = json.load(f)
+
 
 def parse(raw):
     lines = raw.split('\n')
@@ -414,7 +485,149 @@ html += """    </tbody>
   </table>
 </div>
 
-<!-- SUPPLY/DEMAND LOGIC -->
+<!-- BARCHART SIGNAL STRENGTH TABLE -->
+"""
+# Build the signal strength table rows from the signal_lookup
+if signal_lookup:
+    sig_rows = []
+    for sym, info in signal_lookup.items():
+        price = info.get('price')
+        chg = info.get('change', 0)
+        high52 = info.get('high52')
+        low52 = info.get('low52')
+        name = info.get('name', '')
+        opinion = info.get('opinion', '100% Buy')
+        pe = info.get('pe')
+        vol = info.get('volume')
+        mktcap = info.get('mktcap')
+        from_low = info.get('from_low_pct')
+        
+        chg_cls = 'up' if chg > 0 else 'down' if chg < 0 else ''
+        price_str = f'${price}' if price else '—'
+        chg_str = f'{chg:+.2f}%' if isinstance(chg, (int, float)) else str(chg)
+        
+        # Distance from low
+        if from_low is not None:
+            dist_str = f'<span style="color:#24e08a">+{from_low:.1f}%</span>'
+        elif low52 and price:
+            try:
+                fl = round((price - low52) / low52 * 100, 1)
+                dist_str = f'<span style="color:#24e08a">+{fl:.1f}%</span>'
+            except:
+                dist_str = '—'
+        else:
+            dist_str = '—'
+        
+        # P/E
+        pe_str = f'{pe:.1f}' if pe else '—'
+        
+        # Market cap
+        if mktcap:
+            mc = mktcap / 1e12
+            mc_str = f'${mc:.1f}T' if mc >= 1 else f'${mc*1000:.0f}B'
+        else:
+            mc_str = '—'
+        
+        sig_rows.append({
+            'sym': sym, 'name': name, 'price': price_str, 'chg': chg_str,
+            'high52': f'${high52:.2f}' if high52 else '—',
+            'low52': f'${low52:.2f}' if low52 else '—',
+            'dist': dist_str, 'pe': pe_str, 'mc': mc_str,
+            'opinion': opinion, 'chg_cls': chg_cls
+        })
+    
+    # Sort by from_low ascending (closest to bottom = most upside)
+    sig_rows.sort(key=lambda x: x['dist'], reverse=True)
+    
+    sig_table_rows = ''
+    for r in sig_rows:
+        sig_table_rows += f"""<tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/{r['sym']}/overview" target="_blank" class="bc-link">{r['sym']}</a></td>
+          <td style="color:#c0c8e0">{r['name']}</td>
+          <td style="text-align:right;font-weight:700;color:#fff">{r['price']}</td>
+          <td style="text-align:right" class="{r['chg_cls']}">{r['chg']}</td>
+          <td style="text-align:center">{r['dist']}</td>
+          <td style="text-align:right;color:#a0a8d0">{r['low52']}</td>
+          <td style="text-align:right;color:#a0a8d0">{r['high52']}</td>
+          <td style="text-align:right">{r['pe']}</td>
+          <td style="text-align:right;font-size:12px;color:#8090c0">{r['mc']}</td>
+          <td style="color:#24e08a;font-weight:600">{r['opinion']}</td>
+        </tr>"""
+    
+    # Also build a summary card grid
+    sig_card_cells = ''
+    for r in sig_rows[:12]:
+        sig_card_cells += f"""<div class="stock-card" style="padding:16px">
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
+            <div>
+              <div style="font-weight:800;font-size:18px;color:#5b7fff">{r['sym']}</div>
+              <div style="color:#556;font-size:11px">{r['name']}</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:16px;color:#fff">{r['price']}</div>
+              <div style="font-size:12px" class="{r['chg_cls']}">{r['chg']}</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
+            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">{r['opinion']}</span>
+            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 {r['dist']}</span>
+          </div>
+          <div style="font-size:11px;color:#556">P/E {r['pe']} · 市值 {r['mc']}</div>
+          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/{r['sym']}/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
+        </div>"""
+    
+    html += f"""<div class="section">
+  <h2>🏆 Barchart Top 1% Signal Strength — AI 相關個股（強勢股深度分析區）</h2>
+  <div style="margin-bottom:14px;padding:12px;background:rgba(36,224,138,0.05);border:1px solid rgba(36,224,138,0.15);border-radius:10px">
+    <div style="color:#24e08a;font-weight:700;margin-bottom:6px">📡 什麼是 Top 1% Signal Strength？</div>
+    <div style="color:#8090b0;font-size:12px;line-height:1.8">
+      <b>信號強度（Signal Strength）</b>是 Barchart 付費會員專屬技術指標，衡量買/賣信號相對於歷史的強度。<b>Top 1%</b> 為史上最強級別，只有前 1% 股票能達到。<br>
+      <b>100% Buy</b> = 完全買入信號，強度 Top 1%，表示所有技術指標共識強烈看漲。<br>
+      <b>此區為「強勢股」區</b> — 這些股票已經被市場力量推升至技術面最強位置，適合順勢而為。<br>
+      <b>⚠️ 注意</b>：強勢股不代表不會回調，請結合深度分析報告的估值與基本面综合判斷。<br>
+      <b>🔄 每日更新</b>：資料來源 Barchart，2026/05/22 19:41 ET 更新
+    </div>
+  </div>
+  
+  <h3 style="color:#8090c0;font-size:12px;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">📋 信號強度總表（按距 52W 低點排序）</h3>
+  <div style="overflow-x:auto;margin-bottom:20px">
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <thead>
+      <tr style="background:rgba(91,127,255,0.08);border-bottom:1px solid rgba(91,127,255,0.2)">
+        <th style="padding:8px 10px;text-align:left;color:#8090c0">代號</th>
+        <th style="padding:8px 10px;text-align:left;color:#8090c0">名稱</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">現價</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">日漲跌</th>
+        <th style="padding:8px 10px;text-align:center;color:#8090c0">距 52W 低</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">52W 低</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">52W 高</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">P/E</th>
+        <th style="padding:8px 10px;text-align:right;color:#8090c0">市值</th>
+        <th style="padding:8px 10px;text-align:center;color:#8090c0">評級</th>
+      </tr>
+    </thead>
+    <tbody>
+    {sig_table_rows}
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="section">
+  <h3 style="color:#8090c0;font-size:12px;text-transform:uppercase;letter-spacing:1px;border-left:3px solid #24e08a;padding-left:10px;margin-bottom:16px">💡 強勢股精選速覽（點擊查看詳細）</h3>
+  <div class="stock-grid">
+  {sig_card_cells}
+  </div>
+</div>
+
+<!-- STOCK CARDS -->
+<div class="section">
+  <h2>💼 深度個股分析（AI 供應鏈核心標的）</h2>
+  <div class="stock-grid">
+"""
+
+html += """
+
 <div class="section">
   <h2>🔥 供需失衡核心邏輯（康寧邏輯延伸版）</h2>
   <div class="supply-box">
@@ -560,64 +773,6 @@ else:
     signal_ai_filtered = []
 
 print(f'Signal Strength AI stocks loaded: {len(signal_ai_filtered)}')
-
-# Build signal section HTML
-signal_html = ''
-if signal_ai_filtered:
-    signal_rows = ''
-    for r in signal_ai_filtered:
-        sym = r.get('symbol','')
-        name = r.get('symbolName','')
-        price = r.get('lastPrice','—')
-        chg = r.get('priceChange','—')
-        pct = r.get('percentChange','—')
-        opinion = r.get('opinion','—')
-        
-        chg_cls = 'up' if (chg and '+' in str(chg)) else ('down' if (chg and '-' in str(chg)) else '')
-        
-        signal_rows += f"""<tr>
-          <td><a href="https://www.barchart.com/stocks/quotes/{sym}/overview" target="_blank" class="bc-link">{sym}</a></td>
-          <td>{name}</td>
-          <td class="{chg_cls}">${price}</td>
-          <td class="{chg_cls}">{pct}</td>
-          <td style="color:#24e08a">{opinion}</td>
-        </tr>"""
-    
-    signal_html = f"""<div class="section">
-  <h2>🏆 Barchart Top 1% Signal Strength — AI 相關個股</h2>
-  <div style="color:#7880a0;font-size:12px;margin-bottom:14px">
-    資料來源：<a href="https://www.barchart.com/stocks/signals/direction-strength" target="_blank" style="color:#5b7fff">Barchart Top 1% Signal Strength</a>
-    ｜ 付費會員 LILI 專區 ｜ 2026/05/22 更新
-  </div>
-  <div style="overflow-x:auto">
-  <table style="width:100%;border-collapse:collapse;font-size:13px">
-    <thead>
-      <tr style="background:rgba(91,127,255,0.1);border-bottom:1px solid rgba(91,127,255,0.2)">
-        <th style="padding:10px 12px;text-align:left;color:#8090c0">代號</th>
-        <th style="padding:10px 12px;text-align:left;color:#8090c0">名稱</th>
-        <th style="padding:10px 12px;text-align:right;color:#8090c0">價格</th>
-        <th style="padding:10px 12px;text-align:right;color:#8090c0">漲跌</th>
-        <th style="padding:10px 12px;text-align:center;color:#8090c0">評級</th>
-      </tr>
-    </thead>
-    <tbody>
-    {signal_rows}
-    </tbody>
-  </table>
-  </div>
-  <div style="margin-top:14px;padding:12px;background:rgba(36,224,138,0.05);border:1px solid rgba(36,224,138,0.15);border-radius:10px">
-    <div style="color:#24e08a;font-weight:700;margin-bottom:6px">💡 信號強度說明</div>
-    <div style="color:#8090b0;font-size:12px;line-height:1.8">
-      <b>信號強度（Signal Strength）</b>：長期指標，衡量買/賣信號相對於歷史的強度。<b>Top 1%</b> 為最強級別，表示該信號歷史上僅前 1% 股票達到過。<br>
-      <b>100% Buy</b> = 完全買入信號，強度 Top 1%，為 Barchart 付費會員專屬數據。<br>
-      <b>注意</b>：此清單每日更新（美東 19:41 ET），與上面深度分析報告的精選個股不同，此處為 Barchart 演算法認可的 ALL AI 相關 Top 1% 信號強度個股。<br>
-      此清單可作為横向對比參考，結合理論分析與技術信號，輔助判斷切入時機。
-    </div>
-  </div>
-</div>"""
-
-
-html += signal_html
 
 html += f"""<div class="footer">
   AI 科技個股深度研究報告 {date_str} ｜ 由 OpenClaw AI 自動生成 ｜ 
