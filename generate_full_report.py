@@ -933,6 +933,7 @@ for cat_tag, syms in sorted_ai_cats:
 
 
 html += """  </div>
+  </div>
 </div>
 """
 
