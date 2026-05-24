@@ -21,7 +21,15 @@ function run(cmd, args, env = {}) {
 }
 
 async function main() {
-    console.log('[1/3] 生成 HTML 報告...');
+    console.log('[1/4] 抓取 Barchart Top 1% Signal Strength AI 股票...');
+    try {
+        await run('node', [path.join(WORKDIR, 'fetch_bc_signal_strength.js')], { cwd: WORKDIR });
+        console.log('  ✓ Signal Strength 數據已更新');
+    } catch(e) {
+        console.error('  ⚠ Signal Strength 抓取失敗:', e.message);
+    }
+
+    console.log('[2/4] 生成 HTML 報告...');
     try {
         const out = await run('python3', [PY_SCRIPT]);
         if (out.includes('Ranked stocks')) {

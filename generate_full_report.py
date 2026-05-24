@@ -764,11 +764,9 @@ try:
 except:
     signal_ai_data = []
 
-# AI infrastructure symbols
-ai_sig_set = {'AMD','ARM','AVGO','NVDA','SMCI','MU','CSCO','ON','LSCC','MX','NVTS','TSEM','AMBQ','CIEN','ATEN','BE','KEYS','PWR','FSLR','SPXC','GLW','ENPH','VST','AMKR','CRWD','NET','PLTR','SWKS','QRVO','LRCX','AMAT','ASML'}
 
 if signal_ai_data:
-    signal_ai_filtered = [r for r in signal_ai_data if r.get('symbol') in ai_sig_set]
+    signal_ai_filtered = signal_ai_data  # JS script already filtered to AI+Space
 else:
     signal_ai_filtered = []
 
