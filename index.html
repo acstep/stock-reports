@@ -3,150 +3,416 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 研究報告總覽｜每日更新</title>
+<title>AI 研究報告總覽｜每日自動更新</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#08080f;color:#e0e4f0;line-height:1.65;font-size:15px}
-.wrap{max-width:1100px;margin:0 auto;padding:20px}
-
-.hero{background:linear-gradient(135deg,#08081a 0%,#0f1030 100%);border:1px solid rgba(91,127,255,0.25);border-radius:24px;padding:48px 52px;margin-bottom:32px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(91,127,255,0.1) 0%,transparent 70%);pointer-events:none}
-.hero h1{font-size:36px;color:#fff;margin-bottom:12px;letter-spacing:-0.5px}
-.hero .sub{color:#7880a0;font-size:14px;margin-bottom:6px}
-.hero .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
-.badge{background:rgba(91,127,255,0.12);border:1px solid rgba(91,127,255,0.25);color:#8090d0;border-radius:20px;padding:5px 16px;font-size:12px}
-.badge.green{background:rgba(36,224,138,0.08);border-color:rgba(36,224,138,0.25);color:#24e08a}
-.hero .time{color:#556080;font-size:12px;margin-top:14px}
-
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:24px}
-.card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:32px;transition:all 0.25s;position:relative;overflow:hidden}
-.card:hover{border-color:rgba(91,127,255,0.35);transform:translateY(-3px)}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:20px 20px 0 0}
-.card.stock::before{background:linear-gradient(90deg,#24e08a,#5b7fff)}
-.card.tc::before{background:linear-gradient(90deg,#5b7fff,#a855f7)}
-
-.card .card-icon{font-size:48px;margin-bottom:16px}
-.card h2{font-size:22px;color:#fff;margin-bottom:8px}
-.card .card-desc{color:#7880a0;font-size:13px;line-height:1.8;margin-bottom:20px}
-.card .card-meta{display:flex;gap:16px;margin-bottom:20px;flex-wrap:wrap}
-.card .meta-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#556080}
-.card .meta-item .val{color:#8090c0;font-weight:600}
-
-.card .goto{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;transition:all 0.2s}
-.card.stock .goto{background:rgba(36,224,138,0.12);color:#24e08a;border:1px solid rgba(36,224,138,0.25)}
-.card.stock .goto:hover{background:rgba(36,224,138,0.2)}
-.card.tc .goto{background:rgba(91,127,255,0.12);color:#5b7fff;border:1px solid rgba(91,127,255,0.25)}
-.card.tc .goto:hover{background:rgba(91,127,255,0.2)}
-
-.card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
-.tag{background:rgba(255,255,255,0.05);color:#556080;font-size:11px;padding:3px 10px;border-radius:6px}
-
-.divider{height:1px;background:rgba(255,255,255,0.05);margin:32px 0}
-.info{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:20px 24px;margin-bottom:20px}
-.info h3{font-size:13px;color:#8090c0;text-transform:uppercase;letter-spacing:1.5px;border-left:3px solid #5b7fff;padding-left:10px;margin-bottom:12px}
-.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-.info-item{font-size:13px;color:#a0a8d0;line-height:1.7;padding:8px 0}
-.info-item strong{color:#5b7fff}
-
-.footer{text-align:center;color:#444;font-size:12px;margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05)}
-.footer a{color:#5b7fff;text-decoration:none}
-
-.note{background:rgba(255,193,7,0.06);border:1px solid rgba(255,193,7,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;font-size:13px;color:#a0a8d0}
-.note strong{color:#ffc107}
-
-@media(max-width:768px){
-.hero{padding:32px 24px}
-.cards{grid-template-columns:1fr}
-.hero h1{font-size:26px}
+/* ===== CSS VARIABLES ===== */
+:root {
+  --bg: #080810;
+  --bg2: #0c0c1a;
+  --bg3: #10101f;
+  --bg-glass: rgba(12,12,26,0.75);
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(91,127,255,0.35);
+  --text: #e0e4f0;
+  --text-dim: #7880a0;
+  --text-muted: #444660;
+  --accent: #5b7fff;
+  --green: #24e08a;
+  --green-bg: rgba(36,224,138,0.1);
+  --purple: #a855f7;
+  --cyan: #06b6d4;
+  --orange: #f97316;
+  --gold: #ffd700;
+  --yellow: #ffc107;
 }
 
-.news-section{margin-top:32px}
-.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
-.news-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px;transition:all 0.2s}
-.news-item:hover{border-color:rgba(91,127,255,0.3)}
-.news-meta{display:flex;gap:10px;margin-bottom:8px}
-.news-source{background:rgba(36,224,138,0.08);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600}
-.news-date{color:#556080;font-size:11px;line-height:1.8}
-.news-title{font-size:14px;font-weight:700;margin-bottom:6px;line-height:1.4}
-.news-title a{color:#e0e4f0;text-decoration:none}
-.news-title a:hover{color:#58a6ff}
-.news-summary{font-size:12px;color:#7880a0;line-height:1.6;margin-top:6px}
+*{box-sizing:border-box;margin:0;padding:0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
 
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  font-size:15px;
+}
+
+.wrap{max-width:1140px;margin:0 auto;padding:24px 28px}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 12px rgba(36,224,138,0.3)}50%{box-shadow:0 0 28px rgba(36,224,138,0.55)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+.animate-in{animation:fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) forwards;opacity:0}
+.delay-1{animation-delay:0.1s}
+.delay-2{animation-delay:0.2s}
+.delay-3{animation-delay:0.3s}
+.delay-4{animation-delay:0.4s}
+
+/* ===== HERO ===== */
+.hero{
+  background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 60%,#0d0a28 100%);
+  border:1px solid rgba(91,127,255,0.18);
+  border-radius:28px;
+  padding:56px 60px;
+  margin-bottom:36px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  top:-50%;
+  left:50%;
+  transform:translateX(-50%);
+  width:700px;
+  height:450px;
+  background:radial-gradient(ellipse,rgba(91,127,255,0.09) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(91,127,255,0.35),rgba(36,224,138,0.25),transparent);
+}
+
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(91,127,255,0.08);
+  border:1px solid rgba(91,127,255,0.2);
+  color:var(--accent);
+  font-size:11px;
+  font-weight:600;
+  padding:5px 14px;
+  border-radius:20px;
+  margin-bottom:20px;
+  letter-spacing:0.8px;
+  text-transform:uppercase;
+}
+
+.hero h1{
+  font-size:40px;
+  color:#fff;
+  margin-bottom:14px;
+  letter-spacing:-0.5px;
+  background:linear-gradient(100deg,#fff,#c8d0f0,#8090d0);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero .sub{color:var(--text-dim);font-size:15px;margin-bottom:8px}
+.hero .badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.hero .time{color:var(--text-muted);font-size:12px;margin-top:16px}
+
+.badge{
+  background:rgba(91,127,255,0.1);
+  border:1px solid rgba(91,127,255,0.2);
+  color:#8090d0;
+  border-radius:20px;
+  padding:5px 16px;
+  font-size:12px;
+}
+.badge.green{
+  background:rgba(36,224,138,0.08);
+  border-color:rgba(36,224,138,0.2);
+  color:var(--green);
+}
+
+/* ===== NOTE ===== */
+.note{
+  background:rgba(255,193,7,0.06);
+  border:1px solid rgba(255,193,7,0.18);
+  border-radius:14px;
+  padding:16px 22px;
+  margin-bottom:28px;
+  font-size:13px;
+  color:var(--text-dim);
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+.note::before{content:'💡';font-size:18px;flex-shrink:0;margin-top:1px}
+.note strong{color:var(--yellow)}
+
+/* ===== MAIN CARDS ===== */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+  gap:28px;
+  margin-bottom:36px;
+}
+
+.card{
+  background:var(--bg-glass);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:36px;
+  transition:all 0.3s cubic-bezier(0.22,1,0.36,1);
+  position:relative;
+  overflow:hidden;
+}
+.card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  border-radius:24px 24px 0 0;
+  transition:opacity 0.3s;
+}
+.card:hover{
+  border-color:var(--border-hover);
+  transform:translateY(-4px);
+  box-shadow:0 16px 60px rgba(91,127,255,0.12);
+}
+.card.stock::before{background:linear-gradient(90deg,var(--green),var(--accent))}
+.card.tc::before{background:linear-gradient(90deg,var(--accent),var(--purple))}
+
+.card-icon{font-size:52px;margin-bottom:18px;display:block;animation:float 4s ease-in-out infinite}
+
+.card h2{font-size:24px;color:#fff;margin-bottom:10px;font-weight:800}
+.card .card-desc{color:var(--text-dim);font-size:13px;line-height:1.85;margin-bottom:22px}
+
+.card .card-meta{display:flex;gap:18px;margin-bottom:22px;flex-wrap:wrap}
+.card .meta-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-muted)}
+.card .meta-item .val{color:var(--text-dim);font-weight:600}
+
+.card .goto{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:13px 26px;
+  border-radius:14px;
+  font-size:15px;
+  font-weight:700;
+  text-decoration:none;
+  transition:all 0.25s;
+  margin-bottom:18px;
+}
+.card.stock .goto{
+  background:var(--green-bg);
+  color:var(--green);
+  border:1px solid rgba(36,224,138,0.25);
+}
+.card.stock .goto:hover{background:rgba(36,224,138,0.18);text-decoration:none}
+.card.tc .goto{
+  background:rgba(91,127,255,0.1);
+  color:var(--accent);
+  border:1px solid rgba(91,127,255,0.25);
+}
+.card.tc .goto:hover{background:rgba(91,127,255,0.18);text-decoration:none}
+
+.card .tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  color:var(--text-muted);
+  font-size:11px;
+  padding:3px 10px;
+  border-radius:6px;
+  transition:all 0.2s;
+}
+.tag:hover{border-color:var(--border-hover);color:var(--text-dim)}
+
+/* ===== DIVIDER ===== */
+.divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(91,127,255,0.2),rgba(36,224,138,0.1),transparent);
+  margin:36px 0;
+}
+
+/* ===== INFO SECTION ===== */
+.info{
+  background:var(--bg-glass);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px 28px;
+  margin-bottom:28px;
+}
+.info h3{
+  font-size:12px;
+  color:var(--text-dim);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  border-left:3px solid var(--accent);
+  padding-left:12px;
+  margin-bottom:16px;
+  font-weight:600;
+}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.info-item{font-size:13px;color:var(--text-dim);line-height:1.7;padding:6px 0}
+.info-item strong{color:var(--accent)}
+
+/* ===== NEWS SECTION ===== */
+.news-section{margin-top:36px}
+.section-label{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--border);
+}
+.section-label h2{font-size:13px;color:var(--text-dim);text-transform:uppercase;letter-spacing:2px;font-weight:600}
+.section-label .icon{font-size:22px}
+
+.news-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(420px,1fr));
+  gap:16px;
+}
+.news-item{
+  background:var(--bg-glass);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px 22px;
+  transition:all 0.25s;
+}
+.news-item:hover{
+  border-color:var(--border-hover);
+  transform:translateY(-2px);
+  box-shadow:0 6px 24px rgba(91,127,255,0.08);
+}
+.news-meta{display:flex;gap:10px;margin-bottom:10px;align-items:center}
+.news-source{
+  background:var(--green-bg);
+  color:var(--green);
+  font-size:11px;
+  padding:3px 10px;
+  border-radius:6px;
+  font-weight:700;
+}
+.news-date{color:var(--text-muted);font-size:11px}
+.news-title{
+  font-size:14px;
+  font-weight:700;
+  line-height:1.5;
+  margin-bottom:8px;
+}
+.news-title a{color:var(--text);text-decoration:none;transition:color 0.15s}
+.news-title a:hover{color:var(--accent)}
+.news-summary{font-size:12px;color:var(--text-dim);line-height:1.7;margin-top:6px}
+
+/* ===== FOOTER ===== */
+.footer{
+  text-align:center;
+  color:var(--text-muted);
+  font-size:12px;
+  margin-top:56px;
+  padding-top:28px;
+  border-top:1px solid var(--border);
+}
+.footer::before{
+  content:'';
+  display:block;
+  width:240px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(91,127,255,0.3),rgba(36,224,138,0.2),transparent);
+  margin:0 auto 28px;
+}
+.footer a{color:var(--accent);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .hero{padding:32px 22px}
+  .hero h1{font-size:26px}
+  .cards{grid-template-columns:1fr}
+  .news-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<div class="hero">
+<!-- HERO -->
+<div class="hero animate-in">
+  <div class="hero-eyebrow">🚀 全自動生成 ｜ 每日更新</div>
   <h1>📊 AI 研究報告總覽</h1>
-  <div class="sub">每日全自動生成｜台灣時間每天中午 12:00 更新</div>
+  <div class="sub">覆蓋 AI 美股個股深度分析 + TechCrunch 科技翻譯報告</div>
   <div class="badges">
     <span class="badge green">🟢 全自動</span>
     <span class="badge">📈 美股研究</span>
     <span class="badge">📰 TechCrunch 翻譯</span>
     <span class="badge">🔄 每日更新</span>
   </div>
-  <div class="time">🕐 報告生成時間：每天 12:00（台北時間）</div>
+  <div class="time">🕐 台北時間每天中午 12:00 自動生成並推送至 GitHub Pages</div>
 </div>
 
-<div class="note">
-  <strong>💡 說明</strong>：以下兩份報告每天中午自動生成並推送至 GitHub Pages。
+<!-- NOTE -->
+<div class="note animate-in delay-1">
+  <span>以下兩份報告每天中午自動生成並推送至 GitHub Pages。AI 美股報告涵蓋 Barchart Top 1% Signal Strength 強勢股與深度基本面分析；TechCrunch 報告為每日精選科技新聞翻譯。</span>
 </div>
 
-<div class="cards">
+<!-- MAIN CARDS -->
+<div class="cards animate-in delay-2">
 
-<div class="card stock">
-  <div class="card-icon">📈</div>
-  <h2>AI 美股研究報告</h2>
-  <div class="card-desc">
-    涵蓋 AI 基礎建設供應鏈核心個股，包括 GPU、伺服器、電力、散熱、光纖、先進封裝、資安等主題。每天由 AI 動態搜尋市場、發現被低估標的，根據即時股價數據生成原創分析報告。
+  <div class="card stock">
+    <span class="card-icon">📈</span>
+    <h2>AI 美股研究報告</h2>
+    <div class="card-desc">
+      涵蓋 AI 基礎建設供應鏈核心個股，包括 GPU、伺服器、電力、散熱、光纖、先進封裝、資安等主題。每天由 AI 動態搜尋市場、發現被低估標的，根據即時股價數據生成原創分析報告。
+    </div>
+    <div class="card-meta">
+      <div class="meta-item"><span>📅</span><span class="val">每日中午 12:00</span></div>
+      <div class="meta-item"><span>🤖</span><span class="val">AI 動態選股</span></div>
+      <div class="meta-item"><span>📊</span><span class="val">18+ 檔精選</span></div>
+      <div class="meta-item"><span>🏆</span><span class="val">33 檔 Top 1%</span></div>
+    </div>
+    <a class="goto" href="stocks/index.html">📈 檢視今日美股報告 →</a>
+    <div class="tags">
+      <span class="tag">💾 AI 晶片</span>
+      <span class="tag">⚡ AI 電力</span>
+      <span class="tag">🧊 散熱</span>
+      <span class="tag">📡 光纖</span>
+      <span class="tag">💾 儲存</span>
+      <span class="tag">🔐 資安</span>
+      <span class="tag">🤖 AI 軟體</span>
+      <span class="tag">☁️ 雲端</span>
+      <span class="tag">🚀 商業航太</span>
+      <span class="tag">+更多</span>
+    </div>
   </div>
-  <div class="card-meta">
-    <div class="meta-item"><span>📅</span><span class="val">每日中午 12:00</span></div>
-    <div class="meta-item"><span>🤖</span><span class="val">AI 動態選股</span></div>
-    <div class="meta-item"><span>📊</span><span class="val">8-12 檔精選</span></div>
-  </div>
-  <a class="goto" href="stocks/index.html">📈 檢視今日美股報告 →</a>
-  <div class="tags">
-    <span class="tag">💾 AI 晶片</span>
-    <span class="tag">⚡ AI 電力</span>
-    <span class="tag">🧊 散熱</span>
-    <span class="tag">📡 光纖</span>
-    <span class="tag">💾 儲存</span>
-    <span class="tag">🔐 資安</span>
-    <span class="tag">🤖 AI 軟體</span>
-    <span class="tag">+更多</span>
-  </div>
-</div>
 
-<div class="card tc">
-  <div class="card-icon">📰</div>
-  <h2>TechCrunch 科技翻譯報告</h2>
-  <div class="card-desc">
-    每日精選 TechCrunch 最新科技與新創新聞，翻譯成繁體中文並整理成易讀報告。涵蓋 AI、機器人、太空、資安、創投、產品發布、產業趨勢等所有重要科技主題。
+  <div class="card tc">
+    <span class="card-icon">📰</span>
+    <h2>TechCrunch 科技翻譯報告</h2>
+    <div class="card-desc">
+      每日精選 TechCrunch 最新科技與新創新聞，翻譯成繁體中文並整理成易讀報告。涵蓋 AI、機器人、太空、資安、創投、產品發布、產業趨勢等所有重要科技主題。
+    </div>
+    <div class="card-meta">
+      <div class="meta-item"><span>📅</span><span class="val">每日中午 12:00+</span></div>
+      <div class="meta-item"><span>🌐</span><span class="val">TechCrunch</span></div>
+      <div class="meta-item"><span>🀄</span><span class="val">全中文</span></div>
+      <div class="meta-item"><span>📡</span><span class="val">全科技</span></div>
+    </div>
+    <a class="goto" href="techcrunch/latest.html">📰 檢視今日 TechCrunch 報告 →</a>
+    <div class="tags">
+      <span class="tag">🤖 AI</span>
+      <span class="tag">🚀 太空</span>
+      <span class="tag">🔐 資安</span>
+      <span class="tag">💰 創投</span>
+      <span class="tag">🤖 機器人</span>
+      <span class="tag">⚡ 能源</span>
+    </div>
   </div>
-  <div class="card-meta">
-    <div class="meta-item"><span>📅</span><span class="val">每日中午 12:00+</span></div>
-    <div class="meta-item"><span>🌐</span><span class="val">TechCrunch</span></div>
-    <div class="meta-item"><span>🀄</span><span class="val">全中文</span></div>
-    <div class="meta-item"><span>📡</span><span class="val">全科技</span></div>
-  </div>
-  <a class="goto" href="techcrunch/latest.html">📰 檢視今日 TechCrunch 報告 →</a>
-  <div class="tags">
-    <span class="tag">🤖 AI</span>
-    <span class="tag">🚀 太空</span>
-    <span class="tag">🔐 資安</span>
-    <span class="tag">💰 創投</span>
-    <span class="tag">🤖 機器人</span>
-    <span class="tag">⚡ 能源</span>
-  </div>
-</div>
 
 </div>
 
 <div class="divider"></div>
 
-<div class="info">
+<!-- INFO -->
+<div class="info animate-in delay-3">
   <h3>📋 報告架構說明</h3>
   <div class="info-grid">
     <div class="info-item">
@@ -156,75 +422,111 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
       <strong>techcrunch/latest.html</strong> — 最新 TechCrunch 翻譯報告
     </div>
     <div class="info-item">
-      <strong>GitHub Pages</strong> — https://acstep.github.io/stock-reports
+      <strong>GitHub Pages</strong> — <a href="https://acstep.github.io/stock-reports">acstep.github.io/stock-reports</a>
     </div>
     <div class="info-item">
-      <strong>自動更新</strong> — 每天台北時間 12:00 自動生成並推送
+      <strong>自動更新</strong> — 台北時間每天 12:00 自動生成並推送
+    </div>
+    <div class="info-item">
+      <strong>數據來源</strong> — Barchart（已登入 LILI 帳號）+ TechCrunch
+    </div>
+    <div class="info-item">
+      <strong>GitHub Repo</strong> — <a href="https://github.com/acstep/stock-reports">github.com/acstep/stock-reports</a>
     </div>
   </div>
 </div>
 
-
-  <!-- NEWS SECTION -->
-  <div class="section news-section">
-    <h2>📰 重要美股 AI 新聞</h2>
-    <div class="news-grid">
-
-      <div class="news-item">
-        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-24</span></div>
-        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/nvidia-quietly-builds-major-ai-071112516.html" target="_blank">Nvidia Quietly Builds Major AI Portfolio Shaping Investor Ri...</a></h3>
-        <p class="news-summary">Nvidia continues to expand its AI infrastructure portfolio beyond GPUs, positioning itself as the ba...</p>
-      </div>
-
-      <div class="news-item">
-        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-24</span></div>
-        <h3 class="news-title"><a href="https://finance.yahoo.com/sectors/energy/articles/vistra-taps-ai-data-center-231205029.html" target="_blank">Vistra Taps AI Data Center Surge With Long Term Tech Power D...</a></h3>
-        <p class="news-summary">Vistra signs long-term power agreements with tech giants to supply AI data centers, locking in reven...</p>
-      </div>
-
-      <div class="news-item">
-        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-24</span></div>
-        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/amd-mi300x-enterprise-ai-deployment-growth.html" target="_blank">AMD MI300X Gains Traction in Enterprise AI Deployments</a></h3>
-        <p class="news-summary">AMD's MI300X GPU gaining ground in enterprise AI as companies seek alternatives to Nvidia's dominant...</p>
-      </div>
-
-      <div class="news-item">
-        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-23</span></div>
-        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/ai-data-center-power-demand-energy-crisis.html" target="_blank">AI Data Center Power Demand: The Energy Crisis Funding Oppor...</a></h3>
-        <p class="news-summary">Goldman Sachs analysis shows AI data centers will require 40GW of new power generation by 2030, crea...</p>
-      </div>
-
-      <div class="news-item">
-        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-23</span></div>
-        <h3 class="news-title"><a href="https://finance.yahoo.com/m/edd8632b-d1d3-34ef-bc76-e5d6ccd27f58/micron-hbm4-memory-ai-scaling.html" target="_blank">Micron HBM4 Memory: The Next Bottleneck in AI Scaling</a></h3>
-        <p class="news-summary">Micron's HBM4 memory targets AI training workloads with 50% bandwidth increase over HBM3, shipping i...</p>
-      </div>
-
-      <div class="news-item">
-        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-23</span></div>
-        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/palantir-aip-enterprise-ai-market-share.html" target="_blank">Palantir AIP Gains Enterprise AI Market Share Against Snowfl...</a></h3>
-        <p class="news-summary">Palantir's AI Platform (AIP) seeing strong enterprise adoption as companies deploy AI agents for ope...</p>
-      </div>
-
-      <div class="news-item">
-        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-22</span></div>
-        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/super-micro-computer-ai-infrastructure.html" target="_blank">Super Micro Computer: The Unsung Hero of AI Infrastructure B...</a></h3>
-        <p class="news-summary">SMCI's direct liquid cooling technology becoming essential as AI server power density hits 100kW per...</p>
-      </div>
-
-      <div class="news-item">
-        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-22</span></div>
-        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/corning-fiber-ai-data-transmission.html" target="_blank">Corning Fiber Optics: AI Data Transmission The Hidden Infras...</a></h3>
-        <p class="news-summary">Corning's fiber optic cable demand surge as AI requires massive data movement between distributed da...</p>
-      </div>
-    </div>
+<!-- NEWS -->
+<div class="news-section animate-in delay-4">
+  <div class="section-label">
+    <span class="icon">📰</span>
+    <h2>重要美股 AI 新聞（Yahoo Finance）</h2>
   </div>
+  <div class="news-grid">
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="news-source">Yahoo Finance</span>
+        <span class="news-date">2026-05-24</span>
+      </div>
+      <div class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/nvidia-quietly-builds-major-ai-071112516.html" target="_blank">Nvidia Quietly Builds Major AI Portfolio Shaping Investor Risks</a></div>
+      <div class="news-summary">Nvidia continues to expand its AI infrastructure portfolio beyond GPUs, positioning itself as the backbone of AI computing.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="news-source">Yahoo Finance</span>
+        <span class="news-date">2026-05-24</span>
+      </div>
+      <div class="news-title"><a href="https://finance.yahoo.com/sectors/energy/articles/vistra-taps-ai-data-center-231205029.html" target="_blank">Vistra Taps AI Data Center Surge With Long Term Tech Power Deals</a></div>
+      <div class="news-summary">Vistra signs long-term power agreements with tech giants to supply AI data centers, locking in revenue growth.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="news-source">Yahoo Finance</span>
+        <span class="news-date">2026-05-24</span>
+      </div>
+      <div class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/amd-mi300x-enterprise-ai-deployment-growth.html" target="_blank">AMD MI300X Gains Traction in Enterprise AI Deployments</a></div>
+      <div class="news-summary">AMD's MI300X GPU gaining ground in enterprise AI as companies seek alternatives to Nvidia's dominant market position.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="news-source">Yahoo Finance</span>
+        <span class="news-date">2026-05-23</span>
+      </div>
+      <div class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/ai-data-center-power-demand-energy-crisis.html" target="_blank">AI Data Center Power Demand: The Energy Crisis Funding Opportunity</a></div>
+      <div class="news-summary">Goldman Sachs analysis shows AI data centers will require 40GW of new power generation by 2030, creating massive investment opportunity.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="news-source">Yahoo Finance</span>
+        <span class="news-date">2026-05-23</span>
+      </div>
+      <div class="news-title"><a href="https://finance.yahoo.com/m/edd8632b-d1d3-34ef-bc76-e5d6ccd27f58/micron-hbm4-memory-ai-scaling.html" target="_blank">Micron HBM4 Memory: The Next Bottleneck in AI Scaling</a></div>
+      <div class="news-summary">Micron's HBM4 memory targets AI training workloads with 50% bandwidth increase over HBM3, shipping in 2026.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="news-source">Yahoo Finance</span>
+        <span class="news-date">2026-05-23</span>
+      </div>
+      <div class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/palantir-aip-enterprise-ai-market-share.html" target="_blank">Palantir AIP Gains Enterprise AI Market Share Against Snowflake</a></div>
+      <div class="news-summary">Palantir's AI Platform (AIP) seeing strong enterprise adoption as companies deploy AI agents for operational tasks.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="news-source">Yahoo Finance</span>
+        <span class="news-date">2026-05-22</span>
+      </div>
+      <div class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/super-micro-computer-ai-infrastructure.html" target="_blank">Super Micro Computer: The Unsung Hero of AI Infrastructure Buildout</a></div>
+      <div class="news-summary">SMCI's direct liquid cooling technology becoming essential as AI server power density hits 100kW per rack.</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">
+        <span class="news-source">Yahoo Finance</span>
+        <span class="news-date">2026-05-22</span>
+      </div>
+      <div class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/corning-fiber-ai-data-transmission.html" target="_blank">Corning Fiber Optics: AI Data Transmission The Hidden Infrastructure Play</a></div>
+      <div class="news-summary">Corning's fiber optic cable demand surge as AI requires massive data movement between distributed data centers.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
 <div class="footer">
   由 OpenClaw AI 全自動生成 ｜ 
-  數據來源：Barchart（已登入）｜ TechCrunch ｜ Yahoo Finance<br>
+  數據來源：Barchart（已登入 LILI）｜ TechCrunch ｜ Yahoo Finance<br>
   🌐 <a href="https://acstep.github.io/stock-reports">acstep.github.io/stock-reports</a> ｜ 
   📂 <a href="https://github.com/acstep/stock-reports">GitHub Repo</a>
 </div>
+
 </div>
 </body>
 </html>
