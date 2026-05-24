@@ -239,7 +239,7 @@ def generate_tc_report(articles, date_str, date_file):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TechCrunch AI 最新資訊｜{date_file}</title>
+<title>TechCrunch 科技最新資訊｜{date_file}</title>
 <style>
 *{{box-sizing:border-box;margin:0;padding:0}}
 body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#080810;color:#e0e4f0;line-height:1.7;font-size:15px}}
@@ -279,13 +279,13 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 <div class="wrap">
 
 <div class="hero">
-  <h1>📰 TechCrunch AI 最新資訊</h1>
-  <div class="sub">🤖 最前沿的 AI 新創與科技動態｜譯自 TechCrunch</div>
+  <h1>📰 TechCrunch 科技最新資訊</h1>
+  <div class="sub">🚀 最前沿的科技與新創動態｜譯自 TechCrunch</div>
   <div class="meta">📅 {date_str}（台北時間）｜自動翻譯製作</div>
 </div>
 
 <div class="section">
-  <h2>📡 AI & 科技最新文章</h2>
+  <h2>📡 科技最新文章</h2>
   <div class="article-grid">
 """
 
@@ -301,20 +301,36 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
         desc_cn = translate_simple(desc)
         content_cn = translate_simple(content)
         
-        # Determine category icon
+        # Determine category icon (broader tech categories)
         title_lower = title.lower()
-        if any(k in title_lower for k in ['ai', 'artificial', 'machine learning', 'llm', 'model']):
+        if any(k in title_lower for k in ['ai', 'artificial intelligence', 'machine learning', 'llm', 'model', 'chatgpt', 'openai', 'anthropic', 'gemini']):
             icon = '🤖'
-        elif any(k in title_lower for k in ['space', 'rocket', 'nasa', 'spacex']):
+        elif any(k in title_lower for k in ['robot', 'humanoid', 'autonomous', 'vehicle', 'self-driving', 'drone']):
+            icon = '🤖'
+        elif any(k in title_lower for k in ['space', 'rocket', 'nasa', 'spacex', 'satellite']):
             icon = '🚀'
-        elif any(k in title_lower for k in ['security', 'hack', 'cyber', 'breach']):
+        elif any(k in title_lower for k in ['security', 'hack', 'cyber', 'breach', 'vulnerability']):
             icon = '🔐'
-        elif any(k in title_lower for k in ['robot', 'autonomous', 'vehicle']):
-            icon = '🤖'
-        elif any(k in title_lower for k in ['funding', 'raises', 'invests', 'series']):
+        elif any(k in title_lower for k in ['crypto', 'bitcoin', 'ethereum', 'blockchain', 'defi', 'nft']):
+            icon = '💎'
+        elif any(k in title_lower for k in ['funding', 'raises', 'invests', 'series', 'ipo', 'acquisition', 'merger']):
             icon = '💰'
-        elif any(k in title_lower for k in ['apple', 'google', 'microsoft', 'meta', 'amazon']):
+        elif any(k in title_lower for k in ['apple', 'google', 'microsoft', 'meta', 'amazon', 'samsung', 'tesla']):
             icon = '🏢'
+        elif any(k in title_lower for k in ['startup', 'entrepreneur', 'founder']):
+            icon = '🌟'
+        elif any(k in title_lower for k in ['social', 'instagram', 'tiktok', 'twitter', 'facebook']):
+            icon = '📱'
+        elif any(k in title_lower for k in ['gaming', 'video game', 'esports', 'steam', 'playstation', 'xbox']):
+            icon = '🎮'
+        elif any(k in title_lower for k in ['ev', 'electric vehicle', 'battery', 'energy', 'solar', 'wind']):
+            icon = '⚡'
+        elif any(k in title_lower for k in ['vr', 'ar', 'metaverse', 'virtual reality', 'augmented']):
+            icon = '🥽'
+        elif any(k in title_lower for k in ['chip', 'semiconductor', 'processor', 'nvidia', 'intel', 'amd', 'qualcomm']):
+            icon = '💾'
+        elif any(k in title_lower for k in ['cloud', 'saas', 'software', 'app']):
+            icon = '☁️'
         else:
             icon = '📰'
         
@@ -330,7 +346,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   {"<div class=\"art-content\"><p>" + content_cn[:500] + "...</p></div>" if content_cn else ""}
   <div class="art-tags">
     <span class="tag">TechCrunch</span>
-    <span class="tag">AI</span>
+    <span class="tag">TechCrunch</span>
     <span class="tag">翻譯報導</span>
   </div>
   <a class="read-link" href="{url}" target="_blank">🔗 閱讀原文 →</a>
@@ -341,7 +357,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 </div>
 
 <div class="section">
-  <h2>📊 AI 行業動態摘要</h2>
+  <h2>📊 科技行業動態摘要</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px">
     <div style="background:rgba(36,224,138,0.06);border:1px solid rgba(36,224,138,0.15);border-radius:12px;padding:16px">
       <div style="font-weight:700;color:#24e08a;margin-bottom:8px">🤖 AI 模型動態</div>
@@ -359,7 +375,7 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 </div>
 
 <div class="footer">
-  TechCrunch AI 資訊翻譯報告 · {date_str} · 由 OpenClaw AI 自動翻譯製作<br>
+  TechCrunch 科技資訊翻譯報告 · {date_str} · 由 OpenClaw AI 自動翻譯製作<br>
   🌐 <a href="https://acstep.github.io/stock-reports">acstep.github.io/stock-reports</a> ｜ 
   📂 <a href="https://www.techcrunch.com">TechCrunch 原文</a>
 </div>
