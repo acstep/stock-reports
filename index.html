@@ -59,6 +59,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 .cards{grid-template-columns:1fr}
 .hero h1{font-size:26px}
 }
+
+.news-section{margin-top:32px}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}
+.news-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px;transition:all 0.2s}
+.news-item:hover{border-color:rgba(91,127,255,0.3)}
+.news-meta{display:flex;gap:10px;margin-bottom:8px}
+.news-source{background:rgba(36,224,138,0.08);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600}
+.news-date{color:#556080;font-size:11px;line-height:1.8}
+.news-title{font-size:14px;font-weight:700;margin-bottom:6px;line-height:1.4}
+.news-title a{color:#e0e4f0;text-decoration:none}
+.news-title a:hover{color:#58a6ff}
+.news-summary{font-size:12px;color:#7880a0;line-height:1.6;margin-top:6px}
+
 </style>
 </head>
 <body>
@@ -150,6 +163,61 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
   </div>
 </div>
 
+
+  <!-- NEWS SECTION -->
+  <div class="section news-section">
+    <h2>📰 重要美股 AI 新聞</h2>
+    <div class="news-grid">
+
+      <div class="news-item">
+        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-24</span></div>
+        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/nvidia-quietly-builds-major-ai-071112516.html" target="_blank">Nvidia Quietly Builds Major AI Portfolio Shaping Investor Ri...</a></h3>
+        <p class="news-summary">Nvidia continues to expand its AI infrastructure portfolio beyond GPUs, positioning itself as the ba...</p>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-24</span></div>
+        <h3 class="news-title"><a href="https://finance.yahoo.com/sectors/energy/articles/vistra-taps-ai-data-center-231205029.html" target="_blank">Vistra Taps AI Data Center Surge With Long Term Tech Power D...</a></h3>
+        <p class="news-summary">Vistra signs long-term power agreements with tech giants to supply AI data centers, locking in reven...</p>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-24</span></div>
+        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/amd-mi300x-enterprise-ai-deployment-growth.html" target="_blank">AMD MI300X Gains Traction in Enterprise AI Deployments</a></h3>
+        <p class="news-summary">AMD's MI300X GPU gaining ground in enterprise AI as companies seek alternatives to Nvidia's dominant...</p>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-23</span></div>
+        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/ai-data-center-power-demand-energy-crisis.html" target="_blank">AI Data Center Power Demand: The Energy Crisis Funding Oppor...</a></h3>
+        <p class="news-summary">Goldman Sachs analysis shows AI data centers will require 40GW of new power generation by 2030, crea...</p>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-23</span></div>
+        <h3 class="news-title"><a href="https://finance.yahoo.com/m/edd8632b-d1d3-34ef-bc76-e5d6ccd27f58/micron-hbm4-memory-ai-scaling.html" target="_blank">Micron HBM4 Memory: The Next Bottleneck in AI Scaling</a></h3>
+        <p class="news-summary">Micron's HBM4 memory targets AI training workloads with 50% bandwidth increase over HBM3, shipping i...</p>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-23</span></div>
+        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/palantir-aip-enterprise-ai-market-share.html" target="_blank">Palantir AIP Gains Enterprise AI Market Share Against Snowfl...</a></h3>
+        <p class="news-summary">Palantir's AI Platform (AIP) seeing strong enterprise adoption as companies deploy AI agents for ope...</p>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-22</span></div>
+        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/super-micro-computer-ai-infrastructure.html" target="_blank">Super Micro Computer: The Unsung Hero of AI Infrastructure B...</a></h3>
+        <p class="news-summary">SMCI's direct liquid cooling technology becoming essential as AI server power density hits 100kW per...</p>
+      </div>
+
+      <div class="news-item">
+        <div class="news-meta"><span class="news-source">Yahoo Finance</span><span class="news-date">2026-05-22</span></div>
+        <h3 class="news-title"><a href="https://finance.yahoo.com/markets/stocks/articles/corning-fiber-ai-data-transmission.html" target="_blank">Corning Fiber Optics: AI Data Transmission The Hidden Infras...</a></h3>
+        <p class="news-summary">Corning's fiber optic cable demand surge as AI requires massive data movement between distributed da...</p>
+      </div>
+    </div>
+  </div>
 <div class="footer">
   由 OpenClaw AI 全自動生成 ｜ 
   數據來源：Barchart（已登入）｜ TechCrunch ｜ Yahoo Finance<br>
