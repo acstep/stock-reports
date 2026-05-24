@@ -1,7 +1,8 @@
+const CRED = require('/home/matt/.openclaw/workspace/.credentials.js');
 const puppeteer = require('puppeteer-core');
 
-const EMAIL = 'MarkConner7735@outlook.com';
-const PASSWORD = '***';
+const EMAIL = CRED.barchart.email;
+const PASSWORD = CRED.barchart.password;
 
 async function fetchStock(page, symbol) {
   const url = `https://www.barchart.com/stocks/quotes/${symbol}/overview`;
@@ -9,9 +10,7 @@ async function fetchStock(page, symbol) {
     await page.goto(url, { waitUntil: 'networkidle2', timeout: 20000 });
     await new Promise(r => setTimeout(r, 4000));
     const data = await page.evaluate(() => {
-      const body = document.body?.innerText || '';
-      // Print raw body for debugging
-      return { _raw: body.substring(0, 8000) };
+      return { _raw: document.body?.innerText.substring(0, 8000) || '' };
     });
     return { symbol, ...data, success: true };
   } catch(e) {
@@ -29,7 +28,6 @@ async function main() {
   await page.setViewport({ width: 1280, height: 900 });
   await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/125.0.0.0 Safari/537.36');
 
-  // Login
   await page.goto('https://www.barchart.com/login', { waitUntil: 'networkidle2', timeout: 30000 });
   await new Promise(r => setTimeout(r, 2000));
   await page.type('input[name="email"]', EMAIL, { delay: 80 });
@@ -38,7 +36,6 @@ async function main() {
   await new Promise(r => setTimeout(r, 6000));
   process.stderr.write(`Post-login URL: ${page.url()}\n`);
 
-  // Fetch 6 key stocks - dump raw body for NVDA first
   const symbols = ['NVDA', 'AMD', 'MU', 'SMCI', 'AVGO', 'NET', 'CRWD', 'VST', 'ENPH'];
   const results = [];
   for (const sym of symbols) {
@@ -48,7 +45,6 @@ async function main() {
     await new Promise(r => setTimeout(r, 2500));
   }
   
-  // Write results to file
   const fs = require('fs');
   fs.writeFileSync('/tmp/bc_raw_data.json', JSON.stringify(results, null, 2));
   console.log('Results written to /tmp/bc_raw_data.json');
