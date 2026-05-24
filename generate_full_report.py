@@ -537,6 +537,88 @@ html += f"""<div class="section">
 </div>
 """
 
+# Add Barchart Signal Strength section
+import subprocess, json as pyjson
+
+# Fetch the signal strength AI stocks
+bc_signal_url = 'https://www.barchart.com/proxies/core-api/v1/quotes/get?lists=stocks.us.signals_ratings.v2_top_signal_strength&orderDir=asc&fields=symbol%2CsymbolName%2ClastPrice%2CpriceChange%2CpercentChange%2Copinion%2CopinionLastWeek%2CopinionLastMonth%2CsymbolCode%2CsymbolType%2ChasOptions&orderBy=symbol&meta=field.shortName%2Cfield.type%2Cfield.description%2Clists.lastUpdate&hasOptions=true&raw=1'
+
+# Load from file if exists (set by cron job node script)
+signal_ai_path = '/tmp/bc_signal_ai.json'
+try:
+    with open(signal_ai_path) as f:
+        signal_ai_data = pyjson.load(f)
+except:
+    signal_ai_data = []
+
+# AI infrastructure symbols
+ai_sig_set = {'AMD','ARM','AVGO','NVDA','SMCI','MU','CSCO','ON','LSCC','MX','NVTS','TSEM','AMBQ','CIEN','ATEN','BE','KEYS','PWR','FSLR','SPXC','GLW','ENPH','VST','AMKR','CRWD','NET','PLTR','SWKS','QRVO','LRCX','AMAT','ASML'}
+
+if signal_ai_data:
+    signal_ai_filtered = [r for r in signal_ai_data if r.get('symbol') in ai_sig_set]
+else:
+    signal_ai_filtered = []
+
+print(f'Signal Strength AI stocks loaded: {len(signal_ai_filtered)}')
+
+# Build signal section HTML
+signal_html = ''
+if signal_ai_filtered:
+    signal_rows = ''
+    for r in signal_ai_filtered:
+        sym = r.get('symbol','')
+        name = r.get('symbolName','')
+        price = r.get('lastPrice','—')
+        chg = r.get('priceChange','—')
+        pct = r.get('percentChange','—')
+        opinion = r.get('opinion','—')
+        
+        chg_cls = 'up' if (chg and '+' in str(chg)) else ('down' if (chg and '-' in str(chg)) else '')
+        
+        signal_rows += f"""<tr>
+          <td><a href="https://www.barchart.com/stocks/quotes/{sym}/overview" target="_blank" class="bc-link">{sym}</a></td>
+          <td>{name}</td>
+          <td class="{chg_cls}">${price}</td>
+          <td class="{chg_cls}">{pct}</td>
+          <td style="color:#24e08a">{opinion}</td>
+        </tr>"""
+    
+    signal_html = f"""<div class="section">
+  <h2>🏆 Barchart Top 1% Signal Strength — AI 相關個股</h2>
+  <div style="color:#7880a0;font-size:12px;margin-bottom:14px">
+    資料來源：<a href="https://www.barchart.com/stocks/signals/direction-strength" target="_blank" style="color:#5b7fff">Barchart Top 1% Signal Strength</a>
+    ｜ 付費會員 LILI 專區 ｜ 2026/05/22 更新
+  </div>
+  <div style="overflow-x:auto">
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <thead>
+      <tr style="background:rgba(91,127,255,0.1);border-bottom:1px solid rgba(91,127,255,0.2)">
+        <th style="padding:10px 12px;text-align:left;color:#8090c0">代號</th>
+        <th style="padding:10px 12px;text-align:left;color:#8090c0">名稱</th>
+        <th style="padding:10px 12px;text-align:right;color:#8090c0">價格</th>
+        <th style="padding:10px 12px;text-align:right;color:#8090c0">漲跌</th>
+        <th style="padding:10px 12px;text-align:center;color:#8090c0">評級</th>
+      </tr>
+    </thead>
+    <tbody>
+    {signal_rows}
+    </tbody>
+  </table>
+  </div>
+  <div style="margin-top:14px;padding:12px;background:rgba(36,224,138,0.05);border:1px solid rgba(36,224,138,0.15);border-radius:10px">
+    <div style="color:#24e08a;font-weight:700;margin-bottom:6px">💡 信號強度說明</div>
+    <div style="color:#8090b0;font-size:12px;line-height:1.8">
+      <b>信號強度（Signal Strength）</b>：長期指標，衡量買/賣信號相對於歷史的強度。<b>Top 1%</b> 為最強級別，表示該信號歷史上僅前 1% 股票達到過。<br>
+      <b>100% Buy</b> = 完全買入信號，強度 Top 1%，為 Barchart 付費會員專屬數據。<br>
+      <b>注意</b>：此清單每日更新（美東 19:41 ET），與上面深度分析報告的精選個股不同，此處為 Barchart 演算法認可的 ALL AI 相關 Top 1% 信號強度個股。<br>
+      此清單可作為横向對比參考，結合理論分析與技術信號，輔助判斷切入時機。
+    </div>
+  </div>
+</div>"""
+
+
+html += signal_html
+
 html += f"""<div class="footer">
   AI 科技個股深度研究報告 {date_str} ｜ 由 OpenClaw AI 自動生成 ｜ 
   數據來源：Barchart（已登入 LILI 帳號）｜ 技術分析：Barchart Opinion<br>
