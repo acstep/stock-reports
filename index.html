@@ -2,1135 +2,157 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 科技個股深度研究報告｜2026-05-24</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 研究報告總覽｜每日更新</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#08080f;color:#e0e4f0;line-height:1.65;padding:0}
-.wrap{max-width:1200px;margin:0 auto;padding:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#08080f;color:#e0e4f0;line-height:1.65;font-size:15px}
+.wrap{max-width:1100px;margin:0 auto;padding:20px}
 
-/* HERO */
-.hero{background:linear-gradient(135deg,#08081a 0%,#0f1030 100%);border:1px solid rgba(91,127,255,0.25);border-radius:20px;padding:36px 40px;margin-bottom:28px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(91,127,255,0.08) 0%,transparent 70%);pointer-events:none}
-.hero h1{font-size:30px;color:#fff;margin-bottom:8px;letter-spacing:-0.5px}
-.hero .sub{color:#7880a0;font-size:13px;margin-bottom:4px}
-.hero .badges{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
-.badge{background:rgba(91,127,255,0.12);border:1px solid rgba(91,127,255,0.25);color:#8090d0;border-radius:20px;padding:5px 14px;font-size:11px}
+.hero{background:linear-gradient(135deg,#08081a 0%,#0f1030 100%);border:1px solid rgba(91,127,255,0.25);border-radius:24px;padding:48px 52px;margin-bottom:32px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(91,127,255,0.1) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-size:36px;color:#fff;margin-bottom:12px;letter-spacing:-0.5px}
+.hero .sub{color:#7880a0;font-size:14px;margin-bottom:6px}
+.hero .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.badge{background:rgba(91,127,255,0.12);border:1px solid rgba(91,127,255,0.25);color:#8090d0;border-radius:20px;padding:5px 16px;font-size:12px}
 .badge.green{background:rgba(36,224,138,0.08);border-color:rgba(36,224,138,0.25);color:#24e08a}
+.hero .time{color:#556080;font-size:12px;margin-top:14px}
 
-/* SECTIONS */
-.section{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:24px;margin-bottom:22px}
-.section h2{font-size:14px;color:#8090c0;text-transform:uppercase;letter-spacing:1.5px;border-left:3px solid #5b7fff;padding-left:12px;margin-bottom:18px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:24px}
+.card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:32px;transition:all 0.25s;position:relative;overflow:hidden}
+.card:hover{border-color:rgba(91,127,255,0.35);transform:translateY(-3px)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:20px 20px 0 0}
+.card.stock::before{background:linear-gradient(90deg,#24e08a,#5b7fff)}
+.card.tc::before{background:linear-gradient(90deg,#5b7fff,#a855f7)}
 
-/* STOCK CARDS GRID */
-.stock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
-.stock-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;transition:all 0.2s}
-.stock-card:hover{border-color:rgba(91,127,255,0.3);background:rgba(91,127,255,0.04)}
-.stock-card .card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
-.stock-card .sym{font-size:18px;font-weight:700;color:#5b7fff}
-.stock-card .score-badge{font-size:18px;font-weight:800;padding:4px 12px;border-radius:8px;text-align:center;min-width:44px}
-.stock-card .name{font-size:12px;color:#7880a0;margin-top:2px}
-.stock-card .tag{display:inline-block;background:rgba(91,127,255,0.15);color:#8090d0;font-size:10px;padding:2px 8px;border-radius:4px;margin-top:4px}
-.stock-card .price-row{display:flex;gap:12px;align-items:baseline;margin:8px 0}
-.stock-card .price{font-size:22px;font-weight:700;color:#fff}
-.stock-card .change{font-size:13px;font-weight:600;padding:3px 10px;border-radius:6px}
-.stock-card .change.up{background:rgba(36,224,138,0.15);color:#24e08a}
-.stock-card .change.down{background:rgba(255,92,92,0.15);color:#ff5c5c}
-.stock-card .range{font-size:11px;color:#555;margin-top:2px}
+.card .card-icon{font-size:48px;margin-bottom:16px}
+.card h2{font-size:22px;color:#fff;margin-bottom:8px}
+.card .card-desc{color:#7880a0;font-size:13px;line-height:1.8;margin-bottom:20px}
+.card .card-meta{display:flex;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.card .meta-item{display:flex;align-items:center;gap:6px;font-size:12px;color:#556080}
+.card .meta-item .val{color:#8090c0;font-weight:600}
 
-/* METRICS */
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
-.metric{text-align:center;padding:8px;background:rgba(0,0,0,0.2);border-radius:8px}
-.metric .val{font-size:14px;font-weight:700;color:#c0c8e0}
-.metric .lbl{font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.5px}
+.card .goto{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:12px;font-size:15px;font-weight:700;text-decoration:none;transition:all 0.2s}
+.card.stock .goto{background:rgba(36,224,138,0.12);color:#24e08a;border:1px solid rgba(36,224,138,0.25)}
+.card.stock .goto:hover{background:rgba(36,224,138,0.2)}
+.card.tc .goto{background:rgba(91,127,255,0.12);color:#5b7fff;border:1px solid rgba(91,127,255,0.25)}
+.card.tc .goto:hover{background:rgba(91,127,255,0.2)}
 
-/* SUPPLY/SIGNALS */
-.signals{margin-top:10px}
-.sig{font-size:11px;color:#aaa;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.03)}
-.sig:last-child{border-bottom:none}
-.sig::before{content:'→ ';color:#5b7fff}
+.card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.tag{background:rgba(255,255,255,0.05);color:#556080;font-size:11px;padding:3px 10px;border-radius:6px}
 
-/* FINANCIAL TABLE */
-.fin-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}
-.fin-table td{padding:7px 12px;border-bottom:1px solid rgba(255,255,255,0.04)}
-.fin-table td:first-child{color:#556;color:#556}
-.fin-table td:last-child{color:#a0a8d0;font-weight:600}
+.divider{height:1px;background:rgba(255,255,255,0.05);margin:32px 0}
+.info{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:20px 24px;margin-bottom:20px}
+.info h3{font-size:13px;color:#8090c0;text-transform:uppercase;letter-spacing:1.5px;border-left:3px solid #5b7fff;padding-left:10px;margin-bottom:12px}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.info-item{font-size:13px;color:#a0a8d0;line-height:1.7;padding:8px 0}
+.info-item strong{color:#5b7fff}
 
-/* RANKINGS */
-.rank-table{width:100%;border-collapse:collapse;font-size:13px}
-.rank-table th{text-align:left;padding:10px 12px;border-bottom:2px solid rgba(255,255,255,0.1);color:#556080;font-size:10px;text-transform:uppercase;letter-spacing:1px}
-.rank-table td{padding:12px 12px;border-bottom:1px solid rgba(255,255,255,0.04)}
-.rank-table tr:hover{background:rgba(255,255,255,0.02)}
-.rank-num{font-size:22px;font-weight:800;color:#222;width:40px;text-align:center}
-.rank-num.t1{color:#ffd700;font-size:26px}
-.rank-num.t2{color:#c0c0c0;font-size:24px}
-.rank-num.t3{color:#cd7f32;font-size:22px}
-.rating-badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600}
-.rb-buy{background:rgba(36,224,138,0.15);color:#24e08a}
-.rb-mbuy{background:rgba(91,127,255,0.15);color:#5b7fff}
-.rb-hold{background:rgba(255,193,7,0.12);color:#ffc107}
-
-/* NAV TABS */
-.nav-tabs{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap}
-.nav-tab{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#8090c0;padding:8px 16px;border-radius:10px;font-size:13px;cursor:pointer;transition:all 0.2s}
-.nav-tab:hover,.nav-tab.active{background:rgba(91,127,255,0.15);border-color:rgba(91,127,255,0.4);color:#8090d0}
-
-/* CAT SECTION */
-.cat-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.cat-icon{font-size:24px}
-.cat-title{font-size:16px;font-weight:700;color:#fff}
-
-/* SUPPLY LOGIC */
-.supply-box{background:rgba(91,127,255,0.06);border:1px solid rgba(91,127,255,0.15);border-radius:10px;padding:14px 16px;margin-bottom:14px}
-.supply-box .title{font-weight:700;color:#5b7fff;margin-bottom:6px;font-size:13px}
-.supply-box .desc{font-size:12px;color:#a0a8d0;line-height:1.8}
-
-/* FOOTER */
-.footer{text-align:center;color:#444;font-size:11px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05)}
+.footer{text-align:center;color:#444;font-size:12px;margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05)}
 .footer a{color:#5b7fff;text-decoration:none}
 
-.hidden{display:none}
-
-/* BARCHART LINK */
-.bc-link{display:inline-block;background:rgba(91,127,255,0.1);color:#5b7fff;padding:6px 12px;border-radius:8px;text-decoration:none;font-size:12px;margin-top:10px}
-.bc-link:hover{background:rgba(91,127,255,0.2)}
+.note{background:rgba(255,193,7,0.06);border:1px solid rgba(255,193,7,0.2);border-radius:12px;padding:16px 20px;margin-bottom:24px;font-size:13px;color:#a0a8d0}
+.note strong{color:#ffc107}
 
 @media(max-width:768px){
-.stock-grid{grid-template-columns:1fr}
-.metrics{grid-template-columns:repeat(2,1fr)}
+.hero{padding:32px 24px}
+.cards{grid-template-columns:1fr}
+.hero h1{font-size:26px}
 }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<!-- HERO -->
 <div class="hero">
-  <h1>📊 AI 科技個股深度研究報告</h1>
-  <div class="sub">📅 2026年05月24日 15:28（台北時間）｜覆蓋 20+ 檔核心 AI 供應鏈股票</div>
+  <h1>📊 AI 研究報告總覽</h1>
+  <div class="sub">每日全自動生成｜台灣時間每天中午 12:00 更新</div>
   <div class="badges">
-    <span class="badge">AI 資料中心建設</span>
-    <span class="badge green">供給落後需求 3-5 年</span>
-    <span class="badge">機構提前卡位</span>
-    <span class="badge">每週一～五自動更新</span>
-    <span class="badge">Barchart 數據（已登入）</span>
+    <span class="badge green">🟢 全自動</span>
+    <span class="badge">📈 美股研究</span>
+    <span class="badge">📰 TechCrunch 翻譯</span>
+    <span class="badge">🔄 每日更新</span>
+  </div>
+  <div class="time">🕐 報告生成時間：每天 12:00（台北時間）</div>
+</div>
+
+<div class="note">
+  <strong>💡 說明</strong>：以下兩份報告每天中午自動生成並推送至 GitHub Pages。
+</div>
+
+<div class="cards">
+
+<div class="card stock">
+  <div class="card-icon">📈</div>
+  <h2>AI 美股研究報告</h2>
+  <div class="card-desc">
+    覆蓋 AI 資料中心供應鏈核心個股，包括 GPU、伺服器、電力、散熱、光纖、先進封裝、資安等主題。結合 Barchart 即時數據、技術分析與機構評級，每日生成詳細報告。
+  </div>
+  <div class="card-meta">
+    <div class="meta-item"><span>📅</span><span class="val">每日中午 12:00</span></div>
+    <div class="meta-item"><span>📊</span><span class="val">20+ 檔個股</span></div>
+    <div class="meta-item"><span>🔢</span><span class="val">評分排名</span></div>
+  </div>
+  <a class="goto" href="stocks/index.html">📈 檢視今日美股報告 →</a>
+  <div class="tags">
+    <span class="tag">NVDA</span>
+    <span class="tag">AMD</span>
+    <span class="tag">MU</span>
+    <span class="tag">VST</span>
+    <span class="tag">CEG</span>
+    <span class="tag">GLW</span>
+    <span class="tag">SPXC</span>
+    <span class="tag">+更多</span>
   </div>
 </div>
 
-<!-- SCORE RANKINGS -->
-<div class="section">
-  <h2>🏆 早期信號評分排名（評分維度：低估值/機構佈局/技術底部/Beta/分析師評級）</h2>
-  <table class="rank-table">
-    <thead><tr>
-      <th>#</th><th>股票</th><th>價格</th><th>日漲跌</th><th>52週區間</th><th>Beta</th><th>P/E</th><th>評級</th><th>市值</th><th>評分</th><th>核心信號</th>
-    </tr></thead>
-    <tbody>
-<tr>
-      <td class="rank-num t1">1</td>
-      <td><div class="sym" style="color:#5b7fff">NVDA</div><div style="color:#556;font-size:11px">輝達 Nvidia</div><span class="tag">💾 AI 晶片</span></td>
-      <td><span style="font-weight:700;color:#fff">$215.33</span></td>
-      <td><span class="change down">-1.90%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:236.54</div><div style="color:#444;font-size:11px">L:129.16</div></td>
-      <td style="text-align:center;font-weight:600">2.25</td>
-      <td style="text-align:center;color:#ffc107;font-weight:600">39.41</td>
-      <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:#555;font-size:10px">49位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$5.3T</td>
-      <td style="font-weight:800;font-size:20px;color:#24e08a;text-align:center">10</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點僅+-68.0%，機構低檔佈局 / 價格處52週區間底部-82%，爆發空間大</td>
-    </tr>
-<tr>
-      <td class="rank-num t2">2</td>
-      <td><div class="sym" style="color:#5b7fff">VST</div><div style="color:#556;font-size:11px">Vistra</div><span class="tag">⚡ 資料中心電力</span></td>
-      <td><span style="font-weight:700;color:#fff">$156.27</span></td>
-      <td><span class="change up">+4.82%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:219.82</div><div style="color:#444;font-size:11px">L:132.66</div></td>
-      <td style="text-align:center;font-weight:600">1.43</td>
-      <td style="text-align:center;color:#24e08a;font-weight:600">18.44</td>
-      <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:#555;font-size:10px">17位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$50B</td>
-      <td style="font-weight:800;font-size:20px;color:#24e08a;text-align:center">8</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點僅+17.8%，機構低檔佈局 / 價格處52週區間底部27%，爆發空間大</td>
-    </tr>
-<tr>
-      <td class="rank-num t3">3</td>
-      <td><div class="sym" style="color:#5b7fff">CEG</div><div style="color:#556;font-size:11px">Constellation Energy</div><span class="tag">☢️ 核能供電</span></td>
-      <td><span style="font-weight:700;color:#fff">$294.07</span></td>
-      <td><span class="change up">+2.88%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:412.7</div><div style="color:#444;font-size:11px">L:243.3</div></td>
-      <td style="text-align:center;font-weight:600">1.14</td>
-      <td style="text-align:center;color:#ffc107;font-weight:600">28.15</td>
-      <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:#555;font-size:10px">20位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$61B</td>
-      <td style="font-weight:800;font-size:20px;color:#5b7fff;text-align:center">6</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點+20.9%，已脫離底部 / 價格處52週區間底部30%，爆發空間大</td>
-    </tr>
-<tr>
-      <td class="rank-num ">4</td>
-      <td><div class="sym" style="color:#5b7fff">AMKR</div><div style="color:#556;font-size:11px">Amkor Technology</div><span class="tag">📦 先進封裝</span></td>
-      <td><span style="font-weight:700;color:#fff">$25.50</span></td>
-      <td><span class="change up">+1.0%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:79.23</div><div style="color:#444;font-size:11px">L:17.79</div></td>
-      <td style="text-align:center;font-weight:600">2.29</td>
-      <td style="text-align:center;color:#ffc107;font-weight:600">39.14</td>
-      <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:#555;font-size:10px">20位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$2B</td>
-      <td style="font-weight:800;font-size:20px;color:#5b7fff;text-align:center">6</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點+43.3%，已脫離底部 / 價格處52週區間底部13%，爆發空間大</td>
-    </tr>
-<tr>
-      <td class="rank-num ">5</td>
-      <td><div class="sym" style="color:#5b7fff">MU</div><div style="color:#556;font-size:11px">美光科技 Micron</div><span class="tag">💾 記憶體</span></td>
-      <td><span style="font-weight:700;color:#fff">$503.49</span></td>
-      <td><span class="change up">+1.41%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:818.67</div><div style="color:#444;font-size:11px">L:90.93</div></td>
-      <td style="text-align:center;font-weight:600">1.91</td>
-      <td style="text-align:center;color:#ffc107;font-weight:600">34.4</td>
-      <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:#555;font-size:10px">41位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$859B</td>
-      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">4</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">Strong Buy（41位分析師）</td>
-    </tr>
-<tr>
-      <td class="rank-num ">6</td>
-      <td><div class="sym" style="color:#5b7fff">SPXC</div><div style="color:#556;font-size:11px">SPX Technologies</div><span class="tag">🧊 資料中心散熱</span></td>
-      <td><span style="font-weight:700;color:#fff">$207.80</span></td>
-      <td><span class="change up">+1.17%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:246.68</div><div style="color:#444;font-size:11px">L:147.39</div></td>
-      <td style="text-align:center;font-weight:600">1.31</td>
-      <td style="text-align:center;color:#ffc107;font-weight:600">29.11</td>
-      <td><span class="rating-badge rb-buy">Strong Buy</span><br><span style="color:#555;font-size:10px">16位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$10B</td>
-      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">4</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點+41.0%，已脫離底部 / Strong Buy（16位分析師）</td>
-    </tr>
-<tr>
-      <td class="rank-num ">7</td>
-      <td><div class="sym" style="color:#5b7fff">AMD</div><div style="color:#556;font-size:11px">超微半導體 AMD</div><span class="tag">💾 AI 晶片</span></td>
-      <td><span style="font-weight:700;color:#fff">$467.51</span></td>
-      <td><span class="change up">+3.99%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:481.41</div><div style="color:#444;font-size:11px">L:107.67</div></td>
-      <td style="text-align:center;font-weight:600">2.4</td>
-      <td style="text-align:center;color:#ff5c5c;font-weight:600">124.67</td>
-      <td><span class="rating-badge rb-buy">Buy</span><br><span style="color:#555;font-size:10px">45位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$733B</td>
-      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">3</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">價格已達52週區間頂部，風險報酬比惡化 / Beta=2.4，市場情緒聚焦</td>
-    </tr>
-<tr>
-      <td class="rank-num ">8</td>
-      <td><div class="sym" style="color:#5b7fff">LUMN</div><div style="color:#556;font-size:11px">Lumen Technologies</div><span class="tag">📡 企業光纖</span></td>
-      <td><span style="font-weight:700;color:#fff">$4.20</span></td>
-      <td><span class="change up">+2.0%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:9.0</div><div style="color:#444;font-size:11px">L:2.5</div></td>
-      <td style="text-align:center;font-weight:600">1.65</td>
-      <td style="text-align:center;color:#24e08a;font-weight:600">0.0</td>
-      <td><span class="rating-badge rb-hold">Hold</span><br><span style="color:#555;font-size:10px">15位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$4B</td>
-      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">3</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">價格處52週區間底部26%，爆發空間大</td>
-    </tr>
-<tr>
-      <td class="rank-num ">9</td>
-      <td><div class="sym" style="color:#5b7fff">NET</div><div style="color:#556;font-size:11px">Cloudflare</div><span class="tag">📡🔐 AI 網路/安全</span></td>
-      <td><span style="font-weight:700;color:#fff">$216.17</span></td>
-      <td><span class="change up">+1.66%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:260.0</div><div style="color:#444;font-size:11px">L:154.93</div></td>
-      <td style="text-align:center;font-weight:600">1.67</td>
-      <td style="text-align:center;color:#24e08a;font-weight:600">0.0</td>
-      <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:#555;font-size:10px">33位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$75B</td>
-      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">3</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點+39.5%，已脫離底部</td>
-    </tr>
-<tr>
-      <td class="rank-num ">10</td>
-      <td><div class="sym" style="color:#5b7fff">PLTR</div><div style="color:#556;font-size:11px">Palantir</div><span class="tag">🤖 AI 大數據分析</span></td>
-      <td><span style="font-weight:700;color:#fff">$258.88</span></td>
-      <td><span class="change up">+5.2%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:587.0</div><div style="color:#444;font-size:11px">L:60.0</div></td>
-      <td style="text-align:center;font-weight:600">2.5</td>
-      <td style="text-align:center;color:#24e08a;font-weight:600">0.0</td>
-      <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:#555;font-size:10px">30位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$55B</td>
-      <td style="font-weight:800;font-size:20px;color:#ffc107;text-align:center">3</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">Beta=2.5，市場情緒聚焦</td>
-    </tr>
-<tr>
-      <td class="rank-num ">11</td>
-      <td><div class="sym" style="color:#5b7fff">ETN</div><div style="color:#556;font-size:11px">Eaton</div><span class="tag">⚡ 資料中心配電</span></td>
-      <td><span style="font-weight:700;color:#fff">$391.35</span></td>
-      <td><span class="change up">+2.58%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:435.43</div><div style="color:#444;font-size:11px">L:311.9</div></td>
-      <td style="text-align:center;font-weight:600">1.24</td>
-      <td style="text-align:center;color:#ffc107;font-weight:600">31.22</td>
-      <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:#555;font-size:10px">31位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$46B</td>
-      <td style="font-weight:800;font-size:20px;color:#666;text-align:center">2</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">離52W低點+25.5%，已脫離底部</td>
-    </tr>
-<tr>
-      <td class="rank-num ">12</td>
-      <td><div class="sym" style="color:#5b7fff">CIEN</div><div style="color:#556;font-size:11px">Ciena</div><span class="tag">📡 光纖傳輸設備</span></td>
-      <td><span style="font-weight:700;color:#fff">$50.25</span></td>
-      <td><span class="change up">+1.5%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:60.2</div><div style="color:#444;font-size:11px">L:28.5</div></td>
-      <td style="text-align:center;font-weight:600">1.3</td>
-      <td style="text-align:center;color:#ffc107;font-weight:600">32.1</td>
-      <td><span class="rating-badge rb-buy">Buy</span><br><span style="color:#555;font-size:10px">18位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$9B</td>
-      <td style="font-weight:800;font-size:20px;color:#666;text-align:center">2</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">Buy（18位分析師）</td>
-    </tr>
-<tr>
-      <td class="rank-num ">13</td>
-      <td><div class="sym" style="color:#5b7fff">SMCI</div><div style="color:#556;font-size:11px">超微電腦 Super Micro</div><span class="tag">🖥️ AI 伺服器</span></td>
-      <td><span style="font-weight:700;color:#fff">$35.58</span></td>
-      <td><span class="change up">+6.34%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:62.36</div><div style="color:#444;font-size:11px">L:19.48</div></td>
-      <td style="text-align:center;font-weight:600">1.69</td>
-      <td style="text-align:center;color:#24e08a;font-weight:600">18.49</td>
-      <td><span class="rating-badge rb-hold">Hold</span><br><span style="color:#555;font-size:10px">19位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$20B</td>
-      <td style="font-weight:800;font-size:20px;color:#666;text-align:center">1</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px"></td>
-    </tr>
-<tr>
-      <td class="rank-num ">14</td>
-      <td><div class="sym" style="color:#5b7fff">AVGO</div><div style="color:#556;font-size:11px">博通 Broadcom</div><span class="tag">📡 AI 網路/ASIC</span></td>
-      <td><span style="font-weight:700;color:#fff">$414.14</span></td>
-      <td><span class="change down">-0.10%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:442.36</div><div style="color:#444;font-size:11px">L:226.18</div></td>
-      <td style="text-align:center;font-weight:600">1.43</td>
-      <td style="text-align:center;color:#ffc107;font-weight:600">32.47</td>
-      <td><span class="rating-badge rb-buy">Buy</span><br><span style="color:#555;font-size:10px">42位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$1.96T</td>
-      <td style="font-weight:800;font-size:20px;color:#666;text-align:center">1</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">價格已達52週區間頂部，風險報酬比惡化 / Buy（42位分析師）</td>
-    </tr>
-<tr>
-      <td class="rank-num ">15</td>
-      <td><div class="sym" style="color:#5b7fff">GLW</div><div style="color:#556;font-size:11px">康寧 Corning</div><span class="tag">📡 光纖/玻璃基板</span></td>
-      <td><span style="font-weight:700;color:#fff">$38.50</span></td>
-      <td><span class="change up">+3.0%</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:45.2</div><div style="color:#444;font-size:11px">L:18.0</div></td>
-      <td style="text-align:center;font-weight:600">1.14</td>
-      <td style="text-align:center;color:#ff5c5c;font-weight:600">67.17</td>
-      <td><span class="rating-badge rb-mbuy">Moderate Buy</span><br><span style="color:#555;font-size:10px">25位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">$29B</td>
-      <td style="font-weight:800;font-size:20px;color:#666;text-align:center">1</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px"></td>
-    </tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- SUPPLY/DEMAND LOGIC -->
-<div class="section">
-  <h2>🔥 供需失衡核心邏輯（康寧邏輯延伸版）</h2>
-  <div class="supply-box">
-    <div class="title">📡 光纖骨幹網路供需失衡</div>
-    <div class="desc">AI 資料傳輸需求爆發，光纖工廠建設周期 3-5 年，供需缺口早在 2025 年已出現。GLW（康寧）從 $18 漲至 $38（+111%）已驗證此邏輯。LUMN 企業光纖需求被嚴重低估，CIEN 為光纖傳輸設備廠。</div>
+<div class="card tc">
+  <div class="card-icon">📰</div>
+  <h2>TechCrunch AI 翻譯報告</h2>
+  <div class="card-desc">
+    每日精選 TechCrunch 最新 AI 與科技新聞，翻譯成中文並整理成易讀報告。涵蓋 AI 新創、創投融資、產品發布、產業趨勢等主題。
   </div>
-  <div class="supply-box">
-    <div class="title">⚡ 資料中心電力供需失衡</div>
-    <div class="desc">AI 伺服器耗電是傳統 10 倍，美國電網擴建落後算力需求至少 3-5 年。VST / ETN / CEG 直接受益。CEG（Constellation）擁有核能執照，為 AI 資料中心提供 24/7 清淨能源，成為戰略稀有資產。</div>
+  <div class="card-meta">
+    <div class="meta-item"><span>📅</span><span class="val">每日中午 12:00+</span></div>
+    <div class="meta-item"><span>🌐</span><span class="val">TechCrunch</span></div>
+    <div class="meta-item"><span>🀄</span><span class="val">全中文</span></div>
   </div>
-  <div class="supply-box">
-    <div class="title">🧊 散熱系統（液冷革命）</div>
-    <div class="desc">GPU 熱密度從 300W→1000W+，傳統風冷完全失效。液冷系統（VRT / SPXC）需求爆發，但供給嚴重落後。Vertiv 已被機構買爆，SPXC 尚未被市場充分定價，市值僅 $10B，存在巨大預期差。</div>
-  </div>
-  <div class="supply-box">
-    <div class="title">💾 先進封裝（HBM / CoWoS）供需失衡</div>
-    <div class="desc">CoWoS / HBM 先進封裝產能擴產需 18-24 個月，但 AI 需求增速（>100%/年）遠超供給。AMKR 為唯一獨立先進封裝廠，訂單能見度至 2027 年，長線最大受益者之一。</div>
-  </div>
-  <div class="supply-box">
-    <div class="title">☢️ 核能供電（戰略稀有資產）</div>
-    <div class="desc">Microsoft / Google / Amazon 爭相簽署核能供電協議，因為太陽能/風電無法穩定供應 24/7 AI 資料中心。核能電廠建設需 10+ 年，現有執照核電廠成稀有資產。CEG 直接受益。</div>
-  </div>
-  <div class="supply-box">
-    <div class="title">📦 玻璃基板（AIPC 封裝）</div>
-    <div class="desc">英特爾/AMD 下一代 AIPC 封裝需要玻璃基板（代替傳統有機基板），康寧（GLW）幾乎壟斷此市場。2025-2027 年需求缺口巨大，GLW 為少數同時受益光纖 + 玻璃基板的股票。</div>
+  <a class="goto" href="techcrunch/latest.html">📰 檢視今日 TechCrunch 報告 →</a>
+  <div class="tags">
+    <span class="tag">AI 新創</span>
+    <span class="tag">創投</span>
+    <span class="tag">產品發布</span>
+    <span class="tag">產業趨勢</span>
+    <span class="tag">人形機器人</span>
+    <span class="tag">自動駕駛</span>
   </div>
 </div>
 
-<div class="section">
-  <div class="cat-header">
-    <div class="cat-icon">💾</div>
-    <div class="cat-title">AI</div>
-  </div>
-  <div class="stock-grid">
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">NVDA</div>
-          <div class="name">輝達 Nvidia</div>
-          <span class="tag">💾 AI 晶片</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#24e08a">10分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$215.33</div>
-        <div class="change down">-1.90%</div>
-      </div>
-      <div class="range">52週區間 129.16 ~ 236.54</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">39.41</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">2.25</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$5.3T</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">49位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$4.57</td></tr>
-        <tr><td>年營收</td><td>$215,938M</td></tr>
-        <tr><td>年淨利</td><td>$120,067M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 晶片</div>
-        <div class="sig" style="color:#c0c8e0">全球 AI GPU 龍頭，H100/H200 需求壟斷，Blackwell 下一代架構領先對手至少 2 年。資料中心營收佔比 >80%，直接受益 AI 算力需求。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：GPU 供給遠低於需求，H100 租金持續上漲 20%。</div>
-        <div class="sig">離52W低點僅+-68.0%，機構低檔佈局</div> <div class="sig">價格處52週區間底部-82%，爆發空間大</div> <div class="sig">Beta=2.25，市場情緒聚焦</div> <div class="sig">Strong Buy（49位分析師）</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank">📊 詳細報價 → Barchart</a>
+</div>
+
+<div class="divider"></div>
+
+<div class="info">
+  <h3>📋 報告架構說明</h3>
+  <div class="info-grid">
+    <div class="info-item">
+      <strong>stocks/index.html</strong> — 每日最新美股研究報告（覆蓋更新）
     </div>
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">AMD</div>
-          <div class="name">超微半導體 AMD</div>
-          <span class="tag">💾 AI 晶片</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">3分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$467.51</div>
-        <div class="change up">+3.99%</div>
-      </div>
-      <div class="range">52週區間 107.67 ~ 481.41</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">124.67</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">2.4</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$733B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">45位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$4.57</td></tr>
-        <tr><td>年營收</td><td>$34,639M</td></tr>
-        <tr><td>年淨利</td><td>$4,335M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 晶片</div>
-        <div class="sig" style="color:#c0c8e0">MI300X GPU 在資料中心滲透率持續提升，性價比高於 NVDA。Zen 5 CPU 市場份額擴大，EPYC 伺服器處理器受益雲端擴張。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：MI300X 產能擴張中，2026 年有機會在資料中心搶下更多市佔。</div>
-        <div class="sig">價格已達52週區間頂部，風險報酬比惡化</div> <div class="sig">Beta=2.4，市場情緒聚焦</div> <div class="sig">Buy（45位分析師）</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/AMD/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    <div class="info-item">
+      <strong>techcrunch/latest.html</strong> — 最新 TechCrunch 翻譯報告
     </div>
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">AVGO</div>
-          <div class="name">博通 Broadcom</div>
-          <span class="tag">📡 AI 網路/ASIC</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">1分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$414.14</div>
-        <div class="change down">-0.10%</div>
-      </div>
-      <div class="range">52週區間 226.18 ~ 442.36</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">32.47</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.43</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$1.96T</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">42位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$23.00</td></tr>
-        <tr><td>年營收</td><td>$63,887M</td></tr>
-        <tr><td>年淨利</td><td>$23,126M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 網路/ASIC</div>
-        <div class="sig" style="color:#c0c8e0">AI 資料中心網路交換器、客製化 ASIC（Google TPU、Meta 資料中心）核心供應商。PE 32x 合理，Beta 1.43 波動低於同業。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：ASIC 訂單能見度佳，但來自華為等中國廠商營收有風險。</div>
-        <div class="sig">價格已達52週區間頂部，風險報酬比惡化</div> <div class="sig">Buy（42位分析師）</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/AVGO/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    <div class="info-item">
+      <strong>GitHub Pages</strong> — https://acstep.github.io/stock-reports
     </div>
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">MU</div>
-          <div class="name">美光科技 Micron</div>
-          <span class="tag">💾 記憶體</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">4分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$503.49</div>
-        <div class="change up">+1.41%</div>
-      </div>
-      <div class="range">52週區間 90.93 ~ 818.67</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">34.4</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.91</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$859B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">41位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$14.64</td></tr>
-        <tr><td>年營收</td><td>$37,378M</td></tr>
-        <tr><td>年淨利</td><td>$8,539M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：記憶體</div>
-        <div class="sig" style="color:#c0c8e0">HBM3 主要供應商之一（與 SK Hynix 並列），AI 伺服器記憶體需求爆發。股價從 $818 高點回落至 $503，估值進入合理區間。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：HBM 供給受限三星與 SK，擴產需 18-24 個月，供需缺口持續。</div>
-        <div class="sig">Strong Buy（41位分析師）</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank">📊 詳細報價 → Barchart</a>
+    <div class="info-item">
+      <strong>自動更新</strong> — 每天台北時間 12:00 自動生成並推送
     </div>
   </div>
 </div>
-<div class="section">
-  <div class="cat-header">
-    <div class="cat-icon">🖥️</div>
-    <div class="cat-title">AI</div>
-  </div>
-  <div class="stock-grid">
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">SMCI</div>
-          <div class="name">超微電腦 Super Micro</div>
-          <span class="tag">🖥️ AI 伺服器</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">1分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$35.58</div>
-        <div class="change up">+6.34%</div>
-      </div>
-      <div class="range">52週區間 19.48 ~ 62.36</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">18.49</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.69</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$20B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">19位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$1.93</td></tr>
-        <tr><td>年營收</td><td>$21,972M</td></tr>
-        <tr><td>年淨利</td><td>$1,049M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Hold</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 伺服器</div>
-        <div class="sig" style="color:#c0c8e0">全球最大 AI 伺服器系統整合商，直接受益 Microsoft/Google/Amazon/OAI 資料中心建設。已從低點 $19.48 暴漲至 $35.58（+82%）。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：訂單能見度極高，但組裝產能仍是瓶頸，積壓訂單創歷史新高。</div>
-        
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/SMCI/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-  </div>
-</div>
-<div class="section">
-  <div class="cat-header">
-    <div class="cat-icon">⚡</div>
-    <div class="cat-title">資料中心電力基建</div>
-  </div>
-  <div class="stock-grid">
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">VST</div>
-          <div class="name">Vistra</div>
-          <span class="tag">⚡ 資料中心電力</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#24e08a">8分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$156.27</div>
-        <div class="change up">+4.82%</div>
-      </div>
-      <div class="range">52週區間 132.66 ~ 219.82</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">18.44</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.43</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$50B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">17位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$8.48</td></tr>
-        <tr><td>年營收</td><td>$17,738M</td></tr>
-        <tr><td>年淨利</td><td>$944M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：資料中心電力</div>
-        <div class="sig" style="color:#c0c8e0">美國最大電力零售商之一，擁有天然氣 + 核電雙軌供電。直接簽約大型資料中心（Microsoft 等），AI 用電需求是核心成長引擎。PE 18.4 便宜。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：美國電網擴建落後算力需求 3-5 年，長期供需失衡明確。</div>
-        <div class="sig">離52W低點僅+17.8%，機構低檔佈局</div> <div class="sig">價格處52週區間底部27%，爆發空間大</div> <div class="sig">Strong Buy（17位分析師）</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">ETN</div>
-          <div class="name">Eaton</div>
-          <span class="tag">⚡ 資料中心配電</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">2分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$391.35</div>
-        <div class="change up">+2.58%</div>
-      </div>
-      <div class="range">52週區間 311.9 ~ 435.43</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">31.22</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.24</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$46B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">31位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$12.53</td></tr>
-        <tr><td>年營收</td><td>$24,700M</td></tr>
-        <tr><td>年淨利</td><td>$3,240M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Moderate Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：資料中心配電</div>
-        <div class="sig" style="color:#c0c8e0">全球最大配電設備廠之一，智慧配電系統（Smart Grid）用於資料中心。AI 資料中心擴張直接拉動配電盤、變壓器需求。PE 31x，分析师 Moderate Buy。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：電網設備擴產需要 2-3 年，供需缺口明確。</div>
-        <div class="sig">離52W低點+25.5%，已脫離底部</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/ETN/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">CEG</div>
-          <div class="name">Constellation Energy</div>
-          <span class="tag">☢️ 核能供電</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#5b7fff">6分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$294.07</div>
-        <div class="change up">+2.88%</div>
-      </div>
-      <div class="range">52週區間 243.3 ~ 412.7</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">28.15</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.14</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$61B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">20位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$10.45</td></tr>
-        <tr><td>年營收</td><td>$24,500M</td></tr>
-        <tr><td>年淨利</td><td>$2,900M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：核能供電</div>
-        <div class="sig" style="color:#c0c8e0">美國最大核電廠運營商，擁有 12+ 座核反應爐。Microsoft/Google 爭相簽署核能供電協議，因為核能是唯一能提供 24/7 清淨能源的選項。PE 28x。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：核能執照為稀有資產，新建核電廠需 10+ 年，現有執照電廠成戰略資源。</div>
-        <div class="sig">離52W低點+20.9%，已脫離底部</div> <div class="sig">價格處52週區間底部30%，爆發空間大</div> <div class="sig">Strong Buy（20位分析師）</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-  </div>
-</div>
-<div class="section">
-  <div class="cat-header">
-    <div class="cat-icon">🧊</div>
-    <div class="cat-title">散熱與冷卻系統</div>
-  </div>
-  <div class="stock-grid">
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">SPXC</div>
-          <div class="name">SPX Technologies</div>
-          <span class="tag">🧊 資料中心散熱</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">4分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$207.80</div>
-        <div class="change up">+1.17%</div>
-      </div>
-      <div class="range">52週區間 147.39 ~ 246.68</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">29.11</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.31</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$10B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">16位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$7.12</td></tr>
-        <tr><td>年營收</td><td>$5,200M</td></tr>
-        <tr><td>年淨利</td><td>$540M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：資料中心散熱</div>
-        <div class="sig" style="color:#c0c8e0">資料中心通風與冷卻設備龍頭，旗下品牌包括 Marley 散熱系統。液冷需求爆發，但 SPXC 尚未被市場充分定價，市值僅 $10B。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：液冷系統產能擴張需要 12-18 個月，供需缺口明確。</div>
-        <div class="sig">離52W低點+41.0%，已脫離底部</div> <div class="sig">Strong Buy（16位分析師）</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/SPXC/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">VRT</div>
-          <div class="name">Vertiv Holdings</div>
-          <span class="tag">⚡🧊 供電+散熱</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">0分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">—</div>
-        <div class="change ">—</div>
-      </div>
-      <div class="range">52週區間 — ~ —</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">—</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">0</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">—K</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">—位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>—</td></tr>
-        <tr><td>年營收</td><td>—</td></tr>
-        <tr><td>年淨利</td><td>—</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">—</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：供電+散熱</div>
-        <div class="sig" style="color:#c0c8e0">資料中心供電 + 散熱 + 機電一站式服務，液冷系統行業龍頭。AI 伺服器耗電是傳統 10 倍，散熱需求爆發。Beta 2.0+ 高波動代表資金聚焦。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：液冷系統供給嚴重落後需求，Vertiv 為少數能做到大型資料中心完整方案的廠商。</div>
-        
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/VRT/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-  </div>
-</div>
-<div class="section">
-  <div class="cat-header">
-    <div class="cat-icon">📡</div>
-    <div class="cat-title">光纖與通訊基建</div>
-  </div>
-  <div class="stock-grid">
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">GLW</div>
-          <div class="name">康寧 Corning</div>
-          <span class="tag">📡 光纖/玻璃基板</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">1分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$38.50</div>
-        <div class="change up">+3.0%</div>
-      </div>
-      <div class="range">52週區間 18.0 ~ 45.2</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">67.17</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.14</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$29B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">25位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$0.57</td></tr>
-        <tr><td>年營收</td><td>$14,000M</td></tr>
-        <tr><td>年淨利</td><td>$1,200M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Moderate Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：光纖/玻璃基板</div>
-        <div class="sig" style="color:#c0c8e0">全球最大光纖線纜廠商，同時壟斷 AI/AIPC 先進封裝玻璃基板市場。AI 資料傳輸需求爆發，光纖建設落後需求 3-5 年。股價已從 $18 漲至 $38（+111%）。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：光纖工廠建設需要 3-5 年，需求增速 >100%/年，供需失衡已確認。</div>
-        
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">LUMN</div>
-          <div class="name">Lumen Technologies</div>
-          <span class="tag">📡 企業光纖</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">3分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$4.20</div>
-        <div class="change up">+2.0%</div>
-      </div>
-      <div class="range">52週區間 2.5 ~ 9.0</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.65</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$4B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">15位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>-$0.30</td></tr>
-        <tr><td>年營收</td><td>$14,000M</td></tr>
-        <tr><td>年淨利</td><td>-$1,200M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Hold</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：企業光纖</div>
-        <div class="sig" style="color:#c0c8e0">被嚴重低估的企業光纖網路股，擁有美國最大企業光纖骨幹網路之一。AI 資料傳輸需求爆發，LUMN 企業業務訂單超預期。股價仍在低點。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：企業光纖建設落後需求，光纖網路價值被嚴重低估。</div>
-        <div class="sig">價格處52週區間底部26%，爆發空間大</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/LUMN/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">CIEN</div>
-          <div class="name">Ciena</div>
-          <span class="tag">📡 光纖傳輸設備</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">2分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$50.25</div>
-        <div class="change up">+1.5%</div>
-      </div>
-      <div class="range">52週區間 28.5 ~ 60.2</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">32.1</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.3</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$9B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">18位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$1.52</td></tr>
-        <tr><td>年營收</td><td>$3,800M</td></tr>
-        <tr><td>年淨利</td><td>$350M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：光纖傳輸設備</div>
-        <div class="sig" style="color:#c0c8e0">光纖傳輸設備核心供應商，幫助電信運營商升級骨幹網路以支援 AI 流量爆發。中國市場份額大但有地緣風險。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：電信運營商光纖升級需求，2026-2027 年採購預算大增。</div>
-        <div class="sig">Buy（18位分析師）</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-  </div>
-</div>
-<div class="section">
-  <div class="cat-header">
-    <div class="cat-icon">💾</div>
-    <div class="cat-title">先進封裝與記憶體</div>
-  </div>
-  <div class="stock-grid">
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">AMKR</div>
-          <div class="name">Amkor Technology</div>
-          <span class="tag">📦 先進封裝</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#5b7fff">6分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$25.50</div>
-        <div class="change up">+1.0%</div>
-      </div>
-      <div class="range">52週區間 17.79 ~ 79.23</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">39.14</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">2.29</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$2B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">20位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$0.65</td></tr>
-        <tr><td>年營收</td><td>$7,000M</td></tr>
-        <tr><td>年淨利</td><td>$600M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Moderate Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：先進封裝</div>
-        <div class="sig" style="color:#c0c8e0">全球唯一獨立先進封裝廠，為蘋果、NVIDIA 等提供 CoWoS/HBM 封裝服務。訂單能見度直達 2027 年，股價落後同業。PE 39x。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：CoWoS 先進封裝需求增速 >100%/年，但全球僅少數廠能做，供給極度受限。</div>
-        <div class="sig">離52W低點+43.3%，已脫離底部</div> <div class="sig">價格處52週區間底部13%，爆發空間大</div> <div class="sig">Beta=2.29，市場情緒聚焦</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/AMKR/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">MU</div>
-          <div class="name">美光科技 Micron</div>
-          <span class="tag">💾 記憶體</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">4分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$503.49</div>
-        <div class="change up">+1.41%</div>
-      </div>
-      <div class="range">52週區間 90.93 ~ 818.67</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">34.4</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.91</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$859B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">41位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$14.64</td></tr>
-        <tr><td>年營收</td><td>$37,378M</td></tr>
-        <tr><td>年淨利</td><td>$8,539M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Strong Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：記憶體</div>
-        <div class="sig" style="color:#c0c8e0">HBM3 主要供應商之一（與 SK Hynix 並列），AI 伺服器記憶體需求爆發。股價從 $818 高點回落至 $503，估值進入合理區間。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：HBM 供給受限三星與 SK，擴產需 18-24 個月，供需缺口持續。</div>
-        <div class="sig">Strong Buy（41位分析師）</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-  </div>
-</div>
-<div class="section">
-  <div class="cat-header">
-    <div class="cat-icon">🔐</div>
-    <div class="cat-title">AI</div>
-  </div>
-  <div class="stock-grid">
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">CRWD</div>
-          <div class="name">CrowdStrike</div>
-          <span class="tag">🔐 AI 資安</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#666">1分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$663.46</div>
-        <div class="change up">+2.35%</div>
-      </div>
-      <div class="range">52週區間 342.72 ~ 674.84</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">2.29</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$1.64T</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">49位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$4.57</td></tr>
-        <tr><td>年營收</td><td>$4,812M</td></tr>
-        <tr><td>年淨利</td><td>-$162M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Hold</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 資安</div>
-        <div class="sig" style="color:#c0c8e0">AI 時代雲端資安龍頭，Falcon 平台保護企業 AI 工作負載。AI 用越多 = 資安風險越大 = 資安預算越多。股價近 3 個月 +63%。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：資安市場增速加快，AI 監管新規將進一步拉動企業資安預算。</div>
-        <div class="sig">價格已達52週區間頂部，風險報酬比惡化</div> <div class="sig">Beta=2.29，市場情緒聚焦</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">NET</div>
-          <div class="name">Cloudflare</div>
-          <span class="tag">📡🔐 AI 網路/安全</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">3分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$216.17</div>
-        <div class="change up">+1.66%</div>
-      </div>
-      <div class="range">52週區間 154.93 ~ 260.0</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">1.67</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$75B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">33位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>-$0.26</td></tr>
-        <tr><td>年營收</td><td>$2,168M</td></tr>
-        <tr><td>年淨利</td><td>-$102M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Moderate Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 網路/安全</div>
-        <div class="sig" style="color:#c0c8e0">AI 時代 CDN + 零信任資安 + 邊緣運算核心。與 Anthropic 合作 AI 安全代理，進軍 AI 安全市場。技術面強勢，6 個月 +22%。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：邊緣運算需求爆發，Cloudflare 節點網路覆蓋 300+ 城市。</div>
-        <div class="sig">離52W低點+39.5%，已脫離底部</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/NET/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym">PLTR</div>
-          <div class="name">Palantir</div>
-          <span class="tag">🤖 AI 大數據分析</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:#ffc107">3分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">$258.88</div>
-        <div class="change up">+5.2%</div>
-      </div>
-      <div class="range">52週區間 60.0 ~ 587.0</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">0.0</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">2.5</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">$55B</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">30位</div><div class="lbl">分析師</div></div>
-      </div>
-      
-      <table class="fin-table">
-        <tr><td>EPS（TTM）</td><td>$1.27</td></tr>
-        <tr><td>年營收</td><td>$2,200M</td></tr>
-        <tr><td>年淨利</td><td>$386M</td></tr>
-        <tr><td>評級</td><td style="color:#24e08a">Moderate Buy</td></tr>
-      </table>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 基本面：AI 大數據分析</div>
-        <div class="sig" style="color:#c0c8e0">AI 政府/國防大數據分析龍頭， Gotham/Apollo 平台獲得美國國防部大單。AI 應用於軍事指揮控制、情報分析。Commercial 業務快速增長。</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：國防 AI 預算持續增加，Palantir 在政府 AI 市場佔有率領先。</div>
-        <div class="sig">Beta=2.5，市場情緒聚焦</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-  </div>
-</div>
-<div class="section">
-  <h2>📰 科技要聞摘要（2026/05/24）</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">💾 AI</div>
-      <div style="color:#8090c0;font-size:12px">• AI 被用來重建已故飛行員語音录音，引發 NTSB 封鎖爭議<br>• Google 推出 AI 眼鏡原型，Gemini 驅動翻譯與導航<br>• 創投與創辦人操縱 ARR 數據，AI 新創估值泡沫疑慮浮現</div>
-    </div>
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🚀 Space</div>
-      <div style="color:#8090c0;font-size:12px">• SpaceX Starship V3 首射成功，助推器返回時損失<br>• SpaceX 申請 IPO，估值 28 兆 TAM，史上最大 IPO<br>• Blue Origin 獲准恢復 New Glenn 飛行</div>
-    </div>
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🔐 安全</div>
-      <div style="color:#8090c0;font-size:12px">• Kash Patel 服飾網站遭駭，惡意軟體散布<br>• Trump Mobile 證實客户個資外洩<br>• CrowdStrike 推出 Claude 合規 API，AI 資安需求增</div>
-    </div>
-  </div>
-</div>
+
 <div class="footer">
-  AI 科技個股深度研究報告 2026年05月24日 15:28 ｜ 由 OpenClaw AI 自動生成 ｜ 
-  數據來源：Barchart（已登入 LILI 帳號）｜ 技術分析：Barchart Opinion<br>
+  由 OpenClaw AI 全自動生成 ｜ 
+  數據來源：Barchart（已登入）｜ TechCrunch<br>
   🌐 <a href="https://acstep.github.io/stock-reports">acstep.github.io/stock-reports</a> ｜ 
   📂 <a href="https://github.com/acstep/stock-reports">GitHub Repo</a>
 </div>

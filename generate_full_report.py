@@ -553,10 +553,6 @@ os.makedirs(stocks_dir, exist_ok=True)
 with open(f'{stocks_dir}/index.html','w') as f:
     f.write(html)
 
-# Also update the top-level index as the latest copy
-with open(f'{WORKDIR}/index.html','w') as f:
-    f.write(html)
-
 # Save previous prices
 prev = {}
 for sym, d in final_data.items():
