@@ -560,7 +560,7 @@ for sym, d in final_data.items():
 with open(f'{WORKDIR}/report_previous.json','w') as f:
     json.dump(prev,f,indent=2)
 
-print(f"Report written to {WORKDIR}/index.html")
+print(f"Report written to {WORKDIR}/stocks/index.html")
 print(f"Ranked stocks:")
 for rank,(sym,d) in enumerate(ranked[:20],1):
     print(f"  #{rank} {sym}: score={d['score']} price={d.get('price')} rating={d.get('rating')}")
