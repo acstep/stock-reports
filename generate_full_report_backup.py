@@ -2,7 +2,6 @@
 """生成完整詳細的個股研究報告"""
 import json, re, os, time, urllib.request
 from datetime import datetime, timezone
-from collections import defaultdict
 
 DATA_FILE = '/tmp/bc_full_data.json'
 WORKDIR = '/home/matt/.openclaw/workspace/stock-reports'
@@ -659,7 +658,58 @@ html += """
 
 """
 
-
+# ALL Signal Strength stocks → add to final_data if not already present
+# This ensures EVERY stock from Barchart Top 1% Signal Strength appears in the report
+for sig in ai_filtered:
+    sym = sig['symbol']
+    if sym in final_data:
+        continue  # already added from stock_info/known_prices
+    # Add dynamically from signal data — needs: price, change, name, 52w data
+    price = sig.get('lastPrice')
+    pct = sig.get('percentChange', '0%')
+    name = sig.get('symbolName', sym)
+    # Assign AI category based on symbol/name pattern
+    name_lower = name.lower()
+    if any(k in name_lower for k in ['semi','chip','micro','processor','technol']):
+        tag = '💾'
+    elif any(k in name_lower for k in ['energy','power','fuel','pipeline','energy']):
+        tag = '⚡'
+    elif any(k in name_lower for k in ['network','fiber','cisco','ciena','lumen','corning','a10']):
+        tag = '📡'
+    elif any(k in name_lower for k in ['rocket','space','lab','planet','satell','blacksky','aero']):
+        tag = '🚀'
+    elif any(k in name_lower for k in ['cool','thermal','vertiv','spx']):
+        tag = '🧊'
+    elif any(k in name_lower for k in ['security','cyber','cloud']):
+        tag = '🔐'
+    elif any(k in name_lower for k in ['server','dell','system']):
+        tag = '🖥️'
+    elif any(k in name_lower for k in ['memory','storage','sandisk','micron']):
+        tag = '💾'
+    else:
+        tag = '🤖'
+    final_data[sym] = {
+        'name': name,
+        'category': 'AI 相關',
+        'tag': tag,
+        'desc': f'{name} 為 Barchart Top 1% Signal Strength 強勢股，100% Buy 信號，技術面最強級別。',
+        'supply': '請查閱 Barchart 詳細基本面分析。',
+        'color': '#24e08a',
+        'price': f'${price}' if price else '—',
+        'change': pct,
+        'curr_price': price or 0,
+        'low52': '—',
+        'high52': '—',
+        'rating': 'Buy',
+        'analysts': '—',
+        'beta': 0,
+        'pe': '—',
+        'eps': '—',
+        'mktcap': '—',
+        'sales': '—',
+        'income': '—',
+        'score': 5,  # All signal stocks get base score
+    }
 print(f'All signal stocks in final_data: {len(final_data)}')
 
 # Re-score ALL stocks
@@ -668,6 +718,7 @@ for sym, d in final_data.items():
     d['score'] = max(score, d.get('score', 0))
     d['signals'] = sigs
 
+ranked = sorted(final_data.items(), key=lambda x: x[1].get('score',0), reverse=True)
 
 html += f"""
 
@@ -872,69 +923,6 @@ signal_ai_data = ai_filtered
 
 
 print(f'Signal Strength AI stocks loaded: {len(ai_filtered)}')
-
-# ALL Signal Strength stocks → add to final_data if not already present
-# This ensures EVERY stock from Barchart Top 1% Signal Strength appears in the report
-for sig in ai_filtered:
-    sym = sig['symbol']
-    if sym in final_data:
-        continue  # already added from stock_info/known_prices
-    # Add dynamically from signal data — needs: price, change, name, 52w data
-    price = sig.get('lastPrice')
-    pct = sig.get('percentChange', '0%')
-    name = sig.get('symbolName', sym)
-    # Assign AI category based on symbol/name pattern
-    name_lower = name.lower()
-    if any(k in name_lower for k in ['semi','chip','micro','processor','technol']):
-        tag = '💾'
-    elif any(k in name_lower for k in ['energy','power','fuel','pipeline','energy']):
-        tag = '⚡'
-    elif any(k in name_lower for k in ['network','fiber','cisco','ciena','lumen','corning','a10']):
-        tag = '📡'
-    elif any(k in name_lower for k in ['rocket','space','lab','planet','satell','blacksky','aero']):
-        tag = '🚀'
-    elif any(k in name_lower for k in ['cool','thermal','vertiv','spx']):
-        tag = '🧊'
-    elif any(k in name_lower for k in ['security','cyber','cloud']):
-        tag = '🔐'
-    elif any(k in name_lower for k in ['server','dell','system']):
-        tag = '🖥️'
-    elif any(k in name_lower for k in ['memory','storage','sandisk','micron']):
-        tag = '💾'
-    else:
-        tag = '🤖'
-    final_data[sym] = {
-        'name': name,
-        'category': 'AI 相關',
-        'tag': tag,
-        'desc': f'{name} 為 Barchart Top 1% Signal Strength 強勢股，100% Buy 信號，技術面最強級別。',
-        'supply': '請查閱 Barchart 詳細基本面分析。',
-        'color': '#24e08a',
-        'price': f'${price}' if price else '—',
-        'change': pct,
-        'curr_price': price or 0,
-        'low52': '—',
-        'high52': '—',
-        'rating': 'Buy',
-        'analysts': '—',
-        'beta': 0,
-        'pe': '—',
-        'eps': '—',
-        'mktcap': '—',
-        'sales': '—',
-        'income': '—',
-        'score': 5,  # All signal stocks get base score
-    }
-print(f'All signal stocks in final_data: {len(final_data)}')
-
-# Re-score ALL stocks
-for sym, d in final_data.items():
-    score, sigs = score_stock(sym, d)
-    d['score'] = max(score, d.get('score', 0))
-    d['signals'] = sigs
-
-
-
 
 html += f"""<div class="footer">
   AI 科技個股深度研究報告 {date_str} ｜ 由 OpenClaw AI 自動生成 ｜ 

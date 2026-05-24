@@ -2,7 +2,6 @@
 """生成完整詳細的個股研究報告"""
 import json, re, os, time, urllib.request
 from datetime import datetime, timezone
-from collections import defaultdict
 
 DATA_FILE = '/tmp/bc_full_data.json'
 WORKDIR = '/home/matt/.openclaw/workspace/stock-reports'

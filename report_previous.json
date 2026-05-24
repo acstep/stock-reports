@@ -88,5 +88,140 @@
     "price": "\u2014",
     "change": "\u2014",
     "score": 0
+  },
+  "AMBQ": {
+    "price": "$81.67",
+    "change": "+6.67%",
+    "score": 5
+  },
+  "ARM": {
+    "price": "$306.51",
+    "change": "+2.78%",
+    "score": 5
+  },
+  "ATEN": {
+    "price": "$29.16",
+    "change": "+2.93%",
+    "score": 5
+  },
+  "AVT": {
+    "price": "$85.91",
+    "change": "+3.01%",
+    "score": 5
+  },
+  "BE": {
+    "price": "$302.49",
+    "change": "-1.75%",
+    "score": 5
+  },
+  "BKSY": {
+    "price": "$47.87",
+    "change": "+7.21%",
+    "score": 5
+  },
+  "CSCO": {
+    "price": "$120.41",
+    "change": "+1.87%",
+    "score": 5
+  },
+  "DELL": {
+    "price": "$295.19",
+    "change": "+16.77%",
+    "score": 5
+  },
+  "FCEL": {
+    "price": "$25.01",
+    "change": "-5.19%",
+    "score": 5
+  },
+  "LSCC": {
+    "price": "$143.22",
+    "change": "+2.78%",
+    "score": 5
+  },
+  "LUNR": {
+    "price": "$38.26",
+    "change": "+11.74%",
+    "score": 5
+  },
+  "MRVL": {
+    "price": "$196.33",
+    "change": "+2.96%",
+    "score": 5
+  },
+  "MX": {
+    "price": "$5.52",
+    "change": "-4.17%",
+    "score": 5
+  },
+  "NGL": {
+    "price": "$18.11",
+    "change": "+2.78%",
+    "score": 5
+  },
+  "NVTS": {
+    "price": "$29.25",
+    "change": "+19.98%",
+    "score": 5
+  },
+  "NWPX": {
+    "price": "$112.26",
+    "change": "+2.97%",
+    "score": 5
+  },
+  "ON": {
+    "price": "$116.20",
+    "change": "+6.01%",
+    "score": 5
+  },
+  "PAA": {
+    "price": "$24.15",
+    "change": "+1.98%",
+    "score": 5
+  },
+  "PL": {
+    "price": "$44.35",
+    "change": "+4.40%",
+    "score": 5
+  },
+  "PNRG": {
+    "price": "$259.24",
+    "change": "+4.54%",
+    "score": 5
+  },
+  "RKLB": {
+    "price": "$135.76",
+    "change": "+8.22%",
+    "score": 5
+  },
+  "SATL": {
+    "price": "$10.61",
+    "change": "+10.06%",
+    "score": 5
+  },
+  "SNDK": {
+    "price": "$1,478.69",
+    "change": "-4.12%",
+    "score": 5
+  },
+  "TRP": {
+    "price": "$70.91",
+    "change": "+0.50%",
+    "score": 5
+  },
+  "TSEM": {
+    "price": "$283.43",
+    "change": "+1.58%",
+    "score": 5
+  },
+  "TUSK": {
+    "price": "$3.25",
+    "change": "-4.69%",
+    "score": 5
+  },
+  "TXN": {
+    "price": "$309.21",
+    "change": "+3.63%",
+    "score": 5
   }
 }
