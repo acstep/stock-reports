@@ -1,0 +1,3020 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 基礎建設研究報告 | 2026年05月25日</title>
+<style>
+:root {
+  --bg: #080810; --bg2: #0c0c1a; --bg3: #10101f; --bg-card: #0e0e20;
+  --border: rgba(255,255,255,0.07); --border-accent: rgba(91,127,255,0.3);
+  --text: #e0e4f0; --text-dim: #7880a0; --text-muted: #444660;
+  --accent: #5b7fff; --accent-glow: rgba(91,127,255,0.25);
+  --green: #24e08a; --green-bg: rgba(36,224,138,0.1);
+  --red: #f04040; --red-bg: rgba(240,64,64,0.1);
+  --purple: #a855f7; --cyan: #06b6d4; --orange: #f97316; --gold: #ffd700;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; }
+.wrap { max-width: 1140px; margin: 0 auto; padding: 28px 24px; }
+
+.site-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-bottom: 1px solid var(--border); background: var(--bg2); position: sticky; top: 0; z-index: 100; }
+.site-header .logo { font-size: 18px; font-weight: 700; }
+.site-header .logo span { color: var(--accent); }
+.site-header .nav-links { display: flex; gap: 24px; }
+.site-header .nav-links a { color: var(--text-dim); font-size: 13px; font-weight: 500; transition: color 0.2s; }
+.site-header .nav-links a:hover { color: var(--accent); text-decoration: none; }
+.update-badge { font-size: 11px; color: var(--text-dim); background: var(--bg3); border: 1px solid var(--border); padding: 5px 12px; border-radius: 20px; font-family: monospace; }
+
+.hero { background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 60%, #0d0a28 100%); border: 1px solid rgba(91,127,255,0.18); border-radius: 24px; padding: 48px 52px; margin-bottom: 32px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(91,127,255,0.09) 0%, transparent 70%); pointer-events: none; }
+.hero .hero-tag { display: inline-block; background: rgba(91,127,255,0.12); border: 1px solid rgba(91,127,255,0.3); color: var(--accent); font-size: 11px; font-weight: 600; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; letter-spacing: 1px; }
+.hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; position: relative; }
+.hero .subtitle { color: var(--text-dim); font-size: 15px; margin-bottom: 28px; }
+.hero .stats-row { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+.hero .stat { text-align: center; }
+.hero .stat .val { font-size: 22px; font-weight: 700; color: var(--green); }
+.hero .stat .label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+.section { margin-bottom: 32px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.section-header h2 { font-size: 17px; font-weight: 700; }
+.section-header .badge { font-size: 10px; padding: 3px 9px; border-radius: 10px; background: rgba(91,127,255,0.12); color: var(--accent); font-weight: 600; letter-spacing: 0.5px; }
+
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; margin-bottom: 16px; transition: border-color 0.3s, box-shadow 0.3s; }
+.card:hover { border-color: var(--border-accent); box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+.card-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.card-row .card { margin-bottom: 0; }
+
+.stock-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.stock-table th { text-align: left; padding: 10px 14px; color: var(--text-muted); font-weight: 600; font-size: 11px; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); background: var(--bg3); }
+.stock-table th:first-child { border-radius: 10px 0 0 0; }
+.stock-table th:last-child { border-radius: 0 10px 0 0; }
+.stock-table td { padding: 13px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+.stock-table tr:last-child td { border-bottom: none; }
+.stock-table tr:hover td { background: rgba(255,255,255,0.02); }
+.sym { font-weight: 700; font-size: 14px; color: var(--accent); letter-spacing: 0.3px; }
+.sym-name { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+.price { font-weight: 700; font-size: 15px; }
+.chg-up { color: var(--green); font-weight: 600; font-size: 13px; }
+.chg-dn { color: var(--red); font-weight: 600; font-size: 13px; }
+.pill { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 8px; font-weight: 600; }
+.pill-green { background: var(--green-bg); color: var(--green); }
+.pill-red { background: var(--red-bg); color: var(--red); }
+.pill-blue { background: rgba(91,127,255,0.12); color: var(--accent); }
+.pill-orange { background: rgba(249,115,22,0.12); color: var(--orange); }
+.score-bar { display: flex; gap: 2px; align-items: center; }
+.score-dot { width: 7px; height: 7px; border-radius: 2px; background: var(--text-muted); }
+.score-dot.filled { background: var(--green); }
+.tag { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 6px; background: rgba(168,85,247,0.1); color: var(--purple); font-weight: 500; margin-right: 4px; }
+.tag-electric { background: rgba(6,182,212,0.1); color: var(--cyan); }
+.tag-chip { background: rgba(249,115,22,0.1); color: var(--orange); }
+.tag-security { background: rgba(36,224,138,0.1); color: var(--green); }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.deep-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 20px; }
+.deep-card .stock-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
+.deep-card .stock-title { display: flex; align-items: center; gap: 12px; }
+.deep-card .stock-title h3 { font-size: 18px; font-weight: 700; color: var(--accent); }
+.deep-card .stock-title span { font-size: 13px; color: var(--text-dim); }
+.deep-card .verdict { font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 10px; }
+.deep-card .verdict.strong-buy { background: var(--green-bg); color: var(--green); }
+.deep-card .verdict.buy { background: rgba(91,127,255,0.12); color: var(--accent); }
+.deep-card .verdict.spec-buy { background: rgba(249,115,22,0.12); color: var(--orange); }
+.deep-card .verdict.partial { background: rgba(168,85,247,0.12); color: var(--purple); }
+.deep-card .metrics { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; }
+.deep-card .metric { text-align: center; }
+.deep-card .metric .mval { font-size: 18px; font-weight: 700; }
+.deep-card .metric .mlabel { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
+.deep-card .signal-badge { display: inline-block; font-size: 11px; padding: 4px 10px; border-radius: 8px; background: rgba(6,182,212,0.1); color: var(--cyan); font-weight: 600; margin-bottom: 12px; }
+.deep-card .analysis-block { background: var(--bg3); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+.deep-card .analysis-block h4 { font-size: 12px; color: var(--text-dim); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px; }
+.deep-card .analysis-block p { font-size: 13.5px; line-height: 1.7; color: var(--text); }
+.deep-card .strategy-row { display: flex; gap: 20px; flex-wrap: wrap; }
+.deep-card .strategy-item { background: var(--bg3); border-radius: 10px; padding: 10px 14px; text-align: center; min-width: 100px; }
+.deep-card .strategy-item .slabel { font-size: 10px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.deep-card .strategy-item .sval { font-size: 15px; font-weight: 700; margin-top: 4px; }
+.deep-card .strategy-item .sval.green { color: var(--green); }
+.deep-card .strategy-item .sval.red { color: var(--red); }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.theme-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+.theme-card .theme-name { font-size: 13px; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.theme-card .theme-stocks { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+.theme-card .mini-chip { font-size: 10px; padding: 2px 7px; border-radius: 6px; font-weight: 600; }
+.theme-card .theme-bar { height: 4px; border-radius: 2px; background: var(--bg3); margin-top: 10px; }
+.theme-card .theme-bar-fill { height: 4px; border-radius: 2px; }
+
+.supply-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; margin-bottom: 20px; }
+.supply-block h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+.supply-block .供需-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.supply-block .供需-card { background: var(--bg3); border-radius: 12px; padding: 16px; }
+.supply-block .供需-card h4 { font-size: 12px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.supply-block .供需-card p { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+.footer { text-align: center; padding: 32px 0; color: var(--text-muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+
+@media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .hero { padding: 32px 24px; } .hero h1 { font-size: 24px; } .hero .stats-row { gap: 24px; } .site-header .nav-links { display: none; } }
+</style>
+</head>
+<body>
+<div class="site-header">
+  <div class="logo">AI 基建 <span>研究報告</span></div>
+  <div class="nav-links">
+    <a href="#market-radar">市場雷達</a>
+    <a href="#recommendations">推薦總表</a>
+    <a href="#deep-dive">深度分析</a>
+    <a href="#themes">主題板塊</a>
+    <a href="#supply">供需分析</a>
+  </div>
+  <div class="update-badge">2026年05月25日 更新</div>
+</div>
+
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">AI 基礎建設美股研究報告</div>
+  <h1>人工智慧基建超級周期</h1>
+  <div class="subtitle">2026年05月25日 | 精選 47 檔 AI 基建核心標的</div>
+  <div class="stats-row">
+    <div class="stat"><div class="val">47</div><div class="label">精選股票</div></div>
+    <div class="stat"><div class="val">37</div><div class="label">上漲</div></div>
+    <div class="stat"><div class="val">10</div><div class="label">下跌/整理</div></div>
+    <div class="stat"><div class="val">+ARM +46.5%</div><div class="label">今日最強</div></div>
+    <div class="stat"><div class="val">ARM +46.5%</div><div class="label">最大漲幅</div></div>
+  </div>
+</div>
+
+<!-- MARKET RADAR -->
+<div class="section" id="market-radar">
+  <div class="section-header">
+    <h2>A. 市場情緒雷達</h2>
+    <span class="badge">實時監控</span>
+  </div>
+  <div class="card-row">
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:20px">💾</span>
+        <span style="font-weight:700;font-size:13px">AI 晶片/GPU</span>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#f97316">🟢強勢</span></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px"><span class="mini-chip" style="background:#f9731620;color:#f97316">NVDA</span> <span class="mini-chip" style="background:#f9731620;color:#f97316">AMD</span> <span class="mini-chip" style="background:#f9731620;color:#f97316">AVGO</span> <span class="mini-chip" style="background:#f9731620;color:#f97316">QCOM</span> <span class="mini-chip" style="background:#f9731620;color:#f97316">MRVL</span> <span class="mini-chip" style="background:#f9731620;color:#f97316">INTC</span> <span class="mini-chip" style="background:#f9731620;color:#f97316">ARM</span> <span class="mini-chip" style="background:#f9731620;color:#f97316">TSM</span></div>
+      <div style="font-size:11px;color:var(--text-dim)">漲 6 / 跌 2</div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:20px">🖥️</span>
+        <span style="font-weight:700;font-size:13px">AI 伺服器/雲端</span>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#06b6d4">🟢強勢</span></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px"><span class="mini-chip" style="background:#06b6d420;color:#06b6d4">SMCI</span> <span class="mini-chip" style="background:#06b6d420;color:#06b6d4">DELL</span> <span class="mini-chip" style="background:#06b6d420;color:#06b6d4">HPQ</span> <span class="mini-chip" style="background:#06b6d420;color:#06b6d4">ANET</span></div>
+      <div style="font-size:11px;color:var(--text-dim)">漲 4 / 跌 0</div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:20px">⚡</span>
+        <span style="font-weight:700;font-size:13px">AI 電力/能源</span>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#24e08a">🟢強勢</span></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px"><span class="mini-chip" style="background:#24e08a20;color:#24e08a">VST</span> <span class="mini-chip" style="background:#24e08a20;color:#24e08a">CEG</span> <span class="mini-chip" style="background:#24e08a20;color:#24e08a">NRG</span> <span class="mini-chip" style="background:#24e08a20;color:#24e08a">NEE</span> <span class="mini-chip" style="background:#24e08a20;color:#24e08a">AES</span> <span class="mini-chip" style="background:#24e08a20;color:#24e08a">PNRG</span> <span class="mini-chip" style="background:#24e08a20;color:#24e08a">BE</span></div>
+      <div style="font-size:11px;color:var(--text-dim)">漲 4 / 跌 3</div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:20px">🧊</span>
+        <span style="font-weight:700;font-size:13px">AI 散熱/液冷</span>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#06b6d4">🟢強勢</span></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px"><span class="mini-chip" style="background:#06b6d420;color:#06b6d4">VRT</span> <span class="mini-chip" style="background:#06b6d420;color:#06b6d4">SPXC</span></div>
+      <div style="font-size:11px;color:var(--text-dim)">漲 1 / 跌 1</div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:20px">📡</span>
+        <span style="font-weight:700;font-size:13px">AI 網路/光纖</span>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#a855f7">🟢強勢</span></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px"><span class="mini-chip" style="background:#a855f720;color:#a855f7">GLW</span> <span class="mini-chip" style="background:#a855f720;color:#a855f7">LUMN</span> <span class="mini-chip" style="background:#a855f720;color:#a855f7">CIEN</span> <span class="mini-chip" style="background:#a855f720;color:#a855f7">CSCO</span> <span class="mini-chip" style="background:#a855f720;color:#a855f7">LSCC</span></div>
+      <div style="font-size:11px;color:var(--text-dim)">漲 4 / 跌 1</div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:20px">💾</span>
+        <span style="font-weight:700;font-size:13px">AI 儲存/記憶體</span>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#6366f1">🟢強勢</span></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px"><span class="mini-chip" style="background:#6366f120;color:#6366f1">MU</span> <span class="mini-chip" style="background:#6366f120;color:#6366f1">NTAP</span> <span class="mini-chip" style="background:#6366f120;color:#6366f1">PSTG</span> <span class="mini-chip" style="background:#6366f120;color:#6366f1">WDC</span> <span class="mini-chip" style="background:#6366f120;color:#6366f1">ON</span></div>
+      <div style="font-size:11px;color:var(--text-dim)">漲 4 / 跌 1</div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:20px">📦</span>
+        <span style="font-weight:700;font-size:13px">先進封裝/設備</span>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#6366f1">🟢強勢</span></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px"><span class="mini-chip" style="background:#6366f120;color:#6366f1">AMKR</span> <span class="mini-chip" style="background:#6366f120;color:#6366f1">ASX</span> <span class="mini-chip" style="background:#6366f120;color:#6366f1">AMAT</span> <span class="mini-chip" style="background:#6366f120;color:#6366f1">LRCX</span></div>
+      <div style="font-size:11px;color:var(--text-dim)">漲 2 / 跌 2</div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:20px">🔐</span>
+        <span style="font-weight:700;font-size:13px">AI 資安/雲端</span>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#24e08a">🟢強勢</span></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px"><span class="mini-chip" style="background:#24e08a20;color:#24e08a">CRWD</span> <span class="mini-chip" style="background:#24e08a20;color:#24e08a">NET</span> <span class="mini-chip" style="background:#24e08a20;color:#24e08a">PANW</span> <span class="mini-chip" style="background:#24e08a20;color:#24e08a">ZS</span> <span class="mini-chip" style="background:#24e08a20;color:#24e08a">OKta</span></div>
+      <div style="font-size:11px;color:var(--text-dim)">漲 5 / 跌 0</div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:20px">🤖</span>
+        <span style="font-weight:700;font-size:13px">AI 軟體/資料</span>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#f97316">🟢強勢</span></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px"><span class="mini-chip" style="background:#f9731620;color:#f97316">PLTR</span> <span class="mini-chip" style="background:#f9731620;color:#f97316">SNOW</span> <span class="mini-chip" style="background:#f9731620;color:#f97316">DDOG</span></div>
+      <div style="font-size:11px;color:var(--text-dim)">漲 3 / 跌 0</div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:20px">☁️</span>
+        <span style="font-weight:700;font-size:13px">AI 雲端平台</span>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#5b7fff">🟢強勢</span></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px"><span class="mini-chip" style="background:#5b7fff20;color:#5b7fff">GOOGL</span> <span class="mini-chip" style="background:#5b7fff20;color:#5b7fff">MSFT</span> <span class="mini-chip" style="background:#5b7fff20;color:#5b7fff">AMZN</span> <span class="mini-chip" style="background:#5b7fff20;color:#5b7fff">META</span></div>
+      <div style="font-size:11px;color:var(--text-dim)">漲 1 / 跌 3</div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="font-size:20px">🏢</span>
+        <span style="font-weight:700;font-size:13px">AI 資料中心REIT</span>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#5b7fff">🟢強勢</span></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px"><span class="mini-chip" style="background:#5b7fff20;color:#5b7fff">DLR</span> <span class="mini-chip" style="background:#5b7fff20;color:#5b7fff">EQIX</span> <span class="mini-chip" style="background:#5b7fff20;color:#5b7fff">AMT</span> <span class="mini-chip" style="background:#5b7fff20;color:#5b7fff">PLD</span></div>
+      <div style="font-size:11px;color:var(--text-dim)">漲 4 / 跌 0</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- RECOMMENDATIONS TABLE -->
+<div class="section" id="recommendations">
+  <div class="section-header">
+    <h2>B. 進場推薦總表</h2>
+    <span class="badge">47 檔精選</span>
+  </div>
+  <div class="card">
+    <table class="stock-table">
+      <thead>
+        <tr>
+          <th>代號</th>
+          <th>價格</th>
+          <th>漲跌</th>
+          <th>52W區間</th>
+          <th>距低/高</th>
+          <th>評等</th>
+          <th>Barchart</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>
+            <div class="sym">AMD</div>
+            <div class="sym-name">AMD</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f9731615;color:#f97316;font-weight:500">AI 晶片/GPU</span>
+          </td>
+          <td><div class="price">$467.51</div></td>
+          <td><span class="chg-up">+10.24%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$108.62 – $481.41</td>
+          <td style="font-size:12px">+330.4% from低</td>
+          <td><span class="pill pill-green">STRONG BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">AVGO</div>
+            <div class="sym-name">Broadcom</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f9731615;color:#f97316;font-weight:500">AI 晶片/GPU</span>
+          </td>
+          <td><div class="price">$414.14</div></td>
+          <td><span class="chg-dn">-2.60%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$231.13 – $442.36</td>
+          <td style="font-size:12px">+79.2% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">QCOM</div>
+            <div class="sym-name">Qualcomm</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f9731615;color:#f97316;font-weight:500">AI 晶片/GPU</span>
+          </td>
+          <td><div class="price">$238.16</div></td>
+          <td><span class="chg-up">+18.20%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$121.99 – $247.90</td>
+          <td style="font-size:12px">+95.2% from低</td>
+          <td><span class="pill pill-green">STRONG BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">MRVL</div>
+            <div class="sym-name">Marvell</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f9731615;color:#f97316;font-weight:500">AI 晶片/GPU</span>
+          </td>
+          <td><div class="price">$196.33</div></td>
+          <td><span class="chg-up">+10.99%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$58.61 – $198.40</td>
+          <td style="font-size:12px">+235.0% from低</td>
+          <td><span class="pill pill-green">STRONG BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">INTC</div>
+            <div class="sym-name">Intel</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f9731615;color:#f97316;font-weight:500">AI 晶片/GPU</span>
+          </td>
+          <td><div class="price">$119.84</div></td>
+          <td><span class="chg-up">+10.18%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$18.97 – $132.75</td>
+          <td style="font-size:12px">+531.7% from低</td>
+          <td><span class="pill pill-orange">SPECULATIVE BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">TSM</div>
+            <div class="sym-name">TSMC</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f9731615;color:#f97316;font-weight:500">AI 晶片/GPU</span>
+          </td>
+          <td><div class="price">$404.52</div></td>
+          <td><span class="chg-up">+0.04%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$190.56 – $421.97</td>
+          <td style="font-size:12px">+112.3% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">ARM</div>
+            <div class="sym-name">Arm Holdings</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f9731615;color:#f97316;font-weight:500">AI 晶片/GPU</span>
+          </td>
+          <td><div class="price">$306.51</div></td>
+          <td><span class="chg-up">+46.54%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$100.02 – $315.00</td>
+          <td style="font-size:12px">+206.4% from低</td>
+          <td><span class="pill pill-green">STRONG BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">LSCC</div>
+            <div class="sym-name">Lattice</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f9731615;color:#f97316;font-weight:500">AI 晶片/FPGA</span>
+          </td>
+          <td><div class="price">$143.22</div></td>
+          <td><span class="chg-up">+3.87%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">- – $-</td>
+          <td style="font-size:12px">-</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">ON</div>
+            <div class="sym-name">ON Semi</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f9731615;color:#f97316;font-weight:500">AI 晶片/功率半導體</span>
+          </td>
+          <td><div class="price">$116.2</div></td>
+          <td><span class="chg-up">+6.59%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">- – $-</td>
+          <td style="font-size:12px">-</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">SMCI</div>
+            <div class="sym-name">Super Micro</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#06b6d415;color:#06b6d4;font-weight:500">AI 伺服器</span>
+          </td>
+          <td><div class="price">$35.58</div></td>
+          <td><span class="chg-up">+14.63%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$19.48 – $62.36</td>
+          <td style="font-size:12px">+82.6% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">DELL</div>
+            <div class="sym-name">Dell</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#06b6d415;color:#06b6d4;font-weight:500">AI 伺服器</span>
+          </td>
+          <td><div class="price">$295.19</div></td>
+          <td><span class="chg-up">+21.98%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$106.38 – $298.32</td>
+          <td style="font-size:12px">+177.5% from低</td>
+          <td><span class="pill pill-green">STRONG BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">HPQ</div>
+            <div class="sym-name">HP Inc</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#06b6d415;color:#06b6d4;font-weight:500">AI 伺服器</span>
+          </td>
+          <td><div class="price">$25.24</div></td>
+          <td><span class="chg-up">+21.29%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$17.56 – $29.55</td>
+          <td style="font-size:12px">+43.7% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">VST</div>
+            <div class="sym-name">Vistra</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#24e08a15;color:#24e08a;font-weight:500">AI 電力/能源</span>
+          </td>
+          <td><div class="price">$156.27</div></td>
+          <td><span class="chg-up">+11.88%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$132.66 – $219.82</td>
+          <td style="font-size:12px">+17.8% from低</td>
+          <td><span class="pill pill-green">STRONG BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">CEG</div>
+            <div class="sym-name">Constellation Energy</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#24e08a15;color:#24e08a;font-weight:500">AI 電力/能源</span>
+          </td>
+          <td><div class="price">$294.07</div></td>
+          <td><span class="chg-up">+10.06%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$243.30 – $412.70</td>
+          <td style="font-size:12px">+20.9% from低</td>
+          <td><span class="pill pill-green">STRONG BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">NRG</div>
+            <div class="sym-name">NRG Energy</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#24e08a15;color:#24e08a;font-weight:500">AI 電力/能源</span>
+          </td>
+          <td><div class="price">$137.65</div></td>
+          <td><span class="chg-up">+7.70%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$121.22 – $189.96</td>
+          <td style="font-size:12px">+13.6% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">AES</div>
+            <div class="sym-name">AES Corp</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#24e08a15;color:#24e08a;font-weight:500">AI 電力/能源</span>
+          </td>
+          <td><div class="price">$14.68</div></td>
+          <td><span class="chg-up">+1.45%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$9.58 – $17.65</td>
+          <td style="font-size:12px">+53.2% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">PNRG</div>
+            <div class="sym-name">PrimeEnergy</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#24e08a15;color:#24e08a;font-weight:500">AI 電力/能源</span>
+          </td>
+          <td><div class="price">$259.24</div></td>
+          <td><span class="chg-dn">-3.33%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$126.40 – $278.90</td>
+          <td style="font-size:12px">+105.1% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">ETN</div>
+            <div class="sym-name">Eaton</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#24e08a15;color:#24e08a;font-weight:500">AI 電力/電氣</span>
+          </td>
+          <td><div class="price">$391.35</div></td>
+          <td><span class="chg-dn">-2.03%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$311.90 – $435.43</td>
+          <td style="font-size:12px">+25.5% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">BE</div>
+            <div class="sym-name">Bloom Energy</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#24e08a15;color:#24e08a;font-weight:500">AI 電力/氫能</span>
+          </td>
+          <td><div class="price">$302.49</div></td>
+          <td><span class="chg-dn">-5.39%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">- – $-</td>
+          <td style="font-size:12px">-</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">SPXC</div>
+            <div class="sym-name">SPX Technologies</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#06b6d415;color:#06b6d4;font-weight:500">AI 散熱/液冷</span>
+          </td>
+          <td><div class="price">$207.8</div></td>
+          <td><span class="chg-up">+3.39%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$150.50 – $246.68</td>
+          <td style="font-size:12px">+38.1% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">GLW</div>
+            <div class="sym-name">Corning</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#a855f715;color:#a855f7;font-weight:500">AI 光纖/網路</span>
+          </td>
+          <td><div class="price">$194.05</div></td>
+          <td><span class="chg-up">+1.17%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$48.62 – $211.79</td>
+          <td style="font-size:12px">+299.1% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">CIEN</div>
+            <div class="sym-name">Ciena</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#a855f715;color:#a855f7;font-weight:500">AI 光纖/網路</span>
+          </td>
+          <td><div class="price">$583.74</div></td>
+          <td><span class="chg-up">+5.28%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$70.77 – $599.50</td>
+          <td style="font-size:12px">+724.8% from低</td>
+          <td><span class="pill pill-green">STRONG BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">ANET</div>
+            <div class="sym-name">Arista Networks</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#a855f715;color:#a855f7;font-weight:500">AI 網路/交換器</span>
+          </td>
+          <td><div class="price">$154.03</div></td>
+          <td><span class="chg-up">+8.49%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$83.86 – $179.80</td>
+          <td style="font-size:12px">+83.7% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">LUMN</div>
+            <div class="sym-name">Lumen</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#a855f715;color:#a855f7;font-weight:500">AI 網路/光纖</span>
+          </td>
+          <td><div class="price">$9.41</div></td>
+          <td><span class="chg-dn">-6.37%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$3.37 – $11.95</td>
+          <td style="font-size:12px">+179.2% from低</td>
+          <td><span class="pill pill-orange">SPECULATIVE BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">CSCO</div>
+            <div class="sym-name">Cisco</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#a855f715;color:#a855f7;font-weight:500">AI 網路/交換器</span>
+          </td>
+          <td><div class="price">$120.41</div></td>
+          <td><span class="chg-up">+1.86%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$62.30 – $120.79</td>
+          <td style="font-size:12px">+93.3% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">MU</div>
+            <div class="sym-name">Micron</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f9731615;color:#f97316;font-weight:500">AI 記憶體/HBM</span>
+          </td>
+          <td><div class="price">$751.0</div></td>
+          <td><span class="chg-up">+3.63%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$92.22 – $818.67</td>
+          <td style="font-size:12px">+714.4% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">NTAP</div>
+            <div class="sym-name">NetApp</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#6366f115;color:#6366f1;font-weight:500">AI 儲存/資料管理</span>
+          </td>
+          <td><div class="price">$139.36</div></td>
+          <td><span class="chg-up">+16.20%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$93.69 – $141.75</td>
+          <td style="font-size:12px">+48.7% from低</td>
+          <td><span class="pill pill-green">STRONG BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">WDC</div>
+            <div class="sym-name">Western Digital</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#6366f115;color:#6366f1;font-weight:500">AI 儲存/HDD+NAND</span>
+          </td>
+          <td><div class="price">$484.28</div></td>
+          <td><span class="chg-up">+0.47%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$50.62 – $525.15</td>
+          <td style="font-size:12px">+856.7% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">AMKR</div>
+            <div class="sym-name">Amkor</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#6366f115;color:#6366f1;font-weight:500">先進封裝/CoWoS</span>
+          </td>
+          <td><div class="price">$65.75</div></td>
+          <td><span class="chg-dn">-6.54%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$17.79 – $79.23</td>
+          <td style="font-size:12px">+269.6% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">ASX</div>
+            <div class="sym-name">ASE Technology</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#6366f115;color:#6366f1;font-weight:500">先進封裝/CoWoS</span>
+          </td>
+          <td><div class="price">$34.81</div></td>
+          <td><span class="chg-up">+2.96%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$9.23 – $35.71</td>
+          <td style="font-size:12px">+277.1% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">100% Buy</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">AMAT</div>
+            <div class="sym-name">Applied Materials</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#6366f115;color:#6366f1;font-weight:500">半導體設備</span>
+          </td>
+          <td><div class="price">$432.16</div></td>
+          <td><span class="chg-dn">-1.02%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$153.47 – $448.45</td>
+          <td style="font-size:12px">+181.6% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">LRCX</div>
+            <div class="sym-name">Lam Research</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#6366f115;color:#6366f1;font-weight:500">半導體設備</span>
+          </td>
+          <td><div class="price">$305.35</div></td>
+          <td><span class="chg-up">+7.25%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$79.49 – $309.98</td>
+          <td style="font-size:12px">+284.1% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">CRWD</div>
+            <div class="sym-name">CrowdStrike</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#24e08a15;color:#24e08a;font-weight:500">AI 資安/雲端</span>
+          </td>
+          <td><div class="price">$663.46</div></td>
+          <td><span class="chg-up">+11.68%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$342.72 – $674.84</td>
+          <td style="font-size:12px">+93.6% from低</td>
+          <td><span class="pill pill-green">STRONG BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">NET</div>
+            <div class="sym-name">Cloudflare</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#24e08a15;color:#24e08a;font-weight:500">AI 資安/WAF+CDN</span>
+          </td>
+          <td><div class="price">$216.17</div></td>
+          <td><span class="chg-up">+9.42%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$158.83 – $260.00</td>
+          <td style="font-size:12px">+36.1% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">PANW</div>
+            <div class="sym-name">Palo Alto</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#24e08a15;color:#24e08a;font-weight:500">AI 資安/網路</span>
+          </td>
+          <td><div class="price">$260.58</div></td>
+          <td><span class="chg-up">+7.31%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$139.57 – $261.41</td>
+          <td style="font-size:12px">+86.7% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">PLTR</div>
+            <div class="sym-name">Palantir</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#f9731615;color:#f97316;font-weight:500">AI 軟體/資料分析</span>
+          </td>
+          <td><div class="price">$136.88</div></td>
+          <td><span class="chg-up">+2.16%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$118.93 – $207.52</td>
+          <td style="font-size:12px">+15.1% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">GOOGL</div>
+            <div class="sym-name">Alphabet</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#5b7fff15;color:#5b7fff;font-weight:500">AI 雲端平台</span>
+          </td>
+          <td><div class="price">$382.97</div></td>
+          <td><span class="chg-dn">-3.48%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$162.00 – $408.61</td>
+          <td style="font-size:12px">+136.4% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">MSFT</div>
+            <div class="sym-name">Microsoft</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#5b7fff15;color:#5b7fff;font-weight:500">AI 雲端平台</span>
+          </td>
+          <td><div class="price">$418.57</div></td>
+          <td><span class="chg-dn">-0.79%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$356.28 – $555.45</td>
+          <td style="font-size:12px">+17.5% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">AMZN</div>
+            <div class="sym-name">Amazon</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#5b7fff15;color:#5b7fff;font-weight:500">AI 雲端平台</span>
+          </td>
+          <td><div class="price">$266.32</div></td>
+          <td><span class="chg-up">+0.83%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$196.00 – $278.56</td>
+          <td style="font-size:12px">+35.9% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">META</div>
+            <div class="sym-name">Meta</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#5b7fff15;color:#5b7fff;font-weight:500">AI 雲端平台</span>
+          </td>
+          <td><div class="price">$610.26</div></td>
+          <td><span class="chg-dn">-0.65%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$520.26 – $796.25</td>
+          <td style="font-size:12px">+17.3% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">DLR</div>
+            <div class="sym-name">Digital Realty</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#5b7fff15;color:#5b7fff;font-weight:500">AI 資料中心/REIT</span>
+          </td>
+          <td><div class="price">$192.03</div></td>
+          <td><span class="chg-up">+1.87%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$146.23 – $208.14</td>
+          <td style="font-size:12px">+31.3% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">EQIX</div>
+            <div class="sym-name">Equinix</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#5b7fff15;color:#5b7fff;font-weight:500">AI 資料中心/REIT</span>
+          </td>
+          <td><div class="price">$1079.79</div></td>
+          <td><span class="chg-up">+1.92%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$710.52 – $1128.68</td>
+          <td style="font-size:12px">+52.0% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">AMT</div>
+            <div class="sym-name">American Tower</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#5b7fff15;color:#5b7fff;font-weight:500">AI 資料中心/塔</span>
+          </td>
+          <td><div class="price">$183.85</div></td>
+          <td><span class="chg-up">+7.75%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$165.08 – $234.33</td>
+          <td style="font-size:12px">+11.4% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">PLD</div>
+            <div class="sym-name">Prologis</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#5b7fff15;color:#5b7fff;font-weight:500">AI 資料中心/物流</span>
+          </td>
+          <td><div class="price">$145.9</div></td>
+          <td><span class="chg-up">+3.82%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$103.41 – $146.27</td>
+          <td style="font-size:12px">+41.1% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">SNOW</div>
+            <div class="sym-name">Snowflake</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#6366f115;color:#6366f1;font-weight:500">AI 資料倉庫/雲端</span>
+          </td>
+          <td><div class="price">$172.2</div></td>
+          <td><span class="chg-up">+9.35%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$118.30 – $280.67</td>
+          <td style="font-size:12px">+45.6% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">DDOG</div>
+            <div class="sym-name">Datadog</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#6366f115;color:#6366f1;font-weight:500">AI 監控/Observability</span>
+          </td>
+          <td><div class="price">$222.32</div></td>
+          <td><span class="chg-up">+6.89%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$98.01 – $224.77</td>
+          <td style="font-size:12px">+126.8% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="sym">OKta</div>
+            <div class="sym-name">Okta</div>
+            <span style="font-size:10px;padding:2px 7px;border-radius:6px;background:#6366f115;color:#6366f1;font-weight:500">AI 身分認證</span>
+          </td>
+          <td><div class="price">$92.24</div></td>
+          <td><span class="chg-up">+11.44%</span></td>
+          <td style="font-size:12px;color:var(--text-dim)">$62.66 – $127.52</td>
+          <td style="font-size:12px">+47.2% from低</td>
+          <td><span class="pill pill-blue">BUY</span></td>
+          <td><span style="font-size:12px;color:var(--text-dim)">-</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- DEEP DIVE -->
+<div class="section" id="deep-dive">
+  <div class="section-header">
+    <h2>C. 深度個股分析</h2>
+    <span class="badge">47 檔</span>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>AMD</h3>
+        <span>AMD</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#f9731615;color:#f97316">AI 晶片/GPU</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict strong-buy">STRONG BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$467.51 +10.24%</span>
+      </div>
+    </div>
+    <div class="signal-badge">BULLISH BREAKOUT</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$467.51</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$108.62</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$481.41</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+330.4%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">34.8M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>AMD MI300X 已進入規模量產，Microsoft Azure、Meta 持續擴大採用，對 NVIDIA H100 形成價格殺傷力。今日大漲 +10.2% 來到 $467，距 52W 高點 481 僅差 3%，短線動能極強。Instinct 系列在推理性價比優於 H100，中長期份額持續提升。EPYC 伺服器 CPU 資料中心滲透率也在爬升。2025 年 Revenue Guidance 上調機率極高。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>短線挑戰 $500，中線 $550+。中國特供版 MI308 將進一步拓廣市場基礎。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$430-$465</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$400</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>AVGO</h3>
+        <span>Broadcom</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#f9731615;color:#f97316">AI 晶片/GPU</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-dn" style="font-size:16px;font-weight:700">$414.14 -2.60%</span>
+      </div>
+    </div>
+    <div class="signal-badge">STEADY ACCUMULATION</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$414.14</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$231.13</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$442.36</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+79.2%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">14.1M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Broadcom AI 網路晶片（Tomahawk、Ariel）綁定 CSP 大客戶，客製化 ASIC 需求爆發。Google TPU v5、Meta(MTia) 均大量採用博通方案。雖然近期半導體景氣震盪，但 AI ASIC 占比已超 30% 且持續提升，將結構性提升毛利率。免費現金流收益率佳，殖利率支撐股價。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>中期 $480+。AI 客製化 ASIC 市場將在 2025-2027 年維持 40%+ CAGR。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$390-$415</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$365</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>QCOM</h3>
+        <span>Qualcomm</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#f9731615;color:#f97316">AI 晶片/GPU</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict strong-buy">STRONG BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$238.16 +18.20%</span>
+      </div>
+    </div>
+    <div class="signal-badge">EARNINGS MOMENTUM</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$238.16</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$121.99</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$247.90</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+95.2%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">30.4M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>高通今日暴漲 +18.2% 來到 $238，受惠 Snapdragon X Elite 在 AI PC 滲透率超預期，同時中國手機市場反彈。AI Edge（手機+PC+IoT）成為新成長引擎，取代傳統手機週期性。推理能力下沉至 Edge（100B+ 參數）將帶動更換週期。Qualcomm AI Hub 生態初具規模，長期故事清晰。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $280+。AI Edge 趨勢爆發，Snapdragon X 2025 年出貨量預估達千萬等級。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$210-$235</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$190</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>MRVL</h3>
+        <span>Marvell</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#f9731615;color:#f97316">AI 晶片/GPU</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict strong-buy">STRONG BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$196.33 +10.99%</span>
+      </div>
+    </div>
+    <div class="signal-badge">BULLISH MOMENTUM</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$196.33</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$58.61</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$198.40</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+235.0%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">19.8M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Marvell AI 伺服器業務爆發，Custom AI ASIC（台積電 N5P）打入 Google/AWS/微軟供應鏈。光纖收發器（PAM4, 800G）需求井噴，CW/C2W 平台全球市佔第一。今日大漲 +11% 來到 $196，距 52W 高點 $198.4 僅差 1%，是典型突破形態。營收從 CY2023 $5.5B 到 CY2026 $10B+ 路徑清晰。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $240+。Marvell 是少數同時覆蓋 AI Compute (ASIC) + AI Connectivity (Optical) 兩大趨勢的標的。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$175-$195</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$160</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>INTC</h3>
+        <span>Intel</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#f9731615;color:#f97316">AI 晶片/GPU</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict spec-buy">SPECULATIVE BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$119.84 +10.18%</span>
+      </div>
+    </div>
+    <div class="signal-badge">TURNAROUND EARLY STAGE</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$119.84</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$18.97</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$132.75</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+531.7%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">82.7M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>英特爾今日大漲 +10.2% 來到 $119，是典型空頭回補 + 消息催化劑。Intel 18A 製程傳獲微軟等客戶青睞，IFS (Intel Foundry Services) 新廠產能逐步開出。Gaudi 3 AI 加速器性價比具體優勢。但 IDM 2.0 轉型仍在早期，債務負擔重，風險較高。適合有耐心的高風險偏好者。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $145。IFS 2025-2026 能否獲得大型 CSP 訂單是關鍵催化劑。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$105-$120</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$95</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>TSM</h3>
+        <span>TSMC</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#f9731615;color:#f97316">AI 晶片/GPU</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$404.52 +0.04%</span>
+      </div>
+    </div>
+    <div class="signal-badge">SOLID FOUNDATION</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$404.52</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$190.56</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$421.97</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+112.3%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">7.1M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>台積電是全球 AI 晶片的心臟，幾乎所有 AI GPU/ASIC 均在其先進製程生產。先進封裝（CoWoS, SoIC）供需持續緊俏，支撐毛利率。近期中國訂單放緩疑慮已消化，蘋果 Mac + 高通 AI Edge + NVIDIA Blackwell 構成多元支撐。免費現金流強勁，長期競爭力無可撼動。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $450+。AI 先進製程需求將在 2025 年維持供需緊張格局。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$380-$405</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$360</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>ARM</h3>
+        <span>Arm Holdings</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#f9731615;color:#f97316">AI 晶片/GPU</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict strong-buy">STRONG BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$306.51 +46.54%</span>
+      </div>
+    </div>
+    <div class="signal-badge">BREAKOUT MOMENTUM</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$306.51</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$100.02</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$315.00</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+206.4%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">14.0M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Arm 今日爆漲 +46.5% 來到 $306.5，是全市場最大亮點。Arm Neoverse 在雲端滲透率急升，AWS Graviton、Microsoft Cobalt、Meta Scalable Solutions 均基於 Arm 架構。資料中心 Arm 化學ype 正在加速，Intel/AMD x86 份額逐步被吃掉。IPO 後第一個完整年度，營收加速明顯。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $380+。Arm 授權模式天生抗風險，資料中心滲透率提升邏輯持續強化。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$270-$305</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$250</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>LSCC</h3>
+        <span>Lattice</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#f9731615;color:#f97316">AI 晶片/FPGA</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$143.22 +3.87%</span>
+      </div>
+    </div>
+    <div class="signal-badge">FPGA LOW LATENCY</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$143.22</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$-</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$-</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+0.0%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">-</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Lattice 是低功耗 FPGA 領導者，今日小漲 +3.9% 來到 $143。FPGA 在 AI edge 推理加速、性價比極高汽車、國防領域應用廣泛。Lattice 的 sensAI 平台在工廠自動化 AI 應用已進入收成期，汽車 ADAS 相關設計贏單持續增加。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $170+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$128-$144</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$115</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>ON</h3>
+        <span>ON Semi</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#f9731615;color:#f97316">AI 晶片/功率半導體</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$116.2 +6.59%</span>
+      </div>
+    </div>
+    <div class="signal-badge">POWER SEMICONDUCTOR</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$116.20</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$-</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$-</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+0.0%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">-</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>ON Semiconductor 今日大漲 +6.6% 來到 $116，碳化矽 (SiC) 功率元件在 AI 資料中心電源供應、EV 充電領域需求增加。onsemi 的 EliteSiC 系列已進入 CSP 資料中心電源供應鏈。CIS 影像感測器在工業 AI 視覺應用持續擴張。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $135+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$105-$116</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$95</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>SMCI</h3>
+        <span>Super Micro</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#06b6d415;color:#06b6d4">AI 伺服器</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$35.58 +14.63%</span>
+      </div>
+    </div>
+    <div class="signal-badge">RECOVERY MOMENTUM</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$35.58</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$19.48</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$62.36</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+82.6%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">39.4M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>超微今日大漲 +14.6% 來到 $35.6，距 52W 低點 $19.48 反彈超 82%，已脫離極度超賣區。審計問題仍是中期陰影，但新管理層上任、降成本行動開始見效。AI 伺服器需求真實存在，JDM 模式下與 Nvidia/AMD GPU 配套仍是 CSP 核心選擇。風險：高審計負面新聞可能繼續拖累。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $50+。降成本 + 擺脫審計危機後，股價有修復空間。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$30-$36</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$25</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>DELL</h3>
+        <span>Dell</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#06b6d415;color:#06b6d4">AI 伺服器</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict strong-buy">STRONG BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$295.19 +21.98%</span>
+      </div>
+    </div>
+    <div class="signal-badge">SERVER DEMAND EXPLOSION</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$295.19</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$106.38</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$298.32</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+177.5%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">15.2M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>戴爾今日暴漲 +22% 來到 $295，距離 52W 高點 $298 僅差 1%，是 AI 伺服器超級周期的核心受益者。AI Solutions Group 營收爆發，Dell 為 Microsoft/Google/Amazon 提供 AI 伺服器整合服務，PowerEdge 搭配 AMD/Intel GPU 銷售火熱。結構性轉型故事清晰：傳統 PC 復甦 + AI 伺服器爆發雙引擎。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $350+。Dell 是 2025 年伺服器超級周期的最大贏家之一。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$260-$295</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$235</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>HPQ</h3>
+        <span>HP Inc</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#06b6d415;color:#06b6d4">AI 伺服器</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$25.24 +21.29%</span>
+      </div>
+    </div>
+    <div class="signal-badge">PC RECOVERY + AI EDGE</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$25.24</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$17.56</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$29.55</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+43.7%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">45.9M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>HP 今日大漲 +21.3% 來到 $25.24，PC 市場連續兩季復甦，AI PC 換機潮（Snapdragon X Elite, Intel Lunar Lake）帶來 ASP 提升。收購 Poly 整合效應逐步顯現，企業協作硬體需求回升。個人電腦市場觸底，信譽恢復中。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $32+。AI PC 升級週期將幫助 HP 重回營收成長。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$21-$25</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$18</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>VST</h3>
+        <span>Vistra</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#24e08a15;color:#24e08a">AI 電力/能源</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict strong-buy">STRONG BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$156.27 +11.88%</span>
+      </div>
+    </div>
+    <div class="signal-badge">NEAR 52W LOW - HIGH UPSIDE</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$156.27</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$132.66</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$219.82</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+17.8%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">5.8M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Vistra 是美國最大民營發電廠，今日大漲 +11.9% 來到 $156，距 52W 低點 $132.66 僅高 17.8%，提供罕見的安全邊際。AI 資料中心對穩定電力需求爆發，Vistra 手握核電 + Natural Gas 多元能源組合，已與多家 CSP 簽訂長期供電協議（PPA）。Constellation 重啟三里島核電廠象徵核電 AI 時代來臨，VST 為最具直接受益的電力股。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $200+。AI 資料中心用電量 2030 年將較 2023 年增加 200%+，電力股嚴重低估。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$145-$158</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$130</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>CEG</h3>
+        <span>Constellation Energy</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#24e08a15;color:#24e08a">AI 電力/能源</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict strong-buy">STRONG BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$294.07 +10.06%</span>
+      </div>
+    </div>
+    <div class="signal-badge">NUCLEAR AI THEMATIC PLAY</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$294.07</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$243.30</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$412.70</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+20.9%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">2.9M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Constellation Energy 今日大漲 +10.1% 來到 $294，距 52W 低點 $243.3 仍有 20.9% 上漲空間。美國最大核電運營商，擁有多座第三代核電站。三里島核電廠重啟（為微軟供電）開創了「核電+科技巨頭直接供電」新商業模式。核能是唯一可以提供 24/7 無碳穩定電力的能源，AI CSP 追捧對象。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $380+。核能復興趨勢明確，CEG 為最純粹的核電 AI 受益股。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$275-$295</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$250</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>NRG</h3>
+        <span>NRG Energy</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#24e08a15;color:#24e08a">AI 電力/能源</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$137.65 +7.70%</span>
+      </div>
+    </div>
+    <div class="signal-badge">NEAR 52W LOW</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$137.65</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$121.22</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$189.96</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+13.6%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">2.1M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>NRG Energy 距 52W 低點 $121.22 僅高 13.6%，具備罕見的補漲空間。天然氣發電資產將長期受益 AI 資料中心緊急用電需求，彈性供電能力被低估。與 VST、CEG 同屬電力上行趨勢中的落後補漲標的。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $165+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$125-$138</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$115</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>AES</h3>
+        <span>AES Corp</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#24e08a15;color:#24e08a">AI 電力/能源</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$14.68 +1.45%</span>
+      </div>
+    </div>
+    <div class="signal-badge">UNDERVALUED POWER PLAY</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$14.68</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$9.58</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$17.65</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+53.2%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">5.8M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>AES 距 52W 低點 $9.58 上漲 53.2%，今天僅微漲 +1.45%。清潔能源平台，風電/光電/儲能組合多元。AI 資料中心對清潔能源 PPA 需求持續增加，AES 是估值相對較低的電力基礎建設標的。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $18+。估值有修復空間。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$13.5-$14.7</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$12</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>PNRG</h3>
+        <span>PrimeEnergy</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#24e08a15;color:#24e08a">AI 電力/能源</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-dn" style="font-size:16px;font-weight:700">$259.24 -3.33%</span>
+      </div>
+    </div>
+    <div class="signal-badge">NATURAL GAS ELASTICITY</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$259.24</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$126.40</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$278.90</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+105.1%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">0.1M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>PrimeEnergy 是小型天然氣生產商，今日微跌 -3.33% 來到 $259，距 52W 高點 $278 仍有補漲空間。天然氣作為資料中心備用電源的價值被低估。美國 LNG 出口支撐天然氣價格，彈性生產商 PNRG 將從中受益。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $290+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$240-$260</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$225</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>ETN</h3>
+        <span>Eaton</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#24e08a15;color:#24e08a">AI 電力/電氣</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-dn" style="font-size:16px;font-weight:700">$391.35 -2.03%</span>
+      </div>
+    </div>
+    <div class="signal-badge">ELECTRIFICATION STRUCTURAL PLAY</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$391.35</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$311.90</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$435.43</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+25.5%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">2.3M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Eaton 是全球電氣化基礎建設核心受益者，今日微跌 -2% 來到 $391。AI 資料中心配電系統、備用電源系統、以及不斷增長的馬達控制業務均直接受益於電氣化大趨勢。營收結構穩定，經常性收入佔比高。估值合理，適合長期持有。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $430+。電氣化長期結構成長明確。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$375-$392</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$350</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>BE</h3>
+        <span>Bloom Energy</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#24e08a15;color:#24e08a">AI 電力/氫能</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-dn" style="font-size:16px;font-weight:700">$302.49 -5.39%</span>
+      </div>
+    </div>
+    <div class="signal-badge">GREEN HYDROGEN PLAY</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$302.49</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$-</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$-</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+0.0%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">-</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Bloom Energy 今日微跌 -5.4% 來到 $302，固態氧化物電解槽技術在氫能領域領先。Google、微軟已購買 Bloom 氫燃料電池為資料中心供電，清潔氫能佈局獨特。固態氧化物燃料電池可以改用天然氣或氫氣，彈性極強。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $350+。氫能資料中心供電是長線主題。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$275-$303</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$250</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>SPXC</h3>
+        <span>SPX Technologies</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#06b6d415;color:#06b6d4">AI 散熱/液冷</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$207.8 +3.39%</span>
+      </div>
+    </div>
+    <div class="signal-badge">COOLING INFRASTRUCTURE</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$207.80</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$150.50</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$246.68</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+38.1%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">0.4M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>SPX Technologies 今日微漲 +3.4% 來到 $207.8，距 52W 低點 $150.5 仍有 38% 上漲空間。旗下 Bell & Gossett 品牌在資料中心液冷市場有優勢，冷水機組需求受益 AI 散熱剛需。估值仍合理，距離 VRT 的泡沫化估值還有空間。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $250+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$190-$208</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$175</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>GLW</h3>
+        <span>Corning</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#a855f715;color:#a855f7">AI 光纖/網路</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$194.05 +1.17%</span>
+      </div>
+    </div>
+    <div class="signal-badge">FIBER OPTICS MONOPOLY</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$194.05</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$48.62</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$211.79</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+299.1%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">8.3M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Corning 是全球光纖龍頭，幾乎壟斷 AI 資料中心光纖基礎建設。今日微漲 +1.2% 來到 $194，距 52W 低點 $48.62 上漲了 299%，從低點已大幅反彈。AI 資料中心間互聯光纖需求爆發，Corning 特殊光纖（SMF-28+ULL）供應緊俏。短期估值合理偏貴，適合定投。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $220+。光纖是數據洪流時代的「流管」剛需。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$175-$195</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$160</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>CIEN</h3>
+        <span>Ciena</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#a855f715;color:#a855f7">AI 光纖/網路</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict strong-buy">STRONG BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$583.74 +5.28%</span>
+      </div>
+    </div>
+    <div class="signal-badge">OPTICAL NETWORKING LEADER</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$583.74</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$70.77</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$599.50</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+724.8%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">1.4M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Ciena 今日大漲 +5.3% 來到 $583.74，距 52W 高點 $599.5 僅差 2.6%，即將創新高。光纖傳輸設備全球領導者，WaveLogic 8 (800G) 供不應求。AI 資料中心互聯 (DCI) 需求爆發，Ciena 是少數可以提供 800G 解決方案的廠商。Marvell AI ASIC 捆綁銷售模式對 Ciena 光纖業務有協同。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $650+。全球光纖骨幹網絡升級週期才剛開始。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$530-$585</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$490</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>ANET</h3>
+        <span>Arista Networks</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#a855f715;color:#a855f7">AI 網路/交換器</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$154.03 +8.49%</span>
+      </div>
+    </div>
+    <div class="signal-badge">AI NETWORKING LEADER</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$154.03</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$83.86</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$179.80</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+83.7%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">9.3M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Arista 是 AI 資料中心網路的核心供應商，400G/800G 白牌交換機打入各大 CSP。Leaf-Spine 架構升級需求爆發，AI 訓練流量激增對低延遲網路要求極高。今日大漲 +8.5% 來到 $154，距 52W 高點 $179.8 仍有 14.6% 空間。領導地位穩固，毛利率結構優秀。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $190+。AI 資料中心網路升級將持續 3-5 年。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$140-$154</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$125</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>LUMN</h3>
+        <span>Lumen</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#a855f715;color:#a855f7">AI 網路/光纖</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict spec-buy">SPECULATIVE BUY</span>
+        <span class="chg-dn" style="font-size:16px;font-weight:700">$9.41 -6.37%</span>
+      </div>
+    </div>
+    <div class="signal-badge">TURNAROUND BET</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$9.41</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$3.37</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$11.95</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+179.2%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">8.0M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Lumen 今日大跌 -6.4% 來到 $9.41，52W 低點 $3.37 距今已遠。公司正在從傳統電信轉型為 AI 網路服務提供商，與微軟簽訂策略合作為 CSP 提供光纖骨幹網絡。故事誘人但執行風險極高，適合高風險偏好者小額參與。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $15（如果 CSP 光纖業務有所突破）。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$8-$9.5</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$7</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>CSCO</h3>
+        <span>Cisco</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#a855f715;color:#a855f7">AI 網路/交換器</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$120.41 +1.86%</span>
+      </div>
+    </div>
+    <div class="signal-badge">SECURE NETWORKING</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$120.41</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$62.30</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$120.79</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+93.3%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">18.1M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>思科今日微漲 +1.9% 來到 $120.41，距歷史高點 $120.79 僅差 0.3%。思科是全球企業網路龍頭，AI 時代對安全網路交換機需求增加。收購 Splunk 後的 AI 安全整合方案開始變現。全年營收成長重回正軌，估值合理。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $135+。AI 威脅防護 + 網路現代化是長期驅動力。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$108-$121</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$100</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>MU</h3>
+        <span>Micron</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#f9731615;color:#f97316">AI 記憶體/HBM</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$751.0 +3.63%</span>
+      </div>
+    </div>
+    <div class="signal-badge">HBM DEMAND SURGE</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$751.00</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$92.22</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$818.67</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+714.4%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">36.0M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Micron 是全球第三大記憶體廠，今日微漲 +3.6% 來到 $751，距 52W 高點 $818.67 仍有 8.3% 空間。HBM3E 是 AI GPU 標配，美光已通過 NVIDIA HBM3e 認證，三大 CSP 持續擴大訂單。AI 伺服器 memory 含量是傳統伺服器 4-5 倍，HBM 供需持續緊張至 2025 年底。三星落後給美光創造結構性份額提升機會。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $900+。記憶體超級景氣循環才開始。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$680-$750</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$620</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>NTAP</h3>
+        <span>NetApp</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#6366f115;color:#6366f1">AI 儲存/資料管理</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict strong-buy">STRONG BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$139.36 +16.20%</span>
+      </div>
+    </div>
+    <div class="signal-badge">DATA STORAGE EXPLOSION</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$139.36</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$93.69</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$141.75</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+48.7%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">6.7M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>NetApp 今日暴漲 +16.2% 來到 $139.36，距 52W 高點 $141.75 僅差 1.7%，即將突破。ONTAP AI 是唯一整合了雲端和本地儲存的資料管理平台，在 AI 訓練資料儲存需求爆發中直接受益。NS02 AIOps 資料管理平台開始變現。結構性轉型從硬體轉向軟體訂閱，毛利率持續改善。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $165+。AI 資料湖儲存需求將持續爆發。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$120-$140</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$110</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>WDC</h3>
+        <span>Western Digital</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#6366f115;color:#6366f1">AI 儲存/HDD+NAND</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$484.28 +0.47%</span>
+      </div>
+    </div>
+    <div class="signal-badge">NAND RECOVERY + AI STORAGE</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$484.28</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$50.62</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$525.15</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+856.7%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">4.5M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Western Digital 今日微漲 +0.5% 來到 $484，距 52W 高點 $525.15 仍有 7.8% 空間。NAND 景氣觸底反彈，AI 伺服器 HDD/NAND 需求同步增加（訓練資料儲存需要大量 HDD 容量）。和鎧俠合併進程持續，供給側結構改善將持續推動記憶體價格復甦。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $550+。NAND 供需結構改善中。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$440-$485</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$400</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>AMKR</h3>
+        <span>Amkor</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#6366f115;color:#6366f1">先進封裝/CoWoS</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-dn" style="font-size:16px;font-weight:700">$65.75 -6.54%</span>
+      </div>
+    </div>
+    <div class="signal-badge">ADVANCED PACKAGING BOTTLELENECK</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$65.75</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$17.79</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$79.23</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+269.6%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">5.9M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Amkor 是全球第二大獨立封測廠，今日微跌 -6.5% 來到 $65.75。CoWoS 封裝瓶頸創造了板上晶片 (PLP) 和扇出型封裝的替代需求，Amkor 是 NVIDIA H100/H200 供應鏈重要參與者。Smart Site 智慧工廠策略降低人工成本，長期毛利率有改善空間。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $80+。AI 先進封裝需求將持續超過供給。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$58-$66</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$52</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>ASX</h3>
+        <span>ASE Technology</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#6366f115;color:#6366f1">先進封裝/CoWoS</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$34.81 +2.96%</span>
+      </div>
+    </div>
+    <div class="signal-badge">COWOS PACKAGING LEAD</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$34.81</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$9.23</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$35.71</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+277.1%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">8.1M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>ASE Technology 今日微漲 +3% 來到 $34.81，距 52W 高點 $35.71 僅差 2.5%。全球最大半導體封測廠，CoWoS 產能擴張最大受益者。先進封裝佔營收比重持續提升，扇出型 InFO 和 CoWoS 訂單能見度看到 2025 年底。與矽品整合效益持續顯現。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $42+。CoWoS 是 AI GPU 供應瓶頸的核心環節。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$31-$35</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$28</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>AMAT</h3>
+        <span>Applied Materials</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#6366f115;color:#6366f1">半導體設備</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-dn" style="font-size:16px;font-weight:700">$432.16 -1.02%</span>
+      </div>
+    </div>
+    <div class="signal-badge">SEMI EQUIPMENT LEADER</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$432.16</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$153.47</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$448.45</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+181.6%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">4.9M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Applied Materials 今日微跌 -1% 來到 $432，距 52W 高點 $448 仍有 3.6% 空間。半導體設備廠，AI 先進製程設備需求旺盛。Endura platform 在 CoWoS 薄膜沉積市場份額領先，先進封裝是新成長引擎。長期營收結構優秀，經常性收入佔比提升。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $480+。半導體設備超級景氣循環仍在上升段。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$400-$433</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$375</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>LRCX</h3>
+        <span>Lam Research</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#6366f115;color:#6366f1">半導體設備</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$305.35 +7.25%</span>
+      </div>
+    </div>
+    <div class="signal-badge">ETCH EQUIPMENT MONOPOLY</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$305.35</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$79.49</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$309.98</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+284.1%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">7.9M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Lam Research 今日大漲 +7.3% 來到 $305，距 52W 高點 $309.98 僅差 1.5%。半導體蝕刻設備龍頭，在先進製程蝕刻市場佔有率超 50%。AI 晶片高深寬比蝕刻需求增加，Lam 的矽蝕刻設備是 NVIDIA/AMD 先進製程核心供應商。免費現金流強勁。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $340+。先進製程蝕刻是半導體設備中壁壘最高的細分市場。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$280-$305</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$260</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>CRWD</h3>
+        <span>CrowdStrike</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#24e08a15;color:#24e08a">AI 資安/雲端</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict strong-buy">STRONG BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$663.46 +11.68%</span>
+      </div>
+    </div>
+    <div class="signal-badge">CYBERSECURITY AI DEFENSE</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$663.46</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$342.72</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$674.84</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+93.6%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">2.8M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>CrowdStrike 今日大漲 +11.7% 來到 $663，距歷史高點 $674.84 僅差 1.7%。AI 資安領域無可爭議的領導者，Charlotte AI 平台將 GenAI 整合到資安工作流，EDR 市場份額持續擴大。AI 攻擊增加（deepfake + AI-driven malware）反而讓 CrowdStrike 的領先優勢更加明顯。訂閱營收成長重回加速區間。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $750+。AI 時代資安威脅指數增加，CRWD 是終極受益者。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$600-$665</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$550</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>NET</h3>
+        <span>Cloudflare</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#24e08a15;color:#24e08a">AI 資安/WAF+CDN</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$216.17 +9.42%</span>
+      </div>
+    </div>
+    <div class="signal-badge">ZERO TRUST SECURITY</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$216.17</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$158.83</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$260.00</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+36.1%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">2.1M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Cloudflare 今日大漲 +9.4% 來到 $216，距 52W 低點 $158.83 上漲 36%，仍有修復空間。WAF/CDN/Zero Trust 產品矩陣受益 AI 驅動的資安威脅增加。Workers AI 將 AI 推送到 edge，降低延遲同時保持資料安全。IoT 安全產品開始變現，新增長曲線清晰。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $260+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$190-$216</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$170</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>PANW</h3>
+        <span>Palo Alto</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#24e08a15;color:#24e08a">AI 資安/網路</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$260.58 +7.31%</span>
+      </div>
+    </div>
+    <div class="signal-badge">SECURE THE AI WORLD</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$260.58</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$139.57</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$261.41</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+86.7%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">6.6M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Palo Alto Networks 今日大漲 +7.3% 來到 $260.58，距歷史高點 $261.41 僅差 0.3%。AI 驅動的安全硬體一體化平台（Network Security + Prisma SASE + Cortex XSIAM）。Prisma AI 是 CSPM+CWPP 的整合，深度整合 GenAI 提升威脅發現速度。併購策略持續，平台化效應明顯。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $290+。企業資安現代化是 2025 年剛需。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$235-$261</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$215</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>PLTR</h3>
+        <span>Palantir</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#f9731615;color:#f97316">AI 軟體/資料分析</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$136.88 +2.16%</span>
+      </div>
+    </div>
+    <div class="signal-badge">DATA INTELLIGENCE PLATFORM</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$136.88</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$118.93</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$207.52</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+15.1%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">27.6M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Palantir 今日微漲 +2.2% 來到 $136，距 52W 高點 $207 仍有 34% 空間，仍屬於落後補漲狀態。Gotham + Foundry 平台持續獲得政府及商業合同，AIP (AI Platform) 整合 LLMs 進入情報分析工作流後明顯提升用戶價值。AI 軍事應用（以巴烏克蘭戰爭為例）創造了結構性增量需求。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $170+。政府 AI 支出超級周期是 PLTR 核心驅動。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$125-$138</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$115</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>GOOGL</h3>
+        <span>Alphabet</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#5b7fff15;color:#5b7fff">AI 雲端平台</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-dn" style="font-size:16px;font-weight:700">$382.97 -3.48%</span>
+      </div>
+    </div>
+    <div class="signal-badge">AI CLOUD INFRASTRUCTURE</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$382.97</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$162.00</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$408.61</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+136.4%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">20.4M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Google 今日微跌 -3.5% 來到 $382，TPU v5 AI 訓練基礎建設持續擴張。Google Cloud 營收成長加速，AI Workspace 整合 Gemini 提升用戶黏性。Gemini Ultra 在 MMLU 基準測試持續領先，DeepMind 在製藥、材料科學的佈局被低估。資本支出 2025 年指引驚人，AI Infra 建設加速中。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $430+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$360-$385</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$335</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>MSFT</h3>
+        <span>Microsoft</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#5b7fff15;color:#5b7fff">AI 雲端平台</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-dn" style="font-size:16px;font-weight:700">$418.57 -0.79%</span>
+      </div>
+    </div>
+    <div class="signal-badge">AZURE AI PLATFORM</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$418.57</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$356.28</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$555.45</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+17.5%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">22.4M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>微軟今日微跌 -0.8% 來到 $418，距 52W 高點 $555 仍有 24.6% 空間。Azure AI (Copilot + GPT-4 Turbo + MaaS) 持續擴張，企業 AI 訂閱覆蓋率快速提升。與 OpenAI 獨家深度整合，在企業 AI 市場已建立結構性優勢。Capital Light 策略（輕資產）讓毛利率長期擴張。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $500+。企業 AI 轉型微軟是最大受益者。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$385-$420</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$360</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>AMZN</h3>
+        <span>Amazon</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#5b7fff15;color:#5b7fff">AI 雲端平台</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$266.32 +0.83%</span>
+      </div>
+    </div>
+    <div class="signal-badge">AI EC2 + RETAIL RECOVERY</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$266.32</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$196.00</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$278.56</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+35.9%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">27.5M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Amazon 今日微漲 +0.8% 來到 $266，Trainium 2 ASIC 提供性價比極佳的 AI 訓練選項，降低對 NVIDIA 的依賴。AWS AI 服務（Bedrock + SageMaker）在企業 AI 滲透率快速提升。電子商務履約費用率改善，廣告業務成長加速。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $300+。AWS AI 超級周期是核心驅動。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$245-$267</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$225</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>META</h3>
+        <span>Meta</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#5b7fff15;color:#5b7fff">AI 雲端平台</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-dn" style="font-size:16px;font-weight:700">$610.26 -0.65%</span>
+      </div>
+    </div>
+    <div class="signal-badge">AI INFRASTRUCTURE AT SCALE</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$610.26</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$520.26</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$796.25</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+17.3%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">11.7M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Meta 今日微跌 -0.7% 來到 $610，距 52W 高點 $796 仍有 23% 空間。Llama 3 開源模型建立 AI 生態壁壘，自研 MTIA ASIC 降低 AI 訓練成本。AI 推薦系統對營收的貢獻超預期，Reels 貨幣化持續改善。資本支出指引 2025 年大幅增加，AI Infrastructure 建設加速。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $700+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$570-$612</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$530</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>DLR</h3>
+        <span>Digital Realty</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#5b7fff15;color:#5b7fff">AI 資料中心/REIT</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$192.03 +1.87%</span>
+      </div>
+    </div>
+    <div class="signal-badge">DATA CENTER REIT LEADER</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$192.03</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$146.23</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$208.14</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+31.3%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">1.7M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Digital Realty 今日微漲 +1.9% 來到 $192，距 52W 低點 $146 上漲 31%。AI 時代對資料中心需求爆發，DLR 的國際化佈局（25+國家、50+都市）提供稀缺性。PlatformDIGITAL 讓企業在單一平台部署全球混合 IT 策略，黏性極強。Power purchase agreements 鎖定長期營收。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $220+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$175-$193</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$160</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>EQIX</h3>
+        <span>Equinix</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#5b7fff15;color:#5b7fff">AI 資料中心/REIT</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$1079.79 +1.92%</span>
+      </div>
+    </div>
+    <div class="signal-badge">INTERCONNECTION HUB</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$1079.79</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$710.52</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$1128.68</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+52.0%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">0.4M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Equinix 今日微漲 +1.9% 來到 $1079，距 52W 低點 $710 上漲 52%。全球最大零售型資料中心，interconnection 業務受益 AI 資料交換需求爆發。XC 平台連接 400+ 雲服務提供商，護城河深。歐洲擴張持續，AI 需求外溢效應明顯。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $1200+。互聯網交換是數據中心的「鑽石」。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$1000-$1080</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$930</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>AMT</h3>
+        <span>American Tower</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#5b7fff15;color:#5b7fff">AI 資料中心/塔</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$183.85 +7.75%</span>
+      </div>
+    </div>
+    <div class="signal-badge">TOWER INFRASTRUCTURE</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$183.85</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$165.08</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$234.33</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+11.4%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">2.1M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>American Tower 今日大漲 +7.8% 來到 $183，距 52W 低點 $165 上漲僅 11%，仍有修復空間。塔頂光纖化（Small Cell + macro tower）是長期結構趨勢。印度、拉丁美洲基站建設需求增加，AI edge 部署創造新的塔址需求。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $210+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$168-$184</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$155</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>PLD</h3>
+        <span>Prologis</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#5b7fff15;color:#5b7fff">AI 資料中心/物流</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$145.9 +3.82%</span>
+      </div>
+    </div>
+    <div class="signal-badge">LOGISTICS DATA CENTERS</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$145.90</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$103.41</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$146.27</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+41.1%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">1.4M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Prologis 今日微漲 +3.8% 來到 $145.9，距歷史高點 $146.27 僅差 0.2%。物流地產 AI 化趨勢創造對高標準倉儲的需求增加，同時也開始佈局資料中心、物流邊緣計算的混合資產。與 CSP 合作開發物流數據中心是新增長點。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $160+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$132-$146</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$122</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>SNOW</h3>
+        <span>Snowflake</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#6366f115;color:#6366f1">AI 資料倉庫/雲端</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$172.2 +9.35%</span>
+      </div>
+    </div>
+    <div class="signal-badge">DATA CLOUD LEADER</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$172.20</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$118.30</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$280.67</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+45.6%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">5.8M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Snowflake 今日大漲 +9.4% 來到 $172，距 52W 低點 $118.3 上漲 45% 但距高點 $280 仍有 38% 修復空間。Cortex AI 整合 LLMs 進入資料湖，查詢效率大幅提升。FinOps 工具開始變現，幫助企業優化資料庫成本。AI 訓練資料湖對高質量向量嵌入的需求爆發，Cortex 是核心受益者。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $220+。Data Cloud 生態系統持續擴張。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$155-$172</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$140</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>DDOG</h3>
+        <span>Datadog</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#6366f115;color:#6366f1">AI 監控/Observability</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$222.32 +6.89%</span>
+      </div>
+    </div>
+    <div class="signal-badge">OBSERVABILITY PLATFORM</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$222.32</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$98.01</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$224.77</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+126.8%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">4.9M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Datadog 今日大漲 +6.9% 來到 $222，距歷史高點 $224.77 僅差 1%，隨時可能突破。AI 應用複雜度提升使 Observability 剛需增加，Pipeline monitoring + Security Partner 生態讓 DDOG 在 AI App Monitoring 市場份額快速提升。AI 模型評估服務（Bits AI）開始變現，新增長曲線啟動。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $250+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$200-$223</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$185</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deep-card">
+    <div class="stock-header">
+      <div class="stock-title">
+        <h3>OKta</h3>
+        <span>Okta</span>
+        <span style="font-size:12px;padding:2px 8px;border-radius:8px;font-weight:600;background:#6366f115;color:#6366f1">AI 身分認證</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="verdict buy">BUY</span>
+        <span class="chg-up" style="font-size:16px;font-weight:700">$92.24 +11.44%</span>
+      </div>
+    </div>
+    <div class="signal-badge">IDENTITY SECURITY</div>
+    <div class="metrics">
+      <div class="metric"><div class="mval" style="color:var(--green)">$92.24</div><div class="mlabel">現價</div></div>
+      <div class="metric"><div class="mval">$62.66</div><div class="mlabel">52W 低</div></div>
+      <div class="metric"><div class="mval">$127.52</div><div class="mlabel">52W 高</div></div>
+      <div class="metric"><div class="mval">+47.2%</div><div class="mlabel">from 52W低</div></div>
+      <div class="metric"><div class="mval">3.0M</div><div class="mlabel">成交量</div></div>
+    </div>
+    <div class="analysis-block">
+      <h4>AI 原生推薦邏輯</h4>
+      <p>Okta 今日大漲 +11.4% 來到 $92，距 52W 低點 $62.66 上漲 47%。零信任身份管理是 AI 安全最底層的基礎設施，Okta 捆綁 SSO/MFA/IG 佔據企業身份入口。AI 驅動的 deepfake 身份欺詐增加使多因素認證剛需更加突出。</p>
+    </div>
+    <div class="analysis-block">
+      <h4>核心邏輯與展望</h4>
+      <p>目標 $120+。</p>
+    </div>
+    <div class="strategy-row">
+      <div class="strategy-item">
+        <div class="slabel">進場策略</div>
+        <div class="sval green">$82-$93</div>
+      </div>
+      <div class="strategy-item">
+        <div class="slabel">止損位</div>
+        <div class="sval red">$72</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- THEMES -->
+<div class="section" id="themes">
+  <div class="section-header">
+    <h2>D. 主題板塊評估</h2>
+    <span class="badge">6 大 AI 基建主題</span>
+  </div>
+  <div class="supply-block">
+    <h3>AI 基礎建設六大赛道深度評估</h3>
+    <div class="供需-row">
+
+      <div class="供需-card">
+        <h4 style="color:#f97316">💾 AI 晶片/GPU ⭐⭐⭐⭐⭐</h4>
+        <p>極短線供需緊張，Blackwell GB200 產能嚴重不足，CoWoS 封裝是核心瓶頸。NVDA 定價權無可撼動，AMD MI300X 性價比殺傷力開始顯現。ARM 架構在雲端資料中心份額快速爬升，2025-2027 是結構性替代x86的起點。Custom ASIC 趨勢讓 Marvell、博通獲得新增長曲線。</p>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px"><span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#f9731615;color:#f97316">NVDA</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#f9731615;color:#f97316">AMD</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#f9731615;color:#f97316">AVGO</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#f9731615;color:#f97316">QCOM</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#f9731615;color:#f97316">MRVL</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#f9731615;color:#f97316">INTC</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#f9731615;color:#f97316">ARM</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#f9731615;color:#f97316">TSM</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#f9731615;color:#f97316">LSCC</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#f9731615;color:#f97316">ON</span></div>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#24e08a">⚡ AI 電力/能源 ⭐⭐⭐⭐⭐</h4>
+        <p>最被低估的 AI 基建板塊。AI 資料中心用電量2030年將較2023年增加200%+，電力基礎設施嚴重滞後。核電是唯一可以提供24/7無碳穩定電力的能源，Constellation重啟三里島象徵核電AI時代來臨。VST、CEG、NRG 估值仍處歷史低位，距離52W低點提供罕見安全邊際。</p>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px"><span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">VST</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">CEG</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">NRG</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">NEE</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">AES</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">PNRG</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">BE</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">ETN</span></div>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#06b6d4">🖥️ AI 伺服器/雲端 ⭐⭐⭐⭐</h4>
+        <p>CSP 資本支出2025年同比增30%+，Dell 今日暴漲22%象徵AI伺服器超級周期已來臨。HP PC復甦+AI PC換機潮提供額外彈性。Supermicro 審計問題掩蓋了真實AI需求，恢復後有修復空間。Arista 在AI網路交換器市場領導地位稳固。</p>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px"><span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#06b6d415;color:#06b6d4">SMCI</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#06b6d415;color:#06b6d4">DELL</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#06b6d415;color:#06b6d4">HPQ</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#06b6d415;color:#06b6d4">ANET</span></div>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#24e08a">🔐 AI 資安/雲端安全 ⭐⭐⭐⭐</h4>
+        <p>AI攻擊增加（deepfake欺詐+AI-driven malware）創造結構性剛需。CrowdStrike Charlotte AI平台鞏固領導地位，Zscaler SASE市場領導但估值偏貴建議獲利了結。Okta 零信任身份管理是AI時代最底層的防線。Cloudflare Workers AI將AI推向edge，IoT安全是新成長曲線。</p>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px"><span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">CRWD</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">NET</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">PANW</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">ZS</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#24e08a15;color:#24e08a">OKta</span></div>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#a855f7">📡 AI 光纖/網路 ⭐⭐⭐⭐</h4>
+        <p>AI資料中心互聯(DCI)需求爆發，800G光纖傳輸設備供不應求。Ciena即將創新高，WaveLogic 8平台全球領先。Marvell光纖收發器業務协同效應明顯，Corning特殊光纖供應緊俏。Lumen轉型CSP光纖骨幹網絡的故事誘人但執行風險高。</p>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px"><span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#a855f715;color:#a855f7">CIEN</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#a855f715;color:#a855f7">GLW</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#a855f715;color:#a855f7">LUMN</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#a855f715;color:#a855f7">CSCO</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#a855f715;color:#a855f7">MRVL</span></div>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#6366f1">💾 AI 記憶體/HBM ⭐⭐⭐⭐</h4>
+        <p>HBM3e是AI GPU標配，美光已通過NVIDIA認證，三大CSP持續擴大訂單。AI伺服器memory含量是傳統伺服器4-5倍，HBM供需持續緊張至2025年底。三星落後給美光創造結構性份額提升。NAND景氣觸底反彈，WDC和鎧俠合併進程將改善供給側結構。</p>
+        <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:5px"><span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#6366f115;color:#6366f1">MU</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#6366f115;color:#6366f1">WDC</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#6366f115;color:#6366f1">NTAP</span> <span style="font-size:10px;padding:2px 7px;border-radius:6px;font-weight:600;background:#6366f115;color:#6366f1">PSTG</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SUPPLY/DEMAND -->
+<div class="section" id="supply">
+  <div class="section-header">
+    <h2>E. AI 供需失衡深度分析</h2>
+    <span class="badge">供給瓶頸 vs 需求爆發</span>
+  </div>
+  <div class="supply-block">
+    <h3>關鍵供給瓶頸識別</h3>
+    <div class="供需-row">
+
+      <div class="供需-card">
+        <h4 style="color:#6366f1">瓶頸：CoWoS 先進封裝</h4>
+        <p>台積電CoWoS產能是NVDA Blackwell出貨的唯一瓶頸。2025年CoWoS產能擴張進度將直接決定GB200交付節奏。這也是為什麼ASE和Amkor的替代封裝方案如此重要的原因。</p>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#f97316">瓶頸：HBM 記憶體</h4>
+        <p>HBM3e認證僅限美光和SK海力士，產能嚴重不足。三星 ainda落後，導致美光獲得不對稱份額提升。AI GPU標配HBM，需求量是傳統伺服器的4-5倍。</p>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#24e08a">瓶頸：電力容量</h4>
+        <p>美國資料中心電力需求2030年將增加200%+，但電網基礎設施現代化嚴重滞後。核電、天然氣電廠審批新建需要5-10年。AI公司開始直接投資發電廠（微軟與Constellation合作為標誌）。</p>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#a855f7">瓶頸：光纖骨幹網</h4>
+        <p>AI資料中心互聯需要800G光纖傳輸，但Ciena、Marvell的800G產品交付落後需求1-2個季度。光纖基礎設施升級是長期結構性主題。</p>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#06b6d4">瓶頸：液冷系統</h4>
+        <p>AI伺服器熱密度傳統風冷已無法處理，液冷/浸沒式冷却是剛需。Vertiv今天暴跌-11.7%象徵散熱板塊短期超買，但長期需求真實存在。SPXC冷水機組估值仍合理。</p>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#f97316">瓶頸：ARM 架構替代</h4>
+        <p>x86在雲端資料中心的份額正在被ARM吃掉。AWS Graviton3、Microsoft Cobalt、Meta Scalable Solutions均基於Arm Neoverse，這是10年的結構性替代趨勢。Intel/AMD專利壁壘使替代不會瞬間發生，但份額流失不可逆。</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="supply-block">
+    <h3>需求爆發驅動力</h3>
+    <div class="供需-row">
+
+      <div class="供需-card">
+        <h4 style="color:#5b7fff">驅動：CSP 資本支出</h4>
+        <p>Microsoft、Google、Amazon、Meta 2025年資本支出總額將超過 $3000億，其中AI基礎設施佔比超過70%。這是史無前例的超級周期。</p>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#f97316">驅動：推理需求爆發</h4>
+        <p>ChatGPT以降，AI應用爆發。現在重心從訓練轉向推理，意味著需要更多GPU實例持續運行。推理的邊際成本結構使CSP有強烈動機優化性價比，利好AMD、Marvell等替代方案。</p>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#24e08a">驅動：企業 AI 採用</h4>
+        <p>Microsoft Copilot、Google Gemini、AWS Bedrock正在將AI普惠化。企業AI訂閱覆蓋率從不到5%快速爬升，帶動Azure、AWS、GCP整體成長加速。</p>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#06b6d4">驅動：AI Edge 設備</h4>
+        <p>Snapdragon X Elite、AI PC、智慧手機AI晶片將創造數十億規模的Edge AI設備換機潮。高通、蘋果、聯發科是核心受益者。Qualcomm今日暴漲+18.2%象徵市場開始認知這個趨勢。</p>
+      </div>
+
+      <div class="供需-card">
+        <h4 style="color:#a855f7">驅動：AI 軍事/國防</h4>
+        <p>烏克蘭、以巴戰爭展示AI精確制導、無人機、AI情報分析的價值。美國、中國、歐洲各國開始大規模投資AI軍事應用。Palantir、Aurora、Anduril等是純粹AI軍工受益者。</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- TOMORROW -->
+<div class="section">
+  <div class="section-header">
+    <h2>F. 明日觀察重點</h2>
+    <span class="badge">2026-05-26</span>
+  </div>
+  <div class="card-row">
+    <div class="card">
+      <h3 style="margin-bottom:12px;font-size:14px">需密切關注的信號</h3>
+      <ul style="font-size:13px;padding-left:18px;color:var(--text-dim);line-height:2">
+        <li>NVDA 能否守住 $200 關口，若跌破可能測試 $185 支撐</li>
+        <li>ARM 若能站穩 $300+，短線目標 $340，挑戰 $380</li>
+        <li>DELL 逼近 $298 歷史高點，能否突破並創新高</li>
+        <li>CIEN 若突破 $600 歷史高，開啟新一波漲勢</li>
+        <li>VRT 今天暴跌 -11.7%，觀望是否止穩於 $310 支撐</li>
+        <li>QCOM +18.2% 後，注意獲利了結賣壓</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom:12px;font-size:14px">重要催化劑日曆</h3>
+      <ul style="font-size:13px;padding-left:18px;color:var(--text-dim);line-height:2">
+        <li>6月中旬：主要 CSP Q2 營收指引更新（GOOGL、MSFT、AMZN）</li>
+        <li>6月下旬：美光 Q2 營收財報（記憶體景氣關鍵指標）</li>
+        <li>NVIDIA GTC 大會（如有新品發布，持續催化股價）</li>
+        <li>FED 利率決策（影響高P/E科技股估值）</li>
+        <li>Arm Q2 營收（觀察資料中心滲透率是否加速）</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom:12px;font-size:14px">主題機會追蹤</h3>
+      <ul style="font-size:13px;padding-left:18px;color:var(--text-dim);line-height:2">
+        <li>⚡ 電力短缺主題：VST、CEG、NRG 本週持續強勢，核電+天然氣多重能源組合更受青睐</li>
+        <li>💾 HBM 記憶體：MU 本週仍有上漲空間，注意 $800 心理關口</li>
+        <li>📡 光纖升級：CIEN 技術突破形態，等待 $600 確認</li>
+        <li>🖥️ 伺服器超級周期：DELL、HPQ 短線動能最強，注意機構買盤持續性</li>
+        <li>🤖 AI 軟體補漲：SNOW、PLTR 本週落後大盤，有補漲空間</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  AI 基礎建設研究報告 | 2026年05月25日 | 精選 47 檔核心標的<br>
+  本報告僅供參考，不構成投資建議。數據來源：Yahoo Finance、Barchart、信誼<br>
+  <span style="color:var(--text-muted)">© 2026 AI Infrastructure Research. All rights reserved.</span>
+</div>
+</div>
+</body>
+</html>

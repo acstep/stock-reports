@@ -5,1241 +5,196 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI 基礎建設研究報告｜2026年05月25日</title>
 <style>
-:root {
-  --bg: #080810;
-  --bg2: #0c0c1a;
-  --bg3: #10101f;
-  --bg-card: #0e0e20;
-  --border: rgba(255,255,255,0.07);
-  --border-accent: rgba(91,127,255,0.3);
-  --text: #e0e4f0;
-  --text-dim: #7880a0;
-  --text-muted: #444660;
-  --accent: #5b7fff;
-  --accent-glow: rgba(91,127,255,0.25);
-  --green: #24e08a;
-  --green-bg: rgba(36,224,138,0.1);
-  --red: #f04040;
-  --red-bg: rgba(240,64,64,0.1);
-  --purple: #a855f7;
-  --cyan: #06b6d4;
-  --orange: #f97316;
-  --gold: #ffd700;
-}
+:root { --bg: #080810; --bg2: #0c0c1a; --bg3: #10101f; --bg-card: #0e0e20; --border: rgba(255,255,255,0.07); --border-accent: rgba(91,127,255,0.3); --text: #e0e4f0; --text-dim: #7880a0; --text-muted: #444660; --accent: #5b7fff; --accent-glow: rgba(91,127,255,0.25); --green: #24e08a; --red: #f04040; --purple: #a855f7; --cyan: #06b6d4; --orange: #f97316; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  font-size: 15px;
-}
-
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; }
 .wrap { max-width: 1140px; margin: 0 auto; padding: 28px 24px; }
-
-/* ===== HEADER ===== */
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 24px;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg2);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.site-header .logo {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: -0.3px;
-}
+.site-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-bottom: 1px solid var(--border); background: var(--bg2); position: sticky; top: 0; z-index: 100; }
+.site-header .logo { font-size: 18px; font-weight: 700; }
 .site-header .logo span { color: var(--accent); }
 .site-header .nav-links { display: flex; gap: 24px; }
-.site-header .nav-links a {
-  color: var(--text-dim);
-  font-size: 13px;
-  font-weight: 500;
-  transition: color 0.2s;
-}
+.site-header .nav-links a { color: var(--text-dim); font-size: 13px; font-weight: 500; transition: color 0.2s; }
 .site-header .nav-links a:hover { color: var(--accent); text-decoration: none; }
-.update-badge {
-  font-size: 11px;
-  color: var(--text-dim);
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-family: monospace;
-}
-
-/* ===== HERO ===== */
-.hero {
-  background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 60%, #0d0a28 100%);
-  border: 1px solid rgba(91,127,255,0.18);
-  border-radius: 24px;
-  padding: 48px 52px;
-  margin-bottom: 32px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(91,127,255,0.09) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero .hero-tag {
-  display: inline-block;
-  background: rgba(91,127,255,0.12);
-  border: 1px solid rgba(91,127,255,0.3);
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 600;
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-bottom: 16px;
-  letter-spacing: 1px;
-}
-.hero h1 {
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--text);
-  margin-bottom: 8px;
-  letter-spacing: -0.5px;
-  position: relative;
-}
-.hero .subtitle {
-  color: var(--text-dim);
-  font-size: 15px;
-  margin-bottom: 28px;
-}
-.hero .stats-row {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  flex-wrap: wrap;
-}
-.hero .stat {
-  text-align: center;
-}
-.hero .stat .val {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--green);
-}
-.hero .stat .label {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
-
-/* ===== SECTIONS ===== */
-.section {
-  margin-bottom: 32px;
-}
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
-}
-.section-header h2 {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--text);
-}
-.section-header .badge {
-  font-size: 10px;
-  padding: 3px 9px;
-  border-radius: 10px;
-  background: rgba(91,127,255,0.12);
-  color: var(--accent);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-/* ===== CARDS ===== */
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 22px 24px;
-  margin-bottom: 16px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-.card:hover {
-  border-color: var(--border-accent);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
-}
-.card-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
-}
-.card-row .card { margin-bottom: 0; }
-
-/* ===== STOCK TABLE ===== */
-.stock-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13.5px;
-}
-.stock-table th {
-  text-align: left;
-  padding: 10px 14px;
-  color: var(--text-muted);
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.5px;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg3);
-}
-.stock-table th:first-child { border-radius: 10px 0 0 0; }
-.stock-table th:last-child { border-radius: 0 10px 0 0; }
-.stock-table td {
-  padding: 13px 14px;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  vertical-align: middle;
-}
-.stock-table tr:last-child td { border-bottom: none; }
-.stock-table tr:hover td { background: rgba(255,255,255,0.02); }
-
-.sym {
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--accent);
-  letter-spacing: 0.3px;
-}
-.sym-name {
-  font-size: 11px;
-  color: var(--text-dim);
-  margin-top: 2px;
-}
-.price { font-weight: 700; font-size: 15px; }
-.chg-up { color: var(--green); font-weight: 600; font-size: 13px; }
-.chg-dn { color: var(--red); font-weight: 600; font-size: 13px; }
-.pill {
-  display: inline-block;
-  font-size: 11px;
-  padding: 3px 9px;
-  border-radius: 8px;
-  font-weight: 600;
-}
-.pill-green { background: var(--green-bg); color: var(--green); }
-.pill-red { background: var(--red-bg); color: var(--red); }
-.pill-blue { background: rgba(91,127,255,0.12); color: var(--accent); }
-.score-bar {
-  display: flex;
-  gap: 2px;
-  align-items: center;
-}
-.score-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 2px;
-  background: var(--text-muted);
-}
-.score-dot.filled { background: var(--green); }
-.tag {
-  display: inline-block;
-  font-size: 10px;
-  padding: 2px 7px;
-  border-radius: 6px;
-  background: rgba(168,85,247,0.1);
-  color: var(--purple);
-  font-weight: 500;
-  margin-right: 4px;
-}
-.tag-electric { background: rgba(6,182,212,0.1); color: var(--cyan); }
-.tag-chip { background: rgba(249,115,22,0.1); color: var(--orange); }
-.tag-security { background: rgba(36,224,138,0.1); color: var(--green); }
-
-/* ===== GRID ===== */
+.update-badge { font-size: 11px; color: var(--text-dim); background: var(--bg3); border: 1px solid var(--border); padding: 5px 12px; border-radius: 20px; font-family: monospace; }
+.hero { background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 60%, #0d0a28 100%); border: 1px solid rgba(91,127,255,0.18); border-radius: 24px; padding: 48px 52px; margin-bottom: 32px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(91,127,255,0.09) 0%, transparent 70%); pointer-events: none; }
+.hero .hero-tag { display: inline-block; background: rgba(91,127,255,0.12); border: 1px solid rgba(91,127,255,0.3); color: var(--accent); font-size: 11px; font-weight: 600; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; letter-spacing: 1px; }
+.hero h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; position: relative; }
+.hero .subtitle { color: var(--text-dim); font-size: 15px; margin-bottom: 28px; }
+.hero .stats-row { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+.hero .stat { text-align: center; }
+.hero .stat .val { font-size: 22px; font-weight: 700; color: var(--green); }
+.hero .stat .label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+.section { margin-bottom: 32px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+.section-header h2 { font-size: 17px; font-weight: 700; }
+.section-header .badge { font-size: 10px; padding: 3px 9px; border-radius: 10px; background: rgba(91,127,255,0.12); color: var(--accent); font-weight: 600; letter-spacing: 0.5px; }
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; margin-bottom: 16px; }
+.card:hover { border-color: var(--border-accent); box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+.report-card { display: block; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin-bottom: 12px; transition: all 0.3s; text-decoration: none; }
+.report-card:hover { border-color: rgba(91,127,255,0.5); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(91,127,255,0.15); }
+.report-card .report-date { font-size: 11px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 6px; text-transform: uppercase; }
+.report-card h3 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.report-card .report-meta { display: flex; gap: 16px; font-size: 12px; color: var(--text-dim); margin-top: 10px; }
+.report-card .report-meta span { display: flex; align-items: center; gap: 4px; }
+.report-card .arrow { float: right; font-size: 20px; color: var(--accent); margin-top: -24px; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-
-@media (max-width: 768px) {
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .hero { padding: 32px 24px; }
-  .hero h1 { font-size: 24px; }
-  .hero .stats-row { gap: 24px; }
-  .site-header .nav-links { display: none; }
-}
-
-/* ===== RADAR ===== */
-.radar-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 12px;
-}
-.radar-item {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 16px;
-  text-align: center;
-}
-.radar-item .icon { font-size: 24px; margin-bottom: 8px; }
-.radar-item .name { font-size: 12px; color: var(--text-dim); margin-bottom: 6px; }
-.radar-item .val { font-size: 16px; font-weight: 700; }
-.radar-item .chg { font-size: 12px; font-weight: 600; }
-
-/* ===== SIGNAL ===== */
-.signal-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-top: 10px;
-}
-.signal-buy {
-  background: rgba(36,224,138,0.12);
-  color: var(--green);
-  border: 1px solid rgba(36,224,138,0.25);
-}
-.signal-watch {
-  background: rgba(255,193,7,0.12);
-  color: var(--gold);
-  border: 1px solid rgba(255,193,7,0.25);
-}
-
-/* ===== FOOTER ===== */
-.footer {
-  text-align: center;
-  padding: 32px 0;
-  color: var(--text-muted);
-  font-size: 12px;
-  border-top: 1px solid var(--border);
-  margin-top: 40px;
-}
-
-.toc-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 12px;
-  margin-bottom: 28px;
-}
-.toc-item {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: all 0.2s;
-  cursor: pointer;
-}
-.toc-item:hover {
-  border-color: var(--border-accent);
-  background: var(--bg3);
-  text-decoration: none;
-}
-.toc-item .num {
-  width: 28px;
-  height: 28px;
-  background: rgba(91,127,255,0.12);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--accent);
-  flex-shrink: 0;
-}
-.toc-item .label { font-size: 13px; color: var(--text); font-weight: 500; }
-.toc-item .sub { font-size: 11px; color: var(--text-dim); }
-
-.sector-badge {
-  display: inline-block;
-  font-size: 10px;
-  padding: 3px 8px;
-  border-radius: 6px;
-  background: var(--bg3);
-  color: var(--text-dim);
-  margin-right: 4px;
-  border: 1px solid var(--border);
-}
-
-.highlight-box {
-  background: linear-gradient(135deg, rgba(91,127,255,0.06) 0%, rgba(36,224,138,0.04) 100%);
-  border: 1px solid rgba(91,127,255,0.2);
-  border-radius: 12px;
-  padding: 18px 22px;
-  margin-bottom: 20px;
-}
+.theme-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
+.theme-card .theme-name { font-size: 13px; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.theme-card .theme-stocks { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+.theme-card .mini-chip { font-size: 10px; padding: 2px 7px; border-radius: 6px; font-weight: 600; }
+.footer { text-align: center; padding: 32px 0; color: var(--text-muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+@media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .hero { padding: 32px 24px; } .hero h1 { font-size: 24px; } .hero .stats-row { gap: 24px; } .site-header .nav-links { display: none; } }
 </style>
 </head>
 <body>
-
-<!-- HEADER -->
 <div class="site-header">
-  <div class="logo">🤖 <span>AI</span> Stock Reports</div>
+  <div class="logo">AI 基建 <span>研究報告</span></div>
   <div class="nav-links">
-    <a href="# picks">精選個股</a>
-    <a href="# sectors">主題板塊</a>
-    <a href="# supply-demand">供需分析</a>
-    <a href="# watch">明日觀察</a>
+    <a href="#latest-report">最新報告</a>
+    <a href="#theme-watch">主題追蹤</a>
+    <a href="#about">關於</a>
   </div>
-  <div class="update-badge">更新: 2026-05-25 21:40 CST</div>
+  <div class="update-badge">2026年05月25日 更新</div>
 </div>
 
 <div class="wrap">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">AI 基礎建設美股研究報告</div>
+    <h1>人工智慧基建超級周期</h1>
+    <div class="subtitle">2026年05月25日 | 每日自動更新</div>
+    <div class="stats-row">
+      <div class="stat"><div class="val">47</div><div class="label">精選股票</div></div>
+      <div class="stat"><div class="val">12</div><div class="label">覆蓋板塊</div></div>
+      <div class="stat"><div class="val">47</div><div class="label">Buy/Strong Buy</div></div>
+      <div class="stat"><div class="val">ARM +46.5%</div><div class="label">今日最大漲幅</div></div>
+      <div class="stat"><div class="val">⚡電力</div><div class="label">最大供需失衡</div></div>
+    </div>
+  </div>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-tag">📊 AI 基礎建設美股研究報告</div>
-  <h1>2026年05月25日（台北時間）</h1>
-  <p class="subtitle">每日 AI 動態掃描市場，找出最具價值的 AI 基礎建設美股</p>
-  <div class="stats-row">
-    <div class="stat">
-      <div class="val">10</div>
-      <div class="label">精選個股</div>
+  <!-- LATEST REPORT -->
+  <div class="section" id="latest-report">
+    <div class="section-header">
+      <h2>最新研究報告</h2>
+      <span class="badge">每日更新</span>
     </div>
-    <div class="stat">
-      <div class="val" style="color:var(--orange)">⚡ AI 電力</div>
-      <div class="label">核心主題</div>
+    <a href="reports/2026-05-25.html" class="report-card">
+      <div class="report-date">2026年05月25日</div>
+      <h3>AI 基礎建設美股研究報告｜2026年05月25日</h3>
+      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
+        涵蓋 47 檔 AI 基建核心標的｜市場雷達｜進場推薦｜深度分析｜供需失衡｜明日觀察
+      </div>
+      <div class="report-meta">
+        <span>📊 47 檔精選</span>
+        <span>💾 AI 晶片/GPU</span>
+        <span>⚡ AI 電力/能源</span>
+        <span>🔐 AI 資安/雲端</span>
+        <span>☁️ AI 雲端平台</span>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <!-- THEME WATCH -->
+  <div class="section" id="theme-watch">
+    <div class="section-header">
+      <h2>主題追蹤雷達</h2>
+      <span class="badge">6 大賽道</span>
     </div>
-    <div class="stat">
-      <div class="val">4檔</div>
-      <div class="label">低檔進場（<25%）</div>
+    <div class="grid-3">
+      <div class="theme-card">
+        <div class="theme-name" style="color:#f97316">💾 AI 晶片/GPU ⭐⭐⭐⭐⭐</div>
+        <div class="theme-stocks">
+          <span class="mini-chip" style="background:rgba(249,115,22,0.15);color:#f97316">NVDA</span>
+          <span class="mini-chip" style="background:rgba(249,115,22,0.15);color:#f97316">AMD</span>
+          <span class="mini-chip" style="background:rgba(249,115,22,0.15);color:#f97316">ARM</span>
+          <span class="mini-chip" style="background:rgba(249,115,22,0.15);color:#f97316">AVGO</span>
+          <span class="mini-chip" style="background:rgba(249,115,22,0.15);color:#f97316">QCOM</span>
+          <span class="mini-chip" style="background:rgba(249,115,22,0.15);color:#f97316">MRVL</span>
+        </div>
+        <p style="font-size:12px;color:var(--text-dim)">Blackwell瓶頸+CoWoS封裝+ARM替代x86</p>
+      </div>
+      <div class="theme-card">
+        <div class="theme-name" style="color:#24e08a">⚡ AI 電力/能源 ⭐⭐⭐⭐⭐</div>
+        <div class="theme-stocks">
+          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">VST</span>
+          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">CEG</span>
+          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">NRG</span>
+          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">NEE</span>
+          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">BE</span>
+          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">ETN</span>
+        </div>
+        <p style="font-size:12px;color:var(--text-dim)">核電+天然氣，距離52W低點黃金進場區</p>
+      </div>
+      <div class="theme-card">
+        <div class="theme-name" style="color:#06b6d4">🖥️ AI 伺服器 ⭐⭐⭐⭐</div>
+        <div class="theme-stocks">
+          <span class="mini-chip" style="background:rgba(6,182,212,0.15);color:#06b6d4">DELL</span>
+          <span class="mini-chip" style="background:rgba(6,182,212,0.15);color:#06b6d4">HPQ</span>
+          <span class="mini-chip" style="background:rgba(6,182,212,0.15);color:#06b6d4">SMCI</span>
+          <span class="mini-chip" style="background:rgba(6,182,212,0.15);color:#06b6d4">ANET</span>
+        </div>
+        <p style="font-size:12px;color:var(--text-dim)">CSP資本支出超級周期，伺服器需求爆發</p>
+      </div>
+      <div class="theme-card">
+        <div class="theme-name" style="color:#a855f7">📡 AI 光纖/網路 ⭐⭐⭐⭐</div>
+        <div class="theme-stocks">
+          <span class="mini-chip" style="background:rgba(168,85,247,0.15);color:#a855f7">CIEN</span>
+          <span class="mini-chip" style="background:rgba(168,85,247,0.15);color:#a855f7">GLW</span>
+          <span class="mini-chip" style="background:rgba(168,85,247,0.15);color:#a855f7">CSCO</span>
+          <span class="mini-chip" style="background:rgba(168,85,247,0.15);color:#a855f7">LUMN</span>
+        </div>
+        <p style="font-size:12px;color:var(--text-dim)">800G光纖DCI需求爆發，即將突破新高</p>
+      </div>
+      <div class="theme-card">
+        <div class="theme-name" style="color:#24e08a">🔐 AI 資安/雲端 ⭐⭐⭐⭐</div>
+        <div class="theme-stocks">
+          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">CRWD</span>
+          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">NET</span>
+          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">PANW</span>
+          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">ZS</span>
+          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">OKta</span>
+        </div>
+        <p style="font-size:12px;color:var(--text-dim)">AI攻擊增加創造結構性資安剛需</p>
+      </div>
+      <div class="theme-card">
+        <div class="theme-name" style="color:#5b7fff">☁️ AI 雲端平台 ⭐⭐⭐⭐</div>
+        <div class="theme-stocks">
+          <span class="mini-chip" style="background:rgba(91,127,255,0.15);color:#5b7fff">GOOGL</span>
+          <span class="mini-chip" style="background:rgba(91,127,255,0.15);color:#5b7fff">MSFT</span>
+          <span class="mini-chip" style="background:rgba(91,127,255,0.15);color:#5b7fff">AMZN</span>
+          <span class="mini-chip" style="background:rgba(91,127,255,0.15);color:#5b7fff">META</span>
+        </div>
+        <p style="font-size:12px;color:var(--text-dim)">企業AI訂閱覆蓋率加速，Capital Light</p>
+      </div>
     </div>
-    <div class="stat">
-      <div class="val">1日</div>
-      <div class="label">報告頻率</div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section" id="about">
+    <div class="section-header">
+      <h2>關於本研究</h2>
     </div>
+    <div class="card">
+      <p style="font-size:13.5px;color:var(--text-dim);line-height:1.8">
+        本報告由 AI 自動生成，每日追蹤覆蓋 AI 基礎建設全產業鏈：從電力、散熱、網路、光纖、晶片、封裝、伺服器、儲存到資安、軟體、雲端平台。<br><br>
+        <strong style="color:var(--text)">分析方法：</strong>結合 Barchart 技術信號（100% Buy評等）+ Yahoo Finance 現時報價 + AI 自身判斷。每檔股票均有 AI 原生推薦理由與核心邏輯分析。<br><br>
+        <strong style="color:var(--text)">覆蓋廣度：</strong>52 檔候選股 → AI 精選 47 檔納入報告（Buy/Strong Buy/Partial Buy）<br>
+        <strong style="color:var(--text)">資料來源：</strong>Barchart（技術信號）、Yahoo Finance（即時報價、52W區間、成交量）<br>
+        <strong style="color:var(--text)">風險提示：</strong>本報告僅供參考，不構成投資建議。投資人需自行承擔投資決策風險。
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    AI 基礎建設研究報告 | 2026年05月25日 | 精選 47 檔核心標的<br>
+    本報告僅供參考，不構成投資建議。數據來源：Yahoo Finance、Barchart<br>
+    <span style="color:var(--text-muted)">© 2026 AI Infrastructure Research</span>
   </div>
 </div>
-
-<!-- MARKET RADAR -->
-<div class="section" id="radar">
-  <div class="section-header">
-    <h2>📡 今日 AI 市場情緒雷達</h2>
-    <span class="badge">MOMENTUM</span>
-  </div>
-  <div class="card">
-    <div class="radar-grid">
-      <div class="radar-item">
-        <div class="icon">💾</div>
-        <div class="name">AI 晶片/GPU</div>
-        <div class="val" style="color:var(--text-dim)">分化</div>
-        <div class="chg chg-dn">NVDA -4.4%</div>
-      </div>
-      <div class="radar-item">
-        <div class="icon">⚡</div>
-        <div class="name">AI 電力/能源</div>
-        <div class="val" style="color:var(--green)">強勢</div>
-        <div class="chg chg-up">VST +11.9%</div>
-      </div>
-      <div class="radar-item">
-        <div class="icon">🖥️</div>
-        <div class="name">AI 伺服器</div>
-        <div class="val" style="color:var(--green)">爆發</div>
-        <div class="chg chg-up">DELL +22%</div>
-      </div>
-      <div class="radar-item">
-        <div class="icon">🧊</div>
-        <div class="name">AI 散熱/液冷</div>
-        <div class="val" style="color:var(--text-dim)">震盪</div>
-        <div class="chg chg-dn">VRT -11.7%</div>
-      </div>
-      <div class="radar-item">
-        <div class="icon">📡</div>
-        <div class="name">AI 網路/光纖</div>
-        <div class="val" style="color:var(--green)">溫和</div>
-        <div class="chg chg-up">CIEN +5.3%</div>
-      </div>
-      <div class="radar-item">
-        <div class="icon">🤖</div>
-        <div class="name">AI 軟體/資料</div>
-        <div class="val" style="color:var(--green)">穩健</div>
-        <div class="chg chg-up">SNOW +9.4%</div>
-      </div>
-      <div class="radar-item">
-        <div class="icon">🔐</div>
-        <div class="name">AI 資安</div>
-        <div class="val" style="color:var(--green)">強勢</div>
-        <div class="chg chg-up">CRWD +11.7%</div>
-      </div>
-      <div class="radar-item">
-        <div class="icon">📦</div>
-        <div class="name">先進封裝/CoWoS</div>
-        <div class="val" style="color:var(--red)">回調</div>
-        <div class="chg chg-dn">AMKR -6.5%</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TOP PICKS TABLE -->
-<div class="section" id="picks">
-  <div class="section-header">
-    <h2>🏆 進場推薦總表</h2>
-    <span class="badge">TOP STOCKS</span>
-  </div>
-  <div class="card" style="padding:0;overflow-x:auto;">
-    <table class="stock-table">
-      <thead>
-        <tr>
-          <th>股票</th>
-          <th>現價</th>
-          <th>日%</th>
-          <th>52W區間</th>
-          <th>距低%</th>
-          <th>評分</th>
-          <th>進場價</th>
-          <th>目標價</th>
-          <th>止損價</th>
-          <th>核心邏輯</th>
-          <th>信心</th>
-        </tr>
-      </thead>
-      <tbody>
-
-<tr>
-<td><div class="sym">VST</div><div class="sym-name">Vistra Corp</div><span class="tag tag-electric">⚡AI電力</span></td>
-<td class="price">$156.27</td>
-<td class="chg-up">+11.88%</td>
-<td>$132.66 – $219.82</td>
-<td><span class="pill pill-green">低檔+17.8%</span></td>
-<td class="score-bar">
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span>
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span>
-</td>
-<td>$145–$155</td>
-<td>$185</td>
-<td>$128</td>
-<td>美國最大民營發電廠，AI資料中心核電/天然氣長期協議鎖定營收</td>
-<td>🚀🚀</td>
-</tr>
-
-<tr>
-<td><div class="sym">CEG</div><div class="sym-name">Constellation Energy</div><span class="tag tag-electric">⚡AI電力</span></td>
-<td class="price">$294.07</td>
-<td class="chg-up">+10.06%</td>
-<td>$243.30 – $412.70</td>
-<td><span class="pill pill-green">低檔+20.9%</span></td>
-<td class="score-bar">
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span>
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span>
-</td>
-<td>$280–$295</td>
-<td>$355</td>
-<td>$238</td>
-<td>全美最大核電商，獨家供應Microsoft Azure資料中心核電</td>
-<td>🚀🚀🚀</td>
-</tr>
-
-<tr>
-<td><div class="sym">NRG</div><div class="sym-name">NRG Energy</div><span class="tag tag-electric">⚡AI電力</span></td>
-<td class="price">$137.65</td>
-<td class="chg-up">+7.70%</td>
-<td>$121.22 – $189.96</td>
-<td><span class="pill pill-green">極低檔+13.6%</span></td>
-<td class="score-bar">
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span>
-<span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span>
-</td>
-<td>$130–$138</td>
-<td>$165</td>
-<td>$118</td>
-<td>德州最大民營電廠，極接近52W低點，天然氣電廠填補資料中心缺口</td>
-<td>🚀🚀</td>
-</tr>
-
-<tr>
-<td><div class="sym">SMCI</div><div class="sym-name">Super Micro Computer</div><span class="tag tag-chip">🖥️AI伺服器</span></td>
-<td class="price">$35.58</td>
-<td class="chg-up">+14.63%</td>
-<td>$19.48 – $62.36</td>
-<td><span class="pill pill-blue">反彈+82.6%</span></td>
-<td class="score-bar">
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span>
-<span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span>
-</td>
-<td>$33–$37</td>
-<td>$48</td>
-<td>$28</td>
-<td>全球AI伺服器龍頭，NVIDIA H100/H200供應，需求排程至2026下半年</td>
-<td>🚀🚀🚀</td>
-</tr>
-
-<tr>
-<td><div class="sym">PLTR</div><div class="sym-name">Palantir Technologies</div><span class="tag" style="background:rgba(6,182,212,0.1);color:var(--cyan)">🤖AI軟體</span></td>
-<td class="price">$136.88</td>
-<td class="chg-up">+2.16%</td>
-<td>$118.93 – $207.52</td>
-<td><span class="pill pill-green">低檔+15.1%</span></td>
-<td class="score-bar">
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span>
-<span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span>
-</td>
-<td>$125–$138</td>
-<td>$170</td>
-<td>$112</td>
-<td>AI政府/國防軟體龍頭，AIP平台商業化爆發，國防合約能見度極佳</td>
-<td>🚀🚀</td>
-</tr>
-
-<tr>
-<td><div class="sym">SPXC</div><div class="sym-name">SPX Technologies</div><span class="tag tag-chip">🧊AI散熱</span></td>
-<td class="price">$207.80</td>
-<td class="chg-up">+3.39%</td>
-<td>$150.50 – $246.68</td>
-<td><span class="pill pill-blue">適中+38.1%</span></td>
-<td class="score-bar">
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span>
-<span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span>
-</td>
-<td>$195–$210</td>
-<td>$240</td>
-<td>$178</td>
-<td>全球資料中心散熱領導廠，NVIDIA GPU熱密度倍增，液冷成剛需</td>
-<td>🚀🚀</td>
-</tr>
-
-<tr>
-<td><div class="sym">AMAT</div><div class="sym-name">Applied Materials</div><span class="tag tag-chip">📦半導體設備</span></td>
-<td class="price">$432.16</td>
-<td class="chg-dn">-1.02%</td>
-<td>$153.47 – $448.45</td>
-<td><span class="pill pill-blue">+181.6%</span></td>
-<td class="score-bar">
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span>
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span>
-</td>
-<td>$415–$435</td>
-<td>$470</td>
-<td>$395</td>
-<td>HBM記憶體製造核心供應商，AI需求爆發，先進封裝設備訂單大增</td>
-<td>🚀🚀</td>
-</tr>
-
-<tr>
-<td><div class="sym">ETN</div><div class="sym-name">Eaton Corporation</div><span class="tag tag-electric">⚡AI電力</span></td>
-<td class="price">$391.35</td>
-<td class="chg-dn">-2.03%</td>
-<td>$311.90 – $435.43</td>
-<td><span class="pill pill-green">低檔+25.5%</span></td>
-<td class="score-bar">
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span>
-<span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span>
-</td>
-<td>$375–$395</td>
-<td>$430</td>
-<td>$345</td>
-<td>AI資料中心配電核心供應商，電氣化基礎設施建設落後需求3年+</td>
-<td>🚀🚀</td>
-</tr>
-
-<tr>
-<td><div class="sym">CRWD</div><div class="sym-name">CrowdStrike Holdings</div><span class="tag tag-security">🔐AI資安</span></td>
-<td class="price">$663.46</td>
-<td class="chg-up">+11.68%</td>
-<td>$342.72 – $674.84</td>
-<td><span class="pill pill-blue">+93.6%</span></td>
-<td class="score-bar">
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span>
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot"></span><span class="score-dot"></span>
-</td>
-<td>$630–$660</td>
-<td>$720</td>
-<td>$580</td>
-<td>AI原生資安平台，零信任架構龍頭，AI驅動資安威脅倍增直接受益</td>
-<td>🚀🚀</td>
-</tr>
-
-<tr>
-<td><div class="sym">AMKR</div><div class="sym-name">Amkor Technology</div><span class="tag tag-chip">📦先進封裝</span></td>
-<td class="price">$65.75</td>
-<td class="chg-dn">-6.54%</td>
-<td>$17.79 – $79.23</td>
-<td><span class="pill pill-blue">距高-17%</span></td>
-<td class="score-bar">
-<span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span><span class="score-dot filled"></span>
-<span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span><span class="score-dot"></span>
-</td>
-<td>$60–$67</td>
-<td>$78</td>
-<td>$54</td>
-<td>全球第二大先進封裝廠，CoWoS需求爆發，體系外最大供應商</td>
-<td>🚀🚀</td>
-</tr>
-
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- SECTOR ASSESSMENT -->
-<div class="section" id="sectors">
-  <div class="section-header">
-    <h2>🗺️ 主題板塊評估</h2>
-    <span class="badge">SECTORS</span>
-  </div>
-  <div class="grid-3">
-    <div class="card">
-      <div style="font-size:28px;margin-bottom:10px;">⚡</div>
-      <h3 style="font-size:14px;font-weight:700;margin-bottom:6px;">AI 電力/能源</h3>
-      <div style="font-size:12px;color:var(--green);margin-bottom:10px;">⭐⭐⭐ 最強主題</div>
-      <p style="font-size:12px;color:var(--text-dim);">VST、CEG、NRG、ETN四檔入選，供需失衡最嚴重板塊。AI資料中心用電量爆發，核電+天然氣電廠成為稀缺資源。</p>
-      <div style="margin-top:12px;">
-        <span class="sector-badge">核電</span>
-        <span class="sector-badge">天然氣</span>
-        <span class="sector-badge">電網建設</span>
-      </div>
-    </div>
-    <div class="card">
-      <div style="font-size:28px;margin-bottom:10px;">💾</div>
-      <h3 style="font-size:14px;font-weight:700;margin-bottom:6px;">AI 晶片/半導體</h3>
-      <div style="font-size:12px;color:var(--orange);margin-bottom:10px;">⭐⭐ 穩健</div>
-      <p style="font-size:12px;color:var(--text-dim);">AMAT入選，HBM需求爆發帶動先進製程設備。NVDA估值偏高，AMD已脫離低檔區。設備相對晶片更值關注。</p>
-      <div style="margin-top:12px;">
-        <span class="sector-badge">HBM</span>
-        <span class="sector-badge">先進製程</span>
-        <span class="sector-badge">CoWoS</span>
-      </div>
-    </div>
-    <div class="card">
-      <div style="font-size:28px;margin-bottom:10px;">🔐</div>
-      <h3 style="font-size:14px;font-weight:700;margin-bottom:6px;">AI 資安/軟體</h3>
-      <div style="font-size:12px;color:var(--green);margin-bottom:10px;">⭐⭐⭐ 爆發</div>
-      <p style="font-size:12px;color:var(--text-dim);">CRWD、PLTR入選。AI時代資安威脅倍增，零信任架構成為剛需。PLTR國防軟體防御性強，CRWD雲端資安成長快。</p>
-      <div style="margin-top:12px;">
-        <span class="sector-badge">零信任</span>
-        <span class="sector-badge">雲端資安</span>
-        <span class="sector-badge">國防AI</span>
-      </div>
-    </div>
-    <div class="card">
-      <div style="font-size:28px;margin-bottom:10px;">🖥️</div>
-      <h3 style="font-size:14px;font-weight:700;margin-bottom:6px;">AI 伺服器/散熱</h3>
-      <div style="font-size:12px;color:var(--orange);margin-bottom:10px;">⭐⭐ 動能反轉</div>
-      <p style="font-size:12px;color:var(--text-dim);">SMCI、SPXC入選。伺服器需求排程至2026下半年，散熱設備訂單積壓歷史新高。液冷滲透率加速。</p>
-      <div style="margin-top:12px;">
-        <span class="sector-badge">液冷</span>
-        <span class="sector-badge">H100/H200</span>
-        <span class="sector-badge">散熱</span>
-      </div>
-    </div>
-    <div class="card">
-      <div style="font-size:28px;margin-bottom:10px;">📦</div>
-      <h3 style="font-size:14px;font-weight:700;margin-bottom:6px;">先進封裝/CoWoS</h3>
-      <div style="font-size:12px;color:var(--orange);margin-bottom:10px;">⭐⭐ 回調買</div>
-      <p style="font-size:12px;color:var(--text-dim);">AMKR入選，本波回檔6.5%提供中線進場機會。CoWoS供需失衡持續至2027年，AMKR為體系外最大供應商。</p>
-      <div style="margin-top:12px;">
-        <span class="sector-badge">CoWoS</span>
-        <span class="sector-badge">2.5D封裝</span>
-        <span class="sector-badge">HBM</span>
-      </div>
-    </div>
-    <div class="card">
-      <div style="font-size:28px;margin-bottom:10px;">📡</div>
-      <h3 style="font-size:14px;font-weight:700;margin-bottom:6px;">AI 網路/光纖</h3>
-      <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">⭐ 觀望</div>
-      <p style="font-size:12px;color:var(--text-dim);">CIEN、GLW、CSCO資料中性，CIEN已大幅偏離低檔原則，GLW距離低點+299%。暫緩，等待更好切入點。</p>
-      <div style="margin-top:12px;">
-        <span class="sector-badge">光纖</span>
-        <span class="sector-badge">資料中心網路</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SUPPLY-DEMAND ANALYSIS -->
-<div class="section" id="supply-demand">
-  <div class="section-header">
-    <h2>⚡ AI 供需失衡深度分析</h2>
-    <span class="badge">SUPPLY/DEMAND</span>
-  </div>
-
-  <div class="card">
-    <h3 style="font-size:15px;font-weight:700;margin-bottom:16px;">🔥 AI 電力板塊 — 黃金佈局期</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-      <div>
-        <h4 style="font-size:12px;color:var(--green);font-weight:600;margin-bottom:8px;">需求側爆發</h4>
-        <ul style="font-size:13px;color:var(--text-dim);padding-left:18px;line-height:2;">
-          <li>微軟、谷歌、亞馬遜、Meta 四巨頭2024-2026年資本支出合計超過<strong style="color:var(--text)">3000億美元</strong></li>
-          <li>AI伺服器用電量：標準H100叢集（1000GPU）功耗約<strong style="color:var(--text)">1MW</strong></li>
-          <li>預估2025-2030年：全球資料中心用電量CAGR <strong style="color:var(--text)">25-30%</strong></li>
-          <li>一個萬顆GPU叢集需要<strong style="color:var(--text)">10MW+</strong>電力供應</li>
-        </ul>
-      </div>
-      <div>
-        <h4 style="font-size:12px;color:var(--red);font-weight:600;margin-bottom:8px;">供給側嚴重落後</h4>
-        <ul style="font-size:13px;color:var(--text-dim);padding-left:18px;line-height:2;">
-          <li>美國電網建設落後需求至少<strong style="color:var(--red)">5-7年</strong></li>
-          <li>核電廠建照到投產需<strong style="color:var(--red)">10-15年</strong>，短期無法快速新增</li>
-          <li>天然氣電廠建設需<strong style="color:var(--orange)">3-5年</strong>，優先填補缺口</li>
-          <li>公用事業電網升級計劃審批需<strong style="color:var(--orange)">2-4年</strong></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="highlight-box" style="margin-top:16px;">
-      <h4 style="font-size:13px;font-weight:700;margin-bottom:12px;">機構低檔佈局信號</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
-        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;">
-          <div style="font-size:20px;margin-bottom:4px;">🏛️</div>
-          <div style="font-size:13px;font-weight:700;">CEG</div>
-          <div style="font-size:11px;color:var(--green);">距低點+20.9%</div>
-          <div style="font-size:11px;color:var(--text-dim);">養老基金大幅加倉</div>
-        </div>
-        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;">
-          <div style="font-size:20px;margin-bottom:4px;">⚡</div>
-          <div style="font-size:13px;font-weight:700;">VST</div>
-          <div style="font-size:11px;color:var(--green);">距低點+17.8%</div>
-          <div style="font-size:11px;color:var(--text-dim);">避險基金回補</div>
-        </div>
-        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;">
-          <div style="font-size:20px;margin-bottom:4px;">🔌</div>
-          <div style="font-size:13px;font-weight:700;">NRG</div>
-          <div style="font-size:11px;color:var(--green);">距低點+13.6%</div>
-          <div style="font-size:11px;color:var(--text-dim);">能源避險基金首選</div>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:16px;padding:14px;background:rgba(36,224,138,0.06);border:1px solid rgba(36,224,138,0.15);border-radius:10px;">
-      <strong style="color:var(--green);font-size:13px;">結論：</strong>
-      <span style="font-size:13px;color:var(--text-dim);"> 電力供需失衡至少持續</span>
-      <strong style="color:var(--text);font-size:15px;"> 3-5年</strong>
-      <span style="font-size:13px;color:var(--text-dim);">，天然氣電廠與核電廠運營商直接受益，目前是戰略性佈局期。</span>
-    </div>
-  </div>
-
-  <div class="card" style="margin-top:16px;">
-    <h3 style="font-size:15px;font-weight:700;margin-bottom:16px;">📦 AI 先進封裝 — 結構性供需失衡</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-      <div>
-        <h4 style="font-size:12px;color:var(--green);font-weight:600;margin-bottom:8px;">需求側</h4>
-        <ul style="font-size:13px;color:var(--text-dim);padding-left:18px;line-height:2;">
-          <li>NVIDIA H100/H200/GB200全採用<strong style="color:var(--text)">CoWoS封裝</strong></li>
-          <li>AMD MI300X採用<strong style="color:var(--text)">2.5D封裝</strong></li>
-          <li>蘋果M3系列使用先進封裝</li>
-          <li>AI晶片需求爆發，封裝產能成瓶頸</li>
-        </ul>
-      </div>
-      <div>
-        <h4 style="font-size:12px;color:var(--red);font-weight:600;margin-bottom:8px;">供給側</h4>
-        <ul style="font-size:13px;color:var(--text-dim);padding-left:18px;line-height:2;">
-          <li>CoWoS產能集中在<strong style="color:var(--red)">台積電</strong></li>
-          <li>Amkor、ASE為體系外主要供應商</li>
-          <li>新增產能建設需<strong style="color:var(--orange)">18-24個月</strong></li>
-          <li>設備交期仍長（Semtec等關鍵設備）</li>
-        </ul>
-      </div>
-    </div>
-    <div style="margin-top:14px;padding:14px;background:rgba(249,115,22,0.06);border:1px solid rgba(249,115,22,0.15);border-radius:10px;">
-      <strong style="color:var(--orange);font-size:13px;">結論：</strong>
-      <span style="font-size:13px;color:var(--text-dim);"> 先進封裝供需失衡持續至</span>
-      <strong style="color:var(--text);font-size:15px;"> 2027年</strong>
-      <span style="font-size:13px;color:var(--text-dim);">，AMKR做為體系外最大廠商，直接受益。本波回檔6.5%是中線進場好機會。</span>
-    </div>
-  </div>
-</div>
-
-<!-- DEEP DIVE CARDS -->
-<div class="section">
-  <div class="section-header">
-    <h2>📋 深度個股分析</h2>
-    <span class="badge">DEEP DIVE</span>
-  </div>
-  <div class="grid-2">
-
-    <!-- VST -->
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:14px;">
-        <div>
-          <span class="sym" style="font-size:18px;">VST</span>
-          <span class="tag tag-electric" style="margin-left:8px;">⚡AI電力</span>
-        </div>
-        <div class="signal-badge signal-buy">✅ 低檔進場</div>
-      </div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Vistra Corp — AI 電力核心受益</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">現價</div>
-          <div style="font-size:18px;font-weight:700;color:var(--green);">$156.27 <span style="font-size:12px;">+11.88%</span></div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">52W區間</div>
-          <div style="font-size:14px;font-weight:600;">$132.66 – $219.82</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">距52W低點</div>
-          <div style="font-size:14px;font-weight:700;color:var(--green);">+17.8%</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">MA5/MA20</div>
-          <div style="font-size:14px;font-weight:600;">$144.2 / $151.0</div>
-        </div>
-      </div>
-      <div style="font-size:13px;color:var(--text-dim);margin-bottom:12px;">
-        <strong style="color:var(--text);">核心邏輯：</strong>美國最大民營發電廠，核電+天然氣多元化組合，AI資料中心長期供電協議鎖定營收成長。5日反彈14.3%，動能強勁，距低點17.8%提供進場安全邊際。
-      </div>
-      <div style="display:flex;gap:20px;font-size:12px;">
-        <div><strong style="color:var(--text-muted);">進場：</strong><span style="color:var(--green);font-weight:600;">$145-$155</span></div>
-        <div><strong style="color:var(--text-muted);">目標：</strong><span style="color:var(--accent);font-weight:600;">$185</span></div>
-        <div><strong style="color:var(--text-muted);">止損：</strong><span style="color:var(--red);font-weight:600;">$128</span></div>
-      </div>
-    </div>
-
-    <!-- CEG -->
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:14px;">
-        <div>
-          <span class="sym" style="font-size:18px;">CEG</span>
-          <span class="tag tag-electric" style="margin-left:8px;">⚡AI電力</span>
-        </div>
-        <div class="signal-badge signal-buy">✅ 低檔進場</div>
-      </div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Constellation Energy — AI 核電龍頭</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">現價</div>
-          <div style="font-size:18px;font-weight:700;color:var(--green);">$294.07 <span style="font-size:12px;">+10.06%</span></div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">52W區間</div>
-          <div style="font-size:14px;font-weight:600;">$243.30 – $412.70</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">距52W低點</div>
-          <div style="font-size:14px;font-weight:700;color:var(--green);">+20.9%</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">MA5/MA20</div>
-          <div style="font-size:14px;font-weight:600;">$276.8 / $295.6</div>
-        </div>
-      </div>
-      <div style="font-size:13px;color:var(--text-dim);margin-bottom:12px;">
-        <strong style="color:var(--text);">核心邏輯：</strong>全美最大核電商，獨家供應Microsoft Azure資料中心核電。MSFT、Google、Amazon爭搶核電協議，CEG長期合約鎖定營收且具議價權。5日反彈12.2%，機構低檔佈局信號明確。
-      </div>
-      <div style="display:flex;gap:20px;font-size:12px;">
-        <div><strong style="color:var(--text-muted);">進場：</strong><span style="color:var(--green);font-weight:600;">$280-$295</span></div>
-        <div><strong style="color:var(--text-muted);">目標：</strong><span style="color:var(--accent);font-weight:600;">$355</span></div>
-        <div><strong style="color:var(--text-muted);">止損：</strong><span style="color:var(--red);font-weight:600;">$238</span></div>
-      </div>
-    </div>
-
-    <!-- NRG -->
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:14px;">
-        <div>
-          <span class="sym" style="font-size:18px;">NRG</span>
-          <span class="tag tag-electric" style="margin-left:8px;">⚡AI電力</span>
-        </div>
-        <div class="signal-badge signal-buy">✅ 最接近低檔</div>
-      </div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">NRG Energy — 德州電力缺口受益</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">現價</div>
-          <div style="font-size:18px;font-weight:700;color:var(--green);">$137.65 <span style="font-size:12px;">+7.70%</span></div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">52W區間</div>
-          <div style="font-size:14px;font-weight:600;">$121.22 – $189.96</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">距52W低點</div>
-          <div style="font-size:14px;font-weight:700;color:var(--gold);">+13.6% ⚠️極低檔</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">MA5/MA20</div>
-          <div style="font-size:14px;font-weight:600;">$131.6 / $142.1</div>
-        </div>
-      </div>
-      <div style="font-size:13px;color:var(--text-dim);margin-bottom:12px;">
-        <strong style="color:var(--text);">核心邏輯：</strong>美國前三大發電廠，德州最大民營電廠。AI資料中心緊急供電需求爆發，天然氣電廠優先受益。極度接近52W低點（+13.6%），進場安全邊際極高。5日反彈9.7%，動能反轉。
-      </div>
-      <div style="display:flex;gap:20px;font-size:12px;">
-        <div><strong style="color:var(--text-muted);">進場：</strong><span style="color:var(--green);font-weight:600;">$130-$138</span></div>
-        <div><strong style="color:var(--text-muted);">目標：</strong><span style="color:var(--accent);font-weight:600;">$165</span></div>
-        <div><strong style="color:var(--text-muted);">止損：</strong><span style="color:var(--red);font-weight:600;">$118</span></div>
-      </div>
-    </div>
-
-    <!-- SMCI -->
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:14px;">
-        <div>
-          <span class="sym" style="font-size:18px;">SMCI</span>
-          <span class="tag tag-chip" style="margin-left:8px;">🖥️AI伺服器</span>
-        </div>
-        <div class="signal-badge signal-buy">✅ 動能反轉</div>
-      </div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Super Micro Computer — AI 伺服器龍頭</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">現價</div>
-          <div style="font-size:18px;font-weight:700;color:var(--green);">$35.58 <span style="font-size:12px;">+14.63%</span></div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">52W區間</div>
-          <div style="font-size:14px;font-weight:600;">$19.48 – $62.36</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">距52W低點</div>
-          <div style="font-size:14px;font-weight:700;color:var(--accent);">+82.6%</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">MA5/MA20</div>
-          <div style="font-size:14px;font-weight:600;color:var(--green);">$32.8 / $31.1 多頭</div>
-        </div>
-      </div>
-      <div style="font-size:13px;color:var(--text-dim);margin-bottom:12px;">
-        <strong style="color:var(--text);">核心邏輯：</strong>全球AI伺服器龍頭之一，掌握NVIDIA H100/H200供應。需求排程已至2026下半年，營收能見度高。從低點反彈83%，但距高點仍跌43%，往上空間大。近5日大漲15.3%，技術面轉多。
-      </div>
-      <div style="display:flex;gap:20px;font-size:12px;">
-        <div><strong style="color:var(--text-muted);">進場：</strong><span style="color:var(--green);font-weight:600;">$33-$37</span></div>
-        <div><strong style="color:var(--text-muted);">目標：</strong><span style="color:var(--accent);font-weight:600;">$48</span></div>
-        <div><strong style="color:var(--text-muted);">止損：</strong><span style="color:var(--red);font-weight:600;">$28</span></div>
-      </div>
-    </div>
-
-    <!-- PLTR -->
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:14px;">
-        <div>
-          <span class="sym" style="font-size:18px;">PLTR</span>
-          <span style="margin-left:8px;" class="tag">🤖AI軟體</span>
-        </div>
-        <div class="signal-badge signal-buy">✅ 低檔進場</div>
-      </div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Palantir — AI 國防軟體龍頭</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">現價</div>
-          <div style="font-size:18px;font-weight:700;">$136.88 <span style="font-size:12px;color:var(--text-dim);">+2.16%</span></div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">52W區間</div>
-          <div style="font-size:14px;font-weight:600;">$118.93 – $207.52</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">距52W低點</div>
-          <div style="font-size:14px;font-weight:700;color:var(--green);">+15.1%</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">MA5/MA20</div>
-          <div style="font-size:14px;font-weight:600;">$136.4 / $137.4</div>
-        </div>
-      </div>
-      <div style="font-size:13px;color:var(--text-dim);margin-bottom:12px;">
-        <strong style="color:var(--text);">核心邏輯：</strong>AI政府/國防軟體獨家供應商，AIP平台商業化爆發，2024-2026營收CAGR預估40%+。防御性AI軟體，美中科技戰升級直接受益。距52W低點15%，大幅回調提供良好切入點。
-      </div>
-      <div style="display:flex;gap:20px;font-size:12px;">
-        <div><strong style="color:var(--text-muted);">進場：</strong><span style="color:var(--green);font-weight:600;">$125-$138</span></div>
-        <div><strong style="color:var(--text-muted);">目標：</strong><span style="color:var(--accent);font-weight:600;">$170</span></div>
-        <div><strong style="color:var(--text-muted);">止損：</strong><span style="color:var(--red);font-weight:600;">$112</span></div>
-      </div>
-    </div>
-
-    <!-- CRWD -->
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:14px;">
-        <div>
-          <span class="sym" style="font-size:18px;">CRWD</span>
-          <span class="tag tag-security" style="margin-left:8px;">🔐AI資安</span>
-        </div>
-        <div class="signal-badge signal-buy">✅ 創高點</div>
-      </div>
-      <h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">CrowdStrike — AI 資安龍頭</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">現價</div>
-          <div style="font-size:18px;font-weight:700;color:var(--green);">$663.46 <span style="font-size:12px;">+11.68%</span></div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">52W區間</div>
-          <div style="font-size:14px;font-weight:600;">$342.72 – $674.84</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">距52W低點</div>
-          <div style="font-size:14px;font-weight:700;color:var(--accent);">+93.6%</div>
-        </div>
-        <div style="background:var(--bg3);border-radius:10px;padding:12px;">
-          <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">成交量</div>
-          <div style="font-size:14px;font-weight:600;">278萬（高位）</div>
-        </div>
-      </div>
-      <div style="font-size:13px;color:var(--text-dim);margin-bottom:12px;">
-        <strong style="color:var(--text);">核心邏輯：</strong>AI原生資安平台，零信任架構龍頭。AI驅動資安威脅倍增，Falcon平台訂閱營收穩健成長。今日強勢突破11.7%，股價接近歷史高點。AI資安市場爆發，CRWD營收2025年預估增長25%+。
-      </div>
-      <div style="display:flex;gap:20px;font-size:12px;">
-        <div><strong style="color:var(--text-muted);">進場：</strong><span style="color:var(--green);font-weight:600;">$630-$660</span></div>
-        <div><strong style="color:var(--text-muted);">目標：</strong><span style="color:var(--accent);font-weight:600;">$720</span></div>
-        <div><strong style="color:var(--text-muted);">止損：</strong><span style="color:var(--red);font-weight:600;">$580</span></div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- EXCLUSION REASONS -->
-<div class="section">
-  <div class="section-header">
-    <h2>🔶 排除個股說明</h2>
-    <span class="badge">EXCLUSIONS</span>
-  </div>
-  <div class="card">
-    <table class="stock-table">
-      <thead>
-        <tr>
-          <th>股票</th>
-          <th>現價/日%</th>
-          <th>距52W低點</th>
-          <th>排除原因</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="sym">NVDA</span></td>
-          <td class="chg-dn">$215.33 -4.43%</td>
-          <td><span class="pill pill-blue">+62%</span></td>
-          <td style="font-size:12px;color:var(--text-dim);">距低點62%，往上空間相對有限，估值已高，機構低檔佈局信號不強</td>
-        </tr>
-        <tr>
-          <td><span class="sym">AMD</span></td>
-          <td class="chg-up">$467.51 +10.24%</td>
-          <td><span class="pill pill-blue">+330%</span></td>
-          <td style="font-size:12px;color:var(--text-dim);">距低點330%，已大幅反彈，買點已過，追高風險大</td>
-        </tr>
-        <tr>
-          <td><span class="sym">QCOM</span></td>
-          <td class="chg-up">$238.16 +18.2%</td>
-          <td><span class="pill pill-blue">+95%</span></td>
-          <td style="font-size:12px;color:var(--text-dim);">單日大漲18%後追高風險大，技術面過熱，接近52W高點</td>
-        </tr>
-        <tr>
-          <td><span class="sym">DELL</span></td>
-          <td class="chg-up">$295.19 +21.98%</td>
-          <td><span class="pill pill-blue">+177%</span></td>
-          <td style="font-size:12px;color:var(--text-dim);">單日大漲22%後追高，短線過熱，等待回調再佈局</td>
-        </tr>
-        <tr>
-          <td><span class="sym">MU</span></td>
-          <td class="chg-up">$751.00 +3.63%</td>
-          <td><span class="pill pill-blue">+714%</span></td>
-          <td style="font-size:12px;color:var(--text-dim);">距低點714%，接近歷史高，往上空間有限，估值已充分反映</td>
-        </tr>
-        <tr>
-          <td><span class="sym">VRT</span></td>
-          <td class="chg-dn">$327.46 -11.72%</td>
-          <td><span class="pill pill-blue">+213%</span></td>
-          <td style="font-size:12px;color:var(--text-dim);">單日跌11.7%，技術面破壞，等待止穩，不建議此刻進場</td>
-        </tr>
-        <tr>
-          <td><span class="sym">LUMN</span></td>
-          <td class="chg-dn">$9.41 -6.37%</td>
-          <td><span class="pill pill-blue">+179%</span></td>
-          <td style="font-size:12px;color:var(--text-dim);">電信景氣不確定，基本面弱，國防通信業務不穩定</td>
-        </tr>
-        <tr>
-          <td><span class="sym">CIEN</span></td>
-          <td class="chg-up">$583.74 +5.28%</td>
-          <td><span class="pill pill-blue">+725%</span></td>
-          <td style="font-size:12px;color:var(--text-dim);">距低點725%，已完全偏離低檔進場原則，完全不考慮</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- TOMORROW WATCH -->
-<div class="section" id="watch">
-  <div class="section-header">
-    <h2>🔮 明日觀察</h2>
-    <span class="badge">WATCH LIST</span>
-  </div>
-  <div class="grid-3">
-    <div class="card">
-      <div style="font-size:20px;margin-bottom:10px;">📊</div>
-      <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">技術位突破觀察</h3>
-      <ul style="font-size:12px;color:var(--text-dim);padding-left:16px;line-height:2;">
-        <li><strong style="color:var(--accent);">SMCI</strong> — 若突破$38（50日均線），確認中級反彈</li>
-        <li><strong style="color:var(--accent);">VST</strong> — 若站稳$160，確認中期底部成立</li>
-        <li><strong style="color:var(--accent);">CRWD</strong> — 若站稳$660，創歷史高機率高</li>
-        <li><strong style="color:var(--accent);">PLTR</strong> — 若突破$145，結束調整重回多頭</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div style="font-size:20px;margin-bottom:10px;">🏛️</div>
-      <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">機構調倉動向</h3>
-      <ul style="font-size:12px;color:var(--text-dim);padding-left:16px;line-height:2;">
-        <li><strong style="color:var(--text);">電力股</strong> — Q1持倉低於基準，Q2回補動作明顯</li>
-        <li><strong style="color:var(--text);">半導體設備</strong> — 機構仍高倉位，短線波動加劇</li>
-        <li><strong style="color:var(--text);">AI資安</strong> — CRWD機構持股創新高，看漲共識強</li>
-        <li><strong style="color:var(--text);">國防AI</strong> — PLTR機構低配但悄然加倉</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div style="font-size:20px;margin-bottom:10px;">⚠️</div>
-      <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">風險觀察因素</h3>
-      <ul style="font-size:12px;color:var(--text-dim);padding-left:16px;line-height:2;">
-        <li><strong style="color:var(--orange);">Fed利率走向</strong> — 若鷹派可能壓制科技股估值</li>
-        <li><strong style="color:var(--orange);">中美科技戰</strong> — 半導體設備出口管制動態</li>
-        <li><strong style="color:var(--orange);">電力供應</strong> — 電網升級審批進度影響電力股中期邏輯</li>
-        <li><strong style="color:var(--orange);">VRT走勢</strong> — 液冷龍頭單日跌11.7%，需確認是否影響同業情緒</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- SUMMARY -->
-<div class="section">
-  <div class="card" style="background:linear-gradient(135deg,rgba(91,127,255,0.06) 0%,rgba(36,224,138,0.04) 100%);border-color:rgba(91,127,255,0.2);">
-    <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">📋 今日總結與選股邏輯</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-      <div>
-        <h4 style="font-size:13px;font-weight:600;color:var(--green);margin-bottom:10px;">✅ 入選原則</h4>
-        <ul style="font-size:13px;color:var(--text-dim);padding-left:16px;line-height:2;">
-          <li><strong style="color:var(--text);">電力為核心</strong> — AI資料中心用電爆發，電力股成最確定受益方向</li>
-          <li><strong style="color:var(--text);">低檔進場</strong> — 距52W低點越近，安全邊際越高（NRG 13.6%、VST 17.8%、CEG 20.9%）</li>
-          <li><strong style="color:var(--text);">動能確認</strong> — 選擇5日動能強勁但技術面未過熱的标的</li>
-          <li><strong style="color:var(--text);">板塊分散</strong> — 半導體設備、先進封裝、散熱、資安均衡配置</li>
-        </ul>
-      </div>
-      <div>
-        <h4 style="font-size:13px;font-weight:600;color:var(--orange);margin-bottom:10px;">❌ 排除邏輯</h4>
-        <ul style="font-size:13px;color:var(--text-dim);padding-left:16px;line-height:2;">
-          <li>距52W低點>80%的股票（往上空間有限）</li>
-          <li>單日大漲>15%後追高（技術面過熱）</li>
-          <li>單日大跌>8%尚未止穩（VRT等待）</li>
-          <li>電信/價值型股票偏離AI主線（GLW、LUMN）</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-  <p style="margin-bottom:8px;">📊 AI 基礎建設美股研究報告 | 每日自動更新</p>
-  <p>報告日期：2026年05月25日（台北時間） | 資料來源：Yahoo Finance / 機構公開數據</p>
-  <p style="margin-top:8px;color:var(--text-muted);">⚠️ 本報告僅供參考，不構成投資建議。市場有風險，投資需謹慎。</p>
-</div>
-
-</div><!-- wrap -->
-
 </body>
 </html>

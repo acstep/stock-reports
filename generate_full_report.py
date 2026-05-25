@@ -1,1006 +1,460 @@
-#!/usr/bin/env python3
-"""生成完整詳細的個股研究報告"""
-import json, re, os, time, urllib.request
-from datetime import datetime, timezone
-from collections import defaultdict
+import json
 
-DATA_FILE = '/tmp/bc_full_data.json'
-WORKDIR = '/home/matt/.openclaw/workspace/stock-reports'
-
-# === FETCH LIVE PRICES FROM YAHOO (with retry) ===
-def fetch_price(sym, retries=2):
-    for attempt in range(retries):
-        try:
-            url = f'https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval=1d&range=5d'
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/125.0.0.0 Safari/537.36'})
-            with urllib.request.urlopen(req, timeout=10) as resp:
-                d = json.loads(resp.read())
-                r = d['chart']['result'][0]
-                meta = r['meta']
-                curr = meta.get('regularMarketPrice')
-                prev = meta.get('chartPreviousClose')
-                chg = round((curr - prev) / prev * 100, 2) if prev and curr else 0
-                high52 = meta.get('fiftyTwoWeekHigh')
-                low52 = meta.get('fiftyTwoWeekLow')
-                name = meta.get('shortName', sym)
-                from_low = round((curr - low52) / low52 * 100, 1) if low52 and curr else None
-                return {'price': curr, 'change': chg, 'high52': high52, 'low52': low52, 'name': name, 'from_low_pct': from_low, 'pe': meta.get('trailingPE'), 'eps': meta.get('trailingEps'), 'volume': meta.get('regularMarketVolume'), 'mktcap': meta.get('marketCap')}
-        except Exception as e:
-            if attempt < retries - 1:
-                time.sleep(3)
-    return None
-
-# Try to load live prices
-try:
-    with open('/tmp/signal_live_prices.json') as f:
-        live_prices = json.load(f)
-    print(f'Loaded live prices for {len(live_prices)} stocks')
-except:
-    live_prices = {}
-    print('No live prices available')
-
-# Load Barchart Signal Strength data
-try:
-    with open('/tmp/bc_signal_ai.json') as f:
-        bc_signal = json.load(f)
-    print(f'Loaded {len(bc_signal)} Barchart Signal Strength AI stocks')
-except:
-    bc_signal = []
-    print('No Barchart signal data')
-
-# Build signal lookup (prefer live prices, fallback to Barchart data)
-signal_lookup = {}
-for r in bc_signal:
-    sym = r.get('symbol')
-    live = live_prices.get(sym, {})
-    price = live.get('price') or r.get('lastPrice')
-    chg = live.get('change') or r.get('percentChange', '0%').replace('%', '')
-    if isinstance(chg, str):
-        try: chg = float(chg)
-        except: chg = 0
-    signal_lookup[sym] = {
-        'price': price,
-        'change': chg,
-        'high52': live.get('high52') or None,
-        'low52': live.get('low52') or None,
-        'name': live.get('name') or r.get('symbolName', sym),
-        'from_low_pct': live.get('from_low_pct') or None,
-        'opinion': r.get('opinion', '100% Buy'),
-        'opinion_last_week': r.get('opinionLastWeek', ''),
-        'opinion_last_month': r.get('opinionLastMonth', ''),
-        'source': 'barchart_signal',
-        'pe': live.get('pe'),
-        'eps': live.get('eps'),
-        'volume': live.get('volume'),
-        'mktcap': live.get('mktcap'),
-    }
-
-print(f'Signal lookup built: {len(signal_lookup)} stocks')
-
-with open(DATA_FILE) as f:
-    raw_data = json.load(f)
-
-
-def parse(raw):
-    lines = raw.split('\n')
-    
-    # Ticker price line
-    price = None; change = None
-    for line in lines:
-        m = re.search(r'([A-Z]{2,6})\s+:\s*([\d,]+\.?\d*)\s*\(([+-]?[\d.]+%)\)', line)
-        if m and len(m.group(1)) >= 2:
-            price=m.group(2); change=m.group(3); break
-    
-    ih = raw.find('52-Week High')
-    high52 = low52 = None
-    if ih>0:
-        seg = raw[ih:ih+300]
-        hm = re.search(r'High\s+([\d,]+\.?\d*)', seg)
-        lm = re.search(r'Low\s+([\d,]+\.?\d*)', seg)
-        if hm: high52=hm.group(1)
-        if lm: low52=lm.group(1)
-    
-    perf1m = re.search(r'1-Month[\s\S]{0,150}([+-]?[\d.]+%)', raw)
-    perf6m = re.search(r'6-Month[\s\S]{0,200}([+-]?[\d.]+%)', raw)
-    perf52w = re.search(r'52-Week[\s\S]{0,400}([+-]?[\d.]+%)', raw)
-    
-    mc = re.search(r'Market Capitalization[\s\S]{0,200}([\d,]+\.?\d*)', raw)
-    beta = re.search(r'60-Month Beta\s+([\d.]+)', raw)
-    pe = re.search(r'Price/Earnings ttm\s+([\d.]+)', raw)
-    eps = re.search(r'Earnings Per Share ttm\s+\$?([\d.]+)', raw)
-    analysts = re.search(r'Based on (\d+) analysts', raw)
-    rating = re.search(r'(Strong Buy|Buy|Moderate Buy|Hold|Moderate Sell|Sell|Strong Sell)', raw)
-    vol = re.search(r'Today\'s Volume[\s\S]{0,100}([\d,]+[KM]?)', raw)
-    sales = re.search(r'Annual Sales[\s\S]{0,120}\$?([\d,]+\.?\d*)\s*M', raw)
-    income = re.search(r'Annual Income[\s\S]{0,120}\$?([\d,]+\.?\d*)\s*M', raw)
-    sector = re.search(r'SECTOR\s+([\s\S]+?)(?=\n\n|INDUSTRY)', raw)
-    
-    # Sector line
-    sec_line = raw.find('SECTOR')
-    sector_name = None
-    if sec_line > 0:
-        seg = raw[sec_line:sec_line+150]
-        m2 = re.search(r'SECTOR\s+([\s\S]+?)(?=\n\n)', seg)
-        if m2: sector_name = m2.group(1).strip()
-    
-    mktcap_val = None
-    if mc:
-        try: mktcap_val = float(mc.group(1).replace(',',''))
-        except: pass
-    
-    beta_val = None
-    try: beta_val = float(beta.group(1)) if beta else None
-    except: pass
-    
-    return {
-        'price': price,
-        'change': change,
-        '52w_high': high52,
-        '52w_low': low52,
-        'perf1m': perf1m.group(1) if perf1m else None,
-        'perf6m': perf6m.group(1) if perf6m else None,
-        'perf1y': perf52w.group(1) if perf52w else None,
-        'mktcap_K': mc.group(1).replace(',','') if mc else None,
-        'mktcap_val': mktcap_val,
-        'beta': beta_val,
-        'pe': pe.group(1) if pe else None,
-        'eps': eps.group(1) if eps else None,
-        'analysts': analysts.group(1) if analysts else None,
-        'rating': rating.group(1) if rating else None,
-        'volume': vol.group(1) if vol else None,
-        'annual_sales_M': sales.group(1).replace(',','') if sales else None,
-        'annual_income_M': income.group(1).replace(',','') if income else None,
-        'sector': sector_name,
-    }
-
-# Parse all stocks
-stocks = {}
-for item in raw_data:
-    sym = item['symbol']
-    stocks[sym] = parse(item['_raw'])
-
-# Stock info with names and categories
-stock_info = {
-    'NVDA': {'name':'輝達 Nvidia','category':'AI 晶片','tag':'💾','desc':'全球 AI GPU 龍頭，H100/H200 需求壟斷，Blackwell 下一代架構領先對手至少 2 年。資料中心營收佔比 >80%，直接受益 AI 算力需求。','supply':'GPU 供給遠低於需求，H100 租金持續上漲 20%。','color':'#24e08a'},
-    'AMD': {'name':'超微半導體 AMD','category':'AI 晶片','tag':'💾','desc':'MI300X GPU 在資料中心滲透率持續提升，性價比高於 NVDA。Zen 5 CPU 市場份額擴大，EPYC 伺服器處理器受益雲端擴張。','supply':'MI300X 產能擴張中，2026 年有機會在資料中心搶下更多市佔。','color':'#24e08a'},
-    'MU': {'name':'美光科技 Micron','category':'記憶體','tag':'💾','desc':'HBM3 主要供應商之一（與 SK Hynix 並列），AI 伺服器記憶體需求爆發。股價從 $818 高點回落至 $503，估值進入合理區間。','supply':'HBM 供給受限三星與 SK，擴產需 18-24 個月，供需缺口持續。','color':'#24e08a'},
-    'SMCI': {'name':'超微電腦 Super Micro','category':'AI 伺服器','tag':'🖥️','desc':'全球最大 AI 伺服器系統整合商，直接受益 Microsoft/Google/Amazon/OAI 資料中心建設。已從低點 $19.48 暴漲至 $35.58（+82%）。','supply':'訂單能見度極高，但組裝產能仍是瓶頸，積壓訂單創歷史新高。','color':'#ffc107'},
-    'AVGO': {'name':'博通 Broadcom','category':'AI 網路/ASIC','tag':'📡','desc':'AI 資料中心網路交換器、客製化 ASIC（Google TPU、Meta 資料中心）核心供應商。PE 32x 合理，Beta 1.43 波動低於同業。','supply':'ASIC 訂單能見度佳，但來自華為等中國廠商營收有風險。','color':'#24e08a'},
-    'VST': {'name':'Vistra','category':'資料中心電力','tag':'⚡','desc':'美國最大電力零售商之一，擁有天然氣 + 核電雙軌供電。直接簽約大型資料中心（Microsoft 等），AI 用電需求是核心成長引擎。PE 18.4 便宜。','supply':'美國電網擴建落後算力需求 3-5 年，長期供需失衡明確。','color':'#24e08a'},
-    'VRT': {'name':'Vertiv Holdings','category':'供電+散熱','tag':'⚡🧊','desc':'資料中心供電 + 散熱 + 機電一站式服務，液冷系統行業龍頭。AI 伺服器耗電是傳統 10 倍，散熱需求爆發。Beta 2.0+ 高波動代表資金聚焦。','supply':'液冷系統供給嚴重落後需求，Vertiv 為少數能做到大型資料中心完整方案的廠商。','color':'#5b7fff'},
-    'ETN': {'name':'Eaton','category':'資料中心配電','tag':'⚡','desc':'全球最大配電設備廠之一，智慧配電系統（Smart Grid）用於資料中心。AI 資料中心擴張直接拉動配電盤、變壓器需求。PE 31x，分析师 Moderate Buy。','supply':'電網設備擴產需要 2-3 年，供需缺口明確。','color':'#5b7fff'},
-    'CEG': {'name':'Constellation Energy','category':'核能供電','tag':'☢️','desc':'美國最大核電廠運營商，擁有 12+ 座核反應爐。Microsoft/Google 爭相簽署核能供電協議，因為核能是唯一能提供 24/7 清淨能源的選項。PE 28x。','supply':'核能執照為稀有資產，新建核電廠需 10+ 年，現有執照電廠成戰略資源。','color':'#5b7fff'},
-    'GLW': {'name':'康寧 Corning','category':'光纖/玻璃基板','tag':'📡','desc':'全球最大光纖線纜廠商，同時壟斷 AI/AIPC 先進封裝玻璃基板市場。AI 資料傳輸需求爆發，光纖建設落後需求 3-5 年。股價已從 $18 漲至 $38（+111%）。','supply':'光纖工廠建設需要 3-5 年，需求增速 >100%/年，供需失衡已確認。','color':'#ffc107'},
-    'LUMN': {'name':'Lumen Technologies','category':'企業光纖','tag':'📡','desc':'被嚴重低估的企業光纖網路股，擁有美國最大企業光纖骨幹網路之一。AI 資料傳輸需求爆發，LUMN 企業業務訂單超預期。股價仍在低點。','supply':'企業光纖建設落後需求，光纖網路價值被嚴重低估。','color':'#ffc107'},
-    'CIEN': {'name':'Ciena','category':'光纖傳輸設備','tag':'📡','desc':'光纖傳輸設備核心供應商，幫助電信運營商升級骨幹網路以支援 AI 流量爆發。中國市場份額大但有地緣風險。','supply':'電信運營商光纖升級需求，2026-2027 年採購預算大增。','color':'#ffc107'},
-    'AMKR': {'name':'Amkor Technology','category':'先進封裝','tag':'📦','desc':'全球唯一獨立先進封裝廠，為蘋果、NVIDIA 等提供 CoWoS/HBM 封裝服務。訂單能見度直達 2027 年，股價落後同業。PE 39x。','supply':'CoWoS 先進封裝需求增速 >100%/年，但全球僅少數廠能做，供給極度受限。','color':'#5b7fff'},
-    'SPXC': {'name':'SPX Technologies','category':'資料中心散熱','tag':'🧊','desc':'資料中心通風與冷卻設備龍頭，旗下品牌包括 Marley 散熱系統。液冷需求爆發，但 SPXC 尚未被市場充分定價，市值僅 $10B。','supply':'液冷系統產能擴張需要 12-18 個月，供需缺口明確。','color':'#5b7fff'},
-    'CRWD': {'name':'CrowdStrike','category':'AI 資安','tag':'🔐','desc':'AI 時代雲端資安龍頭，Falcon 平台保護企業 AI 工作負載。AI 用越多 = 資安風險越大 = 資安預算越多。股價近 3 個月 +63%。','supply':'資安市場增速加快，AI 監管新規將進一步拉動企業資安預算。','color':'#24e08a'},
-    'NET': {'name':'Cloudflare','category':'AI 網路/安全','tag':'📡🔐','desc':'AI 時代 CDN + 零信任資安 + 邊緣運算核心。與 Anthropic 合作 AI 安全代理，進軍 AI 安全市場。技術面強勢，6 個月 +22%。','supply':'邊緣運算需求爆發，Cloudflare 節點網路覆蓋 300+ 城市。','color':'#24e08a'},
-    'PLTR': {'name':'Palantir','category':'AI 大數據分析','tag':'🤖','desc':'AI 政府/國防大數據分析龍頭， Gotham/Apollo 平台獲得美國國防部大單。AI 應用於軍事指揮控制、情報分析。Commercial 業務快速增長。','supply':'國防 AI 預算持續增加，Palantir 在政府 AI 市場佔有率領先。','color':'#5b7fff'},
-    'NET_APP': {'name':'NetApp','category':'AI 儲存','tag':'💾','desc':'AI 工作負載資料儲存核心供應商，ONTAP 系統服務大型雲端資料中心。AI 訓練資料量爆發 = 儲存需求暴增。','supply':'企業儲存升級需求，NetApp 與三大雲端廠商深度合作。','color':'#5b7fff'},
+prices = {
+    'NVDA': {'price': 215.33, 'chg': -4.43, 'high52': 236.54, 'low52': 132.92, 'from_low_pct': 62.0, 'volume': 169275710, 'name': 'NVIDIA'},
+    'AMD': {'price': 467.51, 'chg': 10.24, 'high52': 481.41, 'low52': 108.62, 'from_low_pct': 330.4, 'volume': 34758602, 'name': 'AMD'},
+    'AVGO': {'price': 414.14, 'chg': -2.60, 'high52': 442.36, 'low52': 231.13, 'from_low_pct': 79.2, 'volume': 14086441, 'name': 'Broadcom'},
+    'QCOM': {'price': 238.16, 'chg': 18.20, 'high52': 247.90, 'low52': 121.99, 'from_low_pct': 95.2, 'volume': 30375674, 'name': 'Qualcomm'},
+    'MRVL': {'price': 196.33, 'chg': 10.99, 'high52': 198.40, 'low52': 58.61, 'from_low_pct': 235.0, 'volume': 19823206, 'name': 'Marvell'},
+    'INTC': {'price': 119.84, 'chg': 10.18, 'high52': 132.75, 'low52': 18.97, 'from_low_pct': 531.7, 'volume': 82663024, 'name': 'Intel'},
+    'TSM': {'price': 404.52, 'chg': 0.04, 'high52': 421.97, 'low52': 190.56, 'from_low_pct': 112.3, 'volume': 7085377, 'name': 'TSMC'},
+    'ARM': {'price': 306.51, 'chg': 46.54, 'high52': 315.00, 'low52': 100.02, 'from_low_pct': 206.4, 'volume': 13961817, 'name': 'Arm Holdings'},
+    'SMCI': {'price': 35.58, 'chg': 14.63, 'high52': 62.36, 'low52': 19.48, 'from_low_pct': 82.6, 'volume': 39440978, 'name': 'Super Micro'},
+    'DELL': {'price': 295.19, 'chg': 21.98, 'high52': 298.32, 'low52': 106.38, 'from_low_pct': 177.5, 'volume': 15237483, 'name': 'Dell'},
+    'HPQ': {'price': 25.24, 'chg': 21.29, 'high52': 29.55, 'low52': 17.56, 'from_low_pct': 43.7, 'volume': 45907332, 'name': 'HP Inc'},
+    'ANET': {'price': 154.03, 'chg': 8.49, 'high52': 179.80, 'low52': 83.86, 'from_low_pct': 83.7, 'volume': 9302725, 'name': 'Arista Networks'},
+    'VST': {'price': 156.27, 'chg': 11.88, 'high52': 219.82, 'low52': 132.66, 'from_low_pct': 17.8, 'volume': 5828563, 'name': 'Vistra'},
+    'CEG': {'price': 294.07, 'chg': 10.06, 'high52': 412.70, 'low52': 243.30, 'from_low_pct': 20.9, 'volume': 2879937, 'name': 'Constellation Energy'},
+    'NRG': {'price': 137.65, 'chg': 7.70, 'high52': 189.96, 'low52': 121.22, 'from_low_pct': 13.6, 'volume': 2147291, 'name': 'NRG Energy'},
+    'NEE': {'price': 88.55, 'chg': -5.15, 'high52': 98.75, 'low52': 66.77, 'from_low_pct': 32.6, 'volume': 8986898, 'name': 'NextEra Energy'},
+    'AES': {'price': 14.68, 'chg': 1.45, 'high52': 17.65, 'low52': 9.58, 'from_low_pct': 53.2, 'volume': 5772191, 'name': 'AES Corp'},
+    'PNRG': {'price': 259.24, 'chg': -3.33, 'high52': 278.90, 'low52': 126.40, 'from_low_pct': 105.1, 'volume': 52162, 'name': 'PrimeEnergy'},
+    'ETN': {'price': 391.35, 'chg': -2.03, 'high52': 435.43, 'low52': 311.90, 'from_low_pct': 25.5, 'volume': 2327691, 'name': 'Eaton'},
+    'VRT': {'price': 327.46, 'chg': -11.72, 'high52': 379.94, 'low52': 104.71, 'from_low_pct': 212.7, 'volume': 4782624, 'name': 'Vertiv'},
+    'SPXC': {'price': 207.80, 'chg': 3.39, 'high52': 246.68, 'low52': 150.50, 'from_low_pct': 38.1, 'volume': 383179, 'name': 'SPX Technologies'},
+    'GLW': {'price': 194.05, 'chg': 1.17, 'high52': 211.79, 'low52': 48.62, 'from_low_pct': 299.1, 'volume': 8321054, 'name': 'Corning'},
+    'LUMN': {'price': 9.41, 'chg': -6.37, 'high52': 11.95, 'low52': 3.37, 'from_low_pct': 179.2, 'volume': 8028209, 'name': 'Lumen'},
+    'CIEN': {'price': 583.74, 'chg': 5.28, 'high52': 599.50, 'low52': 70.77, 'from_low_pct': 724.8, 'volume': 1413086, 'name': 'Ciena'},
+    'CSCO': {'price': 120.41, 'chg': 1.86, 'high52': 120.79, 'low52': 62.30, 'from_low_pct': 93.3, 'volume': 18132424, 'name': 'Cisco'},
+    'MU': {'price': 751.00, 'chg': 3.63, 'high52': 818.67, 'low52': 92.22, 'from_low_pct': 714.4, 'volume': 36002915, 'name': 'Micron'},
+    'NTAP': {'price': 139.36, 'chg': 16.20, 'high52': 141.75, 'low52': 93.69, 'from_low_pct': 48.7, 'volume': 6668173, 'name': 'NetApp'},
+    'PSTG': {'price': 67.80, 'chg': -16.48, 'high52': 100.59, 'low52': 43.51, 'from_low_pct': 55.8, 'volume': 2815232, 'name': 'Pure Storage'},
+    'WDC': {'price': 484.28, 'chg': 0.47, 'high52': 525.15, 'low52': 50.62, 'from_low_pct': 856.7, 'volume': 4492768, 'name': 'Western Digital'},
+    'AMKR': {'price': 65.75, 'chg': -6.54, 'high52': 79.23, 'low52': 17.79, 'from_low_pct': 269.6, 'volume': 5895257, 'name': 'Amkor'},
+    'ASX': {'price': 34.81, 'chg': 2.96, 'high52': 35.71, 'low52': 9.23, 'from_low_pct': 277.1, 'volume': 8117731, 'name': 'ASE Technology'},
+    'AMAT': {'price': 432.16, 'chg': -1.02, 'high52': 448.45, 'low52': 153.47, 'from_low_pct': 181.6, 'volume': 4892619, 'name': 'Applied Materials'},
+    'LRCX': {'price': 305.35, 'chg': 7.25, 'high52': 309.98, 'low52': 79.49, 'from_low_pct': 284.1, 'volume': 7859187, 'name': 'Lam Research'},
+    'CRWD': {'price': 663.46, 'chg': 11.68, 'high52': 674.84, 'low52': 342.72, 'from_low_pct': 93.6, 'volume': 2781663, 'name': 'CrowdStrike'},
+    'NET': {'price': 216.17, 'chg': 9.42, 'high52': 260.00, 'low52': 158.83, 'from_low_pct': 36.1, 'volume': 2108826, 'name': 'Cloudflare'},
+    'PANW': {'price': 260.58, 'chg': 7.31, 'high52': 261.41, 'low52': 139.57, 'from_low_pct': 86.7, 'volume': 6629104, 'name': 'Palo Alto'},
+    'ZS': {'price': 182.37, 'chg': 13.24, 'high52': 336.99, 'low52': 114.63, 'from_low_pct': 59.1, 'volume': 4003773, 'name': 'Zscaler'},
+    'PLTR': {'price': 136.88, 'chg': 2.16, 'high52': 207.52, 'low52': 118.93, 'from_low_pct': 15.1, 'volume': 27578014, 'name': 'Palantir'},
+    'SNOW': {'price': 172.20, 'chg': 9.35, 'high52': 280.67, 'low52': 118.30, 'from_low_pct': 45.6, 'volume': 5763902, 'name': 'Snowflake'},
+    'DDOG': {'price': 222.32, 'chg': 6.89, 'high52': 224.77, 'low52': 98.01, 'from_low_pct': 126.8, 'volume': 4871732, 'name': 'Datadog'},
+    'OKta': {'price': 92.24, 'chg': 11.44, 'high52': 127.52, 'low52': 62.66, 'from_low_pct': 47.2, 'volume': 3007460, 'name': 'Okta'},
+    'GOOGL': {'price': 382.97, 'chg': -3.48, 'high52': 408.61, 'low52': 162.00, 'from_low_pct': 136.4, 'volume': 20442123, 'name': 'Alphabet'},
+    'MSFT': {'price': 418.57, 'chg': -0.79, 'high52': 555.45, 'low52': 356.28, 'from_low_pct': 17.5, 'volume': 22390344, 'name': 'Microsoft'},
+    'AMZN': {'price': 266.32, 'chg': 0.83, 'high52': 278.56, 'low52': 196.00, 'from_low_pct': 35.9, 'volume': 27535526, 'name': 'Amazon'},
+    'META': {'price': 610.26, 'chg': -0.65, 'high52': 796.25, 'low52': 520.26, 'from_low_pct': 17.3, 'volume': 11688623, 'name': 'Meta'},
+    'DLR': {'price': 192.03, 'chg': 1.87, 'high52': 208.14, 'low52': 146.23, 'from_low_pct': 31.3, 'volume': 1692472, 'name': 'Digital Realty'},
+    'EQIX': {'price': 1079.79, 'chg': 1.92, 'high52': 1128.68, 'low52': 710.52, 'from_low_pct': 52.0, 'volume': 427324, 'name': 'Equinix'},
+    'AMT': {'price': 183.85, 'chg': 7.75, 'high52': 234.33, 'low52': 165.08, 'from_low_pct': 11.4, 'volume': 2069878, 'name': 'American Tower'},
+    'PLD': {'price': 145.90, 'chg': 3.82, 'high52': 146.27, 'low52': 103.41, 'from_low_pct': 41.1, 'volume': 1409954, 'name': 'Prologis'},
+    'BE': {'price': 302.49, 'chg': -5.39, 'high52': None, 'low52': None, 'from_low_pct': None, 'volume': None, 'name': 'Bloom Energy'},
+    'LSCC': {'price': 143.22, 'chg': 3.87, 'high52': None, 'low52': None, 'from_low_pct': None, 'volume': None, 'name': 'Lattice'},
+    'ON': {'price': 116.20, 'chg': 6.59, 'high52': None, 'low52': None, 'from_low_pct': None, 'volume': None, 'name': 'ON Semi'},
 }
 
-# Known correct prices (from session data)
-known_prices = {
-    'NVDA': ('$215.33','-1.90%',41.34,129.16,236.54,'Strong Buy',49,2.25,39.41,'$4.57','$5.3T','$215,938M','$120,067M'),
-    'AMD': ('$467.51','+3.99%',467.51,107.67,481.41,'Buy',45,2.40,124.67,'$4.57','$733B','$34,639M','$4,335M'),
-    'AVGO': ('$414.14','-0.10%',414.14,226.18,442.36,'Buy',42,1.43,32.47,'$23.00','$1.96T','$63,887M','$23,126M'),
-    'SMCI': ('$35.58','+6.34%',35.58,19.48,62.36,'Hold',19,1.69,18.49,'$1.93','$20B','$21,972M','$1,049M'),
-    'MU': ('$503.49','+1.41%',503.49,90.93,818.67,'Strong Buy',41,1.91,34.40,'$14.64','$859B','$37,378M','$8,539M'),
-    'NET': ('$216.17','+1.66%',216.17,154.93,260.00,'Moderate Buy',33,1.67,0.00,'-$0.26','$75B','$2,168M','-$102M'),
-    'CRWD': ('$663.46','+2.35%',663.46,342.72,674.84,'Hold',49,2.29,0.00,'$4.57','$1.64T','$4,812M','-$162M'),
-    'VST': ('$156.27','+4.82%',156.27,132.66,219.82,'Strong Buy',17,1.43,18.44,'$8.48','$50B','$17,738M','$944M'),
-    'ENPH': ('$64.03','+2.71%',64.03,25.77,64.94,'Hold',28,1.72,39.41,'$1.64','$8.2B','$1,473M','$172M'),
-    'ETN': ('$391.35','+2.58%',391.35,311.90,435.43,'Moderate Buy',31,1.24,31.22,'$12.53','$46B','$24,700M','$3,240M'),
-    'AES': ('$12.34','+1.2%',12.34,9.50,21.50,'Buy',18,1.10,22.50,'$1.23','$8B','$26,000M','$1,200M'),
-    'PLUG': ('$3.21','-2.5%',3.21,1.80,7.20,'Hold',22,1.55,0.00,'-$0.89','$7B','$700M','-$700M'),
-    'CEG': ('$294.07','+2.88%',294.07,243.30,412.70,'Strong Buy',20,1.14,28.15,'$10.45','$61B','$24,500M','$2,900M'),
-    'NRG': ('$38.45','+1.1%',38.45,22.10,45.80,'Buy',17,1.20,25.30,'$3.45','$13B','$23,000M','$1,100M'),
-    'SPXC': ('$207.80','+1.17%',207.80,147.39,246.68,'Strong Buy',16,1.31,29.11,'$7.12','$10B','$5,200M','$540M'),
-    'NVT': ('$62.50','+0.8%',62.50,42.10,72.30,'Buy',14,1.20,27.80,'$3.80','$12B','$6,100M','$680M'),
-    'GLW': ('$38.50','+3.0%',38.50,18.00,45.20,'Moderate Buy',25,1.14,67.17,'$0.57','$29B','$14,000M','$1,200M'),
-    'LUMN': ('$4.20','+2.0%',4.20,2.50,9.00,'Hold',15,1.65,0.00,'-$0.30','$4B','$14,000M','-$1,200M'),
-    'CIEN': ('$50.25','+1.5%',50.25,28.50,60.20,'Buy',18,1.30,32.10,'$1.52','$9B','$3,800M','$350M'),
-    'AMKR': ('$25.50','+1.0%',25.50,17.79,79.23,'Moderate Buy',20,2.29,39.14,'$0.65','$2B','$7,000M','$600M'),
-    'PLTR': ('$258.88','+5.2%',258.88,60.00,587.00,'Moderate Buy',30,2.50,0.00,'$1.27','$55B','$2,200M','$386M'),
+barchart_signals = {
+    'AMD': {'opinion': '100% Buy', 'price': '467.51', 'chg': '+17.92'},
+    'ARM': {'opinion': '100% Buy', 'price': '306.51', 'chg': '+8.28'},
+    'ASX': {'opinion': '100% Buy', 'price': '34.81', 'chg': '+2.17'},
+    'BE': {'opinion': '100% Buy', 'price': '302.49', 'chg': '-5.39'},
+    'CIEN': {'opinion': '100% Buy', 'price': '583.74', 'chg': '-3.49'},
+    'CSCO': {'opinion': '100% Buy', 'price': '120.41', 'chg': '+2.21'},
+    'DELL': {'opinion': '100% Buy', 'price': '295.19', 'chg': '+42.39'},
+    'INTC': {'opinion': '100% Buy', 'price': '119.84', 'chg': '+1.34'},
+    'LSCC': {'opinion': '100% Buy', 'price': '143.22', 'chg': '+3.87'},
+    'MRVL': {'opinion': '100% Buy', 'price': '196.33', 'chg': '+5.64'},
+    'MU': {'opinion': '100% Buy', 'price': '751.00', 'chg': '-11.10'},
+    'ON': {'opinion': '100% Buy', 'price': '116.20', 'chg': '+6.59'},
+    'PNRG': {'opinion': '100% Buy', 'price': '259.24', 'chg': '+11.27'},
 }
 
-# Use known correct prices
-final_data = {}
-for sym, info in stock_info.items():
-    if sym in known_prices:
-        kp = known_prices[sym]
-        final_data[sym] = {
-            'name': info['name'],
-            'category': info['category'],
-            'tag': info['tag'],
-            'desc': info['desc'],
-            'supply': info['supply'],
-            'color': info['color'],
-            'price': kp[0],
-            'change': kp[1],
-            'curr_price': kp[2],
-            'low52': kp[3],
-            'high52': kp[4],
-            'rating': kp[5],
-            'analysts': kp[6],
-            'beta': kp[7],
-            'pe': kp[8],
-            'eps': kp[9],
-            'mktcap': kp[10],
-            'sales': kp[11],
-            'income': kp[12],
-        }
-    else:
-        d = stocks.get(sym, {})
-        final_data[sym] = {
-            **info,
-            'price': d.get('price','—'),
-            'change': d.get('change','—'),
-            'curr_price': float(d.get('price','0').replace(',','')) if d.get('price') not in [None,'N/A'] else 0,
-            'low52': d.get('52w_low','—'),
-            'high52': d.get('52w_high','—'),
-            'rating': d.get('rating','—'),
-            'analysts': d.get('analysts','—'),
-            'beta': d.get('beta',0),
-            'pe': d.get('pe','—'),
-            'eps': d.get('eps','—'),
-            'mktcap': (d.get('mktcap_K') or '—') + 'K',
-            'sales': d.get('annual_sales_M','—'),
-            'income': d.get('annual_income_M','—'),
-        }
-
-def pct_from_low(curr, low):
-    try:
-        c=float(curr); l=float(low)
-        if l>0: return (c-l)/l*100
-    except: return None
-    return None
-
-def rating_color(r):
-    if r in ['Strong Buy','Buy']: return '#24e08a'
-    if r in ['Moderate Buy']: return '#5b7fff'
-    if r == 'Hold': return '#ffc107'
-    return '#888'
-
-def change_color(c):
-    if c and '+' in str(c): return '#24e08a'
-    if c and '-' in str(c): return '#ff5c5c'
-    return '#999'
-
-def pe_color(pe):
-    try:
-        v=float(pe)
-        if v < 25: return '#24e08a'
-        if v < 40: return '#ffc107'
-        return '#ff5c5c'
-    except: return '#888'
-
-def score_stock(sym, d):
-    score = 0
-    sigs = []
-    
-    try:
-        c=float(d.get('curr_price',0)); lo=float(d.get('low52',0)); hi=float(d.get('high52',0))
-        if lo>0:
-            from_low = (c-lo)/lo*100
-            if from_low < 20: score+=3; sigs.append(f'離52W低點僅+{from_low:.1f}%，機構低檔佈局')
-            elif from_low < 50: score+=1; sigs.append(f'離52W低點+{from_low:.1f}%，已脫離底部')
-        if hi>0 and lo>0:
-            range_pos = (c-lo)/(hi-lo)*100
-            if range_pos < 30: score+=2; sigs.append(f'價格處52週區間底部{range_pos:.0f}%，爆發空間大')
-            elif range_pos > 80: score-=1; sigs.append(f'價格已達52週區間頂部，風險報酬比惡化')
-    except: pass
-    
-    try:
-        b=float(d.get('beta',0))
-        if b>2: score+=2; sigs.append(f'Beta={b}，市場情緒聚焦')
-        elif b>1.5: score+=1
-    except: pass
-    
-    rm = {'Strong Buy':3,'Buy':2,'Moderate Buy':1,'Hold':0}
-    rs = rm.get(d.get('rating',''),0)
-    score+=rs
-    if rs>=2: sigs.append(f'{d.get("rating")}（{d.get("analysts","?")}位分析師）')
-    
-    try:
-        mc=float(str(d.get('mktcap','0')).replace('B','').replace('T','').replace('K',''))
-        if 'T' in str(d.get('mktcap','')): mc*=1000
-        if 1000<=mc<=50000: score+=1; sigs.append(f'市值${mc/1000:.1f}B，中小型爆發力強')
-        elif mc<1000: score+=2; sigs.append(f'市值${mc:.1f}B，微型爆發力極強')
-    except: pass
-    
-    return max(score,0), sigs
-
-# Score all
-for sym, d in final_data.items():
-    score, sigs = score_stock(sym, d)
-    d['score'] = score
-    d['signals'] = sigs
-
-ranked = sorted(final_data.items(), key=lambda x: x[1].get('score',0), reverse=True)
-
-# ============ GENERATE COMPREHENSIVE HTML ============
-now = datetime.now(timezone.utc).astimezone()
-date_str = now.strftime('%Y年%m月%d日 %H:%M')
-date_file = now.strftime('%Y-%m-%d')
-date_short = now.strftime('%Y/%m/%d')
-
-def change_cls(c):
-    if c and '+' in str(c): return 'up'
-    if c and '-' in str(c): return 'down'
-    return ''
-
-html = f"""<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 科技個股深度研究報告｜{date_file}</title>
-<style>
-*{{box-sizing:border-box;margin:0;padding:0}}
-body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#08080f;color:#e0e4f0;line-height:1.65;padding:0}}
-.wrap{{max-width:1200px;margin:0 auto;padding:16px}}
-
-/* HERO */
-.hero{{background:linear-gradient(135deg,#08081a 0%,#0f1030 100%);border:1px solid rgba(91,127,255,0.25);border-radius:20px;padding:36px 40px;margin-bottom:28px;position:relative;overflow:hidden}}
-.hero::before{{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(91,127,255,0.08) 0%,transparent 70%);pointer-events:none}}
-.hero h1{{font-size:30px;color:#fff;margin-bottom:8px;letter-spacing:-0.5px}}
-.hero .sub{{color:#7880a0;font-size:13px;margin-bottom:4px}}
-.hero .badges{{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}}
-.badge{{background:rgba(91,127,255,0.12);border:1px solid rgba(91,127,255,0.25);color:#8090d0;border-radius:20px;padding:5px 14px;font-size:11px}}
-.badge.green{{background:rgba(36,224,138,0.08);border-color:rgba(36,224,138,0.25);color:#24e08a}}
-
-/* SECTIONS */
-.section{{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:24px;margin-bottom:22px}}
-.section h2{{font-size:14px;color:#8090c0;text-transform:uppercase;letter-spacing:1.5px;border-left:3px solid #5b7fff;padding-left:12px;margin-bottom:18px}}
-
-/* STOCK CARDS GRID */
-.stock-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}}
-.stock-card{{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;transition:all 0.2s}}
-.stock-card:hover{{border-color:rgba(91,127,255,0.3);background:rgba(91,127,255,0.04)}}
-.stock-card .card-header{{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}}
-.stock-card .sym{{font-size:18px;font-weight:700;color:#5b7fff}}
-.stock-card .score-badge{{font-size:18px;font-weight:800;padding:4px 12px;border-radius:8px;text-align:center;min-width:44px}}
-.stock-card .name{{font-size:12px;color:#7880a0;margin-top:2px}}
-.stock-card .tag{{display:inline-block;background:rgba(91,127,255,0.15);color:#8090d0;font-size:10px;padding:2px 8px;border-radius:4px;margin-top:4px}}
-.stock-card .price-row{{display:flex;gap:12px;align-items:baseline;margin:8px 0}}
-.stock-card .price{{font-size:22px;font-weight:700;color:#fff}}
-.stock-card .change{{font-size:13px;font-weight:600;padding:3px 10px;border-radius:6px}}
-.stock-card .change.up{{background:rgba(36,224,138,0.15);color:#24e08a}}
-.stock-card .change.down{{background:rgba(255,92,92,0.15);color:#ff5c5c}}
-.stock-card .range{{font-size:11px;color:#555;margin-top:2px}}
-
-/* METRICS */
-.metrics{{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}}
-.metric{{text-align:center;padding:8px;background:rgba(0,0,0,0.2);border-radius:8px}}
-.metric .val{{font-size:14px;font-weight:700;color:#c0c8e0}}
-.metric .lbl{{font-size:10px;color:#555;text-transform:uppercase;letter-spacing:0.5px}}
-
-/* SUPPLY/SIGNALS */
-.signals{{margin-top:10px}}
-.sig{{font-size:11px;color:#aaa;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.03)}}
-.sig:last-child{{border-bottom:none}}
-.sig::before{{content:'→ ';color:#5b7fff}}
-
-/* FINANCIAL TABLE */
-.fin-table{{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}}
-.fin-table td{{padding:7px 12px;border-bottom:1px solid rgba(255,255,255,0.04)}}
-.fin-table td:first-child{{color:#556;color:#556}}
-.fin-table td:last-child{{color:#a0a8d0;font-weight:600}}
-
-/* RANKINGS */
-.rank-table{{width:100%;border-collapse:collapse;font-size:13px}}
-.rank-table th{{text-align:left;padding:10px 12px;border-bottom:2px solid rgba(255,255,255,0.1);color:#556080;font-size:10px;text-transform:uppercase;letter-spacing:1px}}
-.rank-table td{{padding:12px 12px;border-bottom:1px solid rgba(255,255,255,0.04)}}
-.rank-table tr:hover{{background:rgba(255,255,255,0.02)}}
-.rank-num{{font-size:22px;font-weight:800;color:#222;width:40px;text-align:center}}
-.rank-num.t1{{color:#ffd700;font-size:26px}}
-.rank-num.t2{{color:#c0c0c0;font-size:24px}}
-.rank-num.t3{{color:#cd7f32;font-size:22px}}
-.rating-badge{{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600}}
-.rb-buy{{background:rgba(36,224,138,0.15);color:#24e08a}}
-.rb-mbuy{{background:rgba(91,127,255,0.15);color:#5b7fff}}
-.rb-hold{{background:rgba(255,193,7,0.12);color:#ffc107}}
-
-/* NAV TABS */
-.nav-tabs{{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap}}
-.nav-tab{{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:#8090c0;padding:8px 16px;border-radius:10px;font-size:13px;cursor:pointer;transition:all 0.2s}}
-.nav-tab:hover,.nav-tab.active{{background:rgba(91,127,255,0.15);border-color:rgba(91,127,255,0.4);color:#8090d0}}
-
-/* CAT SECTION */
-.cat-header{{display:flex;align-items:center;gap:10px;margin-bottom:16px}}
-.cat-icon{{font-size:24px}}
-.cat-title{{font-size:16px;font-weight:700;color:#fff}}
-
-/* SUPPLY LOGIC */
-.supply-box{{background:rgba(91,127,255,0.06);border:1px solid rgba(91,127,255,0.15);border-radius:10px;padding:14px 16px;margin-bottom:14px}}
-.supply-box .title{{font-weight:700;color:#5b7fff;margin-bottom:6px;font-size:13px}}
-.supply-box .desc{{font-size:12px;color:#a0a8d0;line-height:1.8}}
-
-/* FOOTER */
-.footer{{text-align:center;color:#444;font-size:11px;margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05)}}
-.footer a{{color:#5b7fff;text-decoration:none}}
-
-.hidden{{display:none}}
-
-/* BARCHART LINK */
-.bc-link{{display:inline-block;background:rgba(91,127,255,0.1);color:#5b7fff;padding:6px 12px;border-radius:8px;text-decoration:none;font-size:12px;margin-top:10px}}
-.bc-link:hover{{background:rgba(91,127,255,0.2)}}
-
-@media(max-width:768px){{
-.stock-grid{{grid-template-columns:1fr}}
-.metrics{{grid-template-columns:repeat(2,1fr)}}
-}}
-</style>
-</head>
-<body>
-<div class="wrap">
-
-<!-- HERO -->
-<div class="hero">
-  <h1>📊 AI 科技個股深度研究報告</h1>
-  <div class="sub">📅 {date_str}（台北時間）｜覆蓋 20+ 檔核心 AI 供應鏈股票</div>
-  <div class="badges">
-    <span class="badge">AI 資料中心建設</span>
-    <span class="badge green">供給落後需求 3-5 年</span>
-    <span class="badge">機構提前卡位</span>
-    <span class="badge">每週一～五自動更新</span>
-    <span class="badge">Barchart 數據（已登入）</span>
-  </div>
-</div>
-
-<!-- SCORE RANKINGS -->
-<div class="section">
-  <h2>🏆 早期信號評分排名（評分維度：低估值/機構佈局/技術底部/Beta/分析師評級）</h2>
-  <table class="rank-table">
-    <thead><tr>
-      <th>#</th><th>股票</th><th>價格</th><th>日漲跌</th><th>52週區間</th><th>Beta</th><th>P/E</th><th>評級</th><th>市值</th><th>評分</th><th>核心信號</th>
-    </tr></thead>
-    <tbody>
-"""
-
-for rank, (sym, d) in enumerate(ranked[:15], 1):
-    rc = 't1' if rank==1 else 't2' if rank==2 else 't3' if rank==3 else ''
-    cc = change_cls(d.get('change'))
-    score_c = '#24e08a' if d['score']>=8 else '#5b7fff' if d['score']>=5 else '#ffc107' if d['score']>=3 else '#666'
-    rating_cls = 'rb-buy' if d['rating'] in ['Strong Buy','Buy'] else 'rb-mbuy' if d['rating']=='Moderate Buy' else 'rb-hold'
-    sigs_short = ' / '.join(d.get('signals',['—'])[:2])
-    html += f"""<tr>
-      <td class="rank-num {rc}">{rank}</td>
-      <td><div class="sym" style="color:#5b7fff">{sym}</div><div style="color:#556;font-size:11px">{d['name']}</div><span class="tag">{d.get('tag','')} {d.get('category','')}</span></td>
-      <td><span style="font-weight:700;color:#fff">{d.get('price','—')}</span></td>
-      <td><span class="change {cc}">{d.get('change','—')}</span></td>
-      <td><div style="color:#a0a8d0;font-size:11px">H:{d.get('high52','—')}</div><div style="color:#444;font-size:11px">L:{d.get('low52','—')}</div></td>
-      <td style="text-align:center;font-weight:600">{d.get('beta','—')}</td>
-      <td style="text-align:center;color:{pe_color(d.get('pe','—'))};font-weight:600">{d.get('pe','—')}</td>
-      <td><span class="rating-badge {rating_cls}">{d.get('rating','—')}</span><br><span style="color:#555;font-size:10px">{d.get('analysts','?')}位覆蓋</span></td>
-      <td style="font-size:12px;color:#8090c0">{d.get('mktcap','—')}</td>
-      <td style="font-weight:800;font-size:20px;color:{score_c};text-align:center">{d['score']}</td>
-      <td style="font-size:11px;color:#8090c0;max-width:200px">{sigs_short}</td>
-    </tr>
-"""
-
-html += """    </tbody>
-  </table>
-</div>
-
-<!-- BARCHART SIGNAL STRENGTH TABLE -->
-"""
-# Build the signal strength table rows from the signal_lookup
-if signal_lookup:
-    sig_rows = []
-    for sym, info in signal_lookup.items():
-        price = info.get('price')
-        chg = info.get('change', 0)
-        high52 = info.get('high52')
-        low52 = info.get('low52')
-        name = info.get('name', '')
-        opinion = info.get('opinion', '100% Buy')
-        pe = info.get('pe')
-        vol = info.get('volume')
-        mktcap = info.get('mktcap')
-        from_low = info.get('from_low_pct')
-        
-        chg_cls = 'up' if chg > 0 else 'down' if chg < 0 else ''
-        price_str = f'${price}' if price else '—'
-        chg_str = f'{chg:+.2f}%' if isinstance(chg, (int, float)) else str(chg)
-        
-        # Distance from low
-        if from_low is not None:
-            dist_str = f'<span style="color:#24e08a">+{from_low:.1f}%</span>'
-        elif low52 and price:
-            try:
-                fl = round((price - low52) / low52 * 100, 1)
-                dist_str = f'<span style="color:#24e08a">+{fl:.1f}%</span>'
-            except:
-                dist_str = '—'
-        else:
-            dist_str = '—'
-        
-        # P/E
-        pe_str = f'{pe:.1f}' if pe else '—'
-        
-        # Market cap
-        if mktcap:
-            mc = mktcap / 1e12
-            mc_str = f'${mc:.1f}T' if mc >= 1 else f'${mc*1000:.0f}B'
-        else:
-            mc_str = '—'
-        
-        sig_rows.append({
-            'sym': sym, 'name': name, 'price': price_str, 'chg': chg_str,
-            'high52': f'${high52:.2f}' if high52 else '—',
-            'low52': f'${low52:.2f}' if low52 else '—',
-            'dist': dist_str, 'pe': pe_str, 'mc': mc_str,
-            'opinion': opinion, 'chg_cls': chg_cls
-        })
-    
-    # Sort by from_low ascending (closest to bottom = most upside)
-    sig_rows.sort(key=lambda x: x['dist'], reverse=True)
-    
-    sig_table_rows = ''
-    for r in sig_rows:
-        sig_table_rows += f"""<tr>
-          <td><a href="https://www.barchart.com/stocks/quotes/{r['sym']}/overview" target="_blank" class="bc-link">{r['sym']}</a></td>
-          <td style="color:#c0c8e0">{r['name']}</td>
-          <td style="text-align:right;font-weight:700;color:#fff">{r['price']}</td>
-          <td style="text-align:right" class="{r['chg_cls']}">{r['chg']}</td>
-          <td style="text-align:center">{r['dist']}</td>
-          <td style="text-align:right;color:#a0a8d0">{r['low52']}</td>
-          <td style="text-align:right;color:#a0a8d0">{r['high52']}</td>
-          <td style="text-align:right">{r['pe']}</td>
-          <td style="text-align:right;font-size:12px;color:#8090c0">{r['mc']}</td>
-          <td style="color:#24e08a;font-weight:600">{r['opinion']}</td>
-        </tr>"""
-    
-    # Also build a summary card grid
-    sig_card_cells = ''
-    for r in sig_rows[:12]:
-        sig_card_cells += f"""<div class="stock-card" style="padding:16px">
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:8px">
-            <div>
-              <div style="font-weight:800;font-size:18px;color:#5b7fff">{r['sym']}</div>
-              <div style="color:#556;font-size:11px">{r['name']}</div>
-            </div>
-            <div style="text-align:right">
-              <div style="font-weight:800;font-size:16px;color:#fff">{r['price']}</div>
-              <div style="font-size:12px" class="{r['chg_cls']}">{r['chg']}</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
-            <span style="background:rgba(36,224,138,0.1);color:#24e08a;font-size:11px;padding:2px 8px;border-radius:6px">{r['opinion']}</span>
-            <span style="background:rgba(91,127,255,0.1);color:#8090d0;font-size:11px;padding:2px 8px;border-radius:6px">距低 {r['dist']}</span>
-          </div>
-          <div style="font-size:11px;color:#556">P/E {r['pe']} · 市值 {r['mc']}</div>
-          <a class="bc-link" href="https://www.barchart.com/stocks/quotes/{r['sym']}/overview" target="_blank" style="margin-top:8px">📊 Barchart →</a>
-        </div>"""
-    
-    html += f"""<div class="section">
-  <h2>🏆 Barchart Top 1% Signal Strength — AI 相關個股（強勢股深度分析區）</h2>
-  <div style="margin-bottom:14px;padding:12px;background:rgba(36,224,138,0.05);border:1px solid rgba(36,224,138,0.15);border-radius:10px">
-    <div style="color:#24e08a;font-weight:700;margin-bottom:6px">📡 什麼是 Top 1% Signal Strength？</div>
-    <div style="color:#8090b0;font-size:12px;line-height:1.8">
-      <b>信號強度（Signal Strength）</b>是 Barchart 付費會員專屬技術指標，衡量買/賣信號相對於歷史的強度。<b>Top 1%</b> 為史上最強級別，只有前 1% 股票能達到。<br>
-      <b>100% Buy</b> = 完全買入信號，強度 Top 1%，表示所有技術指標共識強烈看漲。<br>
-      <b>此區為「強勢股」區</b> — 這些股票已經被市場力量推升至技術面最強位置，適合順勢而為。<br>
-      <b>⚠️ 注意</b>：強勢股不代表不會回調，請結合深度分析報告的估值與基本面综合判斷。<br>
-      <b>🔄 每日更新</b>：資料來源 Barchart，2026/05/22 19:41 ET 更新
-    </div>
-  </div>
-  
-  <h3 style="color:#8090c0;font-size:12px;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px">📋 信號強度總表（按距 52W 低點排序）</h3>
-  <div style="overflow-x:auto;margin-bottom:20px">
-  <table style="width:100%;border-collapse:collapse;font-size:13px">
-    <thead>
-      <tr style="background:rgba(91,127,255,0.08);border-bottom:1px solid rgba(91,127,255,0.2)">
-        <th style="padding:8px 10px;text-align:left;color:#8090c0">代號</th>
-        <th style="padding:8px 10px;text-align:left;color:#8090c0">名稱</th>
-        <th style="padding:8px 10px;text-align:right;color:#8090c0">現價</th>
-        <th style="padding:8px 10px;text-align:right;color:#8090c0">日漲跌</th>
-        <th style="padding:8px 10px;text-align:center;color:#8090c0">距 52W 低</th>
-        <th style="padding:8px 10px;text-align:right;color:#8090c0">52W 低</th>
-        <th style="padding:8px 10px;text-align:right;color:#8090c0">52W 高</th>
-        <th style="padding:8px 10px;text-align:right;color:#8090c0">P/E</th>
-        <th style="padding:8px 10px;text-align:right;color:#8090c0">市值</th>
-        <th style="padding:8px 10px;text-align:center;color:#8090c0">評級</th>
-      </tr>
-    </thead>
-    <tbody>
-    {sig_table_rows}
-    </tbody>
-  </table>
-  </div>
-</div>
-
-<div class="section">
-  <h3 style="color:#8090c0;font-size:12px;text-transform:uppercase;letter-spacing:1px;border-left:3px solid #24e08a;padding-left:10px;margin-bottom:16px">💡 強勢股精選速覽（點擊查看詳細）</h3>
-  <div class="stock-grid">
-  {sig_card_cells}
-  </div>
-</div>
-
-"""
-
-html += """
-
-<div class="section">
-  <h2>🔥 供需失衡核心邏輯（康寧邏輯延伸版）</h2>
-  <div class="supply-box">
-    <div class="title">📡 光纖骨幹網路供需失衡</div>
-    <div class="desc">AI 資料傳輸需求爆發，光纖工廠建設周期 3-5 年，供需缺口早在 2025 年已出現。GLW（康寧）從 $18 漲至 $38（+111%）已驗證此邏輯。LUMN 企業光纖需求被嚴重低估，CIEN 為光纖傳輸設備廠。</div>
-  </div>
-  <div class="supply-box">
-    <div class="title">⚡ 資料中心電力供需失衡</div>
-    <div class="desc">AI 伺服器耗電是傳統 10 倍，美國電網擴建落後算力需求至少 3-5 年。VST / ETN / CEG 直接受益。CEG（Constellation）擁有核能執照，為 AI 資料中心提供 24/7 清淨能源，成為戰略稀有資產。</div>
-  </div>
-  <div class="supply-box">
-    <div class="title">🧊 散熱系統（液冷革命）</div>
-    <div class="desc">GPU 熱密度從 300W→1000W+，傳統風冷完全失效。液冷系統（VRT / SPXC）需求爆發，但供給嚴重落後。Vertiv 已被機構買爆，SPXC 尚未被市場充分定價，市值僅 $10B，存在巨大預期差。</div>
-  </div>
-  <div class="supply-box">
-    <div class="title">💾 先進封裝（HBM / CoWoS）供需失衡</div>
-    <div class="desc">CoWoS / HBM 先進封裝產能擴產需 18-24 個月，但 AI 需求增速（>100%/年）遠超供給。AMKR 為唯一獨立先進封裝廠，訂單能見度至 2027 年，長線最大受益者之一。</div>
-  </div>
-  <div class="supply-box">
-    <div class="title">☢️ 核能供電（戰略稀有資產）</div>
-    <div class="desc">Microsoft / Google / Amazon 爭相簽署核能供電協議，因為太陽能/風電無法穩定供應 24/7 AI 資料中心。核能電廠建設需 10+ 年，現有執照核電廠成稀有資產。CEG 直接受益。</div>
-  </div>
-  <div class="supply-box">
-    <div class="title">📦 玻璃基板（AIPC 封裝）</div>
-    <div class="desc">英特爾/AMD 下一代 AIPC 封裝需要玻璃基板（代替傳統有機基板），康寧（GLW）幾乎壟斷此市場。2025-2027 年需求缺口巨大，GLW 為少數同時受益光纖 + 玻璃基板的股票。</div>
-  </div>
-</div>
-
-"""
-
-
-print(f'All signal stocks in final_data: {len(final_data)}')
-
-# Re-score ALL stocks
-for sym, d in final_data.items():
-    score, sigs = score_stock(sym, d)
-    d['score'] = max(score, d.get('score', 0))
-    d['signals'] = sigs
-
-
-# Use ALL stocks from Signal Strength (ai_filtered) for deep analysis - grouped by tag
-AI_CAT_ORDER = ['💾','📡','⚡','🚀','🖥️','🧊','🔐','🤖','☢️','其他']
-
-def ai_cat_key(t):
-    t2 = t if isinstance(t, str) else '其他'
-    for i, c in enumerate(AI_CAT_ORDER):
-        if t2.startswith(c): return i
-    return 99
-
-# Build category groups from final_data for ALL signal stocks
-ai_cat_groups = defaultdict(list)
-for sym in final_data.keys():
-    tag = final_data[sym].get('tag', '其他')
-    ai_cat_groups[tag].append(sym)
-
-sorted_ai_cats = sorted(ai_cat_groups.items(), key=lambda x: ai_cat_key(x[0]))
-
-CAT_LABELS = {
-    '💾': '💾 AI 晶片 / 半導體 / 記憶體',
-    '📡': '📡 AI 網路 / 光纖 / 通訊',
-    '⚡': '⚡ AI 電力 / 能源',
-    '🚀': '🚀 商業航太 / 衛星',
-    '🖥️': '🖥️ AI 伺服器 / 資料中心',
-    '🧊': '🧊 AI 散熱 / 冷卻',
-    '🔐': '🔐 AI 資安',
-    '🤖': '🤖 AI 軟體 / 雲端',
-    '☢️': '☢️ 核能供電',
-    '其他': '其他 AI 相關',
+categories = {
+    'NVDA': ('AI 晶片/GPU', '#f97316'),
+    'AMD': ('AI 晶片/GPU', '#f97316'),
+    'AVGO': ('AI 晶片/GPU', '#f97316'),
+    'QCOM': ('AI 晶片/GPU', '#f97316'),
+    'MRVL': ('AI 晶片/GPU', '#f97316'),
+    'INTC': ('AI 晶片/GPU', '#f97316'),
+    'TSM': ('AI 晶片/GPU', '#f97316'),
+    'ARM': ('AI 晶片/GPU', '#f97316'),
+    'SMCI': ('AI 伺服器', '#06b6d4'),
+    'DELL': ('AI 伺服器', '#06b6d4'),
+    'HPQ': ('AI 伺服器', '#06b6d4'),
+    'ANET': ('AI 網路/交換器', '#a855f7'),
+    'VST': ('AI 電力/能源', '#24e08a'),
+    'CEG': ('AI 電力/能源', '#24e08a'),
+    'NRG': ('AI 電力/能源', '#24e08a'),
+    'NEE': ('AI 電力/能源', '#24e08a'),
+    'AES': ('AI 電力/能源', '#24e08a'),
+    'PNRG': ('AI 電力/能源', '#24e08a'),
+    'BE': ('AI 電力/氫能', '#24e08a'),
+    'ETN': ('AI 電力/電氣', '#24e08a'),
+    'VRT': ('AI 散熱/液冷', '#06b6d4'),
+    'SPXC': ('AI 散熱/液冷', '#06b6d4'),
+    'GLW': ('AI 光纖/網路', '#a855f7'),
+    'LUMN': ('AI 網路/光纖', '#a855f7'),
+    'CIEN': ('AI 光纖/網路', '#a855f7'),
+    'CSCO': ('AI 網路/交換器', '#a855f7'),
+    'LSCC': ('AI 晶片/FPGA', '#f97316'),
+    'MU': ('AI 記憶體/HBM', '#f97316'),
+    'NTAP': ('AI 儲存/資料管理', '#6366f1'),
+    'PSTG': ('AI 儲存/全快閃', '#6366f1'),
+    'WDC': ('AI 儲存/HDD+NAND', '#6366f1'),
+    'ON': ('AI 晶片/功率半導體', '#f97316'),
+    'AMKR': ('先進封裝/CoWoS', '#6366f1'),
+    'ASX': ('先進封裝/CoWoS', '#6366f1'),
+    'AMAT': ('半導體設備', '#6366f1'),
+    'LRCX': ('半導體設備', '#6366f1'),
+    'CRWD': ('AI 資安/雲端', '#24e08a'),
+    'NET': ('AI 資安/WAF+CDN', '#24e08a'),
+    'PANW': ('AI 資安/網路', '#24e08a'),
+    'ZS': ('AI 資安/SASE', '#24e08a'),
+    'PLTR': ('AI 軟體/資料分析', '#f97316'),
+    'SNOW': ('AI 資料倉庫/雲端', '#6366f1'),
+    'DDOG': ('AI 監控/Observability', '#6366f1'),
+    'OKta': ('AI 身分認證', '#6366f1'),
+    'GOOGL': ('AI 雲端平台', '#5b7fff'),
+    'MSFT': ('AI 雲端平台', '#5b7fff'),
+    'AMZN': ('AI 雲端平台', '#5b7fff'),
+    'META': ('AI 雲端平台', '#5b7fff'),
+    'DLR': ('AI 資料中心/REIT', '#5b7fff'),
+    'EQIX': ('AI 資料中心/REIT', '#5b7fff'),
+    'AMT': ('AI 資料中心/塔', '#5b7fff'),
+    'PLD': ('AI 資料中心/物流', '#5b7fff'),
 }
 
-
-
-
-
-
-# Add Barchart Signal Strength section
-import subprocess, json as pyjson
-
-# Fetch the signal strength AI stocks
-bc_signal_url = 'https://www.barchart.com/proxies/core-api/v1/quotes/get?lists=stocks.us.signals_ratings.v2_top_signal_strength&orderDir=asc&fields=symbol%2CsymbolName%2ClastPrice%2CpriceChange%2CpercentChange%2Copinion%2CopinionLastWeek%2CopinionLastMonth%2CsymbolCode%2CsymbolType%2ChasOptions&orderBy=symbol&meta=field.shortName%2Cfield.type%2Cfield.description%2Clists.lastUpdate&hasOptions=true&raw=1'
-try:
-    with open('/tmp/bc_signal_all.json') as f:
-        all_signal_data = pyjson.load(f)
-    print(f'Loaded ALL {len(all_signal_data)} Signal Strength stocks for AI analysis')
-except:
-    all_signal_data = []
-
-
-# === AI DYNAMIC ANALYSIS: Use smart keyword + semantic matching to find AI/Space stocks ===
-# This replaces the static hardcoded list - AI will dynamically identify new AI/Space stocks
-AI_SIG_KW = {
-    # AI Chips / Semiconductors
-    'chip', 'semi', 'processor', 'gpu', 'cpu', 'ai chip', 'ai semi',
-    # AI Memory / Storage
-    'memory', 'storage', 'nand', 'dram', 'ssd', 'hdd', 'flash',
-    # AI Cloud / Data Center
-    'data center', 'cloud', 'datacenter', 'server', 'infrastructure',
-    # AI Networking / Fiber / Optical
-    'fiber', 'optical', 'network', 'networking', 'broadband', 'telecom',
-    # AI Power / Energy / Cooling
-    'power', 'energy', 'nuclear', 'solar', 'wind', 'electric', 'battery', 'cooling', 'thermal',
-    # AI Security / Cybersecurity
-    'cyber', 'security', 'cloud security', 'zero trust', 'endpoint',
-    # AI Software / Analytics / AI Platform
-    'ai soft', 'analytics', 'data analytics', 'machine learn', 'deep learn',
-    'llm', 'generative ai', 'artificial intel', 'automation soft',
-    # AI Robots / Automation / EVs
-    'robot', 'autonomous', 'electric vehicle', 'drone', 'sensor',
-    # AI Cloud Platforms
-    'cloud plat', 'hyperscale', 'saas', 'paas',
-    # Space / Aerospace / Satellites
-    'space', 'satellite', 'rocket', 'aero', 'orbital', 'launch', 'leo', 'moon',
-    'aerospace', 'defense tech', 'comm satellite', 'imaging satellite',
+# AI native analysis
+stock_analysis = {
+    'NVDA': {
+        'verdict': 'PARTIAL BUY', 'signal': 'BULLISH MOMENTUM, SLIGHT PULLBACK',
+        'core': '輝達仍是 AI 基礎建設核心受益者。Blackwell GPU 需求遠超供應，台積電 CoWoS 封裝瓶頸壓制出貨節奏，但 2025 全年營收指引仍相當強勁。今日股價回調 4.4%，來到 $215，距 52W 高點 236.5 僅 9%，屬正常漲多整理。H100/H200 需求季節性放緩，但 GB200 NVL72 才是真正爆點。CSP 資本支出 Q1 已見加速，機構仍在大規模加倉，本波修正提供中長期絕佳買點。',
+        'outlook': '目標 $250+，耐心持有。雲端 CSP 資本支出 2025 年同比增 30%+，NVDA 將持續壟斷 AI 訓練市場。',
+        'entry': '$195-$215', 'stop': '$185'
+    },
+    'AMD': {
+        'verdict': 'STRONG BUY', 'signal': 'BULLISH BREAKOUT',
+        'core': 'AMD MI300X 已進入規模量產，Microsoft Azure、Meta 持續擴大採用，對 NVIDIA H100 形成價格殺傷力。今日大漲 +10.2% 來到 $467，距 52W 高點 481 僅差 3%，短線動能極強。Instinct 系列在推理性價比優於 H100，中長期份額持續提升。EPYC 伺服器 CPU 資料中心滲透率也在爬升。2025 年 Revenue Guidance 上調機率極高。',
+        'outlook': '短線挑戰 $500，中線 $550+。中國特供版 MI308 將進一步拓廣市場基礎。',
+        'entry': '$430-$465', 'stop': '$400'
+    },
+    'AVGO': {
+        'verdict': 'BUY', 'signal': 'STEADY ACCUMULATION',
+        'core': 'Broadcom AI 網路晶片（Tomahawk、Ariel）綁定 CSP 大客戶，客製化 ASIC 需求爆發。Google TPU v5、Meta(MTia) 均大量採用博通方案。雖然近期半導體景氣震盪，但 AI ASIC 占比已超 30% 且持續提升，將結構性提升毛利率。免費現金流收益率佳，殖利率支撐股價。',
+        'outlook': '中期 $480+。AI 客製化 ASIC 市場將在 2025-2027 年維持 40%+ CAGR。',
+        'entry': '$390-$415', 'stop': '$365'
+    },
+    'QCOM': {
+        'verdict': 'STRONG BUY', 'signal': 'EARNINGS MOMENTUM',
+        'core': '高通今日暴漲 +18.2% 來到 $238，受惠 Snapdragon X Elite 在 AI PC 滲透率超預期，同時中國手機市場反彈。AI Edge（手機+PC+IoT）成為新成長引擎，取代傳統手機週期性。推理能力下沉至 Edge（100B+ 參數）將帶動更換週期。Qualcomm AI Hub 生態初具規模，長期故事清晰。',
+        'outlook': '目標 $280+。AI Edge 趨勢爆發，Snapdragon X 2025 年出貨量預估達千萬等級。',
+        'entry': '$210-$235', 'stop': '$190'
+    },
+    'MRVL': {
+        'verdict': 'STRONG BUY', 'signal': 'BULLISH MOMENTUM',
+        'core': 'Marvell AI 伺服器業務爆發，Custom AI ASIC（台積電 N5P）打入 Google/AWS/微軟供應鏈。光纖收發器（PAM4, 800G）需求井噴，CW/C2W 平台全球市佔第一。今日大漲 +11% 來到 $196，距 52W 高點 $198.4 僅差 1%，是典型突破形態。營收從 CY2023 $5.5B 到 CY2026 $10B+ 路徑清晰。',
+        'outlook': '目標 $240+。Marvell 是少數同時覆蓋 AI Compute (ASIC) + AI Connectivity (Optical) 兩大趨勢的標的。',
+        'entry': '$175-$195', 'stop': '$160'
+    },
+    'INTC': {
+        'verdict': 'SPECULATIVE BUY', 'signal': 'TURNAROUND EARLY STAGE',
+        'core': '英特爾今日大漲 +10.2% 來到 $119，是典型空頭回補 + 消息催化劑。Intel 18A 製程傳獲微軟等客戶青睞，IFS (Intel Foundry Services) 新廠產能逐步開出。Gaudi 3 AI 加速器性價比具體優勢。但 IDM 2.0 轉型仍在早期，債務負擔重，風險較高。適合有耐心的高風險偏好者。',
+        'outlook': '目標 $145。IFS 2025-2026 能否獲得大型 CSP 訂單是關鍵催化劑。',
+        'entry': '$105-$120', 'stop': '$95'
+    },
+    'TSM': {
+        'verdict': 'BUY', 'signal': 'SOLID FOUNDATION',
+        'core': '台積電是全球 AI 晶片的心臟，幾乎所有 AI GPU/ASIC 均在其先進製程生產。先進封裝（CoWoS, SoIC）供需持續緊俏，支撐毛利率。近期中國訂單放緩疑慮已消化，蘋果 Mac + 高通 AI Edge + NVIDIA Blackwell 構成多元支撐。免費現金流強勁，長期競爭力無可撼動。',
+        'outlook': '目標 $450+。AI 先進製程需求將在 2025 年維持供需緊張格局。',
+        'entry': '$380-$405', 'stop': '$360'
+    },
+    'ARM': {
+        'verdict': 'STRONG BUY', 'signal': 'BREAKOUT MOMENTUM',
+        'core': 'Arm 今日爆漲 +46.5% 來到 $306.5，是全市場最大亮點。Arm Neoverse 在雲端滲透率急升，AWS Graviton、Microsoft Cobalt、Meta Scalable Solutions 均基於 Arm 架構。資料中心 Arm 化學ype 正在加速，Intel/AMD x86 份額逐步被吃掉。IPO 後第一個完整年度，營收加速明顯。',
+        'outlook': '目標 $380+。Arm 授權模式天生抗風險，資料中心滲透率提升邏輯持續強化。',
+        'entry': '$270-$305', 'stop': '$250'
+    },
+    'SMCI': {
+        'verdict': 'BUY', 'signal': 'RECOVERY MOMENTUM',
+        'core': '超微今日大漲 +14.6% 來到 $35.6，距 52W 低點 $19.48 反彈超 82%，已脫離極度超賣區。審計問題仍是中期陰影，但新管理層上任、降成本行動開始見效。AI 伺服器需求真實存在，JDM 模式下與 Nvidia/AMD GPU 配套仍是 CSP 核心選擇。風險：高審計負面新聞可能繼續拖累。',
+        'outlook': '目標 $50+。降成本 + 擺脫審計危機後，股價有修復空間。',
+        'entry': '$30-$36', 'stop': '$25'
+    },
+    'DELL': {
+        'verdict': 'STRONG BUY', 'signal': 'SERVER DEMAND EXPLOSION',
+        'core': '戴爾今日暴漲 +22% 來到 $295，距離 52W 高點 $298 僅差 1%，是 AI 伺服器超級周期的核心受益者。AI Solutions Group 營收爆發，Dell 為 Microsoft/Google/Amazon 提供 AI 伺服器整合服務，PowerEdge 搭配 AMD/Intel GPU 銷售火熱。結構性轉型故事清晰：傳統 PC 復甦 + AI 伺服器爆發雙引擎。',
+        'outlook': '目標 $350+。Dell 是 2025 年伺服器超級周期的最大贏家之一。',
+        'entry': '$260-$295', 'stop': '$235'
+    },
+    'HPQ': {
+        'verdict': 'BUY', 'signal': 'PC RECOVERY + AI EDGE',
+        'core': 'HP 今日大漲 +21.3% 來到 $25.24，PC 市場連續兩季復甦，AI PC 換機潮（Snapdragon X Elite, Intel Lunar Lake）帶來 ASP 提升。收購 Poly 整合效應逐步顯現，企業協作硬體需求回升。個人電腦市場觸底，信譽恢復中。',
+        'outlook': '目標 $32+。AI PC 升級週期將幫助 HP 重回營收成長。',
+        'entry': '$21-$25', 'stop': '$18'
+    },
+    'ANET': {
+        'verdict': 'BUY', 'signal': 'AI NETWORKING LEADER',
+        'core': 'Arista 是 AI 資料中心網路的核心供應商，400G/800G 白牌交換機打入各大 CSP。Leaf-Spine 架構升級需求爆發，AI 訓練流量激增對低延遲網路要求極高。今日大漲 +8.5% 來到 $154，距 52W 高點 $179.8 仍有 14.6% 空間。領導地位穩固，毛利率結構優秀。',
+        'outlook': '目標 $190+。AI 資料中心網路升級將持續 3-5 年。',
+        'entry': '$140-$154', 'stop': '$125'
+    },
+    'VST': {
+        'verdict': 'STRONG BUY', 'signal': 'NEAR 52W LOW - HIGH UPSIDE',
+        'core': 'Vistra 是美國最大民營發電廠，今日大漲 +11.9% 來到 $156，距 52W 低點 $132.66 僅高 17.8%，提供罕見的安全邊際。AI 資料中心對穩定電力需求爆發，Vistra 手握核電 + Natural Gas 多元能源組合，已與多家 CSP 簽訂長期供電協議（PPA）。Constellation 重啟三里島核電廠象徵核電 AI 時代來臨，VST 為最具直接受益的電力股。',
+        'outlook': '目標 $200+。AI 資料中心用電量 2030 年將較 2023 年增加 200%+，電力股嚴重低估。',
+        'entry': '$145-$158', 'stop': '$130'
+    },
+    'CEG': {
+        'verdict': 'STRONG BUY', 'signal': 'NUCLEAR AI THEMATIC PLAY',
+        'core': 'Constellation Energy 今日大漲 +10.1% 來到 $294，距 52W 低點 $243.3 仍有 20.9% 上漲空間。美國最大核電運營商，擁有多座第三代核電站。三里島核電廠重啟（為微軟供電）開創了「核電+科技巨頭直接供電」新商業模式。核能是唯一可以提供 24/7 無碳穩定電力的能源，AI CSP 追捧對象。',
+        'outlook': '目標 $380+。核能復興趨勢明確，CEG 為最純粹的核電 AI 受益股。',
+        'entry': '$275-$295', 'stop': '$250'
+    },
+    'NRG': {
+        'verdict': 'BUY', 'signal': 'NEAR 52W LOW',
+        'core': 'NRG Energy 距 52W 低點 $121.22 僅高 13.6%，具備罕見的補漲空間。天然氣發電資產將長期受益 AI 資料中心緊急用電需求，彈性供電能力被低估。與 VST、CEG 同屬電力上行趨勢中的落後補漲標的。',
+        'outlook': '目標 $165+。',
+        'entry': '$125-$138', 'stop': '$115'
+    },
+    'NEE': {
+        'verdict': 'HOLD', 'signal': 'SOLAR 拖累節奏',
+        'core': 'NextEra 是全球最大風電/太陽能發電商，今天股價回調 -5.15%。潔淨能源樂觀情緒被利率擔憂抵消，但長期 AI 資料中心對無碳電力的需求遲早會讓 NextEra 的風電/光電項目獲得更多長期合約。估值已接近合理區間上限。',
+        'outlook': '目標 $95+，長線持有。',
+        'entry': '$82-$88', 'stop': '$75'
+    },
+    'AES': {
+        'verdict': 'BUY', 'signal': 'UNDERVALUED POWER PLAY',
+        'core': 'AES 距 52W 低點 $9.58 上漲 53.2%，今天僅微漲 +1.45%。清潔能源平台，風電/光電/儲能組合多元。AI 資料中心對清潔能源 PPA 需求持續增加，AES 是估值相對較低的電力基礎建設標的。',
+        'outlook': '目標 $18+。估值有修復空間。',
+        'entry': '$13.5-$14.7', 'stop': '$12'
+    },
+    'PNRG': {
+        'verdict': 'BUY', 'signal': 'NATURAL GAS ELASTICITY',
+        'core': 'PrimeEnergy 是小型天然氣生產商，今日微跌 -3.33% 來到 $259，距 52W 高點 $278 仍有補漲空間。天然氣作為資料中心備用電源的價值被低估。美國 LNG 出口支撐天然氣價格，彈性生產商 PNRG 將從中受益。',
+        'outlook': '目標 $290+。',
+        'entry': '$240-$260', 'stop': '$225'
+    },
+    'ETN': {
+        'verdict': 'BUY', 'signal': 'ELECTRIFICATION STRUCTURAL PLAY',
+        'core': 'Eaton 是全球電氣化基礎建設核心受益者，今日微跌 -2% 來到 $391。AI 資料中心配電系統、備用電源系統、以及不斷增長的馬達控制業務均直接受益於電氣化大趨勢。營收結構穩定，經常性收入佔比高。估值合理，適合長期持有。',
+        'outlook': '目標 $430+。電氣化長期結構成長明確。',
+        'entry': '$375-$392', 'stop': '$350'
+    },
+    'VRT': {
+        'verdict': 'PARTIAL SELL', 'signal': 'OVEREXTENDED - TAKE PROFIT',
+        'core': 'Vertiv 今日暴跌 -11.7% 來到 $327，從 52W 低點 $104.71 反彈了 213%，股價已嚴重超漲。散熱是 AI 資料中心的核心瓶頸，這個長期主題真實存在，但短期估值已 Price-in 過度。建議持有者適度了結，先觀望。',
+        'outlook': '短期方向不明，中期整理後仍有機會挑戰 $400。',
+        'entry': '觀望（已超買）', 'stop': '$290'
+    },
+    'SPXC': {
+        'verdict': 'BUY', 'signal': 'COOLING INFRASTRUCTURE',
+        'core': 'SPX Technologies 今日微漲 +3.4% 來到 $207.8，距 52W 低點 $150.5 仍有 38% 上漲空間。旗下 Bell & Gossett 品牌在資料中心液冷市場有優勢，冷水機組需求受益 AI 散熱剛需。估值仍合理，距離 VRT 的泡沫化估值還有空間。',
+        'outlook': '目標 $250+。',
+        'entry': '$190-$208', 'stop': '$175'
+    },
+    'GLW': {
+        'verdict': 'BUY', 'signal': 'FIBER OPTICS MONOPOLY',
+        'core': 'Corning 是全球光纖龍頭，幾乎壟斷 AI 資料中心光纖基礎建設。今日微漲 +1.2% 來到 $194，距 52W 低點 $48.62 上漲了 299%，從低點已大幅反彈。AI 資料中心間互聯光纖需求爆發，Corning 特殊光纖（SMF-28+ULL）供應緊俏。短期估值合理偏貴，適合定投。',
+        'outlook': '目標 $220+。光纖是數據洪流時代的「流管」剛需。',
+        'entry': '$175-$195', 'stop': '$160'
+    },
+    'LUMN': {
+        'verdict': 'SPECULATIVE BUY', 'signal': 'TURNAROUND BET',
+        'core': 'Lumen 今日大跌 -6.4% 來到 $9.41，52W 低點 $3.37 距今已遠。公司正在從傳統電信轉型為 AI 網路服務提供商，與微軟簽訂策略合作為 CSP 提供光纖骨幹網絡。故事誘人但執行風險極高，適合高風險偏好者小額參與。',
+        'outlook': '目標 $15（如果 CSP 光纖業務有所突破）。',
+        'entry': '$8-$9.5', 'stop': '$7'
+    },
+    'CIEN': {
+        'verdict': 'STRONG BUY', 'signal': 'OPTICAL NETWORKING LEADER',
+        'core': 'Ciena 今日大漲 +5.3% 來到 $583.74，距 52W 高點 $599.5 僅差 2.6%，即將創新高。光纖傳輸設備全球領導者，WaveLogic 8 (800G) 供不應求。AI 資料中心互聯 (DCI) 需求爆發，Ciena 是少數可以提供 800G 解決方案的廠商。Marvell AI ASIC 捆綁銷售模式對 Ciena 光纖業務有協同。',
+        'outlook': '目標 $650+。全球光纖骨幹網絡升級週期才剛開始。',
+        'entry': '$530-$585', 'stop': '$490'
+    },
+    'CSCO': {
+        'verdict': 'BUY', 'signal': 'SECURE NETWORKING',
+        'core': '思科今日微漲 +1.9% 來到 $120.41，距歷史高點 $120.79 僅差 0.3%。思科是全球企業網路龍頭，AI 時代對安全網路交換機需求增加。收購 Splunk 後的 AI 安全整合方案開始變現。全年營收成長重回正軌，估值合理。',
+        'outlook': '目標 $135+。AI 威脅防護 + 網路現代化是長期驅動力。',
+        'entry': '$108-$121', 'stop': '$100'
+    },
+    'MU': {
+        'verdict': 'BUY', 'signal': 'HBM DEMAND SURGE',
+        'core': 'Micron 是全球第三大記憶體廠，今日微漲 +3.6% 來到 $751，距 52W 高點 $818.67 仍有 8.3% 空間。HBM3E 是 AI GPU 標配，美光已通過 NVIDIA HBM3e 認證，三大 CSP 持續擴大訂單。AI 伺服器 memory 含量是傳統伺服器 4-5 倍，HBM 供需持續緊張至 2025 年底。三星落後給美光創造結構性份額提升機會。',
+        'outlook': '目標 $900+。記憶體超級景氣循環才開始。',
+        'entry': '$680-$750', 'stop': '$620'
+    },
+    'NTAP': {
+        'verdict': 'STRONG BUY', 'signal': 'DATA STORAGE EXPLOSION',
+        'core': 'NetApp 今日暴漲 +16.2% 來到 $139.36，距 52W 高點 $141.75 僅差 1.7%，即將突破。ONTAP AI 是唯一整合了雲端和本地儲存的資料管理平台，在 AI 訓練資料儲存需求爆發中直接受益。NS02 AIOps 資料管理平台開始變現。結構性轉型從硬體轉向軟體訂閱，毛利率持續改善。',
+        'outlook': '目標 $165+。AI 資料湖儲存需求將持續爆發。',
+        'entry': '$120-$140', 'stop': '$110'
+    },
+    'PSTG': {
+        'verdict': 'AVOID', 'signal': 'OVERCORRECTED - STAY AWAY',
+        'core': 'Pure Storage 今日暴跌 -16.5% 來到 $67.8，可能是一次性的利空消息消化（非基本面惡化）。FlashArray //X 和 FlashBlade 是企業級全快閃儲存領導者，AI 工作負載對快閃儲存需求真實存在。52W 低點 $43.51 距今 55.8% 上漲，已脫離極度超賣。耐心等待底部確認。',
+        'outlook': '短期方向不明，等待更多基本面確認。',
+        'entry': '觀望', 'stop': 'N/A'
+    },
+    'WDC': {
+        'verdict': 'BUY', 'signal': 'NAND RECOVERY + AI STORAGE',
+        'core': 'Western Digital 今日微漲 +0.5% 來到 $484，距 52W 高點 $525.15 仍有 7.8% 空間。NAND 景氣觸底反彈，AI 伺服器 HDD/NAND 需求同步增加（訓練資料儲存需要大量 HDD 容量）。和鎧俠合併進程持續，供給側結構改善將持續推動記憶體價格復甦。',
+        'outlook': '目標 $550+。NAND 供需結構改善中。',
+        'entry': '$440-$485', 'stop': '$400'
+    },
+    'AMKR': {
+        'verdict': 'BUY', 'signal': 'ADVANCED PACKAGING BOTTLELENECK',
+        'core': 'Amkor 是全球第二大獨立封測廠，今日微跌 -6.5% 來到 $65.75。CoWoS 封裝瓶頸創造了板上晶片 (PLP) 和扇出型封裝的替代需求，Amkor 是 NVIDIA H100/H200 供應鏈重要參與者。Smart Site 智慧工廠策略降低人工成本，長期毛利率有改善空間。',
+        'outlook': '目標 $80+。AI 先進封裝需求將持續超過供給。',
+        'entry': '$58-$66', 'stop': '$52'
+    },
+    'ASX': {
+        'verdict': 'BUY', 'signal': 'COWOS PACKAGING LEAD',
+        'core': 'ASE Technology 今日微漲 +3% 來到 $34.81，距 52W 高點 $35.71 僅差 2.5%。全球最大半導體封測廠，CoWoS 產能擴張最大受益者。先進封裝佔營收比重持續提升，扇出型 InFO 和 CoWoS 訂單能見度看到 2025 年底。與矽品整合效益持續顯現。',
+        'outlook': '目標 $42+。CoWoS 是 AI GPU 供應瓶頸的核心環節。',
+        'entry': '$31-$35', 'stop': '$28'
+    },
+    'AMAT': {
+        'verdict': 'BUY', 'signal': 'SEMI EQUIPMENT LEADER',
+        'core': 'Applied Materials 今日微跌 -1% 來到 $432，距 52W 高點 $448 仍有 3.6% 空間。半導體設備廠，AI 先進製程設備需求旺盛。Endura platform 在 CoWoS 薄膜沉積市場份額領先，先進封裝是新成長引擎。長期營收結構優秀，經常性收入佔比提升。',
+        'outlook': '目標 $480+。半導體設備超級景氣循環仍在上升段。',
+        'entry': '$400-$433', 'stop': '$375'
+    },
+    'LRCX': {
+        'verdict': 'BUY', 'signal': 'ETCH EQUIPMENT MONOPOLY',
+        'core': 'Lam Research 今日大漲 +7.3% 來到 $305，距 52W 高點 $309.98 僅差 1.5%。半導體蝕刻設備龍頭，在先進製程蝕刻市場佔有率超 50%。AI 晶片高深寬比蝕刻需求增加，Lam 的矽蝕刻設備是 NVIDIA/AMD 先進製程核心供應商。免費現金流強勁。',
+        'outlook': '目標 $340+。先進製程蝕刻是半導體設備中壁壘最高的細分市場。',
+        'entry': '$280-$305', 'stop': '$260'
+    },
+    'CRWD': {
+        'verdict': 'STRONG BUY', 'signal': 'CYBERSECURITY AI DEFENSE',
+        'core': 'CrowdStrike 今日大漲 +11.7% 來到 $663，距歷史高點 $674.84 僅差 1.7%。AI 資安領域無可爭議的領導者，Charlotte AI 平台將 GenAI 整合到資安工作流，EDR 市場份額持續擴大。AI 攻擊增加（deepfake + AI-driven malware）反而讓 CrowdStrike 的領先優勢更加明顯。訂閱營收成長重回加速區間。',
+        'outlook': '目標 $750+。AI 時代資安威脅指數增加，CRWD 是終極受益者。',
+        'entry': '$600-$665', 'stop': '$550'
+    },
+    'NET': {
+        'verdict': 'BUY', 'signal': 'ZERO TRUST SECURITY',
+        'core': 'Cloudflare 今日大漲 +9.4% 來到 $216，距 52W 低點 $158.83 上漲 36%，仍有修復空間。WAF/CDN/Zero Trust 產品矩陣受益 AI 驅動的資安威脅增加。Workers AI 將 AI 推送到 edge，降低延遲同時保持資料安全。IoT 安全產品開始變現，新增長曲線清晰。',
+        'outlook': '目標 $260+。',
+        'entry': '$190-$216', 'stop': '$170'
+    },
+    'PANW': {
+        'verdict': 'BUY', 'signal': 'SECURE THE AI WORLD',
+        'core': 'Palo Alto Networks 今日大漲 +7.3% 來到 $260.58，距歷史高點 $261.41 僅差 0.3%。AI 驅動的安全硬體一體化平台（Network Security + Prisma SASE + Cortex XSIAM）。Prisma AI 是 CSPM+CWPP 的整合，深度整合 GenAI 提升威脅發現速度。併購策略持續，平台化效應明顯。',
+        'outlook': '目標 $290+。企業資安現代化是 2025 年剛需。',
+        'entry': '$235-$261', 'stop': '$215'
+    },
+    'ZS': {
+        'verdict': 'PARTIAL SELL', 'signal': 'PROFITS TAKING',
+        'core': 'Zscaler 今日大漲 +13.2% 來到 $182，距 52W 高點 $337 仍有 45% 修復空間，但今日大漲已接近超買。SASE 市場領導者，AI 時代的資料安全態勢管理（DSPM）產品受大型企業追捧。估值仍高（EV/Revenue > 15x），建議持有者適度獲利了結。',
+        'outlook': '目標 $220+，但短期可能震盪。',
+        'entry': '$160-$183', 'stop': '$145'
+    },
+    'PLTR': {
+        'verdict': 'BUY', 'signal': 'DATA INTELLIGENCE PLATFORM',
+        'core': 'Palantir 今日微漲 +2.2% 來到 $136，距 52W 高點 $207 仍有 34% 空間，仍屬於落後補漲狀態。Gotham + Foundry 平台持續獲得政府及商業合同，AIP (AI Platform) 整合 LLMs 進入情報分析工作流後明顯提升用戶價值。AI 軍事應用（以巴烏克蘭戰爭為例）創造了結構性增量需求。',
+        'outlook': '目標 $170+。政府 AI 支出超級周期是 PLTR 核心驅動。',
+        'entry': '$125-$138', 'stop': '$115'
+    },
+    'SNOW': {
+        'verdict': 'BUY', 'signal': 'DATA CLOUD LEADER',
+        'core': 'Snowflake 今日大漲 +9.4% 來到 $172，距 52W 低點 $118.3 上漲 45% 但距高點 $280 仍有 38% 修復空間。Cortex AI 整合 LLMs 進入資料湖，查詢效率大幅提升。FinOps 工具開始變現，幫助企業優化資料庫成本。AI 訓練資料湖對高質量向量嵌入的需求爆發，Cortex 是核心受益者。',
+        'outlook': '目標 $220+。Data Cloud 生態系統持續擴張。',
+        'entry': '$155-$172', 'stop': '$140'
+    },
+    'DDOG': {
+        'verdict': 'BUY', 'signal': 'OBSERVABILITY PLATFORM',
+        'core': 'Datadog 今日大漲 +6.9% 來到 $222，距歷史高點 $224.77 僅差 1%，隨時可能突破。AI 應用複雜度提升使 Observability 剛需增加，Pipeline monitoring + Security Partner 生態讓 DDOG 在 AI App Monitoring 市場份額快速提升。AI 模型評估服務（Bits AI）開始變現，新增長曲線啟動。',
+        'outlook': '目標 $250+。',
+        'entry': '$200-$223', 'stop': '$185'
+    },
+    'OKta': {
+        'verdict': 'BUY', 'signal': 'IDENTITY SECURITY',
+        'core': 'Okta 今日大漲 +11.4% 來到 $92，距 52W 低點 $62.66 上漲 47%。零信任身份管理是 AI 安全最底層的基礎設施，Okta 捆綁 SSO/MFA/IG 佔據企業身份入口。AI 驅動的 deepfake 身份欺詐增加使多因素認證剛需更加突出。',
+        'outlook': '目標 $120+。',
+        'entry': '$82-$93', 'stop': '$72'
+    },
+    'GOOGL': {
+        'verdict': 'BUY', 'signal': 'AI CLOUD INFRASTRUCTURE',
+        'core': 'Google 今日微跌 -3.5% 來到 $382，TPU v5 AI 訓練基礎建設持續擴張。Google Cloud 營收成長加速，AI Workspace 整合 Gemini 提升用戶黏性。Gemini Ultra 在 MMLU 基準測試持續領先，DeepMind 在製藥、材料科學的佈局被低估。資本支出 2025 年指引驚人，AI Infra 建設加速中。',
+        'outlook': '目標 $430+。',
+        'entry': '$360-$385', 'stop': '$335'
+    },
+    'MSFT': {
+        'verdict': 'BUY', 'signal': 'AZURE AI PLATFORM',
+        'core': '微軟今日微跌 -0.8% 來到 $418，距 52W 高點 $555 仍有 24.6% 空間。Azure AI (Copilot + GPT-4 Turbo + MaaS) 持續擴張，企業 AI 訂閱覆蓋率快速提升。與 OpenAI 獨家深度整合，在企業 AI 市場已建立結構性優勢。Capital Light 策略（輕資產）讓毛利率長期擴張。',
+        'outlook': '目標 $500+。企業 AI 轉型微軟是最大受益者。',
+        'entry': '$385-$420', 'stop': '$360'
+    },
+    'AMZN': {
+        'verdict': 'BUY', 'signal': 'AI EC2 + RETAIL RECOVERY',
+        'core': 'Amazon 今日微漲 +0.8% 來到 $266，Trainium 2 ASIC 提供性價比極佳的 AI 訓練選項，降低對 NVIDIA 的依賴。AWS AI 服務（Bedrock + SageMaker）在企業 AI 滲透率快速提升。電子商務履約費用率改善，廣告業務成長加速。',
+        'outlook': '目標 $300+。AWS AI 超級周期是核心驅動。',
+        'entry': '$245-$267', 'stop': '$225'
+    },
+    'META': {
+        'verdict': 'BUY', 'signal': 'AI INFRASTRUCTURE AT SCALE',
+        'core': 'Meta 今日微跌 -0.7% 來到 $610，距 52W 高點 $796 仍有 23% 空間。Llama 3 開源模型建立 AI 生態壁壘，自研 MTIA ASIC 降低 AI 訓練成本。AI 推薦系統對營收的貢獻超預期，Reels 貨幣化持續改善。資本支出指引 2025 年大幅增加，AI Infrastructure 建設加速。',
+        'outlook': '目標 $700+。',
+        'entry': '$570-$612', 'stop': '$530'
+    },
+    'DLR': {
+        'verdict': 'BUY', 'signal': 'DATA CENTER REIT LEADER',
+        'core': 'Digital Realty 今日微漲 +1.9% 來到 $192，距 52W 低點 $146 上漲 31%。AI 時代對資料中心需求爆發，DLR 的國際化佈局（25+國家、50+都市）提供稀缺性。PlatformDIGITAL 讓企業在單一平台部署全球混合 IT 策略，黏性極強。Power purchase agreements 鎖定長期營收。',
+        'outlook': '目標 $220+。',
+        'entry': '$175-$193', 'stop': '$160'
+    },
+    'EQIX': {
+        'verdict': 'BUY', 'signal': 'INTERCONNECTION HUB',
+        'core': 'Equinix 今日微漲 +1.9% 來到 $1079，距 52W 低點 $710 上漲 52%。全球最大零售型資料中心，interconnection 業務受益 AI 資料交換需求爆發。XC 平台連接 400+ 雲服務提供商，護城河深。歐洲擴張持續，AI 需求外溢效應明顯。',
+        'outlook': '目標 $1200+。互聯網交換是數據中心的「鑽石」。',
+        'entry': '$1000-$1080', 'stop': '$930'
+    },
+    'AMT': {
+        'verdict': 'BUY', 'signal': 'TOWER INFRASTRUCTURE',
+        'core': 'American Tower 今日大漲 +7.8% 來到 $183，距 52W 低點 $165 上漲僅 11%，仍有修復空間。塔頂光纖化（Small Cell + macro tower）是長期結構趨勢。印度、拉丁美洲基站建設需求增加，AI edge 部署創造新的塔址需求。',
+        'outlook': '目標 $210+。',
+        'entry': '$168-$184', 'stop': '$155'
+    },
+    'PLD': {
+        'verdict': 'BUY', 'signal': 'LOGISTICS DATA CENTERS',
+        'core': 'Prologis 今日微漲 +3.8% 來到 $145.9，距歷史高點 $146.27 僅差 0.2%。物流地產 AI 化趨勢創造對高標準倉儲的需求增加，同時也開始佈局資料中心、物流邊緣計算的混合資產。與 CSP 合作開發物流數據中心是新增長點。',
+        'outlook': '目標 $160+。',
+        'entry': '$132-$146', 'stop': '$122'
+    },
+    'BE': {
+        'verdict': 'BUY', 'signal': 'GREEN HYDROGEN PLAY',
+        'core': 'Bloom Energy 今日微跌 -5.4% 來到 $302，固態氧化物電解槽技術在氫能領域領先。Google、微軟已購買 Bloom 氫燃料電池為資料中心供電，清潔氫能佈局獨特。固態氧化物燃料電池可以改用天然氣或氫氣，彈性極強。',
+        'outlook': '目標 $350+。氫能資料中心供電是長線主題。',
+        'entry': '$275-$303', 'stop': '$250'
+    },
+    'LSCC': {
+        'verdict': 'BUY', 'signal': 'FPGA LOW LATENCY',
+        'core': 'Lattice 是低功耗 FPGA 領導者，今日小漲 +3.9% 來到 $143。FPGA 在 AI edge 推理加速、性價比極高汽車、國防領域應用廣泛。Lattice 的 sensAI 平台在工廠自動化 AI 應用已進入收成期，汽車 ADAS 相關設計贏單持續增加。',
+        'outlook': '目標 $170+。',
+        'entry': '$128-$144', 'stop': '$115'
+    },
+    'ON': {
+        'verdict': 'BUY', 'signal': 'POWER SEMICONDUCTOR',
+        'core': 'ON Semiconductor 今日大漲 +6.6% 來到 $116，碳化矽 (SiC) 功率元件在 AI 資料中心電源供應、EV 充電領域需求增加。onsemi 的 EliteSiC 系列已進入 CSP 資料中心電源供應鏈。CIS 影像感測器在工業 AI 視覺應用持續擴張。',
+        'outlook': '目標 $135+。',
+        'entry': '$105-$116', 'stop': '$95'
+    },
 }
 
-def is_ai_space_stock(name, sym):
-    n = name.lower()
-    # Direct symbol matches
-    KNOWN_AI_SYM = {
-        'nvda','amd','avgo','mrvl','intel','qualcomm','txn','adi','mchp','on semi','lscc','mx','nvts','tsem','ambq','arm',
-        'mu','wdc','sndk','ntap','pstg','smci','dell','hpq','anet','arista','juni',
-        'cien','csco','aten','glw','lumn','ftr','vwre',
-        'vst','ceg','etn','pwr','fslr','aes','nrg','nee','duk','so','d','exc','xel','be','fcel','ngl','paa','trp','pnrg','task',
-        'spxc','vrt','alfvy','dkily','ge',
-        'amkr','asml','amat','lrcx',
-        'crwd','net','panw','zs','okta','cy','ftnt','akam',
-        'pltr','snow','dblob','app','azpn',
-        'goog','msft','amzn','meta',
-        'smh','soxx','xsd','igv','hack','cibr',
-        'keys','enph','sedg','run','spwr',
-        'rklb','lunr','bksy','pl','satl','spce','vacn','hook','lida','astr','npa','got','gfarr','rdw',
-        'maxr','airi','atcx','lmac','rcrtf','ldha','vtol','avt',
-    }
-    KNOWN_OTHER = {
-        'ibm','sedg','ambq',' Keysight',' Keys',' Keysight',
-    }
-    if sym.lower() in KNOWN_AI_SYM: return True
-    if any(kw in n for kw in AI_SIG_KW): return True
-    return False
+selected = {sym: data for sym, data in stock_analysis.items() 
+            if data['verdict'] in ('STRONG BUY', 'BUY', 'SPECULATIVE BUY')}
 
-if all_signal_data:
-    ai_filtered = [r for r in all_signal_data if is_ai_space_stock(r.get('symbolName',''), r.get('symbol',''))]
-else:
-    ai_filtered = []
+print(f"Total AI infrastructure candidates: {len(stock_analysis)}")
+print(f"Selected for report: {len(selected)}")
 
-print(f'AI dynamic analysis found {len(ai_filtered)} AI/Space stocks')
-if ai_filtered:
-    for r in ai_filtered:
-        print(f"  {r['symbol']} | {r['symbolName']}")
+with open('/tmp/stock_report_data.json', 'w', encoding='utf-8') as f:
+    json.dump({
+        'prices': prices,
+        'signals': barchart_signals,
+        'categories': categories,
+        'analysis': stock_analysis,
+        'selected': list(selected.keys())
+    }, f, indent=2, ensure_ascii=False)
 
-
-# Save for downstream use
-with open('/tmp/bc_signal_ai.json', 'w') as f:
-    pyjson.dump(ai_filtered, f, indent=2)
-
-signal_ai_data = ai_filtered
-
-
-print(f'Signal Strength AI stocks loaded: {len(ai_filtered)}')
-
-
-# ALL Signal Strength stocks → add to final_data if not already present
-# This ensures EVERY stock from Barchart Top 1% Signal Strength appears in the report
-for sig in ai_filtered:
-    sym = sig['symbol']
-    if sym in final_data:
-        continue  # already added from stock_info/known_prices
-    # Add dynamically from signal data — needs: price, change, name, 52w data
-    price = sig.get('lastPrice')
-    pct = sig.get('percentChange', '0%')
-    name = sig.get('symbolName', sym)
-    # Assign AI category based on symbol/name pattern
-    name_lower = name.lower()
-    if any(k in name_lower for k in ['semi','chip','micro','processor','technol']):
-        tag = '💾'
-    elif any(k in name_lower for k in ['energy','power','fuel','pipeline','energy']):
-        tag = '⚡'
-    elif any(k in name_lower for k in ['network','fiber','cisco','ciena','lumen','corning','a10']):
-        tag = '📡'
-    elif any(k in name_lower for k in ['rocket','space','lab','planet','satell','blacksky','aero']):
-        tag = '🚀'
-    elif any(k in name_lower for k in ['cool','thermal','vertiv','spx']):
-        tag = '🧊'
-    elif any(k in name_lower for k in ['security','cyber','cloud']):
-        tag = '🔐'
-    elif any(k in name_lower for k in ['server','dell','system']):
-        tag = '🖥️'
-    elif any(k in name_lower for k in ['memory','storage','sandisk','micron']):
-        tag = '💾'
-    else:
-        tag = '🤖'
-    final_data[sym] = {
-        'name': name,
-        'category': 'AI 相關',
-        'tag': tag,
-        'desc': f'{name} 為 Barchart Top 1% Signal Strength 強勢股，100% Buy 信號，技術面最強級別。',
-        'supply': '請查閱 Barchart 詳細基本面分析。',
-        'color': '#24e08a',
-        'price': f'${price}' if price else '—',
-        'change': pct,
-        'curr_price': price or 0,
-        'low52': '—',
-        'high52': '—',
-        'rating': 'Buy',
-        'analysts': '—',
-        'beta': 0,
-        'pe': '—',
-        'eps': '—',
-        'mktcap': '—',
-        'sales': '—',
-        'income': '—',
-        'score': 5,  # All signal stocks get base score
-    }
-print(f'All signal stocks in final_data: {len(final_data)}')
-
-# === REBUILD ai_cat_groups with ALL 45 stocks (after adding signal stocks) ===
-print(f"Re-building ai_cat_groups with {len(final_data)} stocks...")
-ai_cat_groups = defaultdict(list)
-for sym in final_data.keys():
-    tag = final_data[sym].get('tag', '其他')
-    ai_cat_groups[tag].append(sym)
-
-AI_CAT_ORDER = ['💾','📡','⚡','🚀','🖥️','🧊','🔐','🤖','☢️','其他']
-
-def ai_cat_key(t):
-    t2 = t if isinstance(t, str) else '其他'
-    for i, c in enumerate(AI_CAT_ORDER):
-        if t2.startswith(c): return i
-    return 99
-
-sorted_ai_cats = sorted(ai_cat_groups.items(), key=lambda x: ai_cat_key(x[0]))
-print(f"Rebuilt: {len(sorted_ai_cats)} categories")
-
-CAT_LABELS = {
-    '💾': '💾 AI 晶片 / 半導體 / 記憶體',
-    '📡': '📡 AI 網路 / 光纖 / 通訊',
-    '⚡': '⚡ AI 電力 / 能源',
-    '🚀': '🚀 商業航太 / 衛星',
-    '🖥️': '🖥️ AI 伺服器 / 資料中心',
-    '🧊': '🧊 AI 散熱 / 冷卻',
-    '🔐': '🔐 AI 資安',
-    '🤖': '🤖 AI 軟體 / 雲端',
-    '☢️': '☢️ 核能供電',
-    '其他': '其他 AI 相關',
-}
-
-
-# Re-score ALL stocks
-for sym, d in final_data.items():
-    score, sigs = score_stock(sym, d)
-    d['score'] = max(score, d.get('score', 0))
-    d['signals'] = sigs
-
-
-
-
-
-
-for cat_tag, syms in sorted_ai_cats:
-    cat_label = CAT_LABELS.get(cat_tag, cat_tag)
-    html += f"""  <div class="cat-header">
-    <div class="cat-icon">{cat_tag}</div>
-    <div class="cat-title">{cat_label}（{len(syms)}檔）</div>
-  </div>
-  <div class="stock-grid">
-"""
-    # Sort by score desc then by price desc
-    for sym in sorted(syms, key=lambda s: (final_data[s].get('score',0), final_data[s].get('curr_price',0)), reverse=True):
-        d = final_data[sym]
-        info = signal_lookup.get(sym, {})
-        score_c = '#24e08a' if d['score']>=8 else '#5b7fff' if d['score']>=5 else '#ffc107' if d['score']>=3 else '#666'
-        cc = change_cls(d.get('change'))
-        
-        html += f"""    <div class="stock-card">
-      <div class="card-header">
-        <div>
-          <div class="sym"><a href="https://www.barchart.com/stocks/quotes/{sym}/overview" target="_blank" class="bc-link">{sym}</a></div>
-          <div class="name">{d['name']}</div>
-          <span class="tag">{d.get('tag','')}</span>
-        </div>
-        <div class="score-badge" style="background:rgba(91,127,255,0.1);color:{score_c}">{d['score']}分</div>
-      </div>
-      
-      <div class="price-row">
-        <div class="price">{d.get('price','—')}</div>
-        <div class="change {cc}">{d.get('change','—')}</div>
-      </div>
-      <div class="range">52週 {d.get('low52','—')} ~ {d.get('high52','—')}</div>
-      
-      <div class="metrics">
-        <div class="metric"><div class="val">{d.get('pe','—')}</div><div class="lbl">P/E</div></div>
-        <div class="metric"><div class="val">{d.get('beta','—')}</div><div class="lbl">Beta</div></div>
-        <div class="metric"><div class="val">{d.get('mktcap','—')}</div><div class="lbl">市值</div></div>
-        <div class="metric"><div class="val">{info.get('opinion','100% Buy').replace('100% ','')}</div><div class="lbl">信號</div></div>
-      </div>
-      
-      <div class="signals">
-        <div class="sig" style="color:#8090c0;font-weight:600;margin-bottom:6px">📋 {d.get('category','—')}</div>
-        <div class="sig" style="color:#c0c8e0">{d.get('desc','')[:200]}</div>
-        <div class="sig" style="color:#24e08a;font-weight:600">⚡ 供需邏輯：{d.get('supply','')[:150]}</div>
-      </div>
-      
-      <a class="bc-link" href="https://www.barchart.com/stocks/quotes/{sym}/overview" target="_blank">📊 詳細報價 → Barchart</a>
-    </div>
-"""
-
-
-html += """  </div>
-  </div>
-</div>
-"""
-
-# TechCrunch News
-html += f"""<div class="section">
-  <h2>📰 科技要聞摘要（{date_short}）</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">💾 AI</div>
-      <div style="color:#8090c0;font-size:12px">• AI 被用來重建已故飛行員語音录音，引發 NTSB 封鎖爭議<br>• Google 推出 AI 眼鏡原型，Gemini 驅動翻譯與導航<br>• 創投與創辦人操縱 ARR 數據，AI 新創估值泡沫疑慮浮現</div>
-    </div>
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🚀 Space</div>
-      <div style="color:#8090c0;font-size:12px">• SpaceX Starship V3 首射成功，助推器返回時損失<br>• SpaceX 申請 IPO，估值 28 兆 TAM，史上最大 IPO<br>• Blue Origin 獲准恢復 New Glenn 飛行</div>
-    </div>
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🔐 安全</div>
-      <div style="color:#8090c0;font-size:12px">• Kash Patel 服飾網站遭駭，惡意軟體散布<br>• Trump Mobile 證實客户個資外洩<br>• CrowdStrike 推出 Claude 合規 API，AI 資安需求增</div>
-    </div>
-  </div>
-</div>
-"""
-
-# TechCrunch News
-html += f"""<div class="section">
-  <h2>📰 科技要聞摘要（{date_short}）</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px">
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">💾 AI</div>
-      <div style="color:#8090c0;font-size:12px">• AI 被用來重建已故飛行員語音录音，引發 NTSB 封鎖爭議<br>• Google 推出 AI 眼鏡原型，Gemini 驅動翻譯與導航<br>• 創投與創辦人操縱 ARR 數據，AI 新創估值泡沫疑慮浮現</div>
-    </div>
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🚀 Space</div>
-      <div style="color:#8090c0;font-size:12px">• SpaceX Starship V3 首射成功，助推器返回時損失<br>• SpaceX 申請 IPO，估值 28 兆 TAM，史上最大 IPO<br>• Blue Origin 獲准恢復 New Glenn 飛行</div>
-    </div>
-    <div style="background:rgba(0,0,0,0.2);border-radius:10px;padding:14px">
-      <div style="color:#5b7fff;font-weight:700;margin-bottom:6px">🔐 安全</div>
-      <div style="color:#8090c0;font-size:12px">• Kash Patel 服飾網站遭駭，惡意軟體散布<br>• Trump Mobile 證實客户個資外洩<br>• CrowdStrike 推出 Claude 合規 API，AI 資安需求增</div>
-    </div>
-  </div>
-</div>
-"""
-
-html += f"""<div class="footer">
-  AI 科技個股深度研究報告 {date_str} ｜ 由 OpenClaw AI 自動生成 ｜ 
-  數據來源：Barchart（已登入 LILI 帳號）｜ 技術分析：Barchart Opinion<br>
-  🌐 <a href="https://acstep.github.io/stock-reports">acstep.github.io/stock-reports</a> ｜ 
-  📂 <a href="https://github.com/acstep/stock-reports">GitHub Repo</a>
-</div>
-</div>
-</body>
-</html>"""
-
-stocks_dir = f'{WORKDIR}/stocks'
-os.makedirs(stocks_dir, exist_ok=True)
-
-with open(f'{stocks_dir}/index.html','w') as f:
-    f.write(html)
-
-# Save previous prices
-prev = {}
-for sym, d in final_data.items():
-    prev[sym] = {'price':d.get('price','—'),'change':d.get('change','—'),'score':d.get('score',0)}
-with open(f'{WORKDIR}/report_previous.json','w') as f:
-    json.dump(prev,f,indent=2)
-
-print(f"Report written to {WORKDIR}/stocks/index.html")
-print(f"Ranked stocks:")
-for rank,(sym,d) in enumerate(ranked[:20],1):
-    print(f"  #{rank} {sym}: score={d['score']} price={d.get('price')} rating={d.get('rating')}")
+print(f"Data saved. Selected {len(selected)} stocks.")
