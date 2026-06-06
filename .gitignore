@@ -1,0 +1,21 @@
+# 私密認證 / 一次性腳本（不要 commit 到公開 repo）
+.credentials.js
+.env
+.env.*
+fetch_bc_*.js
+fetch_signals.js
+barchart_*.js
+*_login.js
+*_signals_scrape.js
+*_watchlist.js
+*_explore.js
+generate_*.py
+
+# Python / Node
+__pycache__/
+*.pyc
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
