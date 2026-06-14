@@ -5,28 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 美股研究報告 門戶</title>
     <style>
+        :root {
+            --bg: #080810;
+            --bg2: #0c0c1a;
+            --card-bg: #12121f;
+            --border: #2d2d44;
+            --text: #e0e0e0;
+            --text-dim: #888;
+            --accent: #818cf8;
+            --accent-hover: #a5b4fc;
+            --cyan: #00d4ff;
+            --green: #24e08a;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: #080810;
-            color: #e0e0e0;
-            font-family: 'PingFang TC', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 50px;
+            padding: 40px 20px;
+            line-height: 1.6;
         }
-        h1 { color: #fff; margin-bottom: 30px; }
+        h1 { color: #fff; margin-bottom: 8px; font-size: 2rem; text-align: center; }
+        .subtitle { color: var(--text-dim); margin-bottom: 32px; text-align: center; font-size: 0.95rem; }
+
+        /* 站台導覽 portal */
+        .portal {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            width: 100%;
+            max-width: 720px;
+            margin-bottom: 36px;
+        }
+        @media (max-width: 600px) { .portal { grid-template-columns: 1fr; } }
+        .portal a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.25s;
+            text-align: center;
+        }
+        .portal a:hover { transform: translateY(-3px); border-color: var(--accent); }
+        .portal a.active { border-color: var(--green); background: linear-gradient(135deg, rgba(36,224,138,0.08), rgba(91,127,255,0.05)); }
+        .portal a.featured { border-color: var(--cyan); background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(168,85,247,0.05)); }
+        .portal a.featured:hover { border-color: var(--cyan); box-shadow: 0 6px 20px rgba(0,212,255,0.2); }
+        .portal .ico { font-size: 1.8rem; margin-bottom: 6px; }
+        .portal .ttl { font-weight: 700; font-size: 0.95rem; color: #fff; }
+        .portal .desc { font-size: 0.75rem; color: var(--text-dim); margin-top: 4px; }
+        .portal a.featured .ttl { color: var(--cyan); }
+        .portal a.active .ttl { color: var(--green); }
+
+        /* 精選圖庫卡 */
+        .featured-gallery {
+            width: 100%;
+            max-width: 720px;
+            margin-bottom: 32px;
+        }
+        .featured-gallery a {
+            display: block;
+            background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(168,85,247,0.06));
+            border: 1px solid rgba(0,212,255,0.4);
+            border-radius: 12px;
+            padding: 20px 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s;
+        }
+        .featured-gallery a:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,212,255,0.15); }
+        .featured-gallery .tag { color: var(--cyan); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 6px; }
+        .featured-gallery h3 { color: #fff; font-size: 1.1rem; margin-bottom: 6px; }
+        .featured-gallery p { color: var(--text-dim); font-size: 0.85rem; }
+        .featured-gallery .meta { margin-top: 10px; display: flex; gap: 12px; font-size: 0.72rem; color: var(--text-dim); flex-wrap: wrap; }
+
+        /* 報告清單 */
         .report-list {
             list-style: none;
             padding: 0;
             width: 100%;
-            max-width: 600px;
+            max-width: 720px;
         }
+        .report-list h2 { color: #fff; font-size: 1.1rem; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
         .report-item {
-            background: #12121f;
+            background: var(--card-bg);
             margin-bottom: 10px;
             padding: 15px 20px;
             border-radius: 8px;
-            border: 1px solid #2d2d44;
+            border: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -34,21 +108,64 @@
         }
         .report-item:hover { background: #1a1a2e; }
         .report-link {
-            color: #818cf8;
+            color: var(--accent);
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
-        .report-date { color: #888; font-size: 0.9rem; }
+        .report-link:hover { color: var(--accent-hover); text-decoration: underline; }
+        .report-date { color: var(--text-dim); font-size: 0.85rem; }
+        footer { color: #555; font-size: 0.8rem; margin-top: 50px; text-align: center; }
     </style>
 </head>
 <body>
-    <h1>📑 AI 基礎建設美股研究報告 歸檔</h1>
+    <h1>📑 AI 基礎建設美股研究</h1>
+    <p class="subtitle">每日自動選股分析 · 繁體中文研究報告</p>
+
+    <!-- 站台導覽 -->
+    <nav class="portal">
+        <a href="index.html" class="active">
+            <div class="ico">📑</div>
+            <div class="ttl">研究報告</div>
+            <div class="desc">每日選股分析</div>
+        </a>
+        <a href="https://acstep.github.io/stock-charts/" class="featured" target="_blank">
+            <div class="ico">📊</div>
+            <div class="ttl">K 線圖庫</div>
+            <div class="desc">120 個交易日</div>
+        </a>
+        <a href="https://acstep.github.io/TECH/" target="_blank">
+            <div class="ico">📰</div>
+            <div class="ttl">AI 新聞</div>
+            <div class="desc">TechCrunch 中文</div>
+        </a>
+    </nav>
+
+    <!-- 圖庫精選卡（動態從 stock-charts 拉，預設 2026-06-14） -->
+    <div class="featured-gallery">
+        <a href="https://acstep.github.io/stock-charts/charts/2026-06-14.html" target="_blank">
+            <div class="tag">📊 每日 K 線圖庫｜2026年06月14日</div>
+            <h3>📈 40 檔 AI 基建股 · 120 個交易日（半年）K 線 + 成交量</h3>
+            <p>每日 14:00 從 Yahoo Finance 截圖 · 點任一張 K 線圖連到 Yahoo Finance 完整頁</p>
+            <div class="meta">
+                <span>📊 40 張 K 線</span>
+                <span>📅 120 個交易日（半年）</span>
+                <span>💹 含成交量</span>
+                <span>🔗 點圖連 Yahoo</span>
+            </div>
+        </a>
+    </div>
+
     <ul class="report-list">
+        <h2>📚 歷史報告</h2>
         <li class="report-item">
             <a href="report_2026-06-14.html" class="report-link">2026-06-14 AI 基礎建設報告</a>
             <span class="report-date">2026-06-14</span>
         </li>
     </ul>
+
+    <footer>
+        🚀 由 OpenClaw 自動生成 · <a href="https://github.com/acstep/stock-reports" style="color:var(--accent)">GitHub</a>
+    </footer>
 </body>
 </html>
