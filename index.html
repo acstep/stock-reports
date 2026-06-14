@@ -1,370 +1,54 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 基礎建設研究報告｜2026年06月13日</title>
-<style>
-:root { --bg: #080810; --bg2: #0c0c1a; --bg3: #10101f; --bg-card: #0e0e20; --border: rgba(255,255,255,0.07); --border-accent: rgba(91,127,255,0.3); --text: #e0e4f0; --text-dim: #7880a0; --text-muted: #444660; --accent: #5b7fff; --accent-glow: rgba(91,127,255,0.25); --green: #24e08a; --red: #f04040; --purple: #a855f7; --cyan: #06b6d4; --orange: #f97316; }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; }
-.wrap { max-width: 1140px; margin: 0 auto; padding: 28px 24px; }
-.site-header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-bottom: 1px solid var(--border); background: var(--bg2); position: sticky; top: 0; z-index: 100; }
-.site-header .logo { font-size: 18px; font-weight: 700; }
-.site-header .logo span { color: var(--accent); }
-.site-header .nav-links { display: flex; gap: 24px; }
-.site-header .nav-links a { color: var(--text-dim); font-size: 13px; font-weight: 500; transition: color 0.2s; }
-.site-header .nav-links a:hover { color: var(--accent); text-decoration: none; }
-.update-badge { font-size: 11px; color: var(--text-dim); background: var(--bg3); border: 1px solid var(--border); padding: 5px 12px; border-radius: 20px; font-family: monospace; }
-.hero { background: linear-gradient(135deg, #0a0a1a 0%, #0a2a1a 50%, #0a1a2a 100%); border: 1px solid rgba(36,224,138,0.4); border-radius: 24px; padding: 48px 52px; margin-bottom: 32px; text-align: center; position: relative; overflow: hidden; }
-.hero::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(36,224,138,0.15) 0%, transparent 70%); pointer-events: none; }
-.hero .hero-tag { display: inline-block; background: rgba(36,224,138,0.15); border: 1px solid #24e08a; color: #24e08a; font-size: 11px; font-weight: 600; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; letter-spacing: 1px; }
-.hero h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; position: relative; background: linear-gradient(90deg, #00ff88, #00d4ff, #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% auto; animation: shine 3s linear infinite; line-height: 1.3; }
-@keyframes shine { to { background-position: 200% center; } }
-.hero .subtitle { color: var(--text-dim); font-size: 15px; margin-bottom: 28px; }
-.hero .stats-row { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
-.hero .stat { text-align: center; }
-.hero .stat .val { font-size: 22px; font-weight: 700; color: var(--green); }
-.hero .stat .label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
-.section { margin-bottom: 32px; }
-.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-.section-header h2 { font-size: 17px; font-weight: 700; }
-.section-header .badge { font-size: 10px; padding: 3px 9px; border-radius: 10px; background: rgba(91,127,255,0.12); color: var(--accent); font-weight: 600; letter-spacing: 0.5px; }
-.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; margin-bottom: 16px; }
-.card:hover { border-color: var(--border-accent); box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
-.report-card { display: block; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; margin-bottom: 12px; transition: all 0.3s; text-decoration: none; }
-.report-card:hover { border-color: rgba(91,127,255,0.5); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(91,127,255,0.15); }
-.report-card .report-date { font-size: 11px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 6px; text-transform: uppercase; }
-.report-card h3 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
-.report-card .report-meta { display: flex; gap: 16px; font-size: 12px; color: var(--text-dim); margin-top: 10px; flex-wrap: wrap; }
-.report-card .report-meta span { display: flex; align-items: center; gap: 4px; }
-.report-card .arrow { float: right; font-size: 20px; color: var(--accent); margin-top: -24px; }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.theme-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; }
-.theme-card .theme-name { font-size: 13px; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-.theme-card .theme-stocks { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
-.theme-card .mini-chip { font-size: 10px; padding: 2px 7px; border-radius: 6px; font-weight: 600; }
-.footer { text-align: center; padding: 32px 0; color: var(--text-muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
-@media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } .hero { padding: 32px 24px; } .hero h1 { font-size: 22px; } .hero .stats-row { gap: 24px; } .site-header .nav-links { display: none; } }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 美股研究報告 門戶</title>
+    <style>
+        body {
+            background-color: #080810;
+            color: #e0e0e0;
+            font-family: 'PingFang TC', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+        h1 { color: #fff; margin-bottom: 30px; }
+        .report-list {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+            max-width: 600px;
+        }
+        .report-item {
+            background: #12121f;
+            margin-bottom: 10px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid #2d2d44;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .report-item:hover { background: #1a1a2e; }
+        .report-link {
+            color: #818cf8;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .report-date { color: #888; font-size: 0.9rem; }
+    </style>
 </head>
 <body>
-<div class="site-header">
-  <div class="logo">AI 基建 <span>研究報告</span></div>
-  <div class="nav-links">
-    <a href="#latest-report">最新報告</a>
-    <a href="#theme-watch">主題追蹤</a>
-    <a href="#about">關於</a>
-  </div>
-  <div class="update-badge">2026年06月13日 更新</div>
-</div>
-
-<div class="wrap">
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-tag">🚀 底部抄底潮爆發</div>
-    <h1>39/60 檔上漲 +1.35% 平均漲幅｜ARM +11.27% 領銜 AI 鏟子股大反擊<br><span style="color:#ffaa00;font-size:0.85em">5 檔距 52W 低 < 10%：PLTR 4.3% / NRG 4.5% / CEG 5.5% / META 9.0% / MSFT 9.7%</span></h1>
-    <div class="subtitle">2026年06月13日（週六）| 台北時間 16:25 | 採用 06/12 週五美股收盤 | 每日自動更新</div>
-    <div class="stats-row">
-      <div class="stat"><div class="val">40</div><div class="label">精選股票</div></div>
-      <div class="stat"><div class="val">12</div><div class="label">子板塊</div></div>
-      <div class="stat"><div class="val">40</div><div class="label">深度分析</div></div>
-      <div class="stat" style="color:#00ff88"><div class="val">🟢 5 檔</div><div class="label">距低<10% 黃金區</div></div>
-      <div class="stat" style="color:#00ff88"><div class="val">🟢 39 漲</div><div class="label">板塊全面反彈</div></div>
-      <div class="stat" style="color:#ffaa00"><div class="val">📦 封裝</div><div class="label">今日最強主軸</div></div>
-    </div>
-  </div>
-
-  <!-- LATEST REPORT -->
-  <div class="section" id="latest-report">
-    <div class="section-header">
-      <h2>最新研究報告</h2>
-      <span class="badge">每日更新</span>
-    </div>
-    <a href="reports/2026-06-13.html" class="report-card" style="border:1px solid rgba(36,224,138,0.5); background: linear-gradient(135deg, rgba(36,224,138,0.05), rgba(91,127,255,0.05));">
-      <div class="report-date" style="color:#24e08a">⭐ 最新報告｜2026年06月13日（週六）</div>
-      <h3>🚀 AI 基礎建設美股研究報告｜2026年06月13日 底部抄底潮 — AI 鏟子股大爆發</h3>
-      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
-        📈 <b>39/60 檔上漲</b>，AI 基建板塊平均 <b>+1.35%</b> 強勢反彈。<b>ARM +11.27% / AMKR +8.71% / STX +7.25% / INTC +6.51% / WDC +6.35%</b> 五大龍頭齊攻。<b>5 檔距 52W 低 < 10%</b>：<b>PLTR 4.3% / NRG 4.5% / CEG 5.5% / META 9.0% / MSFT 9.7%</b>，是機構低檔佈局黃金區。軟體層 <b>-2.67%</b> 弱勢，資金從應用層回流基建層是合理輪動。
-      </div>
-      <div class="report-meta">
-        <span>📊 40 檔精選</span>
-        <span>💎 5 檔距低<10%</span>
-        <span>📦 封裝 +4.57% 最強</span>
-        <span>💾 儲存 +2.13% 強勢</span>
-        <span>🤖 軟體 -2.67% 弱勢</span>
-        <span>🔍 40 深度分析</span>
-        <span>🎯 完整進出場價</span>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="https://acstep.github.io/stock-charts/charts/2026-06-14.html" class="report-card" style="border:1px solid rgba(0,212,255,0.5); background: linear-gradient(135deg, rgba(0,212,255,0.05), rgba(168,85,247,0.05));" target="_blank">
-      <div class="report-date" style="color:#00d4ff">📊 每日 K 線圖庫｜2026年06月14日</div>
-      <h3>📈 40 檔 AI 基建股 · 1 年日 K 線 + 成交量圖庫（點圖連 Yahoo Finance 深入分析）</h3>
-      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
-        <b>每日 14:00 自動更新</b>。每一張 K 線圖都是從 Yahoo Finance 即時截圖，<b>點任一張圖</b>就會連到 Yahoo Finance 該股的完整 K 線頁（含技術指標、深度分析、財報數據）。
-      </div>
-      <div class="report-meta">
-        <span>📊 40 張 K 線</span>
-        <span>📅 1 年日 K</span>
-        <span>💹 含成交量</span>
-        <span>🔗 點圖連 Yahoo</span>
-        <span>🆕 每日 14:00 更新</span>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="reports/2026-06-11.html" class="report-card" style="border:1px solid rgba(255,170,0,0.4);">
-      <div class="report-date" style="color:#ffaa00">2026年06月11日（週四）</div>
-      <h3>💎 AI 基礎建設美股研究報告｜2026年06月11日 亂世黃金 抗跌真英雄浮現</h3>
-      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
-        📉 <b>Iran 危機 + 大盤恐慌 Dow -953 點</b>，AI 基建 <b>28 漲 / 22 跌</b> 結構性抗跌。<b>5 檔距 52W 低 < 10%</b>：<b>CEG 0.7% / NRG 0.4% / VST 4.4% / PLTR 6.1% / ZS 8.8%</b>。<b>MSFT 11.5% / META 9.7%</b> mega-cap 進入低接區。⚡ <b>AI 電力/能源</b>是今日最佳佈局主軸。
-      </div>
-      <div class="report-meta">
-        <span>📊 50 檔精選</span>
-        <span>💎 5 檔距低<10%</span>
-        <span>⚡ 電力黃金佈局</span>
-        <span>🤖 PLTR 深度超跌</span>
-        <span>☁️ MSFT/META 低接</span>
-        <span>🔍 25 深度分析</span>
-        <span>🎯 完整進出場價</span>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="reports/2026-06-10.html" class="report-card" style="border:1px solid rgba(255,68,102,0.4);">
-      <div class="report-date" style="color:#ff4466">2026年06月10日（週三）</div>
-      <h3>⚠️ AI 基礎建設美股研究報告｜2026年06月10日 大盤暴跌中的真英雄</h3>
-      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
-        📉 大盤恐慌：<b>NASDAQ -5.22% / SOX 半導體 -7.78%</b>，但 AI 基建平均僅 <b>-0.83%</b>，超額抗跌 <b>+4.39%</b>。真英雄：<b>AMAT +10.20% / AMKR +9.18% / MU +8.32% / INTC +8.82%</b> 物理瓶頸股逆勢噴發。
-      </div>
-      <div class="report-meta">
-        <span>📊 43 檔精選</span>
-        <span>📉 板塊均跌 -0.83%</span>
-        <span>🛡️ vs NASDAQ 超額 +4.39%</span>
-        <span>📦 CoWoS 噴發</span>
-        <span>💾 HBM 超級週期</span>
-        <span>🔍 43 深度分析</span>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="reports/2026-06-09.html" class="report-card" style="border:1px solid rgba(36,224,138,0.5); background: linear-gradient(135deg, rgba(36,224,138,0.05), rgba(91,127,255,0.05));">
-      <div class="report-date" style="color:#24e08a">2026年06月09日（週二）</div>
-      <h3>🚀 AI 基礎建設美股研究報告｜2026年06月09日 半導體三巨頭齊攻</h3>
-      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
-        半導體 + 記憶體 + 先進封裝超級噴發！<b>Intel +11.19% / Micron +9.87% / Marvell +9.63%</b> 三巨頭齊攻。KLAC +9.27% / AMAT +8.64% 設備股同步噴發。AI 從 78 檔候選股中精選 <b>50 檔進場標的</b> + <b>28 檔深度分析</b>。
-      </div>
-      <div class="report-meta">
-        <span>📊 50 檔精選</span>
-        <span>📈 板塊均漲 +2.08%</span>
-        <span>💾 HBM 缺貨超級週期</span>
-        <span>🔧 設備股同步噴發</span>
-        <span>🔍 28 深度分析</span>
-        <span>🎯 完整進出場價</span>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="reports/2026-06-08.html" class="report-card">
-      <div class="report-date">2026年06月08日（週一）</div>
-      <h3>AI 基礎建設美股研究報告｜2026年06月08日 AI 全線爆發</h3>
-      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
-        6/6 週五 AI 板塊全面噴發！SNDK +582% / MU +264% 創新高引爆記憶體超級週期。9 個子板塊全數強勢，僅 AI 軟體回檔。
-      </div>
-      <div class="report-meta">
-        <span>📊 50 檔精選</span>
-        <span>📈 9 板塊強勢</span>
-        <span>💾 HBM 缺貨</span>
-        <span>🔍 21 深度分析</span>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="reports/2026-06-07.html" class="report-card" style="border:1px solid rgba(255,68,102,0.4); background: linear-gradient(135deg, rgba(255,68,102,0.04), rgba(91,127,255,0.04));">
-      <div class="report-date" style="color:#ff4466">2026年06月07日（週日）⚠️ 週末前瞻</div>
-      <h3>🚨 AI 基礎建設美股週末前瞻報告｜2026年06月07日</h3>
-      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
-        🩸 黑色星期五 42 檔全軍覆沒（平均 -7.95%），MRVL -16.74% / MU -13.25% / ARM -12.84%。本週殺盤讓優質股距 52W 低重回 0-50%，是 6 個月來最佳佈局點。
-      </div>
-      <div class="report-meta">
-        <span>📊 42 檔精選</span>
-        <span>🚨 黑色星期五</span>
-        <span>💎 超跌搶反彈</span>
-        <span>🛡️ 防禦性主軸</span>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="reports/2026-06-06.html" class="report-card" style="border-color:rgba(0,212,255,0.5);background:linear-gradient(135deg, #0e0e20 0%, #1a0a3a 100%);">
-      <div class="report-date" style="color:#00d4ff;">2026年06月06日（週六）</div>
-      <h3>AI 基礎建設美股研究報告｜2026年06月06日</h3>
-      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
-        6/5 週五 AI 大回調｜MRVL -16.7% / MU -13.3% / ARM -12.8%｜分析師持續上修目標價｜完美買點浮現
-      </div>
-      <div class="report-meta">
-        <span>📊 42 檔精選</span>
-        <span>🟢 11 板塊</span>
-        <span>⭐ 8 個 Strong Buy</span>
-        <span>🎯 重點：NVDA/AVGO/MU/VST/CEG/VRT</span>
-        <span>⚡ 電力股最抗跌</span>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="reports/2026-05-30.html" class="report-card">
-      <div class="report-date">2026年05月30日（週六）</div>
-      <h3>AI 基礎建設美股研究報告｜2026年05月30日</h3>
-      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
-        涵蓋 30 檔 AI 基建核心標的｜市場雷達｜進場推薦｜深度分析｜供需失衡｜明日觀察
-      </div>
-      <div class="report-meta">
-        <span>📊 30 檔精選</span>
-        <span>🖥️ AI 伺服器/雲端</span>
-        <span>💾 AI 儲存/記憶體</span>
-        <span>🔐 AI 資安/雲端</span>
-        <span>🤖 AI 軟體/資料分析</span>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="reports/2026-05-29-ai-infrastructure-report.html" class="report-card">
-      <div class="report-date">2026年05月29日</div>
-      <h3>AI 基礎建設美股研究報告｜2026年05月29日</h3>
-      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
-        涵蓋 32 檔 AI 基建核心標的｜市場雷達｜進場推薦｜深度分析｜供需失衡｜明日觀察
-      </div>
-      <div class="report-meta">
-        <span>📊 32 檔精選</span>
-        <span>🖥️ AI 伺服器/雲端</span>
-        <span>💾 AI 儲存/記憶體</span>
-        <span>🔐 AI 資安/雲端</span>
-        <span>🤖 AI 軟體/資料分析</span>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-    <a href="reports/2026-05-28.html" class="report-card">
-      <div class="report-date">2026年05月26日</div>
-      <h3>AI 基礎建設美股研究報告｜2026年05月26日</h3>
-      <div style="font-size:13px;color:var(--text-dim);margin-top:8px">
-        涵蓋 26 檔 AI 基建核心標的｜市場雷達｜進場推薦｜深度分析｜供需失衡｜明日觀察
-      </div>
-      <div class="report-meta">
-        <span>📊 26 檔精選</span>
-        <span>💾 AI 晶片/GPU</span>
-        <span>⚡ AI 電力/能源</span>
-        <span>🔐 AI 資安/雲端</span>
-        <span>☁️ AI 雲端平台</span>
-      </div>
-      <span class="arrow">→</span>
-    </a>
-  </div>
-
-  <!-- THEME WATCH -->
-  <div class="section" id="theme-watch">
-    <div class="section-header">
-      <h2>主題追蹤雷達</h2>
-      <span class="badge">8 大賽道</span>
-    </div>
-    <div class="grid-3">
-      <div class="theme-card">
-        <div class="theme-name" style="color:#f97316">💾 AI 晶片/GPU ⭐⭐⭐⭐⭐</div>
-        <div class="theme-stocks">
-          <span class="mini-chip" style="background:rgba(249,115,22,0.15);color:#f97316">NVDA</span>
-          <span class="mini-chip" style="background:rgba(249,115,22,0.15);color:#f97316">AMD</span>
-          <span class="mini-chip" style="background:rgba(249,115,22,0.15);color:#f97316">ARM</span>
-          <span class="mini-chip" style="background:rgba(249,115,22,0.15);color:#f97316">AVGO</span>
-          <span class="mini-chip" style="background:rgba(249,115,22,0.15);color:#f97316">MRVL</span>
-        </div>
-        <p style="font-size:12px;color:var(--text-dim)">Blackwell 量產 + Rubin 接力 + 客製化 ASIC 趨勢</p>
-      </div>
-      <div class="theme-card">
-        <div class="theme-name" style="color:#24e08a">💾 HBM/AI 記憶體 ⭐⭐⭐⭐⭐🔥</div>
-        <div class="theme-stocks">
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">MU</span>
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">SNDK</span>
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">WDC</span>
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">STX</span>
-        </div>
-        <p style="font-size:12px;color:var(--text-dim)">HBM3E 滿載 + HBM4 量產，2026 缺貨超級週期</p>
-      </div>
-      <div class="theme-card">
-        <div class="theme-name" style="color:#24e08a">⚡ AI 電力/能源 ⭐⭐⭐⭐⭐</div>
-        <div class="theme-stocks">
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">VST</span>
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">CEG</span>
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">GEV</span>
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">NRG</span>
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">ETN</span>
-        </div>
-        <p style="font-size:12px;color:var(--text-dim)">核能 + 燃氣輪機 + SMR，AI 機房建置瓶頸</p>
-      </div>
-      <div class="theme-card">
-        <div class="theme-name" style="color:#06b6d4">🖥️ AI 伺服器 ⭐⭐⭐⭐</div>
-        <div class="theme-stocks">
-          <span class="mini-chip" style="background:rgba(6,182,212,0.15);color:#06b6d4">DELL</span>
-          <span class="mini-chip" style="background:rgba(6,182,212,0.15);color:#06b6d4">SMCI</span>
-          <span class="mini-chip" style="background:rgba(6,182,212,0.15);color:#06b6d4">CRWV</span>
-          <span class="mini-chip" style="background:rgba(6,182,212,0.15);color:#06b6d4">HPE</span>
-        </div>
-        <p style="font-size:12px;color:var(--text-dim)">CSP CapEx 超級週期，GB200/MI400 機架堆積訂單</p>
-      </div>
-      <div class="theme-card">
-        <div class="theme-name" style="color:#a855f7">🧊 AI 液冷散熱 ⭐⭐⭐⭐⭐</div>
-        <div class="theme-stocks">
-          <span class="mini-chip" style="background:rgba(168,85,247,0.15);color:#a855f7">VRT</span>
-          <span class="mini-chip" style="background:rgba(168,85,247,0.15);color:#a855f7">SPXC</span>
-        </div>
-        <p style="font-size:12px;color:var(--text-dim)">1,000W GPU 功耗，液冷滲透率 15%→35% 爆發</p>
-      </div>
-      <div class="theme-card">
-        <div class="theme-name" style="color:#a855f7">📡 AI 光纖/網路 ⭐⭐⭐⭐</div>
-        <div class="theme-stocks">
-          <span class="mini-chip" style="background:rgba(168,85,247,0.15);color:#a855f7">CIEN</span>
-          <span class="mini-chip" style="background:rgba(168,85,247,0.15);color:#a855f7">ANET</span>
-          <span class="mini-chip" style="background:rgba(168,85,247,0.15);color:#a855f7">NET</span>
-          <span class="mini-chip" style="background:rgba(168,85,247,0.15);color:#a855f7">GLW</span>
-        </div>
-        <p style="font-size:12px;color:var(--text-dim)">800G/1.6T 光模組升級週期，AI 機房 DCI 需求爆發</p>
-      </div>
-      <div class="theme-card">
-        <div class="theme-name" style="color:#5b7fff">📦 CoWoS 先進封裝 ⭐⭐⭐⭐⭐</div>
-        <div class="theme-stocks">
-          <span class="mini-chip" style="background:rgba(91,127,255,0.15);color:#5b7fff">TSM</span>
-          <span class="mini-chip" style="background:rgba(91,127,255,0.15);color:#5b7fff">AMKR</span>
-          <span class="mini-chip" style="background:rgba(91,127,255,0.15);color:#5b7fff">ASX</span>
-        </div>
-        <p style="font-size:12px;color:var(--text-dim)">CoWoS 月產能 2026 翻倍至 65K，仍嚴重供不應求</p>
-      </div>
-      <div class="theme-card">
-        <div class="theme-name" style="color:#24e08a">🔐 AI 資安/雲端 ⭐⭐⭐⭐</div>
-        <div class="theme-stocks">
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">CRWD</span>
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">PANW</span>
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">DDOG</span>
-          <span class="mini-chip" style="background:rgba(36,224,138,0.15);color:#24e08a">FTNT</span>
-        </div>
-        <p style="font-size:12px;color:var(--text-dim)">AI 攻擊增加創造結構性資安剛需，平台化趨勢</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <div class="section" id="about">
-    <div class="section-header">
-      <h2>關於本研究</h2>
-    </div>
-    <div class="card">
-      <p style="font-size:13.5px;color:var(--text-dim);line-height:1.8">
-        本報告由 AI 自動生成，每日追蹤覆蓋 AI 基礎建設全產業鏈：從電力、散熱、網路、光纖、晶片、封裝、伺服器、儲存到資安、軟體、雲端平台。<br><br>
-        <strong style="color:var(--text)">分析方法：</strong>結合 Barchart 技術信號 + Yahoo Finance 現時報價 + AI 自身判斷。每檔股票均有 AI 原生推薦理由與核心邏輯分析。<br><br>
-        <strong style="color:var(--text)">覆蓋廣度：</strong>60 檔候選股 → AI 精選 40 檔進場 + 40 檔深度分析<br>
-        <strong style="color:var(--text)">資料來源：</strong>Barchart（技術信號）、Yahoo Finance（即時報價、52W區間、成交量）<br>
-        <strong style="color:var(--text)">風險提示：</strong>本報告僅供參考，不構成投資建議。投資人需自行承擔投資決策風險。
-      </p>
-    </div>
-  </div>
-
-  <div class="footer">
-    AI 基礎建設研究報告 | 2026年06月13日 | 精選 40 檔核心標的<br>
-    本報告僅供參考，不構成投資建議。數據來源：Yahoo Finance、Barchart<br>
-    <span style="color:var(--text-muted)">© 2026 AI Infrastructure Research</span>
-  </div>
-</div>
+    <h1>📑 AI 基礎建設美股研究報告 歸檔</h1>
+    <ul class="report-list">
+        <li class="report-item">
+            <a href="report_2026-06-14.html" class="report-link">2026-06-14 AI 基礎建設報告</a>
+            <span class="report-date">2026-06-14</span>
+        </li>
+    </ul>
 </body>
 </html>
