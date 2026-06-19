@@ -25,6 +25,13 @@
             -webkit-text-fill-color: transparent;
             font-size: 3rem;
         }
+        .subtitle {
+            text-align: center;
+            color: #a0a0a0;
+            font-size: 1rem;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
         .report-list {
             list-style: none;
             padding: 0;
@@ -44,6 +51,10 @@
             border-color: #4f46e5;
             transform: scale(1.02);
         }
+        .report-item.latest {
+            border-color: #c084fc;
+            background: linear-gradient(135deg, #12121f, #1a1a2e);
+        }
         .report-link {
             color: #818cf8;
             text-decoration: none;
@@ -54,15 +65,35 @@
             color: #a0a0a0;
             font-size: 0.9rem;
         }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #c084fc, #818cf8);
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 8px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>AI 基礎建設研究報告</h1>
+        <h1>🤖 AI 基礎建設研究報告</h1>
+        <div class="subtitle">每日 AI 智能選股 + 深度個股分析｜50 檔候選股追蹤</div>
         <ul class="report-list">
+            <li class="report-item latest">
+                <a href="report_2026-06-19.html" class="report-link">🚀 2026-06-19 深度研究報告 <span class="badge">最新</span></a>
+                <span class="date">2026-06-19（49 檔精選）</span>
+            </li>
             <li class="report-item">
-                <a href="report_2026-06-19.html" class="report-link">🚀 2026-06-19 深度研究報告</a>
-                <span class="date">2026-06-19</span>
+                <a href="2026-06-16.html" class="report-link">2026-06-16 簡版研究報告</a>
+                <span class="date">2026-06-16</span>
+            </li>
+            <li class="report-item">
+                <a href="report_2026-06-14.html" class="report-link">2026-06-14 簡版研究報告</a>
+                <span class="date">2026-06-14</span>
             </li>
         </ul>
     </div>
