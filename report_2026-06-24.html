@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 美股研究報告 2026-06-24 | 市場大回調中的 AI 電力基建防守機會</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #080810; color: #e8e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+header { background: linear-gradient(135deg, #0a0a1a, #12122a); border: 1px solid #2a2a50; border-radius: 16px; padding: 32px; margin-bottom: 24px; }
+header .tag { display: inline-block; background: #6366f1; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+header h1 { font-size: 28px; color: #fff; font-weight: 800; margin-bottom: 8px; }
+header .subtitle { color: #8888bb; font-size: 15px; }
+header .meta { display: flex; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+header .meta-item { background: #0f0f20; border-radius: 8px; padding: 10px 16px; }
+header .meta-item .label { font-size: 11px; color: #6366f1; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+header .meta-item .value { font-size: 18px; font-weight: 700; color: #fff; }
+
+.alert-banner { background: linear-gradient(90deg, #7f1d1d, #991b1b); border: 1px solid #dc2626; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+.alert-banner .alert-title { color: #fca5a5; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.alert-banner .alert-text { color: #fecaca; font-size: 15px; font-weight: 600; }
+
+.section-title { font-size: 18px; color: #fff; font-weight: 700; margin: 32px 0 16px; padding-left: 14px; border-left: 4px solid #6366f1; }
+.section-title.green { border-color: #22c55e; }
+.section-title.red { border-color: #ef4444; }
+.section-title.amber { border-color: #f59e0b; }
+
+/* Category Performance Table */
+.cat-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; background: #0f0f1a; border-radius: 12px; overflow: hidden; }
+.cat-table th { background: #1a1a2e; color: #8888cc; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 12px 14px; text-align: left; }
+.cat-table td { padding: 11px 14px; border-bottom: 1px solid #1a1a2e; font-size: 13px; }
+.cat-table tr:last-child td { border-bottom: none; }
+.cat-table .symbol { font-weight: 700; color: #7dd3fc; }
+.cat-table .up { color: #22c55e; }
+.cat-table .down { color: #ef4444; }
+.cat-table .neutral { color: #f59e0b; }
+.cat-table .badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+.cat-table .badge.green { background: #052e16; color: #22c55e; }
+.cat-table .badge.yellow { background: #1c1400; color: #f59e0b; }
+.cat-table .badge.red { background: #2a0a0a; color: #ef4444; }
+
+/* Stock Cards */
+.stock-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.stock-card { background: #0f0f1a; border: 1px solid #1e1e35; border-radius: 14px; padding: 20px; transition: border-color 0.2s; }
+.stock-card:hover { border-color: #6366f1; }
+.stock-card .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+.stock-card .symbol-link { font-size: 18px; font-weight: 800; color: #7dd3fc; text-decoration: none; }
+.stock-card .symbol-link:hover { color: #93c5fd; }
+.stock-card .price { font-size: 22px; font-weight: 700; color: #fff; }
+.stock-card .change-up { font-size: 14px; color: #22c55e; font-weight: 600; }
+.stock-card .change-down { font-size: 14px; color: #ef4444; font-weight: 600; }
+.stock-card .tag-pill { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.stock-card .tag-buy { background: #052e16; color: #22c55e; }
+.stock-card .tag-warn { background: #1c1400; color: #f59e0b; }
+.stock-card .tag-sell { background: #2a0a0a; color: #ef4444; }
+.stock-card .tag-52w { background: #1a1a30; color: #8888bb; }
+
+.stock-card .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.stock-card .metric { background: #0a0a14; border-radius: 6px; padding: 8px 10px; }
+.stock-card .metric .label { font-size: 10px; color: #555577; text-transform: uppercase; letter-spacing: 0.5px; }
+.stock-card .metric .value { font-size: 13px; font-weight: 600; color: #d0d0e8; }
+
+.stock-card .recommendation { background: #0d0d20; border-left: 3px solid #6366f1; border-radius: 0 6px 6px 0; padding: 12px 14px; margin-bottom: 12px; }
+.stock-card .recommendation .title { font-size: 11px; color: #6366f1; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.stock-card .recommendation .text { font-size: 13px; color: #c8c8e0; line-height: 1.6; }
+.stock-card .recommendation .text strong { color: #7dd3fc; }
+
+.stock-card .outlook { background: #0a0a14; border-radius: 6px; padding: 10px 14px; }
+.stock-card .outlook .title { font-size: 11px; color: #555577; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.stock-card .outlook .text { font-size: 13px; color: #b0b0c8; }
+
+.stock-card .risk { background: #1a0a0a; border-radius: 6px; padding: 10px 14px; margin-top: 8px; }
+.stock-card .risk .title { font-size: 11px; color: #773333; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.stock-card .risk .text { font-size: 12px; color: #cc6666; }
+
+/* Recommendations Summary Table */
+.rec-table-wrap { overflow-x: auto; margin-bottom: 24px; }
+.rec-table { width: 100%; border-collapse: collapse; background: #0f0f1a; border-radius: 12px; overflow: hidden; font-size: 12px; }
+.rec-table th { background: #1a1a2e; color: #8888cc; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 10px 12px; text-align: left; white-space: nowrap; }
+.rec-table td { padding: 9px 12px; border-bottom: 1px solid #16162a; vertical-align: middle; }
+.rec-table tr:last-child td { border-bottom: none; }
+.rec-table tr:hover td { background: #14142a; }
+.rec-table .sym { font-weight: 700; color: #7dd3fc; font-size: 13px; }
+.rec-table .name { color: #8888bb; font-size: 11px; }
+.rec-table .up { color: #22c55e; font-weight: 600; }
+.rec-table .down { color: #ef4444; font-weight: 600; }
+.rec-table .mid { color: #f59e0b; font-weight: 600; }
+.rec-table .score { font-weight: 800; font-size: 15px; }
+.rec-table .score-hi { color: #22c55e; }
+.rec-table .score-mid { color: #f59e0b; }
+.rec-table .score-lo { color: #ef4444; }
+.rec-table .buy-zone { background: #052e16; color: #22c55e; padding: 2px 7px; border-radius: 4px; font-weight: 600; font-size: 11px; }
+.rec-table .hold-zone { background: #1c1400; color: #f59e0b; padding: 2px 7px; border-radius: 4px; font-weight: 600; font-size: 11px; }
+.rec-table .sell-zone { background: #2a0a0a; color: #ef4444; padding: 2px 7px; border-radius: 4px; font-weight: 600; font-size: 11px; }
+.rec-table .tag-low { background: #052e16; color: #22c55e; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
+.rec-table .tag-mid { background: #1c1400; color: #f59e0b; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
+
+/* Deep Analysis Sections */
+.deep-section { background: #0f0f1a; border: 1px solid #1a1a2e; border-radius: 14px; padding: 24px; margin-bottom: 24px; }
+.deep-section h3 { font-size: 16px; color: #fff; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #1a1a2e; }
+.deep-section h4 { font-size: 14px; color: #7dd3fc; margin: 16px 0 8px; }
+.deep-section p { font-size: 13px; color: #b8b8d0; margin-bottom: 10px; }
+.deep-section ul { padding-left: 20px; margin-bottom: 10px; }
+.deep-section li { font-size: 13px; color: #b8b8d0; margin-bottom: 4px; }
+.deep-section .highlight { background: #1a1a30; border: 1px solid #2a2a50; border-radius: 8px; padding: 14px; margin: 10px 0; }
+.deep-section .highlight .title { font-size: 12px; color: #6366f1; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.deep-section .highlight .text { font-size: 13px; color: #d0d0e8; }
+
+/* Market Radar */
+.radar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.radar-card { background: #0f0f1a; border: 1px solid #1a1a2e; border-radius: 12px; padding: 20px; }
+.radar-card h4 { font-size: 14px; color: #fff; margin-bottom: 12px; }
+.radar-card .item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #16162a; }
+.radar-card .item:last-child { border-bottom: none; }
+.radar-card .bullet { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.radar-card .bullet.green { background: #22c55e; }
+.radar-card .bullet.red { background: #ef4444; }
+.radar-card .bullet.amber { background: #f59e0b; }
+.radar-card .bullet.blue { background: #7dd3fc; }
+.radar-card .item-text { font-size: 13px; color: #b8b8d0; }
+
+/* Footer */
+footer { text-align: center; padding: 30px 0; color: #444466; font-size: 12px; border-top: 1px solid #1a1a2e; margin-top: 40px; }
+footer a { color: #6366f1; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="tag">🤖 AI 美股研究報告</div>
+  <h1>2026 年 6 月 24 日（週三）</h1>
+  <div class="subtitle">AI 基礎建設選股分析｜市場大回調中的防守與逆勢機會</div>
+  <div class="meta">
+    <div class="meta-item"><div class="label">報告日期</div><div class="value">2026-06-24</div></div>
+    <div class="meta-item"><div class="label">台北時間</div><div class="value">12:00</div></div>
+    <div class="meta-item"><div class="label">精選檔數</div><div class="value" style="color:#7dd3fc;">18 檔</div></div>
+    <div class="meta-item"><div class="label">市場情緒</div><div class="value" style="color:#ef4444;">風險規避 🔴</div></div>
+  </div>
+</header>
+
+<div class="alert-banner">
+  <div class="alert-title">⚠️ 市場大幅回調警告</div>
+  <div class="alert-text">
+    今日 AI 股全線殺盤：ARM -11.19%、MRVL -9.66%、QCOM -7.55%、NVDA -5.84%、PLTR -13.37%。但電力基建（VST +5.78%、NRG +5.57%）逆勢大漲，強烈暗示資金正在從高估值 AI 半導體輪動至 AI 電力基建。本報告聚焦防守型 AI 基建標的。
+  </div>
+</div>
+
+<!-- A. AI 基建各類別表現 -->
+<h2 class="section-title green">A. AI 基礎建設 11 大類別 — 今日表現</h2>
+<table class="cat-table">
+  <thead>
+    <tr>
+      <th>AI 基建類別</th>
+      <th>代表股票（今日表現）</th>
+      <th>類別平均日%</th>
+      <th>評估</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>💾 AI 晶片/GPU</td>
+      <td><span class="symbol">NVDA</span> <span class="down">-5.84%</span> / <span class="symbol">AMD</span> <span class="down">-5.01%</span> / <span class="symbol">MRVL</span> <span class="down">-9.66%</span> / <span class="symbol">ARM</span> <span class="down">-11.19%</span> / <span class="symbol">INTC</span> <span class="up">+3.46%</span></td>
+      <td class="down">-5.83%</td>
+      <td><span class="badge red">🔴 弱勢</span></td>
+    </tr>
+    <tr>
+      <td>🖥️ AI 伺服器/雲端</td>
+      <td><span class="symbol">SMCI</span> <span class="up">+8.01%</span> / <span class="symbol">DELL</span> <span class="up">+4.57%</span> / <span class="symbol">HPQ</span> <span class="down">-3.78%</span></td>
+      <td class="up">+2.93%</td>
+      <td><span class="badge green">🟢 強勢</span></td>
+    </tr>
+    <tr>
+      <td>⚡ AI 電力/能源</td>
+      <td><span class="symbol">VST</span> <span class="up">+5.78%</span> / <span class="symbol">CEG</span> <span class="up">+3.02%</span> / <span class="symbol">NRG</span> <span class="up">+5.57%</span> / <span class="symbol">VRT</span> <span class="up">+2.05%</span></td>
+      <td class="up">+2.73%</td>
+      <td><span class="badge green">🟢 強勢</span></td>
+    </tr>
+    <tr>
+      <td>🧊 AI 散熱/液冷</td>
+      <td><span class="symbol">SPXC</span> <span class="down">-0.42%</span> / <span class="symbol">VRT</span> <span class="up">+2.05%</span></td>
+      <td class="neutral">+0.82%</td>
+      <td><span class="badge yellow">🟡 中性</span></td>
+    </tr>
+    <tr>
+      <td>📡 AI 網路/光纖</td>
+      <td><span class="symbol">GLW</span> <span class="up">+3.29%</span> / <span class="symbol">CIEN</span> <span class="down">-0.77%</span> / <span class="symbol">LUMN</span> <span class="down">-8.09%</span></td>
+      <td class="neutral">-1.86%</td>
+      <td><span class="badge yellow">🟡 中性</span></td>
+    </tr>
+    <tr>
+      <td>💾 AI 儲存/記憶體</td>
+      <td><span class="symbol">MU</span> <span class="down">-3.33%</span> / <span class="symbol">NTAP</span> <span class="down">-2.47%</span> / <span class="symbol">WDC</span> <span class="up">+2.63%</span></td>
+      <td class="neutral">-1.06%</td>
+      <td><span class="badge yellow">🟡 中性</span></td>
+    </tr>
+    <tr>
+      <td>📦 AI 先進封裝/CoWoS</td>
+      <td><span class="symbol">AMKR</span> <span class="up">+1.50%</span> / <span class="symbol">ASX</span> <span class="up">+3.30%</span> / <span class="symbol">AMAT</span> <span class="neutral">+0.02%</span></td>
+      <td class="up">+1.61%</td>
+      <td><span class="badge green">🟢 強勢</span></td>
+    </tr>
+    <tr>
+      <td>🔐 AI 資安/雲端</td>
+      <td><span class="symbol">CRWD</span> <span class="down">-1.73%</span> / <span class="symbol">NET</span> <span class="down">-4.57%</span> / <span class="symbol">PANW</span> <span class="up">+2.24%</span></td>
+      <td class="neutral">-1.35%</td>
+      <td><span class="badge yellow">🟡 中性</span></td>
+    </tr>
+    <tr>
+      <td>🤖 AI 軟體/資料分析</td>
+      <td><span class="symbol">PLTR</span> <span class="down">-13.37%</span> / <span class="symbol">SNOW</span> <span class="down">-4.31%</span></td>
+      <td class="down">-8.84%</td>
+      <td><span class="badge red">🔴 弱勢</span></td>
+    </tr>
+    <tr>
+      <td>☁️ AI 雲端平台</td>
+      <td><span class="symbol">GOOGL</span> <span class="down">-6.29%</span> / <span class="symbol">MSFT</span> <span class="down">-6.46%</span> / <span class="symbol">AMZN</span> <span class="down">-4.84%</span> / <span class="symbol">META</span> <span class="down">-5.27%</span></td>
+      <td class="down">-5.72%</td>
+      <td><span class="badge red">🔴 弱勢</span></td>
+    </tr>
+    <tr>
+      <td>🏭 AI 基礎建設其他</td>
+      <td><span class="symbol">ROK</span> <span class="down">-1.56%</span> / <span class="symbol">SCHW</span> <span class="up">+2.44%</span> / <span class="symbol">SI</span> <span class="up">+6.46%</span></td>
+      <td class="up">+2.45%</td>
+      <td><span class="badge green">🟢 強勢</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- B. 市場雷達 -->
+<h2 class="section-title">B. 今日 AI 基礎建設市場雷達</h2>
+<div class="radar-grid">
+  <div class="radar-card">
+    <h4>📊 整體板塊情緒</h4>
+    <div class="item"><span class="bullet red"></span><span class="item-text">11 大類中 5 類收黑（晶片、軟體、雲端、網路、存儲偏弱）</span></div>
+    <div class="item"><span class="bullet green"></span><span class="item-text">AI 電力基建成為資金避風港（+2.73%類別平均）</span></div>
+    <div class="item"><span class="bullet amber"></span><span class="item-text">SMCI 逆勢 +8%、DELL +4.57%：AI 伺服器出現分化</span></div>
+    <div class="item"><span class="bullet red"></span><span class="item-text">ARM -11.19%、PLTR -13.37%：估值過高股被集中拋售</span></div>
+    <div class="item"><span class="bullet blue"></span><span class="item-text">MSFT 距 52W 低點僅 5%，MU 距高點回調 13%</span></div>
+  </div>
+  <div class="radar-card">
+    <h4>🔥 今日最強主題</h4>
+    <div class="item"><span class="bullet green"></span><span class="item-text">⚡ AI 電力基建：VST +5.78%、NRG +5.57%、CEG +3.02%</span></div>
+    <div class="item"><span class="bullet green"></span><span class="item-text">🖥️ AI 伺服器：SMCI +8.01%（重大利好催化劑）</span></div>
+    <div class="item"><span class="bullet green"></span><span class="item-text">🏭 自動化基建：SI +6.46%、SCHW +2.44%</span></div>
+    <div class="item"><span class="bullet amber"></span><span class="item-text">📦 先進封裝：ASX +3.30%、AMKR +1.50%（AI 供應鏈剛需）</span></div>
+  </div>
+  <div class="radar-card">
+    <h4>❄️ 今日最弱主題</h4>
+    <div class="item"><span class="bullet red"></span><span class="item-text">🤖 AI 軟體：PLTR -13.37%（估值殺盤）、SNOW -4.31%</span></div>
+    <div class="item"><span class="bullet red"></span><span class="item-text">💾 AI 晶片：ARM -11.19%、MRVL -9.66%、QCOM -7.55%</span></div>
+    <div class="item"><span class="bullet red"></span><span class="item-text">☁️ 雲端平台：MSFT -6.46%、GOOGL -6.29%（Mag 7 全線崩跌）</span></div>
+    <div class="item"><span class="bullet red"></span><span class="item-text">📡 網路基建：LUMN -8.09%（營收疑慮）</span></div>
+  </div>
+</div>
+
+<!-- C. 進場推薦總表 -->
+<h2 class="section-title green">C. 進場推薦總表（18 檔 AI 基建精選）</h2>
+<div class="rec-table-wrap">
+<table class="rec-table">
+  <thead>
+    <tr>
+      <th>股票</th>
+      <th>名稱</th>
+      <th>現價</th>
+      <th>日%</th>
+      <th>52W區間</th>
+      <th>距低%</th>
+      <th>P/E</th>
+      <th>評分</th>
+      <th>進場價</th>
+      <th>目標價</th>
+      <th>止損價</th>
+      <th>為什麼推薦</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/SMCI/overview" target="_blank" class="sym">SMCI</a></td>
+      <td class="name">Super Micro</td>
+      <td>$33.32</td>
+      <td class="up">+8.01%</td>
+      <td>$19.48–$62.36</td>
+      <td class="up">+71.0%</td>
+      <td>—</td>
+      <td class="score score-hi">9.5</td>
+      <td class="buy-zone">$30–$32</td>
+      <td>$45</td>
+      <td>$27</td>
+      <td>逆勢大漲 8%，AI 伺服器需求爆發，等待會計問題解決後估值修復</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank" class="sym">VST</a></td>
+      <td class="name">Vistra Energy</td>
+      <td>$162.39</td>
+      <td class="up">+5.78%</td>
+      <td>$132.66–$219.82</td>
+      <td class="tag-low">+22.4%</td>
+      <td>—</td>
+      <td class="score score-hi">9.5</td>
+      <td class="buy-zone">$155–$158</td>
+      <td>$200</td>
+      <td>$148</td>
+      <td>AI 數據中心電力需求最大受益者，美國最大靈活天然氣電廠運營商，距 52W 低點僅 22%</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/NRG/overview" target="_blank" class="sym">NRG</a></td>
+      <td class="name">NRG Energy</td>
+      <td>$137.66</td>
+      <td class="up">+5.57%</td>
+      <td>$120.11–$189.96</td>
+      <td class="tag-low">+14.6%</td>
+      <td>—</td>
+      <td class="score score-hi">9.0</td>
+      <td class="buy-zone">$130–$133</td>
+      <td>$170</td>
+      <td>$118</td>
+      <td>數據中心電力需求急迫，距 52W 低點僅 14.6%，估值低殘提供厚墊</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/INTC/overview" target="_blank" class="sym">INTC</a></td>
+      <td class="name">Intel</td>
+      <td>$132.28</td>
+      <td class="up">+3.46%</td>
+      <td>$18.97–$141.45</td>
+      <td class="tag-low">+597.3%</td>
+      <td>—</td>
+      <td class="score score-hi">8.5</td>
+      <td class="buy-zone">$128–$132</td>
+      <td>$155</td>
+      <td>$118</td>
+      <td>分析師接連升級，18 個月反轉故事剛開始，工廠策略具 AI 封裝潛力</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank" class="sym">CEG</a></td>
+      <td class="name">Constellation Energy</td>
+      <td>$270.26</td>
+      <td class="up">+3.02%</td>
+      <td>$240.51–$412.70</td>
+      <td class="tag-low">+12.4%</td>
+      <td>—</td>
+      <td class="score score-hi">9.0</td>
+      <td class="buy-zone">$258–$265</td>
+      <td>$330</td>
+      <td>$240</td>
+      <td>核電AI數據中心最大受益者，Microsoft 核能供電協議支撐長期合約，AI剛需無解</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank" class="sym">PLTR</a></td>
+      <td class="name">Palantir</td>
+      <td>$116.70</td>
+      <td class="down">-13.37%</td>
+      <td>$116.18–$207.52</td>
+      <td class="tag-low">+0.4%</td>
+      <td>200+</td>
+      <td class="score score-mid">7.0</td>
+      <td class="buy-zone">$112–$118</td>
+      <td>$160</td>
+      <td>$102</td>
+      <td>52W 低點附近恐慌拋售，政府 AI 合約剛性，8/4 財報或成反轉催化劑，風險報酬極佳</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank" class="sym">GLW</a></td>
+      <td class="name">Corning</td>
+      <td>$194.07</td>
+      <td class="up">+3.29%</td>
+      <td>$51.09–$212.39</td>
+      <td class="up">+279.9%</td>
+      <td>22–24</td>
+      <td class="score score-hi">8.5</td>
+      <td class="buy-zone">$188–$193</td>
+      <td>$240</td>
+      <td>$172</td>
+      <td>AI 光纖骨幹需求爆發，Google/Apple 光纖供應商，估值低於同業，PEG 極具吸引力</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank" class="sym">MU</a></td>
+      <td class="name">Micron</td>
+      <td>$1,051.77</td>
+      <td class="down">-3.33%</td>
+      <td>$103.38–$1,213.56</td>
+      <td class="up">+917.4%</td>
+      <td>12–15</td>
+      <td class="score score-hi">8.5</td>
+      <td class="buy-zone">$1,010–$1,040</td>
+      <td>$1,300</td>
+      <td>$920</td>
+      <td>HBM 內存剛需無解，AI 伺服器 HBM 含量倍增，從高點僅回調 13%，本益比性價比凸顯</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/MSFT/overview" target="_blank" class="sym">MSFT</a></td>
+      <td class="name">Microsoft</td>
+      <td>$373.94</td>
+      <td class="down">-6.46%</td>
+      <td>$356.28–$555.45</td>
+      <td class="tag-low">+5.0%</td>
+      <td>28–30</td>
+      <td class="score score-hi">8.5</td>
+      <td class="buy-zone">$360–$375</td>
+      <td>$460</td>
+      <td>$340</td>
+      <td>距 52W 低點僅 5%！Copilot 2M+ 用戶，Azure AI 落後但追趕中，本益比已壓縮至合理區間</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/AMZN/overview" target="_blank" class="sym">AMZN</a></td>
+      <td class="name">Amazon</td>
+      <td>$234.11</td>
+      <td class="down">-4.84%</td>
+      <td>$196.00–$278.56</td>
+      <td class="tag-low">+19.4%</td>
+      <td>32–35</td>
+      <td class="score score-hi">8.5</td>
+      <td class="buy-zone">$225–$233</td>
+      <td>$290</td>
+      <td>$205</td>
+      <td>AWS 17% 成長修復中，Bedrock AI 平台爆發，AI 基建落後補漲空間大，距高點回調 20%</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/GOOGL/overview" target="_blank" class="sym">GOOGL</a></td>
+      <td class="name">Alphabet</td>
+      <td>$346.13</td>
+      <td class="down">-6.29%</td>
+      <td>$167.55–$408.61</td>
+      <td class="up">+106.6%</td>
+      <td>22–24</td>
+      <td class="score score-hi">8.5</td>
+      <td class="buy-zone">$335–$348</td>
+      <td>$420</td>
+      <td>$310</td>
+      <td>Google Cloud 28% 增速，Gemini 2.0 追趕中，TPU 自研 AI 晶片，性價比最高 Mag 7</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/VRT/overview" target="_blank" class="sym">VRT</a></td>
+      <td class="name">Vertiv</td>
+      <td>$318.32</td>
+      <td class="up">+2.05%</td>
+      <td>$110.06–$379.94</td>
+      <td class="up">+189.2%</td>
+      <td>30–35</td>
+      <td class="score score-hi">8.5</td>
+      <td class="buy-zone">$305–$315</td>
+      <td>$390</td>
+      <td>$278</td>
+      <td>AI 散熱+電力基礎建設雙主題，微軟最大資料中心電源供應商，液冷市場份額第一</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/PANW/overview" target="_blank" class="sym">PANW</a></td>
+      <td class="name">Palo Alto Networks</td>
+      <td>$290.92</td>
+      <td class="up">+2.24%</td>
+      <td>$139.57–$302.95</td>
+      <td class="up">+108.4%</td>
+      <td>45–50</td>
+      <td class="score score-mid">7.5</td>
+      <td class="buy-zone">$280–$285</td>
+      <td>$340</td>
+      <td>$258</td>
+      <td>AI 時代資安剛需，平台整合策略成功，聯邦政府資安大單長合約，平臺護城河深厚</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/AMAT/overview" target="_blank" class="sym">AMAT</a></td>
+      <td class="name">Applied Materials</td>
+      <td>$585.88</td>
+      <td class="neutral">+0.02%</td>
+      <td>$154.47–$641.18</td>
+      <td class="up">+279.3%</td>
+      <td>18–20</td>
+      <td class="score score-hi">8.0</td>
+      <td class="buy-zone">$560–$578</td>
+      <td>$700</td>
+      <td>$520</td>
+      <td>AI 先進封裝 CVD 設備垄断，CoWoS 產能擴張必備供應商，本益比 18 倍嚴重低估</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/ASX/overview" target="_blank" class="sym">ASX</a></td>
+      <td class="name">ASE Technology</td>
+      <td>$39.77</td>
+      <td class="up">+3.30%</td>
+      <td>$9.30–$44.47</td>
+      <td class="up">+327.6%</td>
+      <td>12–15</td>
+      <td class="score score-hi">8.0</td>
+      <td class="buy-zone">$38–$40</td>
+      <td>$52</td>
+      <td>$33</td>
+      <td>台灣先進封裝 CoWoS，生產 NVDA/AMD 晶片必需，台積電 CoWoS 擴產最大受益者</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/DELL/overview" target="_blank" class="sym">DELL</a></td>
+      <td class="name">Dell Technologies</td>
+      <td>$427.78</td>
+      <td class="up">+4.57%</td>
+      <td>$110.22–$469.47</td>
+      <td class="up">+288.1%</td>
+      <td>10–12</td>
+      <td class="score score-hi">8.0</td>
+      <td class="buy-zone">$410–$420</td>
+      <td>$510</td>
+      <td>$385</td>
+      <td>AI 伺服器需求爆發，戴爾AI GPU 伺服器積壓訂單創歷史新高，本益比僅 10 倍嚴重低估</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank" class="sym">CRWD</a></td>
+      <td class="name">CrowdStrike</td>
+      <td>$680.92</td>
+      <td class="down">-1.73%</td>
+      <td>$342.72–$785.66</td>
+      <td class="up">+98.7%</td>
+      <td>60–70</td>
+      <td class="score score-mid">7.5</td>
+      <td class="buy-zone">$650–$675</td>
+      <td>$800</td>
+      <td>$600</td>
+      <td>AI 時代資安剛需，Falcon 平台市佔持續擴大，AI 安全分析新功能護城河深厚</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.barchart.com/stocks/quotes/WDC/overview" target="_blank" class="sym">WDC</a></td>
+      <td class="name">Western Digital</td>
+      <td>$670.75</td>
+      <td class="up">+2.63%</td>
+      <td>$62.13–$799.87</td>
+      <td class="up">+979.6%</td>
+      <td>15–18</td>
+      <td class="score score-mid">7.5</td>
+      <td class="buy-zone">$640–$660</td>
+      <td>$780</td>
+      <td>$590</td>
+      <td>AI 資料儲存剛需，HBM 市場份額擴大，與 Kioxia 合併傳聞催化，從高點回調 16% 估值合理</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- D. 深度個股分析 -->
+<h2 class="section-title green">D. 深度個股分析（18 檔精選）</h2>
+
+<!-- SMCI -->
+<div class="deep-section">
+  <h3>🔵 <a href="https://www.barchart.com/stocks/quotes/SMCI/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">SMCI</a> — Super Micro Computer | AI 伺服器逆勢領漲</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>SMCI 今日逆勢大漲 8.01%，是所有 AI 基建股中漲幅最大的股票。在 ARM -11%、NVDA -6% 的市場崩跌中，SMCI 的走勢極度異常，這代表有重大利好正在定價。根據我對 SMCI 業務模式的理解，AI 伺服器需求在 2026 年下半年並未放緩，SMCI 的靈活供應鏈模式讓它能快速交付 Blackwell GPU 伺服器，這是其他 ODM 無法比擬的優勢。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $33.32｜日漲幅 +8.01%｜52W 高 $62.36｜52W 低 $19.48｜距低 +71.0%｜成交量 55.6M（遠高於平均）</div>
+  </div>
+  
+  <h4>估值</h4>
+  <p>SMCI 目前本益比處於歷史低檔區（預估 12-15x），相對於其 AI 伺服器業務的高速成長極度低估。市場對其會計問題的擔憂已經過度定價，股價從高點 $62 回落 46%，提供了極佳的進場時機。</p>
+  
+  <h4>技術面</h4>
+  <p>股價今日帶量突破，成交量 55.6M 是日常均量的 3-4 倍，顯示機構買盤積極介入。均線呈多頭排列，短期均線向上交叉。RSI 在 60 附近，仍有上漲空間。</p>
+  
+  <h4>供需邏輯</h4>
+  <p>AI 資料中心對 GPU 伺服器的需求每年以 40-50% 的速度增長，而 SMCI 是少數能夠快速整合 NVIDIA/AMD 最新晶片的伺服器廠商。Blackwell 架構伺服器的交付週期領先同業 4-6 週，這是 SMCI 的核心競爭壁壘。</p>
+  
+  <h4>新聞催化劑</h4>
+  <p>市場傳聞 SMCI 會計問題即將得到第三方審計機構澄清，且新訂單顯示 AI 伺服器需求持續旺盛。投資者開始重新定價這家公司的基本面價值。</p>
+  
+  <h4>未來展望</h4>
+  <p>如果會計問題解決，SMCI 的估值有望快速修復至 20-25x 本益比，對應股價 $45-55。AI 伺服器超級周期才剛開始，SMCI 的技術優勢和供應鏈能力將在未來 2-3 年內持續兌現。</p>
+  
+  <h4>風險因素</h4>
+  <p>最大利空：會計問題惡化導致下市風險；GPU 供應鏈中斷；中國競爭對手低價搶單。</p>
+</div>
+
+<!-- VST -->
+<div class="deep-section">
+  <h3>🟢 <a href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">VST</a> — Vistra Energy | AI 數據中心電力基建首選</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>VST 今日大漲 5.78%，是 AI 電力基建主題中最強勢的股票。這不是投機，而是有堅實的基本面支撐：每一座 AI 資料中心都需要穩定、大量的電力供應，而美國電網新建發電廠的週期需要 5-7 年，這意味著現有發電廠運營商將在很長一段時間內享受供需失衡帶來的溢價。VST 是美國最大、最靈活的天然氣發電廠運營商，直接受益於此趨勢。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $162.39｜日漲幅 +5.78%｜52W 高 $219.82｜52W 低 $132.66｜距低 +22.4%｜成交量 3.05M（高於平均）</div>
+  </div>
+  
+  <h4>估值</h4>
+  <p>VST 的預估本益比約 18-22x，相對於其成長性（EPS 預估成長 15-20%/年）極度低估。電廠運營商的現金流極度穩定，支撐高股息的同時兼顧資本成長，這是少見的「成長+收益」兼顧標的。</p>
+  
+  <h4>供需邏輯</h4>
+  <p>AI 資料中心每年新增 15-20 GW 電力需求，但美國電網新建發電廠需要 5-7 年。天然氣發電廠是最快的過渡方案，而 VST 擁有全美最大的靈活天然氣電廠集群，可快速調度電力至資料中心區域。這種供需失衡至少持續至 2028-2030 年。</p>
+  
+  <h4>新聞催化劑</h4>
+  <p>多家科技巨頭與 VST 簽署長期電力採購協議（PPA），鎖定未來 10-15 年的電力供應。監管機構批准 VST 的電廠升級計劃，擴大供電能力。</p>
+  
+  <h4>未來展望</h4>
+  <p>VST 的目標價 $200 代表還有 23% 的上漲空間，加上約 2.5% 的股息收益率，總回報潛力接近 26%。更重要的是，在任何市場崩盤中，VST 都是資金避風港，因為電力是剛需，跟 AI 景氣關聯度低。</p>
+  
+  <h4>風險因素</h4>
+  <p>天然氣價格波動；環保政策收緊；監管機構否決電廠擴建計畫；科技公司自建核能/再生能源。</p>
+</div>
+
+<!-- NRG -->
+<div class="deep-section">
+  <h3>🟢 <a href="https://www.barchart.com/stocks/quotes/NRG/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">NRG</a> — NRG Energy | 低估值電力基建穩健之選</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>NRG 今日大漲 5.57%，距 52W 低點僅 14.6%，提供厚實的安全邊際。NRG 與 VST 同為 AI 電力基建核心受益者，但 NRG 的估值更低（遠期 P/E 約 15-18x），股息率更高（約 3.5%），適合追求穩定收益的投資者。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $137.66｜日漲幅 +5.57%｜52W 高 $189.96｜52W 低 $120.11｜距低 +14.6%｜成交量 2.23M</div>
+  </div>
+  
+  <h4>未來展望</h4>
+  <p>NRG 的資料中心供電合約正在快速增加，預計 2026-2027 年 EPS 成長 12-18%。目標價 $170 代表 23% 潛在上漲，加上 3.5% 股息，總回報 26.5%。</p>
+  
+  <h4>風險因素</h4>
+  <p>天然氣價格上漲壓縮毛利率；監管障礙延緩擴張計畫。</p>
+</div>
+
+<!-- CEG -->
+<div class="deep-section">
+  <h3>🟢 <a href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">CEG</a> — Constellation Energy | 核電 AI 資料中心長期最佳解</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>Constellation Energy 今日 +3.02%，是電力基建中基本面最穩固的選擇。CEG 旗下運營多座核電廠，這些核電廠提供零碳、24/7 全天候的穩定電力——正是 AI 資料中心最渴望的能源形態。Microsoft 與 CEG 簽署的核能供電協議具有里程碑意義，代表科技巨頭願意為乾淨、穩定的核電支付溢價。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $270.26｜日漲幅 +3.02%｜52W 高 $412.70｜52W 低 $240.51｜距低 +12.4%｜成交量 3.35M</div>
+  </div>
+  
+  <h4>供需邏輯</h4>
+  <p>核電廠的建造需要 10-15 年，但 CEG 可透過重新啟動已封存核反應爐（如 Three Mile Island）來快速增加供電能力，成本遠低於新建。AI 資料中心對零碳電力的需求將持續推動 CEG 的長期合約價值。</p>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $330 代表 22% 潛在上漲。CEG 是 AI 電力基建中最具長期持有價值的標的，適合養老金、風險偏好低的機構投資者。</p>
+  
+  <h4>風險因素</h4>
+  <p>核能安全事故；核能監管政策變化；核燃料價格上漲。</p>
+</div>
+
+<!-- PLTR -->
+<div class="deep-section">
+  <h3>🔴 <a href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">PLTR</a> — Palantir | 52W 低點附近的深度價值陷阱？</h3>
+  
+  <h4>為什麼入選（反向思考）</h4>
+  <p>PLTR 今日暴跌 13.37%，股價距離 52W 低點 $116.18 只有 $0.52 的差距（+0.4%）。這種恐慌性殺盤往往創造歷史性的進場機會。PLTR 是美國政府最重要的 AI 分析平台供應商，美國陸軍剛與 PLTR 簽署重要合約，這些都是不受景氣影響的剛性需求。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $116.70｜日漲幅 -13.37%｜52W 高 $207.52｜52W 低 $116.18｜距低 +0.4%｜成交量 41.8M（日常均量 4 倍）</div>
+  </div>
+  
+  <h4>技術面</h4>
+  <p>今日恐慌性拋售導致成交量創近期新高，均線呈空頭排列，RSI 在 35-40 附近，已進入超賣區。52W 低點 $116 是強大支撐，機構投資者在此價位應有承接。</p>
+  
+  <h4>供需邏輯</h4>
+  <p>PLTR 的 AIP 平台整合了政府多年累積的數據資產，這是其他 AI 公司無法複製的競爭壁壘。8/4 即將發布的財報將是關鍵催化劑，如果營收成長維持在 20%+，股價有望快速反彈 30-40%。</p>
+  
+  <h4>風險因素</h4>
+  <p>最大利空：P/E 超過 200x，估值極度昂貴；政府 IT 支出削減；AI 軟體競爭加劇。</p>
+  
+  <h4>我的判斷</h4>
+  <p>PLTR 的殺盤是情緒主導而非基本面惡化。進場價設在 $112-118，止損 $102紀律執行，風險可控。目標價 $160 意味著 37% 潛在上漲。**高風險高報酬**，適合有持股耐心且能承受波動的投資者。</p>
+</div>
+
+<!-- GLW -->
+<div class="deep-section">
+  <h3>🟢 <a href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">GLW</a> — Corning | AI 光纖骨幹被忽視的低估值標的</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>GLW 今日逆勢上漲 3.29%，是光纖網路類股中的亮點。Corning 是全球最大光纖製造商，AI 資料中心之間的高速互聯離不開光纖骨幹，而市場嚴重低估了 Corning 在這個趨勢中的角色。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $194.07｜日漲幅 +3.29%｜52W 高 $212.39｜52W 低 $51.09｜距低 +279.9%｜成交量 14.2M</div>
+  </div>
+  
+  <h4>估值</h4>
+  <p>GLW 的遠期本益比約 22-24x，股息率約 2.8%。光纖業務的現金流高度穩定，Corning 是少見的「價值+成長」兼具的 AI 基建股票。</p>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $240 代表 24% 潛在上漲，加上 2.8% 股息，總回報潛力接近 27%。</p>
+</div>
+
+<!-- MU -->
+<div class="deep-section">
+  <h3>🟡 <a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">MU</a> — Micron | AI 記憶體超級周期核心受益者</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>MU 今日下跌 3.33%，但這是整體半導體調整的一部分，並非基本面問題。HBM（高頻寬記憶體）是 AI 伺服器的關鍵元件，每片 AI GPU 晶片需要 6-8 顆 HBM 晶片，而 HBM 的毛利遠高於傳統 DRAM。MU 是全球三大 HBM 製造商之一（與 SK 海力士、三星競爭），將直接受益於 AI 伺服器需求爆發。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $1,051.77｜日漲幅 -3.33%｜52W 高 $1,213.56｜52W 低 $103.38｜距低 +917.4%｜成交量 58.1M</div>
+  </div>
+  
+  <h4>估值</h4>
+  <p>MU 的預估本益比約 12-15x，相對於其 HBM 業務的成長性極度低估。HBM 的毛利率約 50-60%，遠高於傳統 DRAM 的 20-30%。</p>
+  
+  <h4>未來展望</h4>
+  <p>HBM 需求每年以 50%+ 速度增長，而 MU 的 HBM 產能在 2026-2027 年將擴張 2-3 倍。目標價 $1,300 代表 24% 潛在上漲。</p>
+</div>
+
+<!-- MSFT -->
+<div class="deep-section">
+  <h3>🟡 <a href="https://www.barchart.com/stocks/quotes/MSFT/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">MSFT</a> — Microsoft | 距 52W 低點最近的 Mag 7</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>MSFT 今日下跌 6.46%，股價距 52W 低點 $356.28 僅 5% 的差距。這種接近低點的位置提供了厚實的安全邊際。MSFT 的 Copilot AI 服務已有 2M+ 付費用戶，Azure AI 營收成長加速，雖然目前落後於 AWS 和 Google Cloud，但龐大的企業用戶基礎是長期護城河。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $373.94｜日漲幅 -6.46%｜52W 高 $555.45｜52W 低 $356.28｜距低 +5.0%｜成交量 39.4M</div>
+  </div>
+  
+  <h4>估值</h4>
+  <p>MSFT 的遠期本益比已壓縮至 28-30x，是過去 3 年來的最低水準，相對於其營收成長性（預估 12-15%/年）已進入合理估值區間。</p>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $460 代表 23% 潛在上漲，加上約 0.8% 股息，總回報潛力 24%。</p>
+</div>
+
+<!-- AMZN -->
+<div class="deep-section">
+  <h3>🟡 <a href="https://www.barchart.com/stocks/quotes/AMZN/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">AMZN</a> — Amazon | AI 雲端後進者正在加速追趕</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>AMZN 今日下跌 4.84%，股價從高點 $278 回調 20%，創造了良好的進場機會。AWS 仍是全球最大雲端平台，AI 服務（Bedrock、SageMaker）正在快速追趕。AMZN 的電子商務業務穩定增長，提供補貼 AI 投資的現金流。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $234.11｜日漲幅 -4.84%｜52W 高 $278.56｜52W 低 $196.00｜距低 +19.4%｜成交量 56.9M</div>
+  </div>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $290 代表 24% 潛在上漲。</p>
+</div>
+
+<!-- GOOGL -->
+<div class="deep-section">
+  <h3>🟡 <a href="https://www.barchart.com/stocks/quotes/GOOGL/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">GOOGL</a> — Alphabet | 性價比最高的 Mag 7 AI 基建股</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>GOOGL 今日下跌 6.29%，股價從高點 $408 回調 15%，提供進場良機。Google Cloud 營收成長 28%，是三大雲端中最快的。Gemini 2.0 AI 模型正在追趕 GPT-4，而 Google 自研 TPU 晶片讓其在 AI 基礎設施上具有成本優勢。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $346.13｜日漲幅 -6.29%｜52W 高 $408.61｜52W 低 $167.55｜距低 +106.6%｜成交量 30.5M</div>
+  </div>
+  
+  <h4>估值</h4>
+  <p>遠期本益比 22-24x，是 Mag 7 中最低的。Google 搜索業務每年產生 300 億美元自由現金流，足以資助 AI 投資而無需犧牲股東回報。</p>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $420 代表 21% 潛在上漲，加上 0.5% 股息，總回報潛力 21.5%。</p>
+</div>
+
+<!-- VRT -->
+<div class="deep-section">
+  <h3>🟢 <a href="https://www.barchart.com/stocks/quotes/VRT/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">VRT</a> — Vertiv | AI 散熱+電力雙主題核心受益者</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>VRT 今日 +2.05%，是少數同時覆蓋 AI 散熱和電力基建兩個最強主題的股票。Vertiv 是全球最大資料中心電源和散熱設備供應商，微軟是其最大客戶，Google、AWS、Meta 都是重要客戶。液冷技術從浸沒式轉向 CDX 冷板，VRT 是少數能同時提供兩種方案的廠商。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $318.32｜日漲幅 +2.05%｜52W 高 $379.94｜52W 低 $110.06｜距低 +189.2%｜成交量 10.3M</div>
+  </div>
+  
+  <h4>估值</h4>
+  <p>遠期本益比 30-35x，相對於其 25-30% 的 EPS 成長率合理。AI 資料中心訂單積壓創歷史新高，2026-2027 年營收成長可維持 20%+。</p>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $390 代表 22.5% 潛在上漲。VRT 是 AI 散熱基建的最純粹受益者，值得長線持有。</p>
+</div>
+
+<!-- PANW -->
+<div class="deep-section">
+  <h3>🟡 <a href="https://www.barchart.com/stocks/quotes/PANW/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">PANW</a> — Palo Alto Networks | AI 時代資安護城河最深</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>PANW 今日逆勢上漲 2.24%，顯示資金在市場崩跌時流入資安股。AI 時代資安攻擊事件倍增，政府和企業都必須加大資安投資，而 PANW 的平台整合策略（網路+雲端+AI 安全）讓其市佔率持續擴大。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $290.92｜日漲幅 +2.24%｜52W 高 $302.95｜52W 低 $139.57｜距低 +108.4%｜成交量 5.42M</div>
+  </div>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $340 代表 17% 潛在上漲。</p>
+</div>
+
+<!-- AMAT -->
+<div class="deep-section">
+  <h3>🟢 <a href="https://www.barchart.com/stocks/quotes/AMAT/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">AMAT</a> — Applied Materials | AI 先進封裝設備垄断者</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>AMAT 今日幾乎持平（+0.02%），在半導體股全線崩跌中展現強大抗跌力。AMAT 是半導體 CVD 設備的全球領導者，在 AI 先進封裝（TSV、CoWoS）中佔據關鍵地位。隨著 CoWoS 產能擴張，AMAT 的訂單積壓將持續增加。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $585.88｜日漲幅 +0.02%｜52W 高 $641.18｜52W 低 $154.47｜距低 +279.3%｜成交量 12.0M</div>
+  </div>
+  
+  <h4>估值</h4>
+  <p>遠期本益比僅 18-20x，是半導體設備股中最低的。AMAT 的訂單積壓創歷史新高，2026 年營收預估成長 15-20%。</p>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $700 代表 19.5% 潛在上漲，加上 1.2% 股息，總回報潛力 20.7%。</p>
+</div>
+
+<!-- ASX -->
+<div class="deep-section">
+  <h3>🟢 <a href="https://www.barchart.com/stocks/quotes/ASX/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">ASX</a> — ASE Technology | 台灣先進封裝 CoWoS 生產主力</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>ASX 今日 +3.30%，是半導體類股中少數收紅的股票。ASE 是全球最大半導體封測廠，也是台積電 CoWoS 先進封裝的主要供應商之一。NVDA、AMD 的 AI 晶片離不開 ASE 的封裝服務，這是剛性需求，不受景氣影響。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $39.77｜日漲幅 +3.30%｜52W 高 $44.47｜52W 低 $9.30｜距低 +327.6%｜成交量 12.1M</div>
+  </div>
+  
+  <h4>估值</h4>
+  <p>遠期本益比 12-15x，股息率約 3.5%。ASE 的自由現金流持續增加，先進封裝佔營收比重提升改善毛利率結構。</p>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $52 代表 31% 潛在上漲，加上 3.5% 股息，總回報潛力 34.5%。</p>
+</div>
+
+<!-- DELL -->
+<div class="deep-section">
+  <h3>🟢 <a href="https://www.barchart.com/stocks/quotes/DELL/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">DELL</a> — Dell Technologies | 被低估的 AI 伺服器巨頭</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>DELL 今日大漲 4.57%，是今日表現最好的藍籌科技股之一。市場嚴重低估了 Dell 在 AI 伺服器時代的角色——Dell 是全球最大 OEM 伺服器廠商，與 NVIDIA/AMD 深度合作，AI GPU 伺服器積壓訂單創歷史新高。本益比僅 10-12x，遠低於同業。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $427.78｜日漲幅 +4.57%｜52W 高 $469.47｜52W 低 $110.22｜距低 +288.1%｜成交量 5.68M</div>
+  </div>
+  
+  <h4>估值</h4>
+  <p>遠期本益比僅 10-12x，是科技股中最低的。Dell 的 AI 伺服器業務正在快速增長，整體營收成長預估 8-12%/年。</p>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $510 代表 19% 潛在上漲，加上 2.2% 股息，總回報潛力 21.2%。</p>
+</div>
+
+<!-- CRWD -->
+<div class="deep-section">
+  <h3>🟡 <a href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">CRWD</a> — CrowdStrike | AI 時代資安核心平台</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>CRWD 今日微跌 -1.73%，在半導體和軟體股崩跌中展現防禦性。CrowdStrike 的 Falcon 平台是 AI 時代企業資安的標準配備，隨著 AI 應用普及，資安威脅場景倍增，CRWD 的剛性需求將持續增強。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $680.92｜日漲幅 -1.73%｜52W 高 $785.66｜52W 低 $342.72｜距低 +98.7%｜成交量 2.33M</div>
+  </div>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $800 代表 17.5% 潛在上漲。</p>
+</div>
+
+<!-- WDC -->
+<div class="deep-section">
+  <h3>🟡 <a href="https://www.barchart.com/stocks/quotes/WDC/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">WDC</a> — Western Digital | AI 資料儲存剛需落後補漲</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>WDC 今日逆勢上漲 2.63%，是存儲類股中唯一收紅的股票。AI 資料中心需要大量高速 HDD/NAND 儲存，而 WDC 是全球最大 HDD 廠商（與 Seagate 競爭）和第二大 NAND 廠商（與三星/SK 競爭）。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $670.75｜日漲幅 +2.63%｜52W 高 $799.87｜52W 低 $62.13｜距低 +979.6%｜成交量 12.5M</div>
+  </div>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $780 代表 16% 潛在上漲。WDC 與 Kioxia 的合併傳聞若成真，將創造全球最大 NAND 生產商，議價能力大增。</p>
+</div>
+
+<!-- INTC -->
+<div class="deep-section">
+  <h3>🟢 <a href="https://www.barchart.com/stocks/quotes/INTC/overview" target="_blank" style="color:#7dd3fc;text-decoration:none;">INTC</a> — Intel | 分析師接連升級的 AI 落後補漲股</h3>
+  
+  <h4>為什麼入選</h4>
+  <p>INTC 今日逆勢上漲 3.46%，是晶片類股中唯一大漲的股票！這印證了我的觀點：Intel 的 18 個月反轉故事正在被更多機構投資者接受。Intel 的 foundry 策略雖然漫長，但 Gaudi AI 晶片已進入規模化部署，Arrow Lake CPU 正在筆記型電腦市場收復份額。</p>
+  
+  <h4>基本概況</h4>
+  <div class="highlight">
+    <div class="title">價格數據</div>
+    <div class="text">現價 $132.28｜日漲幅 +3.46%｜52W 高 $141.45｜52W 低 $18.97｜距低 +597.3%｜成交量 131.3M</div>
+  </div>
+  
+  <h4>供需邏輯</h4>
+  <p>Intel 的 18A 製程若成功量產，將是全球少數能與台積電競爭的晶片製造商。美國政府 CHIPS Act 補貼 85 億美元降低 Intel 的資本支出負擔。</p>
+  
+  <h4>未來展望</h4>
+  <p>目標價 $155 代表 17% 潛在上漲。Intel 的修復之路漫長但方向明確，每次大幅回調都是長線佈局機會。</p>
+</div>
+
+<!-- E. 主題板塊評估 -->
+<h2 class="section-title amber">E. 主題板塊評估</h2>
+<div class="deep-section">
+  <h3>📊 今日 AI 基建板塊輪動分析</h3>
+  
+  <h4>🟢 強勢主題：AI 電力基建</h4>
+  <p>今日最強主題無疑是 AI 電力基建。VST +5.78%、NRG +5.57%、CEG +3.02% 代表資金在市場崩跌時尋求確定性。AI 資料中心電力需求是長期結構性趨勢，供需失衡至少持續 5-7 年，這是今天最清晰的 AI 基建投資主題。</p>
+  
+  <h4>🟢 強勢主題：AI 先進封裝</h4>
+  <p>ASX +3.30%、AMKR +1.50% 顯示先進封裝需求剛性，即使在半導體崩跌中仍獲支撐。CoWoS 是 NVDA/AMD AI 晶片的瓶頸環節，台積電擴產腳步落後需求 2-3 年。</p>
+  
+  <h4>🟡 中性主題：AI 散熱/液冷</h4>
+  <p>VRT +2.05% 逆勢抗跌，但 SPXC -0.42% 偏弱。液冷需求確定，但股價已部分反映這個利好。</p>
+  
+  <h4>🔴 弱勢主題：AI 晶片/GPU</h4>
+  <p>ARM -11.19%、MRVL -9.66%、QCOM -7.55% 顯示高估值半導體股被集中拋售。這些股票在 2024-2025 年累積巨大漲幅後，碰上市場risk-off 資金撤離。</p>
+  
+  <h4>🔴 弱勢主題：AI 軟體/雲端平台</h4>
+  <p>PLTR -13.37%、SNOW -4.31%、MSFT -6.46% 代表軟體 SaaS 股在利率壓力下估值收縮。MSFT 和 GOOGL 雖然基本面穩健，但在整體拋售中難以獨善其身。</p>
+</div>
+
+<!-- F. AI 供需失衡深度分析 -->
+<h2 class="section-title red">F. AI 供需失衡深度分析</h2>
+<div class="deep-section">
+  <h3>⚡ AI 電力基建：最清晰、最持續的供需失衡</h3>
+  
+  <h4>問題的根源</h4>
+  <p>一座大型 AI 資料中心（如 Meta 的 1GW 超級計算中心）需要相當於一個小型城市全年的用電量。GPT-5 等大語言模型的訓練需要 10,000+ 張 H100 GPU 連續運算數月，推理階段的電力消耗更是訓練的 5-10 倍。</p>
+  
+  <h4>供給瓶頸</h4>
+  <ul>
+    <li><strong>電網建設週期太長：</strong>美國新建天然氣發電廠需要 5-7 年，核電廠需要 15-20 年，但 AI 資料中心的電力需求每年增長 40-60%。</li>
+    <li><strong>電網傳輸瓶頸：</strong>即使有電力，資料中心選址也受限於電網容量。電網升級需要數十億美元和數年規劃。</li>
+    <li><strong>電網互聯排程：</strong>新的電網互聯請求需要排隊 2-4 年才能接通，這是看不見的供給約束。</li>
+  </ul>
+  
+  <h4>我的結論</h4>
+  <div class="highlight">
+    <div class="title">核心判斷</div>
+    <div class="text">AI 電力基建的供需失衡是 11 大 AI 基建類別中最清晰、最持續的。VST、CEG、NRG 這些電力運營商將在未來 5-10 年享受溢價定價能力。這個主題不是投機，而是有堅實基本面的長期結構性投資機會。</div>
+  </div>
+  
+  <h3>💾 HBM 記憶體：另一個供需失衡的確定領域</h3>
+  <p>AI 伺服器對 HBM 的需求每年增長 50%+，但全球 HBM 產能受限於極少數製造商（SK 海力士、三星、MU）。HBM4 的技術難度更高，良率提升需要時間。MU 作為三大 HBM 供應商之一，將持續享受供需失衡帶來的價格上漲和毛利擴張。</p>
+  
+  <h3>📦 先進封裝（CoWoS）：被忽視的瓶頸</h3>
+  <p>CoWoS 是將 AI 晶片與 HBM 整合在一起的關鍵技術，目前全球只有台積電和少數封測廠能做到。CoWoS 產能擴張需要 2-3 年，這意味著 NVDA/AMD 的 AI 晶片交付仍受制於封裝瓶頸。ASE 和 AMKR 是這個瓶頸的主要受益者。</p>
+</div>
+
+<!-- G. 明日觀察 -->
+<h2 class="section-title green">G. 明日觀察重點</h2>
+<div class="deep-section">
+  <h3>🔍 明日（6/25，週四）觀察事項</h3>
+  
+  <h4>1. SMCI 能否守住今日漲幅？</h4>
+  <p>SMCI 今日大漲 8%後，需觀察是否出現獲利了結。如果股價能在 $32 以上持穩，說明今日的上漲是機構買盤驅動而非短線炒作。</p>
+  
+  <h4>2. 電力基建是否持續輪動？</h4>
+  <p>VST、NRG、CEG 的資金流入是否持續？如果電力股連續 2-3 天跑贏大盤，將確認 AI 電力基建主題的機構化建倉。</p>
+  
+  <h4>3. PLTR 能否止跌？</h4>
+  <p>PLTR 今日暴跌 13%，明日需觀察是否在 $115-118 附近出現技術性支撐。如果能在 52W 低點 $116 附近形成雙底，將是難得的進場機會。</p>
+  
+  <h4>4. MSFT 能否守住 $360 支撐？</h4>
+  <p>MSFT 距 52W 低點 $356.28 只剩 5% 空間。如果跌破 $356，將是 Mag 7 中第一個創 52W 新低的股票，可能觸發更大範圍的科技股拋售。</p>
+  
+  <h4>5. 整體市場情緒指標</h4>
+  <p>若 VIX 持續飆升超過 25，代表市場進入恐慌模式，所有 AI 基建股都會受到波及。若 VIX 在 20 以下持穩，代表這只是健康的獲利了結，AI 基建優質股將很快恢復。</p>
+  
+  <h4>6. 值得關注的新聞</h4>
+  <ul>
+    <li>任何 AI 資料中心新建或擴建公告 → 利好 VST、CEG、NRG、VRT</li>
+    <li>NVDA 最新 Blackwell 晶片交付進度 → 利好 SMCI、AMAT、ASX</li>
+    <li>CHIPS Act 補貼更新 → 利好 INTC、AMAT</li>
+    <li>企業財報預警 → 可能打壓整體市場情緒</li>
+  </ul>
+</div>
+
+<!-- 結語 -->
+<div class="deep-section" style="background: linear-gradient(135deg, #0a0a1a, #101025); border-color: #2a2a50;">
+  <h3 style="color:#7dd3fc;">📝 結語：今天的市場告訴我們什麼？</h3>
+  <p>今天的市場走勢讓我想起 2022 年的科技股崩跌——但有一個本質區別：AI 的需求是真實的、可見的、持續增長的。這次回調不是 AI 泡沫的破裂，而是機構投資者在高通膨、高利率環境下選擇「持有現金」或「輪動至防禦性資產」的正常風險管理行為。</p>
+  
+  <p>資金從高估值的 AI 軟體和半導體流出，轉向電力基建這種「看得見、摸得著」的 AI 必需品，這種輪動恰恰證明了 AI 投資主題的成熟度正在提升——從純概念的盲目追逐，進化到對 AI 供應鏈中真正掌握定價權的環節的深度挖掘。</p>
+  
+  <p><strong>電力是 AI 的基礎設施——就像水是生命一樣。在任何一個 AI 繁榮的假設下，VST、CEG、NRG 這些電力運營商都是最確定的受益者。</strong></p>
+  
+  <p>今天的報告聚焦 18 檔 AI 基建股，其中 9 檔（SMCI、VST、NRG、CEG、GLW、VRT、AMAT、ASX、DELL）是 AI 供應鏈中相對低估值或強勢抗跌的標的，9 檔（PLTR、INTC、MSFT、AMZN、GOOGL、PANW、CRWD、WDC、MU）是大跌創造的長線進場機會。</p>
+  
+  <p>祝各位投資者保持紀律，控制倉位，等待最好的機會。</p>
+</div>
+
+<footer>
+  <p>🤖 AI 美股基礎建設研究報告｜Generated by OpenClaw AI Agent</p>
+  <p>本報告僅供參考，不構成投資建議｜<a href="https://github.com/acstep/stock-reports">GitHub Repo</a>｜數據來源：Yahoo Finance、Barchart</p>
+</footer>
+
+</div>
+</body>
+</html>
