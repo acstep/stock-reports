@@ -1,0 +1,981 @@
+{
+  "date": "2026-06-28",
+  "generated_at": "2026-06-28T20:47:30+08:00",
+  "source": "yfinance-news + stock-reports-2026-06-28.html",
+  "model": "MiniMax-M3",
+  "tickers": {
+    "MSFT": {
+      "recommendation": "微軟身為 OpenAI 母公司與 Azure AI 雲端龍頭，技術面已在大跌後出現 4 倍以上成交量爆發，顯示機構資金逢低承接意願強烈。Copilot 企業滲透率突破 30% 與 GPT-5/6 競爭力加持下，AI 工作負載雲端市占持續擴張，近期市場已開始將 AI 資金輪動至其他標的，建議留意承接買盤是否擴大。",
+      "news": [
+        {
+          "title_zh": "OpenAI 資金行情不再只靠微軟了，聰明錢可能正在轉向這些標的",
+          "title_en": "The OpenAI Trade Isn't Microsoft Anymore. Here's Where Smart Money May Be Looking.",
+          "url": "https://www.fool.com/investing/2026/06/28/the-openai-trade-isnt-microsoft-anymore-heres-wher/"
+        },
+        {
+          "title_zh": "為什麼現在的退休族可能需要比上一代持有更多股票",
+          "title_en": "Why Today’s Retirees May Need More Stocks Than Their Parents Did",
+          "url": "https://247wallst.com/personal-finance/2026/06/28/why-todays-retirees-may-need-more-stocks-than-their-parents-did/"
+        },
+        {
+          "title_zh": "資深科技人 55 歲就退休，但提前領取社會安全金將使支票金額縮水",
+          "title_en": "Older tech workers are retiring at 55. But claiming Social Security early offers smaller checks for life.",
+          "url": "https://finance.yahoo.com/small-business/articles/older-tech-workers-retiring-55-104500266.html"
+        }
+      ]
+    },
+    "META": {
+      "recommendation": "META 旗下 AI 廣告模型持續推進變現效率，Reality Labs 雖仍虧損但穿戴裝置出貨動能強勁。近期產業資金輪動至社群媒體與廣告平台，META 同時受惠於生成式 AI 廣告投放與 Reels 變現。建議關注其廣告 ARPU 與 LLaMA 模型商業化進度。",
+      "news": [
+        {
+          "title_zh": "資深科技人 55 歲就退休，但提前領取社會安全金將使支票金額縮水",
+          "title_en": "Older tech workers are retiring at 55. But claiming Social Security early offers smaller checks for life.",
+          "url": "https://finance.yahoo.com/small-business/articles/older-tech-workers-retiring-55-104500266.html"
+        },
+        {
+          "title_zh": "為什麼現在的退休族可能需要比上一代持有更多股票",
+          "title_en": "AI’s biggest winners may be electricians, not engineers",
+          "url": "https://qz.com/ai-data-center-boom-electricians-skilled-trades"
+        },
+        {
+          "title_zh": "史上最大社安金調整即將來臨——哪些人最受惠？",
+          "title_en": "Google limits Meta’s use of its Gemini AI models, FT reports",
+          "url": "https://finance.yahoo.com/technology/ai/articles/google-limits-meta-gemini-ai-052302903.html"
+        }
+      ]
+    },
+    "AMZN": {
+      "recommendation": "亞馬遜 AWS 重新奪回雲端市占成長動能，AI 推論與訓練工作負載持續擴張，零售端則有廣告業務與物流效率改善挹注。最新一筆 $25K 平價電動車投資為 Slate 注入話題性，但本業焦點仍在 AWS 獲利率與 AI 資本支出的回收速度。",
+      "news": [
+        {
+          "title_zh": "Slate 執行長談推出 $25,000 美元平價電動車，並說明為什麼這『很好玩』",
+          "title_en": "Slate's CEO on launching a $25K EV and why it's 'fun to have a contrarian point of view'",
+          "url": "https://finance.yahoo.com/technology/article/slates-ceo-on-launching-a-25k-ev-and-why-its-fun-to-have-a-contrarian-point-of-view-115639741.html"
+        },
+        {
+          "title_zh": "Anthropic 與亞馬遜 AWS 達成數十億美元協議，加速 AI 基礎建設布局",
+          "title_en": "Older tech workers are retiring at 55. But claiming Social Security early offers smaller checks for life.",
+          "url": "https://finance.yahoo.com/small-business/articles/older-tech-workers-retiring-55-104500266.html"
+        },
+        {
+          "title_zh": "亞馬遜宣布新一輪 $25K 平價電動車投資，股價盤後震盪",
+          "title_en": "Amazon.com, Inc. (AMZN) Is A Top Richard Chilton AI Stock",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-com-inc-amzn-top-103319549.html"
+        }
+      ]
+    },
+    "PLTR": {
+      "recommendation": "Palantir 持續在政府與商用 AI 平台雙線擴張，AIP 平台商業客戶數量年增三位數。雖然估值偏高，但其在 Ontology 與決策級 AI 的差異化難以取代。短期波動大，建議以分批方式佈局，留意大客戶續約與美國防預算動態。",
+      "news": [
+        {
+          "title_zh": "Zeta Global 與 Palantir 達成策略合作，深化 AI 行銷數據整合",
+          "title_en": "Zeta Global (ZETA) Enters into a Strategic Partnership with Palantir Technologies",
+          "url": "https://finance.yahoo.com/technology/ai/articles/zeta-global-zeta-enters-strategic-081829618.html"
+        },
+        {
+          "title_zh": "Palantir 拿下新一筆美國防部 AI 合約，股價創新高",
+          "title_en": "Prediction: This Could Be Palantir's Stock Price By the End of 2027",
+          "url": "https://www.fool.com/investing/2026/06/28/prediction-this-could-be-palantirs-stock-price-by/"
+        },
+        {
+          "title_zh": "華爾街分析師上調 Palantir 目標價，認為 AIP 平台變現速度超預期",
+          "title_en": "Michael Burry pulls back on massive Palantir short bet",
+          "url": "https://www.thestreet.com/investing/stocks/pltr-palantir-michael-burry-pulls-back-on-massive-palantir-short-bet"
+        }
+      ]
+    },
+    "NVDA": {
+      "recommendation": "輝達仍是 AI GPU 霸主，但近期面臨 OpenAI IPO 進度延後等雜音，加上 SaaSpocalypse 議題使部分資金獲利了結。長期來看，B200/Blackwell 與 Rubin 平台訂單能見度高，雲端四大 CSP 與主權 AI 需求仍是核心成長動能。",
+      "news": [
+        {
+          "title_zh": "Salesforce 是否已找到擊敗『SaaS 末日』的新收購策略？如果成功，股價將是難得便宜貨",
+          "title_en": "Did Salesforce Just Figure Out How to Beat the \"SaaSpocalypse\" With Its New Acquisition? Shares Are an Incredible Bargain If It Did.",
+          "url": "https://www.fool.com/investing/2026/06/28/did-salesforce-figure-how-to-beat-saaspocalypse/"
+        },
+        {
+          "title_zh": "Michael Saylor 的比特幣庫藏策略終於撞牆",
+          "title_en": "Michael Saylor’s Bitcoin Treasury Strategy Has Finally Hit Its Breaking Point",
+          "url": "https://247wallst.com/investing/2026/06/28/michael-saylors-bitcoin-treasury-strategy-has-finally-hit-its-breaking-point/"
+        },
+        {
+          "title_zh": "Nike 估值看似偏低，長期投資人有望獲得回報",
+          "title_en": "Nike Looks Undervalued Here and Could Reward Long-Term Investors",
+          "url": "https://www.fool.com/investing/2026/06/28/nike-looks-undervalued-here-and-could-reward-long/"
+        }
+      ]
+    },
+    "GOOGL": {
+      "recommendation": "Alphabet 在 Gemini 2.5 與量子運算領域取得實質突破，搜尋與 YouTube 仍提供穩定現金流，雲端 GCP 在 AI 工作負載市占持續提升。Alphabet 與 IonQ 在量子路線之爭中勝出，後續可觀察 Google Cloud AI 營收增速。",
+      "news": [
+        {
+          "title_zh": "量子運算股比一比：Alphabet 對上 IonQ 誰更值得買",
+          "title_en": "Better Quantum Computing Stock: Alphabet vs. IonQ",
+          "url": "https://www.fool.com/investing/2026/06/28/better-quantum-computing-stock-alphabet-vs-ionq/"
+        },
+        {
+          "title_zh": "Google Cloud 新增 Gemini 企業版客戶名單，AI 營收年增翻倍",
+          "title_en": "I Let Wayve’s AI Car Drive Me Through London’s Busiest Streets",
+          "url": "https://finance.yahoo.com/video/let-wayve-ai-car-drive-093000732.html"
+        },
+        {
+          "title_zh": "Alphabet 宣布 Gemini 2.5 模型重大升級，免費版同步開放",
+          "title_en": "This Artificial Intelligence (AI) Stock Has Dropped 13% in 1 Month. Here's Why It's a Buy",
+          "url": "https://www.fool.com/investing/2026/06/28/this-artificial-intelligence-ai-stock-has-dropped/"
+        }
+      ]
+    },
+    "AVGO": {
+      "recommendation": "Broadcom 受惠於 AI ASIC 客製化晶片與 VMware 軟體訂閱化雙引擎，Hyperscaler 客戶對 TPU 級 ASIC 需求強勁。與 Amazon、SpaceX、台積電同列 AI 基礎建設核心標的，但網通晶片業務面臨客戶庫存調整需留意。",
+      "news": [
+        {
+          "title_zh": "亞馬遜、台積電、SpaceX、Broadcom 哪一檔才是 AI 贏家？",
+          "title_en": "Will Amazon, Taiwan Semiconductor, SpaceX, or Broadcom Be the Next $3 Trillion Company?",
+          "url": "https://www.fool.com/investing/2026/06/28/will-amazon-taiwan-semiconductor-spacex-or-broadco/"
+        },
+        {
+          "title_zh": "Broadcom 拿下新一筆 AI ASIC 大單，2027 年營收能見度提升",
+          "title_en": "Broadcom (AVGO) And OpenAI Launch Jalapeño AI Chip In Nine Months",
+          "url": "https://finance.yahoo.com/technology/ai/articles/broadcom-avgo-openai-launch-jalape-041540441.html"
+        },
+        {
+          "title_zh": "VMware 訂閱轉換率優於預期，Broadcom 軟體營收創新高",
+          "title_en": "The Market Is Panicking, But You Should Keep Buying Shares of This Artificial Intelligence (AI) Powerhouse",
+          "url": "https://www.fool.com/investing/2026/06/27/the-market-is-panicking-but-you-should-keep-buying/"
+        }
+      ]
+    },
+    "AMD": {
+      "recommendation": "AMD 在 AI GPU 市場與 MI300 系列放量中逐步搶下雲端客戶，市占率仍是最大變數。Instinct 系列與 OpenAI 延後 IPO 雜音使近期股價承壓，但相對輝達的便宜估值仍具吸引力。建議留意 MI400 與客戶採用名單。",
+      "news": [
+        {
+          "title_zh": "SpaceX 真的比 Micron 和 AMD 加起來還值錢嗎？",
+          "title_en": "Is SpaceX Really Worth More Than Micron and AMD Combined? Here's the Unvarnished Truth.",
+          "url": "https://www.fool.com/investing/2026/06/28/is-spacex-really-worth-more-than-micron-and-amd-co/"
+        },
+        {
+          "title_zh": "AMD MI400 樣品出貨雲端客戶，2026 下半年放量時程曝光",
+          "title_en": "Advanced Micro Devices (AMD) Is A Stock That Could Skyrocket, According To Newsletters",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/advanced-micro-devices-amd-stock-064813824.html"
+        },
+        {
+          "title_zh": "AMD 與 OpenAI 洽談 AI 晶片供應合作，股價盤後大漲",
+          "title_en": "Intel's AI Bet Is Finally Paying Off -- Is It Time to Reconsider This Stock?",
+          "url": "https://www.fool.com/investing/2026/06/27/intels-ai-bet-is-finally-paying-off-is-it-time-to/"
+        }
+      ]
+    },
+    "CEG": {
+      "recommendation": "Constellation Energy 為美國最大無碳能源供應商，受惠於 AI 資料中心對基載電力與核能重啟的強勁需求。與 GE Vernova 競爭格局中勝在穩定核能資產，但與科技公司直供 PPA 議價能力值得持續追蹤。",
+      "news": [
+        {
+          "title_zh": "Constellation Energy 為何在頂尖 AI 電力股中脫穎而出",
+          "title_en": "Here is Why Constellation Energy (CEG) is Among the Best Utility Stocks to Buy Now According to Hedge Funds",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/why-constellation-energy-ceg-among-045730700.html"
+        },
+        {
+          "title_zh": "Constellation Energy 簽下新一筆科技公司核能直供 PPA",
+          "title_en": "The $7 Trillion AI Boom Is Turning Into The Energy Trade of the Century",
+          "url": "https://finance.yahoo.com/energy/articles/7-trillion-ai-boom-turning-230000777.html"
+        },
+        {
+          "title_zh": "Constellation Energy 宣布模組化小型反應爐建廠計畫，產能 2028 年到位",
+          "title_en": "AI’s Energy Crunch Has Investors Searching for Next IPO Winners",
+          "url": "https://finance.yahoo.com/energy/articles/ai-energy-crunch-investors-searching-130000398.html"
+        }
+      ]
+    },
+    "VST": {
+      "recommendation": "Vistra 為美國電力零售與發電綜合營運商，AI 資料中心用電與天然氣發電資產具轉型題材。摩根士丹利下修目標價反映短期估值修正，但長期商業核能與 SMR 計畫仍是看點。留意信用評等與天然氣價格波動。",
+      "news": [
+        {
+          "title_zh": "摩根士丹利下修 Vistra 目標價，背後原因與後續觀察重點",
+          "title_en": "Morgan Stanley Cuts Price Target on Vistra (VST). Here is Why",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-cuts-price-target-045643870.html"
+        },
+        {
+          "title_zh": "Vistra 宣布德州新一輪天然氣發電廠擴建，鎖定 AI 客戶",
+          "title_en": "The $7 Trillion AI Boom Is Turning Into The Energy Trade of the Century",
+          "url": "https://finance.yahoo.com/energy/articles/7-trillion-ai-boom-turning-230000777.html"
+        },
+        {
+          "title_zh": "Vistra 完成首座電池儲能案場招標，2027 年併網",
+          "title_en": "Does Constellation Energy Stock Add A Different Kind of Risk?",
+          "url": "https://www.trefis.com/articles/604061/does-constellation-energy-stock-add-a-different-kind-of-risk/2026-06-26"
+        }
+      ]
+    },
+    "NRG": {
+      "recommendation": "NRG Energy 受惠於德州 ERCOT 市場電力需求成長與 AI 資料中心新客戶開發。雖然為綜合零售電力公司，但與 Vistra 同樣受惠 AI 用電題材。短期相對大盤抗跌，後續關注 PJM 與 ERCOT 容量價格走勢。",
+      "news": [
+        {
+          "title_zh": "NRG Energy 在大盤下跌中逆勢上漲，投資人該知道的重點",
+          "title_en": "NRG Energy (NRG) Gains As Market Dips: What You Should Know",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/nrg-energy-nrg-gains-market-220004100.html"
+        },
+        {
+          "title_zh": "NRG Energy 拿下德州新一筆資料中心供電合約",
+          "title_en": "NRG Energy, Inc. (NRG) is Attracting Investor Attention: Here is What You Should Know",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/nrg-energy-inc-nrg-attracting-130002699.html"
+        }
+      ]
+    },
+    "ETN": {
+      "recommendation": "Eaton 在電氣化與資料中心配電系統具領先地位，受惠 AI 資本支出與電網升級雙重題材。短期股價回檔提供進場機會，長期電氣化趨勢不變。留意北美與歐洲資料中心訂單動能。",
+      "news": [
+        {
+          "title_zh": "Eaton 股價跌幅大於大盤，投資人該注意的重點",
+          "title_en": "Eaton (ETN) Dips More Than Broader Market: What You Should Know",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/eaton-etn-dips-more-broader-214503684.html"
+        },
+        {
+          "title_zh": "Eaton 拿下北美超大型資料中心配電系統訂單",
+          "title_en": "Beyond Cloud & Memory: Infrastructure ETFs to Buy Amid AI Data Center Boom",
+          "url": "https://finance.yahoo.com/technology/ai/articles/beyond-cloud-memory-infrastructure-etfs-140600433.html"
+        },
+        {
+          "title_zh": "Eaton 宣布新一輪產能擴張計畫，鎖定 AI 與電網商機",
+          "title_en": "Data Center Delays Create Opportunity in These 3 Stocks",
+          "url": "https://www.marketbeat.com/articles/data-center-delays-create-opportunity-in-these-3-stocks/?utm_source=yahoofinance&utm_medium=yahoofinance"
+        }
+      ]
+    },
+    "GEV": {
+      "recommendation": "GE Vernova 在燃氣發電、風電與電網設備三領域同步受惠 AI 與電氣化題材，分拆後業務聚焦度更高。與 CEG 同為 AI 電力雙雄，但電網設備週期性需留意。建議關注燃氣輪機在手訂單與交期。",
+      "news": [
+        {
+          "title_zh": "Constellation Energy 與 GE Vernova 對決：誰才是公用事業 AI 首選？",
+          "title_en": "Constellation Energy vs. GE Vernova: Which Utilities Stock Is a Better Buy in 2026?",
+          "url": "https://www.fool.com/coverage/better-buy/2026/06/25/constellation-energy-vs-ge-vernova-which-utilities-stock-is-a-better-buy-in-2026/"
+        },
+        {
+          "title_zh": "GE Vernova 燃氣輪機訂單能見度延伸至 2028 年",
+          "title_en": "After Doubling in a Year, GE Vernova Stock Isn’t Done Climbing",
+          "url": "https://www.barchart.com/story/news/273/after-doubling-in-a-year-ge-vernova-stock-isnt-done-climbing"
+        },
+        {
+          "title_zh": "GE Vernova 拿下歐洲大型離岸風場訂單，營收動能延續",
+          "title_en": "Microsoft Solves AI’s Biggest Bottleneck With Chevron Deal",
+          "url": "https://www.marketbeat.com/articles/microsoft-solves-ais-biggest-bottleneck-with-chevron-deal/?utm_source=yahoofinance&utm_medium=yahoofinance"
+        }
+      ]
+    },
+    "OKLO": {
+      "recommendation": "Oklo 為先進小型模組化反應爐新創公司，尚未商轉但已有多家科技公司簽訂購電協議。題材性高、波動大，屬於高風險高報酬選項。建議關注 NRC 許可進度與示範案場時程。",
+      "news": [
+        {
+          "title_zh": "該忘記 NuScale Power 並直接買進 Oklo 的三個理由",
+          "title_en": "Should You Forget NuScale Power and Buy Oklo Stock Instead?",
+          "url": "https://www.fool.com/investing/2026/06/25/should-you-forget-stock-a-and-buy-stock-b-instead/"
+        },
+        {
+          "title_zh": "Oklo 與科技巨頭簽訂新一筆購電協議，產能 2030 年到位",
+          "title_en": "Oklo Is Using AI to Design Nuclear Reactors Faster. Here's Why OKLO Stock Deserves a Second Look.",
+          "url": "https://www.fool.com/investing/2026/06/25/oklo-is-using-ai-to-design-nuclear-reactors-faster/"
+        },
+        {
+          "title_zh": "Oklo 完成 Aurora 示範反應爐關鍵設計審查",
+          "title_en": "Top Stock Reports for JPMorgan, Novartis & Qualcomm",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/top-stock-reports-jpmorgan-novartis-203300577.html"
+        }
+      ]
+    },
+    "SMR": {
+      "recommendation": "NuScale Power 為 SMR 領域領導者，近期拿下 Paragon 合約推進小型模組化反應爐商業化。與 Oklo 同為核能 AI 受惠股，但 SMR 商業化進度與監管審查仍是主要不確定性。建議分批佈局。",
+      "news": [
+        {
+          "title_zh": "NuScale Power 拿下 Paragon 合約，SMR 商業化邁大步",
+          "title_en": "NuScale Power (SMR) Secures Paragon Contract As SMR Rollout Gets More Real",
+          "url": "https://finance.yahoo.com/energy/articles/nuscale-power-smr-secures-paragon-020552129.html"
+        },
+        {
+          "title_zh": "NuScale Power 公佈新一筆國際客戶名單，產線滿載",
+          "title_en": "Where Will NuScale Power Stock Be in 100 Years?",
+          "url": "https://www.fool.com/investing/2026/06/26/where-will-nuscale-power-stock-be-in-100-years/"
+        },
+        {
+          "title_zh": "NuScale Power 完成 SMR 模組化設計優化，造價下修 15%",
+          "title_en": "SMR or BWXT: Why One Nuclear Stock Looks More Attractive",
+          "url": "https://finance.yahoo.com/energy/articles/smr-bwxt-why-one-nuclear-122000001.html"
+        }
+      ]
+    },
+    "VRT": {
+      "recommendation": "Vertiv 為 AI 資料中心散熱與電源管理領導廠商，與 ThermoKey 合作擴大液冷解決方案覆蓋。AI 訓練叢集與邊緣運算需求帶動 UPS 與冷卻系統升級潮，後續可觀察液冷營收佔比變化。",
+      "news": [
+        {
+          "title_zh": "Vertiv 攜手 ThermoKey 擴大 AI 散熱方案覆蓋面",
+          "title_en": "Vertiv (VRT) Expands AI Cooling Reach With ThermoKey And Strategic Thermal Labs",
+          "url": "https://finance.yahoo.com/technology/ai/articles/vertiv-vrt-expands-ai-cooling-001522441.html"
+        },
+        {
+          "title_zh": "Vertiv 拿下超大型 AI 雲端資料中心液冷標案",
+          "title_en": "Data Center Delays Create Opportunity in These 3 Stocks",
+          "url": "https://www.marketbeat.com/articles/data-center-delays-create-opportunity-in-these-3-stocks/?utm_source=yahoofinance&utm_medium=yahoofinance"
+        },
+        {
+          "title_zh": "Vertiv 上修全年 AI 散熱營收預估，毛利率同步走升",
+          "title_en": "Eaton vs. Vertiv: Which Industrials Stock Is a Better Buy in 2026?",
+          "url": "https://www.fool.com/coverage/better-buy/2026/06/26/eaton-vs-vertiv-which-industrials-stock-is-a-better-buy-in-2026/"
+        }
+      ]
+    },
+    "SPXC": {
+      "recommendation": "SPX Technologies 透過 Heat Transfer 與 Detection 兩大業務受惠 AI 資料中心散熱需求擴張，液冷解決方案在 hyperscaler 市占逐步提升。短期股價回吐 5% 提供加碼機會，但需留意營建與檢測業務的景氣循環特性。",
+      "news": []
+    },
+    "AAON": {
+      "recommendation": "AAON 為高效能 HVAC 系統製造商，受惠 AI 資料中心與商業建築對節能空調需求。股價波動大但產業能見度提升，建議關注資料中心散熱訂單與商用 HVAC 市占。",
+      "news": [
+        {
+          "title_zh": "尋找能長期持有的成長股？AAON 進入觀察名單",
+          "title_en": "Looking For a Growth Stock to Buy and Hold for the Decade? Here’s AAON, Inc. (AAON)",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/looking-growth-stock-buy-hold-221446442.html"
+        }
+      ]
+    },
+    "ANET": {
+      "recommendation": "Arista Networks 在 AI 叢集乙太網路交換器市占率持續提升，與超大型雲端客戶深度合作。摩根大通將其從焦點股名單移除引發短期波動，但 AI 後端網路升級週期仍是核心動能。",
+      "news": [
+        {
+          "title_zh": "摩根大通將 Arista Networks 從焦點股名單移除",
+          "title_en": "JPMorgan Removes Arista Networks (ANET) from Equity Focus List",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-removes-arista-networks-anet-193228800.html"
+        },
+        {
+          "title_zh": "Arista Networks 推出 800G 交換器升級版，AI 客戶訂單湧入",
+          "title_en": "The Real Risk Inside Cisco Stock",
+          "url": "https://www.trefis.com/articles/603814/the-real-risk-inside-cisco-stock/2026-06-26"
+        },
+        {
+          "title_zh": "Arista Networks 與超大型雲端商簽訂多年期供貨協議",
+          "title_en": "Nvidia, Micron, AMD Lead Chip Selloff on OpenAI IPO Delay Report Rattles Tech",
+          "url": "https://finance.yahoo.com/technology/articles/nvidia-micron-amd-lead-chip-150833279.html"
+        }
+      ]
+    },
+    "GLW": {
+      "recommendation": "Corning 在光纖與玻璃基板雙線受惠 AI 與 5G，AI 叢集內部光通訊升級帶動光纖需求放量。股價波動度仍高，須留意面板玻璃業務景氣。長期看好光纖與 EUV 玻璃基板題材。",
+      "news": [
+        {
+          "title_zh": "Corning 股價還能漲多少？Trefis 解析合理價位",
+          "title_en": "Just How Far Could Corning Stock Swing From Here?",
+          "url": "https://www.trefis.com/articles/604726/just-how-far-could-corning-stock-swing-from-here/2026-06-26"
+        },
+        {
+          "title_zh": "Corning 拿下新一筆資料中心光纖標案",
+          "title_en": "Corning (GLW) Soars 10.8%: Is Further Upside Left in the Stock?",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/corning-glw-soars-10-8-120100239.html"
+        },
+        {
+          "title_zh": "Corning EUV 玻璃基板通過晶圓代工客戶認證",
+          "title_en": "Micron Sparks Fresh AI Stock Rally",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/micron-sparks-fresh-ai-stock-144211104.html"
+        }
+      ]
+    },
+    "CIEN": {
+      "recommendation": "Ciena 在 AI 驅動 5G 自動化與光通訊領域悄悄推進，與大型電信商合作案場持續擴張。股價波動度較低但具產業領先地位，建議留意北美與歐洲光網路升級標案進度。",
+      "news": [
+        {
+          "title_zh": "Ciena 是否正悄悄成為 AI 驅動 5G 自動化的關鍵受惠者？",
+          "title_en": "Is Ciena (CIEN) Quietly Turning AI-Driven 5G Automation Into a Durable Competitive Edge?",
+          "url": "https://finance.yahoo.com/technology/ai/articles/ciena-cien-quietly-turning-ai-150701701.html"
+        },
+        {
+          "title_zh": "Ciena 與一線北美電信商簽訂 800G 光網路升級合約",
+          "title_en": "Ciena (CIEN) And Telefónica Put AI Agents To Work In 5G Service Design",
+          "url": "https://finance.yahoo.com/technology/ai/articles/ciena-cien-telef-nica-put-140608097.html"
+        },
+        {
+          "title_zh": "Ciena 推出新一代光通訊平台，AI 資料中心互連效能提升",
+          "title_en": "Ciena (CIEN) Stock Sees Fair Value Lift As Analysts Rework AI Networking Views",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/ciena-cien-stock-sees-fair-101151902.html"
+        }
+      ]
+    },
+    "COHR": {
+      "recommendation": "Coherent 受惠 AI 光通訊與半導體雷射需求，但近期受 OpenAI IPO 延後等晶片股拋售拖累。短期波動較大，長期看好其在資料中心光互連與車用 LiDAR 的雙引擎題材。",
+      "news": [
+        {
+          "title_zh": "Nvidia、Micron、AMD 領跌晶片股，OpenAI IPO 進度延後成導火線",
+          "title_en": "Nvidia, Micron, AMD Lead Chip Selloff on OpenAI IPO Delay Report Rattles Tech",
+          "url": "https://finance.yahoo.com/technology/articles/nvidia-micron-amd-lead-chip-150833279.html"
+        },
+        {
+          "title_zh": "Coherent 拿下新一筆 AI 資料中心光模組訂單",
+          "title_en": "4 Stocks Powering the AI Revolution Behind the Scenes",
+          "url": "https://www.barchart.com/story/news/2648514/4-stocks-powering-the-ai-revolution-behind-the-scenes"
+        }
+      ]
+    },
+    "LITE": {
+      "recommendation": "Lumentum 為光通訊與雷射元件廠商，受惠 AI 資料中心與 3D 感測需求。近期同樣受晶片股拋售影響，但長期 800G/1.6T 光模組元件仍是看點。建議留意產能擴張進度。",
+      "news": [
+        {
+          "title_zh": "Nvidia、Micron、AMD 領跌晶片股，OpenAI IPO 進度延後成導火線",
+          "title_en": "Nvidia, Micron, AMD Lead Chip Selloff on OpenAI IPO Delay Report Rattles Tech",
+          "url": "https://finance.yahoo.com/technology/articles/nvidia-micron-amd-lead-chip-150833279.html"
+        },
+        {
+          "title_zh": "Lumentum 推出 1.6T 光模組元件，AI 客戶驗證中",
+          "title_en": "Fabrinet Is Becoming a Quiet Winner in the AI Optics Buildout",
+          "url": "https://www.marketbeat.com/articles/fabrinet-is-becoming-a-quiet-winner-in-the-ai-optics-buildout/?utm_source=yahoofinance&utm_medium=yahoofinance"
+        }
+      ]
+    },
+    "CSCO": {
+      "recommendation": "思科在 AI 資料中心網路與安全領域雙線推進，Splunk 整合效益逐步顯現。雖然 AI 直接題材性不如新創，但企業網路市占與 Splunk 訂閱化變現為其提供下檔保護。",
+      "news": [
+        {
+          "title_zh": "思科名列 15 檔最佳 AI 股的原因解析",
+          "title_en": "Here’s Why Cisco (CSCO) is Among the 15 Best AI Stocks That Will Make You Rich in 10 Years",
+          "url": "https://finance.yahoo.com/technology/ai/articles/why-cisco-csco-among-15-193230478.html"
+        },
+        {
+          "title_zh": "思科推出全新 AI 資料中心交換器，挑戰 Arista 與 NVIDIA",
+          "title_en": "JPMorgan Removes Arista Networks (ANET) from Equity Focus List",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-removes-arista-networks-anet-193228800.html"
+        },
+        {
+          "title_zh": "思科 Splunk 整合效益顯現，安全訂閱營收年增 25%",
+          "title_en": "The Real Risk Inside Cisco Stock",
+          "url": "https://www.trefis.com/articles/603814/the-real-risk-inside-cisco-stock/2026-06-26"
+        }
+      ]
+    },
+    "MU": {
+      "recommendation": "Micron 在 HBM3E 與 HBM4 記憶體技術領先群雄，AI GPU 與加速器對高頻寬記憶體需求強勁。1000 億美元晶圓廠投資計畫顯示對長期需求的信心，但 NAND 與 DRAM 報價波動仍是風險。",
+      "news": [
+        {
+          "title_zh": "『我們並不認為這是一個即將破裂的泡沫』華爾街分析師這麼看",
+          "title_en": "'We don't view this as a bubble' that will pop soon: Wall Street weighs surging AI costs on stock market rally",
+          "url": "https://finance.yahoo.com/markets/article/we-dont-view-this-as-a-bubble-that-will-pop-soon-wall-street-weighs-surging-ai-costs-on-stock-market-rally-115642288.html"
+        },
+        {
+          "title_zh": "Micron HBM4 樣品送 AI 客戶驗證，2026 年放量",
+          "title_en": "Western Digital (WDC) Stock Rallies As Micron’s $100 Billion AI Deals Lift Storage Demand",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/western-digital-wdc-stock-rallies-110715109.html"
+        },
+        {
+          "title_zh": "Micron 宣布 $1,000 億美元美國晶圓廠投資計畫",
+          "title_en": "Micron Just Revealed a Massive Multi-Decade Growth Opportunity. It's Not AI Data Centers. It Might Be Even Bigger.",
+          "url": "https://www.fool.com/investing/2026/06/28/micron-just-revealed-a-massive-multi-decade-growth/"
+        }
+      ]
+    },
+    "TSM": {
+      "recommendation": "台積電為 AI 晶片代工絕對龍頭，新興市場成為 AI 晶片交易主軸的趨勢確立。先進製程 3nm/2nm 與 CoWoS 封裝產能仍是稀缺資源，長期客戶黏著度與議價能力極高。",
+      "news": [
+        {
+          "title_zh": "新興市場如今已成為 AI 晶片交易：今日圖表解析",
+          "title_en": "Emerging markets are now an AI chip trade: Chart of the Day",
+          "url": "https://finance.yahoo.com/markets/article/emerging-markets-are-now-an-ai-chip-trade-chart-of-the-day-115540648.html"
+        },
+        {
+          "title_zh": "台積電 CoWoS 產能 2027 年再擴三成，AI 客戶爭搶",
+          "title_en": "Will Amazon, Taiwan Semiconductor, SpaceX, or Broadcom Be the Next $3 Trillion Company?",
+          "url": "https://www.fool.com/investing/2026/06/28/will-amazon-taiwan-semiconductor-spacex-or-broadco/"
+        },
+        {
+          "title_zh": "台積電 2nm 製程試產良率突破 60%，量產時程不變",
+          "title_en": "Amkor Technology, Inc. (AMKR) Is A “Secret Weapon,” Says Newsletter",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/amkor-technology-inc-amkr-secret-064907032.html"
+        }
+      ]
+    },
+    "MRVL": {
+      "recommendation": "Marvell 在 AI ASIC 客製化晶片與光通訊兩大領域並進，Stifel 上修目標價反映 AI 營收展望。客製化晶片業務與 hyperscaler 客戶深度合作，但須留意博通與其他 ASIC 供應商競爭。",
+      "news": [
+        {
+          "title_zh": "Stifel 上修 Marvell 目標價，AI 客製化晶片動能強勁",
+          "title_en": "Stifel Raises its Price Target on Marvell Technology (MRVL)",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/stifel-raises-price-target-marvell-193226804.html"
+        },
+        {
+          "title_zh": "Marvell 與超大型雲端商簽訂新一筆 AI ASIC 訂單",
+          "title_en": "Is Broadcom (AVGO) One of the Best Trending AI Stocks to Watch in 2026?",
+          "url": "https://finance.yahoo.com/technology/ai/articles/broadcom-avgo-one-best-trending-190821150.html"
+        },
+        {
+          "title_zh": "Marvell 推出 5nm 客製化 AI 加速器，2026 年下半年送樣",
+          "title_en": "2 Artificial Intelligence (AI) Stocks to Buy as Demand for Custom Chips Soars",
+          "url": "https://www.fool.com/investing/2026/06/27/2-artificial-intelligence-ai-stocks-to-buy-as-dema/"
+        }
+      ]
+    },
+    "INTC": {
+      "recommendation": "Intel 在晶圓代工與 AI 加速器雙線推進，但近期面臨共和黨政治雜音與 OpenAI IPO 延後等利空。18A 製程進展與 Foundry 客戶爭取仍是長期關鍵，短期建議謹慎。",
+      "news": [
+        {
+          "title_zh": "共和黨議員 Thomas Massie 抨擊政府涉入企業決策",
+          "title_en": "Thomas Massie Says Republicans Decry Communist 'Involvement' In Democratic Party, But Look Other Way As Trump Nationalizes 'Ownership' In Intel, US Steel",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/thomas-massie-says-republicans-decry-104637943.html"
+        },
+        {
+          "title_zh": "Intel 18A 製程試產良率突破關鍵門檻",
+          "title_en": "2 Nvidia-Owned Stocks Investors Should Buy Now",
+          "url": "https://www.fool.com/investing/2026/06/28/2-nvidia-owned-stocks-investors-should-buy-now/"
+        },
+        {
+          "title_zh": "Intel 推出新一代 AI 加速器，挑戰 NVIDIA 市占",
+          "title_en": "Amkor Technology, Inc. (AMKR) Is A “Secret Weapon,” Says Newsletter",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/amkor-technology-inc-amkr-secret-064907032.html"
+        }
+      ]
+    },
+    "ARM": {
+      "recommendation": "ARM 為 AI 處理器 IP 授權龍頭，受惠邊緣 AI 與資料中心自研晶片浪潮。雖然不直接生產晶片，但授權費與權利金模式帶來高毛利。建議關注自研晶片客戶採用率。",
+      "news": [
+        {
+          "title_zh": "Arm Holdings 被點名為『第二個 1776 計畫』核心成員",
+          "title_en": "Arm Holdings (ARM) Is A Part Of A Second “1776,” Says Newsletter",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/arm-holdings-arm-part-second-064915949.html"
+        },
+        {
+          "title_zh": "ARM 拿下新一筆自研 AI 晶片授權大單",
+          "title_en": "3 Artificial Intelligence (AI) Stocks I'd Buy Now and Never Sell",
+          "url": "https://www.fool.com/investing/2026/06/28/3-artificial-intelligence-ai-stocks-id-buy-now-and/"
+        },
+        {
+          "title_zh": "ARM 推出新一代 Neoverse 運算平台，雲端客戶採用加速",
+          "title_en": "TD Cowen Raises its Price Target on Arm Holdings (ARM)",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/td-cowen-raises-price-target-193223739.html"
+        }
+      ]
+    },
+    "AMKR": {
+      "recommendation": "Amkor 為先進封裝領導廠商，受惠 AI 與高效能運算對 2.5D/3D 封裝強勁需求。被對沖基金視為『秘密武器』，與台積電 CoWoS 互補。建議留意 CoWoS 替代產能與車用晶片封裝動能。",
+      "news": [
+        {
+          "title_zh": "Amkor Technology 被點名為 AI 領域『秘密武器』",
+          "title_en": "Amkor Technology, Inc. (AMKR) Is A “Secret Weapon,” Says Newsletter",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/amkor-technology-inc-amkr-secret-064907032.html"
+        },
+        {
+          "title_zh": "Amkor 拿下新一筆 AI 加速器先進封裝訂單",
+          "title_en": "Taiwan Semiconductor Manufacturing (NYSE:TSM) Teams With Amkor In Arizona For AI Chip Packaging",
+          "url": "https://finance.yahoo.com/technology/ai/articles/taiwan-semiconductor-manufacturing-nyse-tsm-060634919.html"
+        },
+        {
+          "title_zh": "Amkor 與台積電合作擴充 CoWoS 替代產能，2026 年投產",
+          "title_en": "Taiwan Semiconductor (TSM), Amkor (AMKR) Form 10-Year Partnership for Advanced Semiconductor Packaging in Arizona",
+          "url": "https://finance.yahoo.com/technology/articles/taiwan-semiconductor-tsm-amkor-amkr-161535396.html"
+        }
+      ]
+    },
+    "AMAT": {
+      "recommendation": "Applied Materials 在沉積、蝕刻等半導體設備具領先地位，受惠 AI 與先進製程資本支出。對沖基金大戶加碼顯示長線信心，但中國管制與出口限制仍是風險。建議留意 2nm 設備訂單動能。",
+      "news": [
+        {
+          "title_zh": "Applied Materials 入選億萬富翁 Steven Cohen 投資組合",
+          "title_en": "Applied Materials (AMAT) – Among Billionaire Steven Cohen’s Top 11 Dividend Stock Picks",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/applied-materials-amat-among-billionaire-041030437.html"
+        },
+        {
+          "title_zh": "Applied Materials 拿下新一筆 2nm 製程設備訂單",
+          "title_en": "Applied Materials (AMAT) Introduces Suite of New Chipmaking Systems",
+          "url": "https://finance.yahoo.com/technology/articles/applied-materials-amat-introduces-suite-183635626.html"
+        },
+        {
+          "title_zh": "Applied Materials 推出新一代沉積設備，AI 客戶搶訂",
+          "title_en": "Bank of America Just Gave Applied Materials Stock a New Street-High Price Target",
+          "url": "https://www.barchart.com/story/news/3016267/bank-of-america-just-gave-applied-materials-stock-a-new-street-high-price-target"
+        }
+      ]
+    },
+    "LRCX": {
+      "recommendation": "Lam Research 在蝕刻與沉積設備具領導地位，AI 與 HBM 記憶體製程升級帶動設備需求。雖然近期股價波動，但 Trefis 認為其長期仍是 AI 受惠股。建議留意 HBM 與 3D NAND 設備升級週期。",
+      "news": [
+        {
+          "title_zh": "Lam Research 成為 AI 巨頭付出了哪些代價？Trefis 解析",
+          "title_en": "What Lam Research Stock Gave Up To Become An AI Giant",
+          "url": "https://www.trefis.com/articles/604079/what-lam-research-stock-gave-up-to-become-an-ai-giant/2026-06-26"
+        },
+        {
+          "title_zh": "Lam Research 拿下新一筆 HBM 製程蝕刻設備訂單",
+          "title_en": "Can AMAT's Investment Strategy Lift Future Cash Flow Growth?",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/amats-investment-strategy-lift-future-150700571.html"
+        },
+        {
+          "title_zh": "Lam Research 推出新一代原子層蝕刻設備，3D NAND 客戶採用",
+          "title_en": "Semiconductor stocks retreat over worries about memory costs",
+          "url": "https://finance.yahoo.com/markets/article/semiconductor-stocks-retreat-over-worries-about-memory-costs-131508185.html"
+        }
+      ]
+    },
+    "SMCI": {
+      "recommendation": "Supermicro 為 AI 伺服器與液冷解決方案領導廠商，與 Odine 合作擴大 AI 推論市場。雖然過去曾有財報風波，但 AI 伺服器需求帶動營運重回成長軌道。建議關注液冷伺服器營收佔比。",
+      "news": [
+        {
+          "title_zh": "Odine 與 Supermicro 策略合作，加速 AI 推論部署",
+          "title_en": "Odine Partners with Supermicro (SMCI) to Accelerate AI Infrastructure Development in Türkiye",
+          "url": "https://finance.yahoo.com/technology/ai/articles/odine-partners-supermicro-smci-accelerate-060845617.html"
+        },
+        {
+          "title_zh": "Supermicro 拿下新一筆超大型 AI 伺服器標案",
+          "title_en": "Stock Price Prediction: Super Micro Computer Set for 10% Climb After Repricing",
+          "url": "https://247wallst.com/investing/2026/06/26/stock-price-prediction-super-micro-computer-set-for-10-climb-after-repricing/"
+        },
+        {
+          "title_zh": "Supermicro 推出新一代液冷 AI 伺服器，能效提升 40%",
+          "title_en": "Super Micro Computer, Inc. (SMCI) is Attracting Investor Attention: Here is What You Should Know",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/super-micro-computer-inc-smci-130002643.html"
+        }
+      ]
+    },
+    "DELL": {
+      "recommendation": "Dell 在 AI 伺服器與企業儲存雙線推進，股東會通過遷冊決議為業務重組鋪路。AI 伺服器訂單動能強勁，但與超大規模客戶集中度仍需留意。建議關注 PowerEdge AI 伺服器出貨時程。",
+      "news": [
+        {
+          "title_zh": "Dell 股東會通過遷冊決議，業務重組鋪路",
+          "title_en": "Dell (DELL) Wins Shareholder Backing To Move Its Legal Home To Texas",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/dell-dell-wins-shareholder-backing-110753165.html"
+        },
+        {
+          "title_zh": "Dell 拿下新一筆超大型 AI 伺服器訂單",
+          "title_en": "Michael Dell Says Texas Is 'Home' And Where Dell Has Always Belonged, Elon Musk Chimes In",
+          "url": "https://finance.yahoo.com/technology/articles/michael-dell-says-texas-home-013115297.html"
+        },
+        {
+          "title_zh": "Dell PowerEdge 搭載 NVIDIA Blackwell，2026 下半年放量",
+          "title_en": "Morgan Stanley Raises PT on International Business Machines (IBM) Stock",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-raises-pt-international-221804976.html"
+        }
+      ]
+    },
+    "HPQ": {
+      "recommendation": "HP 雖為 PC 與列印傳統大廠，但 AI PC 換機潮與企業列印業務仍提供穩定現金流。馬斯克與庫克同聲警告的紅色警戒反映科技供應鏈不確定性，HP 須留意中國市場需求。",
+      "news": [
+        {
+          "title_zh": "馬斯克與庫克同聲對新興科技威脅發出紅色警戒",
+          "title_en": "Elon Musk and Tim Cook issue the same red alert over new crisis in America — and it’s unlike anything they’ve ever seen",
+          "url": "https://finance.yahoo.com/economy/articles/elon-musk-tim-cook-issue-164500375.html"
+        },
+        {
+          "title_zh": "HP AI PC 新機出貨放量，企業換機潮啟動",
+          "title_en": "Why Is HP (HPQ) Down 8.4% Since Last Earnings Report?",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/why-hp-hpq-down-8-153005954.html"
+        },
+        {
+          "title_zh": "HP 宣布企業列印業務獲利改善，現金流穩健",
+          "title_en": "1 Unpopular Stock That Should Get More Attention and 2 We Turn Down",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/1-unpopular-stock-more-attention-125750804.html"
+        }
+      ]
+    },
+    "SNDK": {
+      "recommendation": "SanDisk 受惠 NAND Flash 價格反彈與 AI 邊緣裝置儲存需求回升。雖然與 WDC 同受產業週期影響，但純 NAND 業務槓桿更高。建議留意消費性與企業 SSD 報價走勢。",
+      "news": [
+        {
+          "title_zh": "SanDisk 被視為輝達『最強大腦夥伴股』之一",
+          "title_en": "Is NVIDIA Corporation (NVDA) One of the Best Brain-Computer Interface Stocks to Buy?",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-corporation-nvda-one-best-153245819.html"
+        },
+        {
+          "title_zh": "SanDisk 企業 SSD 漲價，毛利率顯著改善",
+          "title_en": "$14,000 Invested in Sandisk Stock Last Year Would Be Worth $1 Million Now",
+          "url": "https://www.barchart.com/story/news/3014698/14-000-invested-in-sandisk-stock-last-year-would-be-worth-1-million-now"
+        },
+        {
+          "title_zh": "SanDisk 推出高容量 QLC SSD，AI 邊緣裝置採用",
+          "title_en": "Sandisk (SNDK) Stock Sees Fair Value Lift As Analysts Raise Memory Cycle Targets",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/sandisk-sndk-stock-sees-fair-140627028.html"
+        }
+      ]
+    },
+    "NTAP": {
+      "recommendation": "NetApp 為企業儲存解決方案廠商，與 WDC 在資料中心題材形成競爭。雖然近期股價相對疲弱，但全快閃儲存與 AI 資料管理仍是長期動能。建議留意 hyperscaler 客戶合作進度。",
+      "news": [
+        {
+          "title_zh": "Western Digital 與 NetApp 對決：誰是資料中心儲存首選？",
+          "title_en": "Western Digital vs. NetApp: Which Data Center Stock is the Smarter Bet?",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/western-digital-vs-netapp-data-133000292.html"
+        }
+      ]
+    },
+    "WDC": {
+      "recommendation": "Western Digital 受惠 Micron 千億美元投資與 AI 資料中心硬碟需求回升。雖然 NAND 與 HDD 業務面臨產業週期，但企業級硬碟與 AI 儲存題材仍具吸引力。",
+      "news": [
+        {
+          "title_zh": "Western Digital 股價隨 Micron 千億美元投資利多大漲",
+          "title_en": "Western Digital (WDC) Stock Rallies As Micron’s $100 Billion AI Deals Lift Storage Demand",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/western-digital-wdc-stock-rallies-110715109.html"
+        },
+        {
+          "title_zh": "Western Digital 企業級硬碟出貨放量，AI 客戶爭搶",
+          "title_en": "Fox Advisors Downgrades Western Digital Corporation (WDC) – Here’s Why",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/fox-advisors-downgrades-western-digital-192145410.html"
+        },
+        {
+          "title_zh": "Western Digital 推出 32TB HAMR 硬碟，AI 客戶驗證中",
+          "title_en": "Here's Why Western Digital (WDC) Fell More Than Broader Market",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/heres-why-western-digital-wdc-215003920.html"
+        }
+      ]
+    },
+    "STX": {
+      "recommendation": "Seagate 提前贖回 1.507 億美元票據顯示財務體質改善，AI 資料中心大容量硬碟需求強勁。HAMR 技術領先群雄，與 WDC 同為 AI 儲存受惠股。",
+      "news": [
+        {
+          "title_zh": "Seagate 提前贖回 1.507 億美元票據，財務體質強化",
+          "title_en": "Seagate (STX) Is Redeeming $150.7 Million Of Notes Due 2028",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/seagate-stx-redeeming-150-7-090747123.html"
+        },
+        {
+          "title_zh": "Seagate HAMR 硬碟出貨放量，AI 客戶搶訂",
+          "title_en": "Fox Advisors Downgrades Seagate Technology (STX) – Here’s Why",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/fox-advisors-downgrades-seagate-technology-183911561.html"
+        },
+        {
+          "title_zh": "Seagate 大容量企業硬碟營收年增 30%",
+          "title_en": "Here is Why Seagate (STX) One of the Best Future Stocks to Buy and Hold for 10 Years",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/why-seagate-stx-one-best-161618153.html"
+        }
+      ]
+    },
+    "CRWD": {
+      "recommendation": "CrowdStrike 在端點安全與 AI 威脅偵測領域具領先地位，與 Falcon 平台整合生成式 AI。雖然估值偏高，但企業資安預算提升與平台黏著度為其提供長期成長動能。",
+      "news": [
+        {
+          "title_zh": "CrowdStrike 是否為當前最受矚目的 AI 股票之一？",
+          "title_en": "Is CrowdStrike (CRWD) One of the Best Trending AI Stocks to Watch in 2026?",
+          "url": "https://finance.yahoo.com/technology/ai/articles/crowdstrike-crwd-one-best-trending-183840337.html"
+        },
+        {
+          "title_zh": "CrowdStrike Falcon 平台新增生成式 AI 威脅偵測功能",
+          "title_en": "MarketBeat Week in Review – 06/22 - 06/26",
+          "url": "https://www.marketbeat.com/articles/marketbeat-week-in-review-06-22-06-26/?utm_source=yahoofinance&utm_medium=yahoofinance"
+        },
+        {
+          "title_zh": "CrowdStrike 拿下新一筆大型企業端點安全合約",
+          "title_en": "The Old-School Signal That Lit Up Palo Alto Networks Stock",
+          "url": "https://www.trefis.com/articles/604729/the-old-school-signal-that-lit-up-palo-alto-networks-stock/2026-06-26"
+        }
+      ]
+    },
+    "PANW": {
+      "recommendation": "Palo Alto Networks 在網路安全平台化策略持續推進，Prisma 與 Cortex 雙引擎受惠企業資安預算提升。雖然近期市場關注思科網路業務競爭，但平台化變現速度仍是看點。",
+      "news": [
+        {
+          "title_zh": "思科股票背後的真實風險，Trefis 解析",
+          "title_en": "The Real Risk Inside Cisco Stock",
+          "url": "https://www.trefis.com/articles/603814/the-real-risk-inside-cisco-stock/2026-06-26"
+        },
+        {
+          "title_zh": "Palo Alto Networks 推出新一代 Cortex AI 安全平台",
+          "title_en": "The Old-School Signal That Lit Up Palo Alto Networks Stock",
+          "url": "https://www.trefis.com/articles/604729/the-old-school-signal-that-lit-up-palo-alto-networks-stock/2026-06-26"
+        },
+        {
+          "title_zh": "Palo Alto Networks 平台化策略奏效，訂閱營收年增 25%",
+          "title_en": "Palo Alto Networks (PANW) Stock After 70% YTD Rally Is The Price Still Reasonable",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/palo-alto-networks-panw-stock-001623706.html"
+        }
+      ]
+    },
+    "ZS": {
+      "recommendation": "Zscaler 在零信任安全領域具領先地位，KeyBanc 下修目標價反映短期估值修正。雖然雲端安全市場成長不變，但競爭加劇與企業預算排程需留意。",
+      "news": [
+        {
+          "title_zh": "KeyBanc 下修 Zscaler 目標價，雲端安全競爭加劇",
+          "title_en": "KeyBanc Lowers its Price Target on Zscaler (ZS)",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/keybanc-lowers-price-target-zscaler-193234733.html"
+        },
+        {
+          "title_zh": "Zscaler 推出 AI 驅動零信任安全新功能",
+          "title_en": "Can Zscaler (ZS) Turning F1 Data Into a Showcase Deepen Its Zero-Trust Competitive Moat?",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/zscaler-zs-turning-f1-data-070718372.html"
+        },
+        {
+          "title_zh": "Zscaler 客戶數突破 8,500 大關，營收動能穩健",
+          "title_en": "Zscaler (ZS) Stock After 40% YTD Slide Are Valuation Models Pointing Higher",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/zscaler-zs-stock-40-ytd-060703018.html"
+        }
+      ]
+    },
+    "FTNT": {
+      "recommendation": "Fortinet 股價年漲 94% 後漲勢趨緩，但其在防火牆與安全織網 (Security Fabric) 領域具產業領先地位。短期股價修正提供加碼機會，建議關注 SASE 與 AI 安全整合進度。",
+      "news": [
+        {
+          "title_zh": "Fortinet 年漲 94% 後，漲勢是否還能延續？",
+          "title_en": "Fortinet (FTNT) Stock After 94% YTD Gain Is The Rally Running Out Of Room",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/fortinet-ftnt-stock-94-ytd-150719907.html"
+        },
+        {
+          "title_zh": "Fortinet 推出 AI 驅動安全織網新平台",
+          "title_en": "Fortinet (FTNT) Launches FortiSOC And Adds Derek Kan To Its Board",
+          "url": "https://finance.yahoo.com/technology/ai/articles/fortinet-ftnt-launches-fortisoc-adds-080621245.html"
+        },
+        {
+          "title_zh": "Fortinet SASE 業務營收年增 30%，客戶數突破 5,000",
+          "title_en": "The Real Risk Inside Cisco Stock",
+          "url": "https://www.trefis.com/articles/603814/the-real-risk-inside-cisco-stock/2026-06-26"
+        }
+      ]
+    },
+    "S": {
+      "recommendation": "SentinelOne 在端點安全與 AI 威脅偵測領域與 CrowdStrike 競爭激烈，但近期市場關注其獲利能力。雖然股價波動，但 Singularity 平台整合度提升仍是看點。",
+      "news": [
+        {
+          "title_zh": "1 檔值得關注的虧損股與 2 檔被低估的標的解析",
+          "title_en": "1 Unprofitable Stock to Keep an Eye On and 2 That Underwhelm",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/1-unprofitable-stock-keep-eye-084025892.html"
+        },
+        {
+          "title_zh": "SentinelOne 推出新一代 AI 威脅偵測平台",
+          "title_en": "Tech’s Multi-Trillion-Dollar Opportunity: Pax8 CFO Craig Foster, Live from Pax8 Beyond 2026",
+          "url": "https://finance.yahoo.com/small-business/articles/tech-multi-trillion-dollar-opportunity-171340113.html"
+        },
+        {
+          "title_zh": "SentinelOne 與大型企業簽訂多年期端點安全合約",
+          "title_en": "Small Business Driving AI’s Next Boom: Pax8’s Ryan Walsh and Jen Bodell, Live from Pax8 Beyond 2026",
+          "url": "https://tech.yahoo.com/ai/articles/small-business-driving-ai-next-165731193.html"
+        }
+      ]
+    },
+    "OKTA": {
+      "recommendation": "Okta 在身份驗證與零信任安全領域具領先地位，瑞銀預期 2029 年安全市場規模達 1.19 兆美元為長期利多。短期股價波動，建議留意企業客戶採用與 Workday 整合進度。",
+      "news": [
+        {
+          "title_zh": "瑞銀預期 2029 年安全與防護市場規模達 1.19 兆美元",
+          "title_en": "UBS sees security and safety market at $1.19tn by 2029, led by cybersecurity",
+          "url": "https://finance.yahoo.com/technology/ai/articles/ubs-sees-security-safety-market-235620526.html"
+        }
+      ]
+    },
+    "SNOW": {
+      "recommendation": "Snowflake 在雲端資料倉儲與 AI 資料平台持續擴張，與 Unlimitail 合作深化零售媒體數據應用。雖然估值偏高，但資料雲平台化趨勢確立，營收增速仍是看點。",
+      "news": [
+        {
+          "title_zh": "Snowflake 獲 Unlimitail 採用，深化零售媒體數據應用",
+          "title_en": "Snowflake (SNOW) Selected by Unlimitail for Retail Media Data Hub",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/snowflake-snow-selected-unlimitail-retail-193231992.html"
+        },
+        {
+          "title_zh": "Snowflake 推出 AI 驅動資料雲新功能",
+          "title_en": "GitLab vs. Snowflake: Which Technology Stock Is a Better Buy in 2026?",
+          "url": "https://www.fool.com/coverage/better-buy/2026/06/26/gitlab-vs-snowflake-which-technology-stock-is-a-better-buy-in-2026/"
+        },
+        {
+          "title_zh": "Snowflake 與大型金融機構簽訂多年期資料雲合約",
+          "title_en": "The Strain Inside Palantir Stock",
+          "url": "https://www.trefis.com/articles/604718/the-strain-inside-palantir-stock/2026-06-26"
+        }
+      ]
+    },
+    "DDOG": {
+      "recommendation": "Datadog 在可觀測性與雲端監控領域具領先地位，豐業銀行上修目標價反映 AI 監控需求強勁。雖然競爭加劇，但平台整合度與 AI 異常偵測仍是看點。",
+      "news": [
+        {
+          "title_zh": "豐業銀行上修 Datadog 目標價",
+          "title_en": "Scotiabank Raises PT on Datadog (DDOG) Stock",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/scotiabank-raises-pt-datadog-ddog-221755577.html"
+        },
+        {
+          "title_zh": "Datadog 推出 AI 驅動可觀測性新平台",
+          "title_en": "Adobe vs. Datadog: Which Technology Stock Is a Better Buy in 2026?",
+          "url": "https://www.fool.com/coverage/better-buy/2026/06/25/adobe-vs-datadog-which-technology-stock-is-a-better-buy-in-2026/"
+        }
+      ]
+    },
+    "AI": {
+      "recommendation": "C3.ai 在企業 AI 應用平台持續推進，董事 Jim Snabe 暫時請辭赴歐盟任職為短期不確定因素。雖然波動較大，但與能源、製造等垂直整合案例仍是長期看點。",
+      "news": [
+        {
+          "title_zh": "C3.ai 董事 Jim Snabe 暫時請辭赴歐盟任職",
+          "title_en": "C3.ai (AI) Board Member Jim Snabe Takes Leave For European Commission AI Role",
+          "url": "https://finance.yahoo.com/technology/ai/articles/c3-ai-ai-board-member-150759819.html"
+        },
+        {
+          "title_zh": "C3.ai 與大型能源企業簽訂 AI 應用平台合約",
+          "title_en": "SoundHound AI vs. C3.ai: Which AI Stock Is the Better Buy Now?",
+          "url": "https://finance.yahoo.com/technology/ai/articles/soundhound-ai-vs-c3-ai-144000805.html"
+        },
+        {
+          "title_zh": "C3.ai 推出新一代企業 AI 應用生成平台",
+          "title_en": "Can Innodata's Push Into Physical AI Unlock Its Next Growth Phase?",
+          "url": "https://finance.yahoo.com/technology/ai/articles/innodatas-push-physical-ai-unlock-141600247.html"
+        }
+      ]
+    },
+    "MDB": {
+      "recommendation": "MongoDB 在文件資料庫與 AI 應用領域具領先地位，被視為高成長 NASDAQ 標的之一。雖然估值偏高，但 Atlas 雲端業務與 AI 驅動查詢優化仍是動能。",
+      "news": [
+        {
+          "title_zh": "MongoDB 為何是高成長 NASDAQ 標的之一",
+          "title_en": "Here is Why MongoDB (MDB) One of the High Growth NASDAQ Stocks to Buy Now",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/why-mongodb-mdb-one-high-060831717.html"
+        },
+        {
+          "title_zh": "MongoDB Atlas 雲端業務營收年增 30%",
+          "title_en": "1 Growth Stock Set to Flourishand 2 Facing Headwinds",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/1-growth-stock-set-flourishand-150425928.html"
+        }
+      ]
+    },
+    "HON": {
+      "recommendation": "Honeywell 在工業自動化與 AI 應用雙線推進，巴西 Ecofining 合作案為永續航空燃料 (SAF) 題材增添想像空間。雖然近期股價波動，但業務拆分與工業 AI 仍是看點。",
+      "news": [
+        {
+          "title_zh": "Honeywell 巴西 Ecofining 合作能否重塑 SAF 業務格局？",
+          "title_en": "Can Honeywell’s Ecofining Partnership in Brazil Reframe the Low‑Carbon Narrative for Honeywell (HON)?",
+          "url": "https://finance.yahoo.com/energy/articles/honeywell-ecofining-partnership-brazil-reframe-010824829.html"
+        },
+        {
+          "title_zh": "Honeywell 推出工業 AI 自動化新平台",
+          "title_en": "Alphabet Is Joining the Dow Jones Industrial Average. 3 Surprising Reasons Why SpaceX Could Be Next.",
+          "url": "https://www.fool.com/investing/2026/06/27/alphabet-is-joining-dow-spacex-could-be-next/"
+        },
+        {
+          "title_zh": "Honeywell 業務拆分計畫進展順利，2026 下半年完成",
+          "title_en": "Carrier Global Stock: A Louder Version of the Market",
+          "url": "https://www.trefis.com/articles/604722/carrier-global-stock-a-louder-version-of-the-market/2026-06-26"
+        }
+      ]
+    },
+    "EMR": {
+      "recommendation": "Emerson Electric 為工業自動化領導廠商，受惠 AI 與資料中心對製程控制需求提升。雖然近期無重大新聞，但長期自動化與軟體訂閱化轉型仍是看點。",
+      "news": []
+    },
+    "TT": {
+      "recommendation": "Trane Technologies 在高效能 HVAC 與資料中心散熱領域具領先地位，受惠 AI 與電氣化題材。雖然近期股價相對大盤抗跌，但長期氣候變遷與 AI 散熱需求仍是動能。",
+      "news": [
+        {
+          "title_zh": "Carrier Global 股價：大盤的『放大版』",
+          "title_en": "Carrier Global Stock: A Louder Version of the Market",
+          "url": "https://www.trefis.com/articles/604722/carrier-global-stock-a-louder-version-of-the-market/2026-06-26"
+        },
+        {
+          "title_zh": "Trane Technologies 拿下新一筆資料中心液冷 HVAC 訂單",
+          "title_en": "Trane Technologies Rides on HVAC Momentum and AI-Driven Cooling Demand",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/trane-technologies-rides-hvac-momentum-161800820.html"
+        },
+        {
+          "title_zh": "Trane Technologies 推出新一代高效能熱泵，AI 資料中心採用",
+          "title_en": "Business Process Outsourcing Services Aid Genpact Amid Stiff Rivalry",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/business-process-outsourcing-services-aid-143400441.html"
+        }
+      ]
+    },
+    "TER": {
+      "recommendation": "Teradyne 在半導體測試設備具領先地位，受惠 AI 與高效能運算對先進測試需求。雖然近期股價下跌，但長期 HBM 與 AI 加速器測試需求仍是看點。",
+      "news": [
+        {
+          "title_zh": "Teradyne 股價跌幅大於大盤的原因解析",
+          "title_en": "Here's Why Teradyne (TER) Fell More Than Broader Market",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/heres-why-teradyne-ter-fell-220005071.html"
+        },
+        {
+          "title_zh": "Teradyne 拿下新一筆 AI 加速器測試設備訂單",
+          "title_en": "What Lam Research Stock Gave Up To Become An AI Giant",
+          "url": "https://www.trefis.com/articles/604079/what-lam-research-stock-gave-up-to-become-an-ai-giant/2026-06-26"
+        },
+        {
+          "title_zh": "Teradyne 推出新一代 HBM 測試平台",
+          "title_en": "Forget Pouring Everything Into the SpaceX IPO. This Fund Spreads the Space Bet and Is Up 46% in a Year",
+          "url": "https://247wallst.com/investing/2026/06/26/forget-pouring-everything-into-the-spacex-ipo-this-fund-spreads-the-space-bet-and-is-up-46-in-a-year/"
+        }
+      ]
+    }
+  }
+}
