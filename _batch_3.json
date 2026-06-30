@@ -1,0 +1,325 @@
+[
+  {
+    "ticker": "OKTA",
+    "why": "身份驗證 + AI 治理核心，受惠 AI Agent 普及。今日 +4.2% 站穩支撐。",
+    "outlook": "Okta 是企業身份驗證龍頭，AI Agent 數量爆發推升身份治理需求。Workforce Identity Cloud 與 Customer Identity 雙引擎。併購整合後平台化策略奏效，交叉銷售率提升。",
+    "reports": [
+      {
+        "title_en": "Raising target price to $124.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6631_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Lowering target price to $122.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6631_QuantitativeReport_1781654400000"
+      },
+      {
+        "title_en": "Lowering target price to $126.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6631_QuantitativeReport_1781049600000"
+      }
+    ]
+  },
+  {
+    "ticker": "PANW",
+    "why": "資安平台化轉型領頭羊，Prisma AI + Cortex XSIAM 平台擴張。今日 +3.8% 站穩所有均線，距 52W 高點僅 0.7%。",
+    "outlook": "Palo Alto 從防火牆轉型為完整資安平台，AI 驅動的自動化 SOC 解決方案已成為大型企業首選。下一代安全（NGSI）訂閱增速維持 30%+，毛利持續優化。距 52W 高點僅 0.7% 顯示強勢動能。",
+    "reports": [
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/15/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47323_TopBottomInsiderActivity_1781519144000"
+      },
+      {
+        "title_en": "The tech heavy Nasdaq and Nasdaq 100 (QQQ) have rapidly rolled over into pullback territory (down 5%+), while the S&amp;P 500 (SPX) is very close, with a six-day loss of 4.5%.",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47296_TechnicalAnalysis_1781177742000"
+      },
+      {
+        "title_en": "Raising target price to $320",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3643_AnalystReport_1780679739000"
+      }
+    ]
+  },
+  {
+    "ticker": "PLTR",
+    "why": "AI 軍工/政府雙引擎，AIP 平台商業化加速。距 52W 低僅 6.2%，今日 +5.3% 反彈，機構低檔佈局訊號強烈。",
+    "outlook": "Palantir Foundry 與 AIP 平台已成為企業 AI Agent 部署的標竿，與微軟 Azure 深度整合拿下軍工 AI 大單。最新季度政府客戶增長 45%，商業客戶 ARR 加速。股價距離 52W 高點仍有 45% 空間，估值消化中。距 52W 低 6.2% 是大型 AI 軟體股中最低。",
+    "reports": [
+      {
+        "title_en": "Palantir Earnings: Lab Competition Is Possible, but We Still Like the Ontology; Valuation Is Fair",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001KOSE_AnalystReport_1782254774000"
+      },
+      {
+        "title_en": "Palantir Earnings: Lab Competition Is Possible, but We Still Like the Ontology; Valuation Is Fair",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001KOSE_AnalystReport_1778541847000"
+      },
+      {
+        "title_en": "Palantir Earnings: Lab Competition Is Possible, but We Still Like the Ontology; Valuation Is Fair",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001KOSE_AnalystReport_1778473168000"
+      }
+    ]
+  },
+  {
+    "ticker": "S",
+    "why": "AI 原生端點防護，Purple AI 平台成長強勁。今日 +6.4% 從低檔強彈，價格親民。",
+    "outlook": "SentinelOne 是純 AI 原生 EDR 廠商，與 CrowdStrike 形成雙雄競爭。Purple AI 平台整合生成式 AI 提升 SOC 效率 10x。客戶擴張速度加快，FY27 有望轉盈。",
+    "reports": [
+      {
+        "title_en": "SentinelOne Earnings: Competitive Pressures Continue to Weigh on Growth Prospects",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001MRB1_AnalystReport_1780036311000"
+      },
+      {
+        "title_en": "Anthropic's Mythos Model's Security Capabilities Are Going to Increase Demand for Cybersecurity",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001MRB1_AnalystReport_1776380447000"
+      },
+      {
+        "title_en": "Anthropic's Mythos Model's Security Capabilities Are Going to Increase Demand for Cybersecurity",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001MRB1_AnalystReport_1775861502000"
+      }
+    ]
+  },
+  {
+    "ticker": "SMCI",
+    "why": "AI 伺服器液冷領導者。今日 -3.3% 提供低接機會，財報事件已過最壞情境。",
+    "outlook": "Super Micro 是 AI 伺服器液冷方案領導者，與 NVIDIA HGX H200/H100 緊密整合。雖然財報延遲風波影響，但產能與訂單基本面未變。週五回吐 3.3% 提供低接機會。",
+    "reports": [
+      {
+        "title_en": "Stocks are higher at midday on Friday, with a healthy newsflow that includes",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_46976_MarketUpdate_1778266345000"
+      },
+      {
+        "title_en": "Solid results shadowed by export subterfuge",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4480_AnalystReport_1778266345000"
+      },
+      {
+        "title_en": "Stocks are lower at midday on Friday, on track to book a fourth consecutive",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_46498_MarketUpdate_1774028974000"
+      }
+    ]
+  },
+  {
+    "ticker": "SMR",
+    "why": "NuScale 是 SMR 技術先驅，唯一獲 NRC 認證的 SMR 設計。今日 +0.3% 守住支撐，距 52W 低 14% 為進場點。",
+    "outlook": "NuScale VOYGR 是全球唯一獲得美國核能管理委員會（NRC）設計認證的 SMR。與 Romania、Poland 等國簽署 SMR 部署協議。Romania Doicești 廠 2029 年投運將是首座歐洲 SMR。週五守住支撐，盤整結束有望反彈。",
+    "reports": [
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 11/02/2022",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_34598_TopBottomInsiderActivity_1667385077000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 10/31/2022",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_34570_TopBottomInsiderActivity_1667212625000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 10/27/2022",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_34544_TopBottomInsiderActivity_1666865950000"
+      }
+    ]
+  },
+  {
+    "ticker": "SNDK",
+    "why": "AI 儲存領導者 Evergreen + FlashBlade。今日 +4.5% 是儲存類別中表現最佳，提供動能。",
+    "outlook": "Pure Storage 在 AI 高速儲存（FlashBlade//E）市占領先。Q1 營收指引上修、訂單加速。週五 +4.5% 逆勢是極佳動能訊號。",
+    "reports": [
+      {
+        "title_en": "Lowering target price to $2,160.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6618_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Raising target price to $2,191.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6618_QuantitativeReport_1781654400000"
+      },
+      {
+        "title_en": "Sandisk Earnings: Every Superlative Would Be Underselling It",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001U8JM_AnalystReport_1781218080000"
+      }
+    ]
+  },
+  {
+    "ticker": "SNOW",
+    "why": "AI 數據雲端龍頭，Snowflake Cortex AI 平台快速擴張。今日 +9.7% 反應 AI Agent 應用落地加速，成交量 2.48x。",
+    "outlook": "SNOW 為 AI 時代的資料基礎設施，所有企業 AI 應用最終都要在雲端數據平台上運行。Cortex AI 已成為企業 RAG 與 Agent 部署首選平台之一，與 Anthropic 合作導入 Claude 強化企業 AI。FY26 產品營收增速回升至 30%+，AI 功能變現剛啟動。週五 +9.7% 成交量 2.48x 是極佳動能訊號。",
+    "reports": [
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/25/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47434_TopBottomInsiderActivity_1782389438000"
+      },
+      {
+        "title_en": "US Large Cap Pick List - May 2026",
+        "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1781092287000"
+      },
+      {
+        "title_en": "Argus Quick Note: Weekly Stock List for 06/01/2026: Companies Raising Guidance",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47193_StockPicks_1780315198000"
+      }
+    ]
+  },
+  {
+    "ticker": "SPXC",
+    "why": "AI 散熱解決方案擴張，Heat Transfer 與 Detection 兩大業務。今日 -5.2% 提供進場。",
+    "outlook": "SPX Technologies 透過 Heat Transfer（Genfare 品牌）與 Detection 兩大業務受益 AI 資料中心散熱需求。液冷解決方案在 hyperscaler 中市占提升。週五回吐 5.2% 提供加碼機會。",
+    "reports": [
+      {
+        "title_en": "Lowering target price to $255.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4266_QuantitativeReport_1781049600000"
+      },
+      {
+        "title_en": "Raising target price to $258.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4266_QuantitativeReport_1780444800000"
+      },
+      {
+        "title_en": "Raising target price to $246.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4266_QuantitativeReport_1779840000000"
+      }
+    ]
+  },
+  {
+    "ticker": "STX",
+    "why": "Massive Capacity HDD + AI 冷資料儲存。今日 -12.2% 提供深蹲機會。高 Beta 高風險。",
+    "outlook": "Seagate 在大容量 HDD（HAMR 技術）市占第一，AI 訓練資料集爆發推升單一機櫃容量需求。週五大跌 12.2% 屬於過熱後修正。AI Capex 持續推升冷資料儲存需求。僅適合高風險承受投資人小倉位。",
+    "reports": [
+      {
+        "title_en": "Seagate Earnings: Record Margins and AI Tailwinds Drive Structural Rerating for HDD Industry",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000004VE_AnalystReport_1782342055000"
+      },
+      {
+        "title_en": "Seagate Earnings: Record Margins and AI Tailwinds Drive Structural Rerating for HDD Industry",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000004VE_AnalystReport_1782169256000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/12/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47312_TopBottomInsiderActivity_1781260383000"
+      }
+    ]
+  },
+  {
+    "ticker": "TER",
+    "why": "AI 晶片測試設備龍頭。今日 -7.4% 提供深蹲進場點。",
+    "outlook": "Teradyne 在 AI 晶片（NVIDIA、AMD、Broadcom）測試設備市占第一。週五大跌 7.4% 屬於硬體族群過熱修正。低接機會明顯。",
+    "reports": [
+      {
+        "title_en": "Raising target price to $482.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4292_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Teradyne Earnings: Better Late Than Never to the Tidal Wave of AI Growth",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000005DY_AnalystReport_1781823430000"
+      },
+      {
+        "title_en": "Raising target price to $469.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4292_QuantitativeReport_1781654400000"
+      }
+    ]
+  },
+  {
+    "ticker": "TSM",
+    "why": "全球 AI 晶片代工龍頭，CoWoS 產能仍是瓶頸。受益 NVIDIA、AMD、Apple、Broadcom 全陣營。今日 -0.6% 表現穩。",
+    "outlook": "TSMC 是所有 AI 晶片設計公司的唯一選擇，CoWoS 先進封裝產能 2026 預計再增 60%。3nm/2nm 製程領先，AI 高效能運算需求無可替代。Arizona 廠放量擴大美國在地生產。週五表現穩健顯示抗跌性。",
+    "reports": [
+      {
+        "title_en": "Our Foundry Outlook Is Unchanged After Huawei's Breakthrough in Improving Chip Performance",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000005AR_AnalystReport_1779791939000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 05/20/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47078_TopBottomInsiderActivity_1779273449000"
+      },
+      {
+        "title_en": "Global Economic Outlook",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47012_MarketOutlook_1778671568000"
+      }
+    ]
+  },
+  {
+    "ticker": "TT",
+    "why": "Trane HVAC + AI 資料中心散熱。今日 -5.1% 提供低接機會。",
+    "outlook": "Trane Technologies 在高效能 HVAC、資料中心冷卻系統市占領先。週五從高位回吐 5% 提供低接機會。",
+    "reports": [
+      {
+        "title_en": "The Argus Sustainable Growth Theme Model Portfolio",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47162_ThematicPortfolio_1779968001000"
+      },
+      {
+        "title_en": "Argus Quick Note: Weekly Stock List for 05/11/2026: AI Series 4, Industrials &amp; I",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_46988_StockPicks_1778499423000"
+      },
+      {
+        "title_en": "Ed Yardeni, president of Yardeni Research, recently described the stock market as moving (in &quot;Toy Story&quot; fashion) &quot;to infinity and beyond.&quot;",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_46958_TechnicalAnalysis_1778152914000"
+      }
+    ]
+  },
+  {
+    "ticker": "VRT",
+    "why": "AI 液冷絕對龍頭，$15B 訂單積壓。今日 -6.6% 大跌提供絕佳進場點，目標 $395。",
+    "outlook": "Vertiv 在液冷 CDU、行級空調、UPS 等 AI 資料中心關鍵基礎設備市佔第一。剛上修 2026 營收指引至 $13.25-13.75B，2026 EPS $5.97-6.07。Q4 訂單暴增 252%，毛利率擴張至 25% by 2029。Forward P/E 46 但 EPS 增速 43%，PEG 1.07 仍便宜。週五大跌 6.6% 是獲利了結並非基本面轉差。",
+    "reports": [
+      {
+        "title_en": "Raising target price to $378.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6781_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Raising target price to $356.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6781_QuantitativeReport_1781654400000"
+      },
+      {
+        "title_en": "Vertiv Earnings: Collaborations Support Moat; Uncertainty Remains Very High, but We Raise FVE 28%",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001E1XR_AnalystReport_1781304244000"
+      }
+    ]
+  },
+  {
+    "ticker": "VST",
+    "why": "AI 電力整合者，核電 + 燃氣 + 太陽能組合。Meta 已簽核電 PPA。今日 -2.5% 提供加碼點。",
+    "outlook": "Vistra 是全美最大獨立電力組合（IPP），AI 數據中心推升電力需求。剛完成 Energy Harbor 收購轉型至核能，AI 用電紅利最大化。積極買回庫存股回饋股東。P/E 21 對比成長性極便宜。週五回吐 2.5% 提供低接機會。",
+    "reports": [
+      {
+        "title_en": "Raising target price to $154.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6157_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Rating decreased to a HOLD",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6157_QuantitativeReport_1781654400000"
+      },
+      {
+        "title_en": "Vistra: Watching Developments in PJM; Earnings on Track Despite Weather Headwind",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P00018S1K_AnalystReport_1781649745000"
+      }
+    ]
+  },
+  {
+    "ticker": "WDC",
+    "why": "HDD + NAND 雙引擎，今日 -13.2% 提供深蹲機會。高 Beta 高風險，僅小倉位。",
+    "outlook": "Western Digital 在 HDD 與 NAND 雙業務受惠 AI 資料中心海量儲存需求。週五大跌 13.2% 是恐慌性賣壓，風險高但低接機會明顯。AI 訓練資料集爆發推升 HDD 需求（冷資料儲存）。僅適合高風險承受投資人小倉位佈局。",
+    "reports": [
+      {
+        "title_en": "Western Digital Earnings: Margins Breach 50% as HDD Structural Shift Accelerates",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000005X1_AnalystReport_1782514755000"
+      },
+      {
+        "title_en": "Argus Research has a long history as a leading fundamental research provider, but our analysts and strategists -- as well as our clients -- also value the investment signals generated from a technical perspective.",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47390_TechnicalAnalysis_1782125726000"
+      },
+      {
+        "title_en": "Western Digital Earnings: Margins Breach 50% as HDD Structural Shift Accelerates",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000005X1_AnalystReport_1781650234000"
+      }
+    ]
+  },
+  {
+    "ticker": "ZS",
+    "why": "零信任資安 + AI 流量分析。今日 +6.8% 強勢反彈，距 52W 低僅 15.4% 是優質進場點。",
+    "outlook": "Zscaler 是 SASE（安全存取服務邊緣）龍頭，AI Agent 普及推升零信任需求。Zero Trust Everywhere 策略推動客戶從單一產品升級到完整平台。FY26 訂閱增速重回 25%+。",
+    "reports": [
+      {
+        "title_en": "Zscaler Earnings: Disappointing Early Look at 2027 as Shares Sell Off; FVE Down to $250",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001CT73_AnalystReport_1779865340000"
+      },
+      {
+        "title_en": "Anthropic's Mythos Model's Security Capabilities Are Going to Increase Demand for Cybersecurity",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001CT73_AnalystReport_1778885199000"
+      },
+      {
+        "title_en": "SMID May 2026 Pick List",
+        "url": "https://finance.yahoo.com/research/reports/MS_MidCapPickList_StockPicks_1778279431000"
+      }
+    ]
+  }
+]

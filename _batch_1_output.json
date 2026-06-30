@@ -1,0 +1,146 @@
+{
+  "AAON": {
+    "recommendation": "AAON 受惠於 AI 資料中心對高效能 HVAC 與液冷散熱的爆炸性需求，半客製化方案已切入大型雲端業者供應鏈。近期股價從高點回吐 4.9%，主要為獲利了結而非基本面轉弱，反而提供分批佈局的甜蜜點。Argus 雖兩度下修目標價至 148 美元，又上調至 149 美元，目標區間震盪顯示分析師對中長期成長仍具信心，建議趁拉回建立部位。",
+    "news": [
+      {"title_zh": "下調目標價至 148 美元", "title_en": "Lowering target price to $148.00", "url": "https://finance.yahoo.com/research/reports/ARGUS_4450_QuantitativeReport_1782259200000"},
+      {"title_zh": "上調目標價至 149 美元", "title_en": "Raising target price to $149.00", "url": "https://finance.yahoo.com/research/reports/ARGUS_4450_QuantitativeReport_1781654400000"},
+      {"title_zh": "下調目標價至 148 美元", "title_en": "Lowering target price to $148.00", "url": "https://finance.yahoo.com/research/reports/ARGUS_4450_QuantitativeReport_1781049600000"}
+    ]
+  },
+  "AI": {
+    "recommendation": "C3.ai 屬於高 Beta 的 AI 投機標的，企業 AI 平台轉型與 AWS、Microsoft、Google 的雲端深度整合正在加速客戶導入。今日股價從低檔反彈 1.7%，守住技術面支撐，顯示下方買盤不弱。雖仍處於燒錢階段，但內部人買賣統計與成長性為主要觀察指標，建議僅小倉位參與，留意營收增速與現金流轉正時點。",
+    "news": [
+      {"title_zh": "每日 Vickers 內部人買賣統計 (2026/01/05)", "title_en": "Daily – Vickers Top Buyers & Sellers for 01/05/2026", "url": "https://finance.yahoo.com/research/reports/ARGUS_45748_TopBottomInsiderActivity_1767612183000"},
+      {"title_zh": "每日 Vickers 內部人買賣統計 (2025/09/16)", "title_en": "Daily – Vickers Top Buyers & Sellers for 09/16/2025", "url": "https://finance.yahoo.com/research/reports/ARGUS_44708_TopBottomInsiderActivity_1758018540000"},
+      {"title_zh": "每日 Vickers 內部人買賣統計 (2025/08/06)", "title_en": "Daily – Vickers Top Buyers & Sellers for 08/06/2025", "url": "https://finance.yahoo.com/research/reports/ARGUS_44322_TopBottomInsiderActivity_1754487544000"}
+    ]
+  },
+  "AMAT": {
+    "recommendation": "Applied Materials 在 EUV、先進封裝與 3D 沉積設備仍居龍頭，Blackwell 與 Rubin 製程升級帶動資本支出潮，長線成長動能明確。今日股價回吐 6.2% 屬於健康修正，反而是分批進場良機。Argus 將其納入配息成長模型投資組合，並出現在重點觀察名單，顯示機構對其中長期競爭力高度看好，建議留意半導體資本支出循環的復甦節奏。",
+    "news": [
+      {"title_zh": "Argus 配息成長模型投資組合", "title_en": "The Argus Dividend Growth Model Portfolio", "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"},
+      {"title_zh": "每日 Vickers 內部人買賣統計 (2026/06/18)", "title_en": "Daily – Vickers Top Buyers & Sellers for 06/18/2026", "url": "https://finance.yahoo.com/research/reports/ARGUS_47363_TopBottomInsiderActivity_1781780208000"},
+      {"title_zh": "Argus 速評：每週股票清單 2026/06/15：焦點股變動", "title_en": "Argus Quick Note: Weekly Stock List for 06/15/2026: Focus List Changes", "url": "https://finance.yahoo.com/research/reports/ARGUS_47331_StockPicks_1781524221000"}
+    ]
+  },
+  "AMD": {
+    "recommendation": "AMD MI300X 在大型語言模型推理性價比上對 NVIDIA 形成實質威脅，已陸續拿下 Meta、Microsoft、Oracle 等大單，MI325 與下一代 MI355 將擴大戰線。Helios 機櫃方案打進 hyperscaler 體系，ROCm 軟體生態改善更推升採用率，長線想像空間十足。雖 P/E 看起來略高，但對比成長性仍合理，今日 -2.1% 是逢低加碼機會，Argus 與摩根士丹利同步正面看待伺服器 CPU 業務爆發。",
+    "news": [
+      {"title_zh": "每日 Vickers 內部人買賣統計 (2026/06/03)", "title_en": "Daily – Vickers Top Buyers & Sellers for 06/03/2026", "url": "https://finance.yahoo.com/research/reports/ARGUS_47212_TopBottomInsiderActivity_1780483300000"},
+      {"title_zh": "每日 Vickers 內部人買賣統計 (2026/05/13)", "title_en": "Daily – Vickers Top Buyers & Sellers for 05/13/2026", "url": "https://finance.yahoo.com/research/reports/ARGUS_47008_TopBottomInsiderActivity_1778668946000"},
+      {"title_zh": "AMD 財報：伺服器 CPU 需求飆升；合理價值由 300 美元上調至 450 美元", "title_en": "AMD Earnings: Server CPU Demand Is Skyrocketing; Raising Fair Value to $450 From $300", "url": "https://finance.yahoo.com/research/reports/MS_0P0000KU35_AnalystReport_1778117730000"}
+    ]
+  },
+  "AMKR": {
+    "recommendation": "Amkor 為 CoWoS 先進封裝第二大供應商，受惠於 NVIDIA Blackwell 與 Rubin 平台放量，在 TSMC 產能滿載下具備關鍵戰略地位。雖目標價先下修至 74 美元後又上修至 91 美元，呈現 V 型調整反映分析師對其 2026 後段展望愈趨樂觀。今日深跌 8.1% 提供極佳低接機會，建議密切追蹤 HBM4 與 CoWoS-L 擴產進度。",
+    "news": [
+      {"title_zh": "Argus 對 AMKR 的最新觀點", "title_en": "What does Argus have to say about AMKR?", "url": "https://finance.yahoo.com/research/reports/ARGUS_6072_QuantitativeReport_1782259200000"},
+      {"title_zh": "上調目標價至 91 美元", "title_en": "Raising target price to $91.00", "url": "https://finance.yahoo.com/research/reports/ARGUS_6072_QuantitativeReport_1781654400000"},
+      {"title_zh": "下調目標價至 74 美元", "title_en": "Lowering target price to $74.00", "url": "https://finance.yahoo.com/research/reports/ARGUS_6072_QuantitativeReport_1781049600000"}
+    ]
+  },
+  "AMZN": {
+    "recommendation": "AWS 在 AI 工作負載市占重新加速，Trainium 2/3 自研晶片性價比優於 NVIDIA H100，Anthropic Claude 整合到 Bedrock 形成完整 AI 堆疊。零售、AWS、廣告三大引擎齊發，營運結構持續優化。今日成交量爆出 4.55 倍，遠超 AI 雲端雙雄，是機構大舉佈局 AWS AI 復甦敘事的明確訊號，建議中長線持有。",
+    "news": [
+      {"title_zh": "Amazon：正式推出供應鏈服務；短期內對營收貢獻有限", "title_en": "Amazon: Officially Launches Supply Chain Services; Unlikely to Make a Near-Term Impact", "url": "https://finance.yahoo.com/research/reports/MS_0P000000B7_AnalystReport_1781131995000"},
+      {"title_zh": "Argus 速評：每週股票清單 2026/06/08：AI 系列 #5，AI 與消費類股", "title_en": "Argus Quick Note: Weekly Stock List for 06/08/2026: AI Series #5, AI & Consumer Stocks", "url": "https://finance.yahoo.com/research/reports/ARGUS_47259_StockPicks_1780919958000"},
+      {"title_zh": "Argus 永續成長主題模型投資組合", "title_en": "The Argus Sustainable Growth Theme Model Portfolio", "url": "https://finance.yahoo.com/research/reports/ARGUS_47162_ThematicPortfolio_1779968001000"}
+    ]
+  },
+  "ANET": {
+    "recommendation": "Arista Networks 為 hyperscaler AI 集群網路交換器龍頭，AI 訓練叢集從萬卡規模擴張到十萬卡以上，推升高速交換器需求持續爆發。AI Etherlink 產品線獲客戶驗證，與 NVIDIA Spectrum-X 競爭格局逐漸明朗，摩根士丹利仍視為大型股首選。今日 -4.7% 回檔提供優質進場點，建議把握回檔建立核心持股。",
+    "news": [
+      {"title_zh": "Arista 財報：即便財測略低於往常強勢，這次回檔反而提供絕佳買點", "title_en": "Arista Earnings: Take the Opportunity to Buy in After a Lighter Beat-and-Raise Than Usual", "url": "https://finance.yahoo.com/research/reports/MS_0P0001354B_AnalystReport_1781563844000"},
+      {"title_zh": "Arista 財報：即便財測略低於往常強勢，這次回檔反而提供絕佳買點", "title_en": "Arista Earnings: Take the Opportunity to Buy in After a Lighter Beat-and-Raise Than Usual", "url": "https://finance.yahoo.com/research/reports/MS_0P0001354B_AnalystReport_1780698995000"},
+      {"title_zh": "美國大型股精選名單 — 2026 年 6 月", "title_en": "US Large Cap Pick List - June 2026", "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1780691436000"}
+    ]
+  },
+  "ARM": {
+    "recommendation": "ARM 架構在 NVIDIA Grace、Apple M-series、AWS Graviton 等 AI 晶片持續擴張市占，雲端 CPU 與邊緣 AI 雙引擎驅動成長。Royalty 商業模式帶來高毛利與穩健獲利，AI 工作負載的能效優勢讓其在 hyperscaler 採用率加速攀升。今日 -3.9% 雖估值偏高，但對比未來成長性仍可接受，建議留意營收結構中 AI 比重變化作為進場依據。",
+    "news": [
+      {"title_zh": "每日 Vickers 內部人買賣統計 (2026/05/22)", "title_en": "Daily – Vickers Top Buyers & Sellers for 05/22/2026", "url": "https://finance.yahoo.com/research/reports/ARGUS_47106_TopBottomInsiderActivity_1779445816000"},
+      {"title_zh": "Arm 財報：架構勝出已屬必然，但自製晶片或收取權利金仍是未定數", "title_en": "Arm Earnings: Architectural Win Looks Assured, but Silicon or Royalties Remains the Open Question", "url": "https://finance.yahoo.com/research/reports/MS_0P0001RJKB_AnalystReport_1779317188000"},
+      {"title_zh": "每日 Vickers 內部人買賣統計 (2026/05/14)", "title_en": "Daily – Vickers Top Buyers & Sellers for 05/14/2026", "url": "https://finance.yahoo.com/research/reports/ARGUS_47022_TopBottomInsiderActivity_1778755999000"}
+    ]
+  },
+  "AVGO": {
+    "recommendation": "Broadcom 在 hyperscaler ASIC 市場市占逾 70%，Google TPU v7 與 Meta MTIA 等大單持續放量，AI 營收佔比已突破 45%。高速 SerDes 與光纖收發器在大型 AI 集群不可或缺，VMware 整合更打開企業 AI 市場。摩根士丹利以「Jalapeno」形容其多項催化劑強化多頭信心，今日回檔 3.7% 是優質進場機會，建議長線持有。",
+    "news": [
+      {"title_zh": "Broadcom：「Jalapeno」新進展為這檔首選股增添多頭柴火", "title_en": "Broadcom: Jalapeno Adds Bullish Spice to Our Conviction in This Top Pick", "url": "https://finance.yahoo.com/research/reports/MS_0P0000KU35_AnalystReport_1782513729000"},
+      {"title_zh": "Broadcom：「Jalapeno」新進展為這檔首選股增添多頭柴火", "title_en": "Broadcom: Jalapeno Adds Bullish Spice to Our Conviction in This Top Pick", "url": "https://finance.yahoo.com/research/reports/MS_0P0000KU35_AnalystReport_1782329754000"},
+      {"title_zh": "Argus 配息成長模型投資組合", "title_en": "The Argus Dividend Growth Model Portfolio", "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"}
+    ]
+  },
+  "CEG": {
+    "recommendation": "Constellation 為美國最大無碳電力供應商，近期拿下微軟 Crane Clean Energy Center 20 年 160 億美元 PPA，並與 Meta 簽署長期合約，鎖定未來 5–10 年營收。AI 資料中心對 24/7 無碳基載電力需求剛性，CEG 具備難以取代的戰略地位。年增 10% 以上的股息提供下檔保護，目前距 52 週低僅約 9.8%，為機構低檔佈局訊號，建議分批承接。",
+    "news": [
+      {"title_zh": "Argus 配息成長模型投資組合", "title_en": "The Argus Dividend Growth Model Portfolio", "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"},
+      {"title_zh": "週二午盤主要指數下挫，那斯達克跌幅擴大", "title_en": "The major indices are lower at midday Tuesday, with the Nasdaq down more than", "url": "https://finance.yahoo.com/research/reports/ARGUS_47004_MarketUpdate_1778608708000"},
+      {"title_zh": "近期弱勢提供買進機會", "title_en": "Current weakness offers buying opportunity", "url": "https://finance.yahoo.com/research/reports/ARGUS_6301_AnalystReport_1778608708000"}
+    ]
+  },
+  "CIEN": {
+    "recommendation": "Ciena 在 800G 與 1.6T 光傳輸領域居領導地位，AI 訓練跨資料中心海量數據傳輸需求是其核心成長動能。WaveLogic 6 平台獲主要電信商與 hyperscaler 採用，目標價上修至 650 美元，Argus 持續放大 AI 帶來的長線想像空間。今日股價僅微跌 1.1%，但成交量爆出 2.53 倍，顯示機構逢低積極佈局，建議中長線持有。",
+    "news": [
+      {"title_zh": "Ciena 財報：創新高的業績下股價仍下跌，反映光通訊領域市場期望過高", "title_en": "Ciena Earnings: Stock Drop Amid Record Results Underscores Exceedingly Lofty Expectations in Optics", "url": "https://finance.yahoo.com/research/reports/MS_0P0000019J_AnalystReport_1782429131000"},
+      {"title_zh": "Ciena 財報：創新高的業績下股價仍下跌，反映光通訊領域市場期望過高", "title_en": "Ciena Earnings: Stock Drop Amid Record Results Underscores Exceedingly Lofty Expectations in Optics", "url": "https://finance.yahoo.com/research/reports/MS_0P0000019J_AnalystReport_1781046177000"},
+      {"title_zh": "看好 AI 機會持續擴大，上調目標價至 650 美元", "title_en": "Raising target price to $650 on broadening AI opportunity", "url": "https://finance.yahoo.com/research/reports/ARGUS_2838_AnalystReport_1780657761000"}
+    ]
+  },
+  "COHR": {
+    "recommendation": "Coherent 在磷化銦 (InP) 雷射技術領先，是 AI 資料中心 800G 與 1.6T 光模組關鍵供應商，主要客戶涵蓋 NVIDIA、AMD、Broadcom。雖 Argus 目標價由 461 美元下修至 459、再至 429 美元，反映短期獲利了結壓力，但光通訊升級週期才剛啟動，今日深跌 6.6% 提供絕佳低接點，建議分批佈局長線部位。",
+    "news": [
+      {"title_zh": "下調目標價至 459 美元", "title_en": "Lowering target price to $459.00", "url": "https://finance.yahoo.com/research/reports/ARGUS_3813_QuantitativeReport_1782259200000"},
+      {"title_zh": "上調目標價至 461 美元", "title_en": "Raising target price to $461.00", "url": "https://finance.yahoo.com/research/reports/ARGUS_3813_QuantitativeReport_1781654400000"},
+      {"title_zh": "下調目標價至 429 美元", "title_en": "Lowering target price to $429.00", "url": "https://finance.yahoo.com/research/reports/ARGUS_3813_QuantitativeReport_1781049600000"}
+    ]
+  },
+  "CRWD": {
+    "recommendation": "CrowdStrike 為 AI 資安龍頭，端點防護市占持續擴張，AI 攻擊激增推動企業資安預算上調，ARR 增速維持 25% 以上。平台化策略與併購整合奏效，今日反彈 3.3% 顯示機構在壓力區低位承接。雖估值偏高，但成長性與產業剛性需求支撐下，摩根士丹利將合理價值上調 15% 至 530 美元，建議中長線持有並留意內部人買賣訊號。",
+    "news": [
+      {"title_zh": "每日 Vickers 內部人買賣統計 (2026/06/24)", "title_en": "Daily – Vickers Top Buyers & Sellers for 06/24/2026", "url": "https://finance.yahoo.com/research/reports/ARGUS_47416_TopBottomInsiderActivity_1782298722000"},
+      {"title_zh": "週四盤勢陷入觀望，直至午後川普再度取消對伊朗的軍事行動並表示美國...", "title_en": "Thursday looked like a day of indecision until the early afternoon, when President Trump (again) called off strikes on Iran and said the U.S.", "url": "https://finance.yahoo.com/research/reports/ARGUS_47315_TechnicalAnalysis_1781262714000"},
+      {"title_zh": "CrowdStrike 財報：AI 與供應商整合推升，表現亮眼；合理價值上調 15% 至 530 美元", "title_en": "CrowdStrike Earnings: Impressive, Lifted by AI and Vendor Consolidation; Fair Value Up 15% to $530", "url": "https://finance.yahoo.com/research/reports/MS_0P0001HOOZ_AnalystReport_1781217874000"}
+    ]
+  },
+  "CSCO": {
+    "recommendation": "Cisco 為企業網路龍頭，Hypershield AI 安全平台搭配 Splunk 整合強化企業 AI 資安方案，P/E 相對 Arista 大幅折價，估值面具吸引力。AI 時代企業網路升級需求明確，Argus 認為仍有「上漲空間」。今日股價回吐 4.4% 為健康修正，提供中長線佈局機會，建議以防禦性核心部位切入。",
+    "news": [
+      {"title_zh": "仍有上漲空間", "title_en": "Room to Run", "url": "https://finance.yahoo.com/research/reports/ARGUS_47303_PortfolioIdeas_1781179068000"},
+      {"title_zh": "Cisco 財報：在 AI 基本面加速推升下表現亮眼", "title_en": "Cisco Earnings: Soaring on the Back of Accelerating AI Fundamentals", "url": "https://finance.yahoo.com/research/reports/MS_0P0000019Y_AnalystReport_1781132168000"},
+      {"title_zh": "Cisco 財報：在 AI 基本面加速推升下表現亮眼", "title_en": "Cisco Earnings: Soaring on the Back of Accelerating AI Fundamentals", "url": "https://finance.yahoo.com/research/reports/MS_0P0000019Y_AnalystReport_1780441643000"}
+    ]
+  },
+  "DDOG": {
+    "recommendation": "Datadog 為 AI 監控與 LLM 可觀測性龍頭，Watchdog AI 等生成式 AI 監控產品精準對接企業 AI 工作負載需求。AI 應用爆發推升監控剛性需求，今日強勢反彈 8.5% 顯示動能強勁。Argus 雖短期下修目標價至 249 美元，但摩根士丹利將合理價值上調至 200 美元，長線看好，建議把握回檔分批進場並追蹤 AI 監控營收成長。",
+    "news": [
+      {"title_zh": "Datadog 財報：受惠 AI 順風，表現亮眼；合理價值預估上調至 200 美元", "title_en": "Datadog Earnings: Stellar Quarter With AI Tailwind; Fair Value Estimate Increased to $200", "url": "https://finance.yahoo.com/research/reports/MS_0P0001IEZ0_AnalystReport_1782514316000"},
+      {"title_zh": "下調目標價至 249 美元", "title_en": "Lowering target price to $249.00", "url": "https://finance.yahoo.com/research/reports/ARGUS_6644_QuantitativeReport_1782259200000"},
+      {"title_zh": "Datadog 財報：受惠 AI 順風，表現亮眼；合理價值預估上調至 200 美元", "title_en": "Datadog Earnings: Stellar Quarter With AI Tailwind; Fair Value Estimate Increased to $200", "url": "https://finance.yahoo.com/research/reports/MS_0P0001IEZ0_AnalystReport_1781822364000"}
+    ]
+  },
+  "DELL": {
+    "recommendation": "Dell PowerEdge XE9680 拿下多家 hyperscaler AI 訓練訂單，搭配 NVIDIA Blackwell 的 AI Factory 方案打進企業 AI 市場。Argus 將其納入配息成長模型投資組合，摩根士丹利看好 AI 生態系的爆發力。今日股價回吐 2.4% 提供低接機會，建議中長線持有並留意企業 AI 工作站營收佔比變化。",
+    "news": [
+      {"title_zh": "Argus 配息成長模型投資組合", "title_en": "The Argus Dividend Growth Model Portfolio", "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"},
+      {"title_zh": "每日 Vickers 內部人買賣統計 (2026/06/18)", "title_en": "Daily – Vickers Top Buyers & Sellers for 06/18/2026", "url": "https://finance.yahoo.com/research/reports/ARGUS_47363_TopBottomInsiderActivity_1781780208000"},
+      {"title_zh": "Dell 財報：AI 業務高速成長推升創紀錄財測；對 AI 生態圈極度看多", "title_en": "Dell Earnings: Huge AI Acceleration Fuels Historic Guidance Raise; Massively Bullish on AI Ecosystem", "url": "https://finance.yahoo.com/research/reports/MS_0P0001FDGE_AnalystReport_1781564093000"}
+    ]
+  },
+  "EMR": {
+    "recommendation": "Emerson Electric 在工業自動化與 AI 過程控制市占領先，雖本波 AI 主題熱度不如純 AI 個股爆發，但具備防禦與價值型雙重優勢。Argus 已將其列為「近期弱勢提供買進機會」標的，並出現在調升財測的觀察名單。今日僅回吐 1.3%，距 52 週低僅 17%，下檔風險有限，建議作為防禦性配置。",
+    "news": [
+      {"title_zh": "近期弱勢提供買進機會", "title_en": "Recent weakness offers buying opportunity", "url": "https://finance.yahoo.com/research/reports/ARGUS_2935_AnalystReport_1778246631000"},
+      {"title_zh": "頭條消息主導盤勢，主要指數下挫", "title_en": "Headlines remain the order of the day, with major stock indices lower on", "url": "https://finance.yahoo.com/research/reports/ARGUS_46971_MarketSummary_1778246631000"},
+      {"title_zh": "Argus 速評：每週股票清單 2026/03/02：調升財測的公司", "title_en": "Argus Quick Note: Weekly Stock List for 03/02/2026: Companies Raising Guidance", "url": "https://finance.yahoo.com/research/reports/ARGUS_46300_StockPicks_1772456021000"}
+    ]
+  },
+  "ETN": {
+    "recommendation": "Eaton 在北美資料中心電力配電系統 (PDU、UPS、開關) 市占第一，AI 資料中心單機房電力配電價值是傳統雲端 3 倍以上，eMobility 與 Electrical Americas 雙引擎齊發。雖本益比偏高，但強勁基本面為股價提供支撐，今日回檔 4.1% 是優質進場點。Argus 將其納入永續成長主題組合，並關注通膨與利率環境變化，建議中長線持有。",
+    "news": [
+      {"title_zh": "聯準會偏好之通膨指標將於週四公布", "title_en": "Fed's Favorite Inflation Indicator Due Thursday", "url": "https://finance.yahoo.com/research/reports/ARGUS_47420_MarketOutlook_1782301231000"},
+      {"title_zh": "ESG 領域關注度與資產規模同步成長", "title_en": "Interest -- and Assets -- are Growing in ESG", "url": "https://finance.yahoo.com/research/reports/ARGUS_47178_MarketOutlook_1780054053000"},
+      {"title_zh": "Argus 永續成長主題模型投資組合", "title_en": "The Argus Sustainable Growth Theme Model Portfolio", "url": "https://finance.yahoo.com/research/reports/ARGUS_47162_ThematicPortfolio_1779968001000"}
+    ]
+  }
+}

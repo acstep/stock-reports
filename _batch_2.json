@@ -1,0 +1,344 @@
+[
+  {
+    "ticker": "FTNT",
+    "why": "FortiGate 防火牆 + AI SecOps。今日 +1% 距 52W 高點僅 0.9%，突破動能強勁。",
+    "outlook": "Fortinet 在企業防火牆市占第一，FortiAI 整合生成式 AI 提升 SOC 效率。Secure Networking 統一平台策略奏效，訂閱業務加速。距 52W 高點僅 0.9% 顯示強勢。",
+    "reports": [
+      {
+        "title_en": "Raising target price to $165.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4616_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Raising target price to $164.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4616_QuantitativeReport_1781654400000"
+      },
+      {
+        "title_en": "Lowering target price to $154.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4616_QuantitativeReport_1781049600000"
+      }
+    ]
+  },
+  {
+    "ticker": "GEV",
+    "why": "AI 電力設備龍頭（燃氣渦輪、核電輔助設備）。今日 -3.7% 從高位回落提供進場。",
+    "outlook": "GE Vernova 是 AI 電力基礎建設上游，受惠全球燃氣渦輪訂單積壓創歷史新高。HA 級燃氣渦輪交付期已排到 2030。核電業務透過 SMR 與大型反應爐輔助設備擴張。電網設備業務受 AI 升級需求推升。",
+    "reports": [
+      {
+        "title_en": "US Large Cap Pick List - May 2026",
+        "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1781092287000"
+      },
+      {
+        "title_en": "US Large Cap Pick List - June 2026",
+        "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1780691436000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/04/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47226_TopBottomInsiderActivity_1780568153000"
+      }
+    ]
+  },
+  {
+    "ticker": "GLW",
+    "why": "光纖 + AI 玻璃基板雙引擎。今日 -3.0% 從週三大漲 30% 後溫和修正，提供進場機會。",
+    "outlook": "Corning 在 AI 資料中心光纖連接壟斷地位（每股 GPU 需 3-5 條光纖跳線）。玻璃基板為下一代 AI 晶片封裝關鍵材料，2026 量產。光通訊業務年增 30%+。週五回吐 3% 是健康修正。",
+    "reports": [
+      {
+        "title_en": "Corning: Growth At the Speed of Light",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000001I3_AnalystReport_1781564722000"
+      },
+      {
+        "title_en": "Corning: Growth At the Speed of Light",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000001I3_AnalystReport_1781132395000"
+      },
+      {
+        "title_en": "The Argus Sustainable Growth Theme Model Portfolio",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47162_ThematicPortfolio_1779968001000"
+      }
+    ]
+  },
+  {
+    "ticker": "GOOGL",
+    "why": "Gemini 2.0 + TPU 自研晶片 + YouTube AI 變現三引擎。今日 -1.8% 但成交量 3.07x，機構在逢低承接。",
+    "outlook": "Google 在 AI 基礎模型（Gemini）、自研晶片（TPU v6/v7）、搜尋變現三方面都有結構性優勢。YouTube AI 推薦 + Shorts 變現持續加速。雲端業務 Gemini 整合後回升至 30%+ 增速。P/E 對比其他大型 AI 股偏便宜。週五成交 3.07 倍是積極訊號。",
+    "reports": [
+      {
+        "title_en": "Alphabet: Shares Sell Off on Artificial Intelligence Talent Exits; We See a Buying Opportunity",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000002HD_AnalystReport_1782301114000"
+      },
+      {
+        "title_en": "Massive capital raise",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3012_AnalystReport_1782299265000"
+      },
+      {
+        "title_en": "Economy on Solid Footing as Negotiations Continue\n\nThe memorandum of",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47417_MarketSummary_1782299265000"
+      }
+    ]
+  },
+  {
+    "ticker": "HON",
+    "why": "工業自動化 + AI 資料中心 HVAC。今日 +0.4% 抗跌，距 52W 低 24% 為優質進場。",
+    "outlook": "Honeywell 在工業自動化、AI 資料中心 HVAC、石化製程控制多領域領先。週五抗跌顯示防禦性。P/E 對比成長性合理。",
+    "reports": [
+      {
+        "title_en": "Honeywell Earnings: Flattish Quarter from Bifurcated Segment Results; Aerospace Spinoff Announced",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000002PC_AnalystReport_1781565150000"
+      },
+      {
+        "title_en": "Honeywell Earnings: Flattish Quarter from Bifurcated Segment Results; Aerospace Spinoff Announced",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000002PC_AnalystReport_1780959511000"
+      },
+      {
+        "title_en": "Honeywell Earnings: Flattish Quarter from Bifurcated Segment Results; Aerospace Spinoff Announced",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000002PC_AnalystReport_1779405010000"
+      }
+    ]
+  },
+  {
+    "ticker": "HPQ",
+    "why": "AI PC + 企業列印雙引擎。今日 -0.2% 抗跌顯示防禦性，P/E 對比成長性便宜。",
+    "outlook": "HP 透過 AI PC 與企業 AI 工作站切入新一波換機潮。雖非純 AI 玩家，但估值便宜、股息穩健。週五表現抗跌顯示防禦性。",
+    "reports": [
+      {
+        "title_en": "HP Earnings: Results Better Than Feared, However Underlying Headwinds Still Loom Large",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000002O2_AnalystReport_1780700467000"
+      },
+      {
+        "title_en": "HP Earnings: Results Better Than Feared, However Underlying Headwinds Still Loom Large",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000002O2_AnalystReport_1780355407000"
+      },
+      {
+        "title_en": "Raising target price to $34",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3060_AnalystReport_1779988477000"
+      }
+    ]
+  },
+  {
+    "ticker": "INTC",
+    "why": "Intel Foundry + 18A 製程 + Gaudi AI 加速器。今日 -3.4% 提供低接機會。",
+    "outlook": "Intel 18A 製程 2026 量產將為 NVIDIA、AWS 等代工服務。Gaudi 3 AI 加速器已拿下多家 hyperscaler 訂單。週五回吐 3.4% 屬於半導體族群輪動。",
+    "reports": [
+      {
+        "title_en": "Intel: An Apple-Intel Chip Manufacturing Partnership Is Consistent With Our Forecast",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000002X8_AnalystReport_1781218577000"
+      },
+      {
+        "title_en": "Intel: An Apple-Intel Chip Manufacturing Partnership Is Consistent With Our Forecast",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000002X8_AnalystReport_1780354848000"
+      },
+      {
+        "title_en": "Argus Quick Note: Weekly Stock List for 05/26/2026: What Did the Big Guns Buy in 1Q?",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47127_StockPicks_1779795007000"
+      }
+    ]
+  },
+  {
+    "ticker": "LITE",
+    "why": "光通訊雷射 + AI 高速互連。今日 -5.2% 從高位大幅修正，估值回到合理區間。",
+    "outlook": "Lumentum 在光通訊雷射（EML、可調雷射）市占領先，AI 集群高速光互連核心供應商。3D 感測、工業雷射業務穩定。週五從高點修正 5% 提供低接機會。",
+    "reports": [
+      {
+        "title_en": "Lowering target price to $981.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4688_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Raising target price to $1,038.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4688_QuantitativeReport_1781654400000"
+      },
+      {
+        "title_en": "Lowering target price to $974.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4688_QuantitativeReport_1781049600000"
+      }
+    ]
+  },
+  {
+    "ticker": "LRCX",
+    "why": "蝕刻設備龍頭，HBM TSV 蝕刻與 GAA 製程需求。今日 -5.7% 提供進場點。",
+    "outlook": "Lam Research 在蝕刻設備市占第一，HBM TSV 蝕刻與 GAA 環繞閘極製程需求強勁。AI 高頻寬記憶體堆疊需要先進蝕刻技術。週五回吐 5.7% 提供低接機會。",
+    "reports": [
+      {
+        "title_en": "The Argus Dividend Growth Model Portfolio",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"
+      },
+      {
+        "title_en": "In yesterday's essay on our technical process, we noted the importance of market trends over various timeframes.",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47407_TechnicalAnalysis_1782214827000"
+      },
+      {
+        "title_en": "Lam Earnings: The AI Growth Cycle Finds yet Another Gear",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P00000384_AnalystReport_1781218858000"
+      }
+    ]
+  },
+  {
+    "ticker": "MDB",
+    "why": "MongoDB Atlas + AI 整合。今日 +6.8% 強勢反彈，AI 應用開發需求受益。",
+    "outlook": "MongoDB Atlas 向量搜尋整合 RAG 工作負載，AI 應用開發首選資料庫之一。FY26 業績指引強勁。週五 +6.8% 顯示 AI 應用落地加速。",
+    "reports": [
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/09/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47268_TopBottomInsiderActivity_1781000071000"
+      },
+      {
+        "title_en": "MongoDB Earnings: AI Customer Onboarding Contributes to Atlas' Growth Outperformance",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001BRCG_AnalystReport_1780526650000"
+      },
+      {
+        "title_en": "Raising target price to $488",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_5848_AnalystReport_1780508046000"
+      }
+    ]
+  },
+  {
+    "ticker": "META",
+    "why": "AI 廣告變現之王 + Llama 開源霸主。距 52W 低僅 5.8% 為大型 AI 股最低，P/E 18 為大型股最低，估值最便宜。",
+    "outlook": "Meta 的 AI 廣告投放系統 ROAS 提升 20%+，Llama 開源模型已成為業界標準。Reality Labs 雖虧損但 Vision Pro 競爭中領先。資本支出高峰已過，FCF 將快速回升。Hyperscale AI 算力 Capex 仍維持 $40B+。P/E 18 對比其他大型 AI 股幾乎打了七折。",
+    "reports": [
+      {
+        "title_en": "Room to Run",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47303_PortfolioIdeas_1781179068000"
+      },
+      {
+        "title_en": "US Large Cap Pick List - May 2026",
+        "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1781092287000"
+      },
+      {
+        "title_en": "SpaceX is Coming",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47272_MarketOutlook_1781004273000"
+      }
+    ]
+  },
+  {
+    "ticker": "MRVL",
+    "why": "客製化 AI 晶片 + Data Center 高速互連。今日 -5.2% 從高位回落，距 52W 高點近，提供好買點。",
+    "outlook": "Marvell 在 hyperscaler ASIC（Amazon Trainium2、Google TPU）市占第二，與 Broadcom 形成雙寡頭。光互連 DSP 晶片在 AI 集群中無可替代。AI 營收佔比已突破 45%。",
+    "reports": [
+      {
+        "title_en": "Marvell Earnings: Not Blinking",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000003H5_AnalystReport_1781218246000"
+      },
+      {
+        "title_en": "Room to Run",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47303_PortfolioIdeas_1781179068000"
+      },
+      {
+        "title_en": "Marvell Earnings: Not Blinking",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000003H5_AnalystReport_1781132071000"
+      }
+    ]
+  },
+  {
+    "ticker": "MSFT",
+    "why": "OpenAI 母公司 + Azure AI 雲端龍頭。距 52W 低 6.8% 為大型股最低，今日 +5.7% 成交量 4.07x 顯示機構低位承接。",
+    "outlook": "微軟 Azure 在 AI 工作負載市占率持續擴張，Copilot 企業版滲透率突破 30%。OpenAI 投資已轉化為 GPT-5/6 等產品競爭力。週五成交量爆 4.07 倍，機構資金在大跌後明顯抄底。P/E 22 對比 GOOGL/META 屬合理偏低。目標價 $445 對應 19x FY27 EPS。",
+    "reports": [
+      {
+        "title_en": "The Argus Dividend Growth Model Portfolio",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/15/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47323_TopBottomInsiderActivity_1781519144000"
+      },
+      {
+        "title_en": "Microsoft Earnings: Azure and Capital Expenditures Are Expected to Accelerate",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000003MH_AnalystReport_1781133056000"
+      }
+    ]
+  },
+  {
+    "ticker": "MU",
+    "why": "HBM4 領導者 + NAND 復甦。今日 -6.7% 提供絕佳低檔進場點，P/E 24 對比成長性極便宜。",
+    "outlook": "Micron 在 HBM3e/HBM4 取得 NVIDIA Blackwell/Rubin 認證，是 AI GPU 高頻寬記憶體三大供應商之一。NAND 在 AI 推理儲存需求回升。2026 EPS 預估 $35-40，P/E 24-25 對比成長性極便宜。週五大跌 6.7% 是獲利了結並非基本面轉差。",
+    "reports": [
+      {
+        "title_en": "Micron Earnings: What Goes Up Must Come Down … Eventually",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000003MC_AnalystReport_1782429636000"
+      },
+      {
+        "title_en": "Micron Earnings: What Goes Up Must Come Down … Eventually",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000003MC_AnalystReport_1782390144000"
+      },
+      {
+        "title_en": "Exceptional growth, raising target to $1,500",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3614_AnalystReport_1782386191000"
+      }
+    ]
+  },
+  {
+    "ticker": "NRG",
+    "why": "德州數據中心電力直接受益者。今日 +1.5% 是電力類別中表現最強，距 52W 低 24% 為優質進場點。",
+    "outlook": "NRG 在德州 ERCOT 市場有強勢地位，數據中心負載爆發直接受益。併購整合擴大規模（Direct Energy、Smart Home），AI 用電客戶簽長約。P/E 20 對比 VST/CEG 更便宜，是電力類別中最便宜的選擇。",
+    "reports": [
+      {
+        "title_en": "Raising target price to $131.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3824_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Rating decreased to a HOLD",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3824_QuantitativeReport_1781654400000"
+      },
+      {
+        "title_en": "Lowering target price to $148.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3824_QuantitativeReport_1781049600000"
+      }
+    ]
+  },
+  {
+    "ticker": "NTAP",
+    "why": "企業混合雲儲存龍頭，AI 工作負載資料管理受益。今日 -1.4% 提供低接點。",
+    "outlook": "NetApp 在企業混合雲儲存（ONTAP）市占領先。AI 訓練資料集規模爆發推升高速儲存需求。週五回吐 1.4% 提供低接機會。",
+    "reports": [
+      {
+        "title_en": "Raising target price to $200",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3259_AnalystReport_1780312137000"
+      },
+      {
+        "title_en": "The May jobs report comes out this week, as do a few late earnings reports",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47186_MarketSummary_1780311237000"
+      },
+      {
+        "title_en": "Attractive on underperformance relative to peers",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3259_AnalystReport_1772626587000"
+      }
+    ]
+  },
+  {
+    "ticker": "NVDA",
+    "why": "AI GPU 絕對龍頭，Blackwell Ultra + Rubin 平台週期。今日 -1.6% 溫和修正提供良好進場點，P/E 35 在 AI 晶片中相對合理。",
+    "outlook": "NVIDIA 在 AI 訓練晶片市占率仍達 90%，Blackwell 出貨放量、Rubin 平台 2026 投產。軟體生態（CUDNN、TensorRT、NIM）形成深護城河。AI Capex 超級週期仍在延續，至少持續到 2027。客戶端 ASIC 自研雖分食部分推理市場，但訓練端無人能撼動。",
+    "reports": [
+      {
+        "title_en": "Argus Quick Note: Weekly Stock List for 06/15/2026: Focus List Changes",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47331_StockPicks_1781524221000"
+      },
+      {
+        "title_en": "Room to Run",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47303_PortfolioIdeas_1781179068000"
+      },
+      {
+        "title_en": "US Large Cap Pick List - June 2026",
+        "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1780691436000"
+      }
+    ]
+  },
+  {
+    "ticker": "OKLO",
+    "why": "小型模組化反應爐（SMR）純玩家，AI 數據中心去碳化首選。距 52W 低僅 11.4% 為高 Beta 標的。",
+    "outlook": "Oklo 是 Aurora 微型反應爐領導者，與 Switch、Equinix 等大型數據中心運營商簽署意向書。美國核能監管鬆綁後，SMR 商業化加速。雖尚未量產但已有強勁訂單儲備。Beta 高、波動大，適合小倉位佈局。",
+    "reports": [
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 03/17/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_46451_TopBottomInsiderActivity_1773747091000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 09/22/2025",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_44763_TopBottomInsiderActivity_1758536129000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 04/01/2025",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_43103_TopBottomInsiderActivity_1743503501000"
+      }
+    ]
+  }
+]

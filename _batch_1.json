@@ -1,0 +1,344 @@
+[
+  {
+    "ticker": "AAON",
+    "why": "高效能 HVAC 設備商，AI 液冷散熱需求爆發。今日 -4.9% 從高點回落提供進場。",
+    "outlook": "AAON 是高效能 HVAC 設備商，AI 資料中心對冷卻需求大幅提升其產品價值。Semi-custom 解決方案獲大型雲端運營商青睞。週五回吐是獲利了結非基本面轉差。",
+    "reports": [
+      {
+        "title_en": "Lowering target price to $148.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4450_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Raising target price to $149.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4450_QuantitativeReport_1781654400000"
+      },
+      {
+        "title_en": "Lowering target price to $148.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_4450_QuantitativeReport_1781049600000"
+      }
+    ]
+  },
+  {
+    "ticker": "AI",
+    "why": "C3.ai 企業 AI 平台，高 Beta 投機標的。今日 +1.7% 從低檔反彈，距 52W 低僅 16%。",
+    "outlook": "C3.ai 企業 AI 平台轉型升級，與 AWS、Microsoft、Google 雲端深度整合。雖燒錢但客戶增長加速。週五守住支撐顯示下方有買盤。風險高，僅小倉位。",
+    "reports": [
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 01/05/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_45748_TopBottomInsiderActivity_1767612183000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 09/16/2025",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_44708_TopBottomInsiderActivity_1758018540000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 08/06/2025",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_44322_TopBottomInsiderActivity_1754487544000"
+      }
+    ]
+  },
+  {
+    "ticker": "AMAT",
+    "why": "AI 製程設備龍頭 + 先進封裝鍍膜設備。今日 -6.2% 提供進場點。",
+    "outlook": "Applied Materials 在 AI 晶片製程設備（沉積、蝕刻、檢測）市占領先。Blackwell 與 Rubin 製程升級推升 EUV 與先進封裝設備需求。週五回吐 6.2% 是健康修正。",
+    "reports": [
+      {
+        "title_en": "The Argus Dividend Growth Model Portfolio",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/18/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47363_TopBottomInsiderActivity_1781780208000"
+      },
+      {
+        "title_en": "Argus Quick Note: Weekly Stock List for 06/15/2026: Focus List Changes",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47331_StockPicks_1781524221000"
+      }
+    ]
+  },
+  {
+    "ticker": "AMD",
+    "why": "MI300X/MI325 AI GPU 加速放量，挑戰 NVIDIA 壟斷。P/E 對比成長性合理，今日 -2.1% 提供加碼機會。",
+    "outlook": "AMD MI300X 在大型語言模型推理上展現性價比優勢，已拿下 Meta、Microsoft、Oracle 等大單。MI325/MI355 系列擴大產品線。ROCm 軟體生態改善加速採用率。Helios 機櫃方案打開 hyperscaler 大門。",
+    "reports": [
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/03/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47212_TopBottomInsiderActivity_1780483300000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 05/13/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47008_TopBottomInsiderActivity_1778668946000"
+      },
+      {
+        "title_en": "AMD Earnings: Server CPU Demand Is Skyrocketing; Raising Fair Value to $450 From $300",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0000006A_AnalystReport_1778117730000"
+      }
+    ]
+  },
+  {
+    "ticker": "AMKR",
+    "why": "CoWoS 先進封裝第二供應商。今日 -8.1% 提供深蹲進場點，受益 NVIDIA HBM4 訂單。",
+    "outlook": "Amkor 在 CoWoS 先進封裝擴產，是 NVIDIA Blackwell/Rubin 主要封裝合作夥伴。TSMC 產能滿載下，Amkor 是關鍵第二供應商。週五大跌 8.1% 提供極佳低接機會。",
+    "reports": [
+      {
+        "title_en": "What does Argus have to say about AMKR?",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6072_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Raising target price to $91.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6072_QuantitativeReport_1781654400000"
+      },
+      {
+        "title_en": "Lowering target price to $74.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6072_QuantitativeReport_1781049600000"
+      }
+    ]
+  },
+  {
+    "ticker": "AMZN",
+    "why": "AWS + Trainium 自研 AI 晶片 + Anthropic 投資。今日 +2.5% 站穩 20 日均線，成交量 4.55x 為 AI 雲端三巨頭之最。",
+    "outlook": "AWS 重新加速 AI 工作負載市占，Trainium2/3 性價比超 NVIDIA H100。Anthropic Claude 整合到 Bedrock 形成完整 AI 堆疊。零售 + AWS + 廣告三引擎齊發。週五成交爆 4.55 倍，機構正在 AWS AI 復甦敘事低位佈局。",
+    "reports": [
+      {
+        "title_en": "Amazon: Officially Launches Supply Chain Services; Unlikely to Make a Near-Term Impact",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P000000B7_AnalystReport_1781131995000"
+      },
+      {
+        "title_en": "Argus Quick Note: Weekly Stock List for 06/08/2026: AI Series #5, AI &amp; Consumer Stocks",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47259_StockPicks_1780919958000"
+      },
+      {
+        "title_en": "The Argus Sustainable Growth Theme Model Portfolio",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47162_ThematicPortfolio_1779968001000"
+      }
+    ]
+  },
+  {
+    "ticker": "ANET",
+    "why": "AI 集群網路交換器龍頭，Ultra Ethernet 聯盟主導者。今日 -4.7% 提供優質進場。",
+    "outlook": "Arista Networks 在 hyperscaler AI 集群交換器市占第一，與 NVIDIA Spectrum-X 平台競爭。AI 訓練叢集規模從 10K 卡擴張到 100K+ 卡，推升高速交換器需求。EOS 軟體平台持續擴張，AI Etherlink 產品線獲客戶驗證。",
+    "reports": [
+      {
+        "title_en": "Arista Earnings: Take the Opportunity to Buy in After a Lighter Beat-and-Raise Than Usual",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001354B_AnalystReport_1781563844000"
+      },
+      {
+        "title_en": "Arista Earnings: Take the Opportunity to Buy in After a Lighter Beat-and-Raise Than Usual",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001354B_AnalystReport_1780698995000"
+      },
+      {
+        "title_en": "US Large Cap Pick List - June 2026",
+        "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1780691436000"
+      }
+    ]
+  },
+  {
+    "ticker": "ARM",
+    "why": "AI 邊緣運算 + Neoverse 雲端 CPU 雙引擎。P/E 偏高但成長性強，今日 -3.9% 提供進場。",
+    "outlook": "ARM 架構在 AI 晶片（NVIDIA Grace、Apple M-series、AWS Graviton）市占擴張。AI 工作負載能效優勢明顯，雲端 CPU 與邊緣 AI 雙引擎。Royalty 模式獲利穩健。",
+    "reports": [
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 05/22/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47106_TopBottomInsiderActivity_1779445816000"
+      },
+      {
+        "title_en": "Arm Earnings: Architectural Win Looks Assured, but Silicon or Royalties Remains the Open Question",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001RJKB_AnalystReport_1779317188000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 05/14/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47022_TopBottomInsiderActivity_1778755999000"
+      }
+    ]
+  },
+  {
+    "ticker": "AVGO",
+    "why": "客製化 AI ASIC + 高速 SerDes 雙引擎，Google TPU v7、Meta MTIA 主要供應商。今日 -3.7% 從壓力區回落提供優質進場。",
+    "outlook": "Broadcom 在 hyperscaler ASIC 市場佔有率超過 70%，每個客製化晶片都是 10+ 億美元大單。高速 SerDes 與光纖收發器在 AI 集群中需求爆發。VMware 整合加速企業 AI 採用，AI 營收佔比已突破 45%。",
+    "reports": [
+      {
+        "title_en": "Broadcom: Jalapeno Adds Bullish Spice to Our Conviction in This Top Pick",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0000KU35_AnalystReport_1782513729000"
+      },
+      {
+        "title_en": "Broadcom: Jalapeno Adds Bullish Spice to Our Conviction in This Top Pick",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0000KU35_AnalystReport_1782329754000"
+      },
+      {
+        "title_en": "The Argus Dividend Growth Model Portfolio",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"
+      }
+    ]
+  },
+  {
+    "ticker": "CEG",
+    "why": "美國最大無碳電力供應商，Meta/微軟核電 PPA 全面簽署。距 52W 低僅 9.8% 為機構低檔佈局訊號。",
+    "outlook": "Constellation 是美國最大核電運營商，剛拿下微軟 Crane Clean Energy Center 835MW 20 年 $16B PPA，又與 Meta 簽署長約。AI 數據中心需要 24/7 無碳基載電力，CEG 無可替代。股息年增 10%+ 提供下檔保護。9.8 GW 已簽 PPA 鎖定未來 5-10 年營收。",
+    "reports": [
+      {
+        "title_en": "The Argus Dividend Growth Model Portfolio",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"
+      },
+      {
+        "title_en": "The major indices are lower at midday Tuesday, with the Nasdaq down more than",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47004_MarketUpdate_1778608708000"
+      },
+      {
+        "title_en": "Current weakness offers buying opportunity",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6301_AnalystReport_1778608708000"
+      }
+    ]
+  },
+  {
+    "ticker": "CIEN",
+    "why": "800G/1.6T 光網路傳輸龍頭，AI 跨數據中心互連受益。今日 -1.1% 成交量 2.53x 顯示機構逢低佈局。",
+    "outlook": "Ciena 在 800G/1.6T 光傳輸系統領先，AI 訓練需要跨數據中心傳輸海量數據，光纖傳輸需求爆發。WaveLogic 6 平台獲主要電信運營商和 hyperscaler 採用。週五成交 2.53 倍顯示逢低買盤強勁。",
+    "reports": [
+      {
+        "title_en": "Ciena Earnings: Stock Drop Amid Record Results Underscores Exceedingly Lofty Expectations in Optics",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0000019J_AnalystReport_1782429131000"
+      },
+      {
+        "title_en": "Ciena Earnings: Stock Drop Amid Record Results Underscores Exceedingly Lofty Expectations in Optics",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0000019J_AnalystReport_1781046177000"
+      },
+      {
+        "title_en": "Raising target price to $650 on broadening AI opportunity",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_2838_AnalystReport_1780657761000"
+      }
+    ]
+  },
+  {
+    "ticker": "COHR",
+    "why": "磷化銦（InP）雷射 + AI 800G 光模組雙引擎。今日 -6.6% 提供深蹲進場點。",
+    "outlook": "Coherent（II-VI 收購）為 AI 資料中心 800G/1.6T 光模組關鍵供應商，磷化銦雷射技術領先。NVIDIA、AMD、 Broadcom 主要光模組合作夥伴。週五大跌 6.6% 提供優質低接機會。",
+    "reports": [
+      {
+        "title_en": "Lowering target price to $459.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3813_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Raising target price to $461.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3813_QuantitativeReport_1781654400000"
+      },
+      {
+        "title_en": "Lowering target price to $429.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_3813_QuantitativeReport_1781049600000"
+      }
+    ]
+  },
+  {
+    "ticker": "CRWD",
+    "why": "AI 資安龍頭，Falcon 平台整合 ML 偵測。今日 +3.3% 從壓力區回升，估值雖貴但成長性最強。",
+    "outlook": "CrowdStrike 是 AI 時代的網路安全作業系統，端點防護佔有率持續擴張。AI 攻擊增長推升企業資安預算，CRWD 的 ARR 增速維持 25%+。併購整合加速，平台化策略奏效。週五 +3.3% 顯示機構低位承接。",
+    "reports": [
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/24/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47416_TopBottomInsiderActivity_1782298722000"
+      },
+      {
+        "title_en": "Thursday looked like a day of indecision until the early afternoon, when President Trump (again) called off strikes on Iran and said the U.S.",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47315_TechnicalAnalysis_1781262714000"
+      },
+      {
+        "title_en": "CrowdStrike Earnings: Impressive, Lifted by AI and Vendor Consolidation; Fair Value Up 15% to $530",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001HOOZ_AnalystReport_1781217874000"
+      }
+    ]
+  },
+  {
+    "ticker": "CSCO",
+    "why": "企業網路龍頭 + Hypershield AI 安全平台。今日 -4.4% 提供低接點，P/E 對比成長性極便宜。",
+    "outlook": "Cisco 在企業網路交換器、路由器市場仍是龍頭。AI 時代推出 Hypershield 安全平台、Splunk 整合強化企業 AI 安全方案。P/E 對比 ANET/CSCO 大幅折價。週五回吐 4.4% 是健康修正。",
+    "reports": [
+      {
+        "title_en": "Room to Run",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47303_PortfolioIdeas_1781179068000"
+      },
+      {
+        "title_en": "Cisco Earnings: Soaring on the Back of Accelerating AI Fundamentals",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0000019Y_AnalystReport_1781132168000"
+      },
+      {
+        "title_en": "Cisco Earnings: Soaring on the Back of Accelerating AI Fundamentals",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0000019Y_AnalystReport_1780441643000"
+      }
+    ]
+  },
+  {
+    "ticker": "DDOG",
+    "why": "AI 監控 + LLM 可觀測性龍頭。今日 +8.5% 強勢反彈，AI 工作負載監控需求爆發。",
+    "outlook": "Datadog 推出 LLM 可觀測性產品 Watchdog AI，整合生成式 AI 提升監控效率。AI 工作負載規模爆發推升監控需求。週五 +8.5% 顯示 AI 監控需求加速。",
+    "reports": [
+      {
+        "title_en": "Datadog Earnings: Stellar Quarter With AI Tailwind; Fair Value Estimate Increased to $200",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001IEZ0_AnalystReport_1782514316000"
+      },
+      {
+        "title_en": "Lowering target price to $249.00",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_6644_QuantitativeReport_1782259200000"
+      },
+      {
+        "title_en": "Datadog Earnings: Stellar Quarter With AI Tailwind; Fair Value Estimate Increased to $200",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001IEZ0_AnalystReport_1781822364000"
+      }
+    ]
+  },
+  {
+    "ticker": "DELL",
+    "why": "AI 伺服器 PowerEdge + 企業 AI 工作站。今日 -2.4% 提供進場。",
+    "outlook": "Dell PowerEdge XE9680 拿下多家 hyperscaler AI 訓練訂單。AI Factory 方案搭配 NVIDIA Blackwell 推升企業 AI 採用。週五回吐 2.4% 提供低接機會。",
+    "reports": [
+      {
+        "title_en": "The Argus Dividend Growth Model Portfolio",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"
+      },
+      {
+        "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/18/2026",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47363_TopBottomInsiderActivity_1781780208000"
+      },
+      {
+        "title_en": "Dell Earnings: Huge AI Acceleration Fuels Historic Guidance Raise; Massively Bullish on AI Ecosystem",
+        "url": "https://finance.yahoo.com/research/reports/MS_0P0001FDGE_AnalystReport_1781564093000"
+      }
+    ]
+  },
+  {
+    "ticker": "EMR",
+    "why": "工業自動化 + AI 過程控制。今日 -1.3% 提供低接，距 52W 低僅 17%。",
+    "outlook": "Emerson Electric 在工業自動化、AI 過程控制市占領先。週五回吐 1.3% 提供低接機會。",
+    "reports": [
+      {
+        "title_en": "Recent weakness offers buying opportunity",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_2935_AnalystReport_1778246631000"
+      },
+      {
+        "title_en": "Headlines remain the order of the day, with major stock indices lower on",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_46971_MarketSummary_1778246631000"
+      },
+      {
+        "title_en": "Argus Quick Note: Weekly Stock List for 03/02/2026: Companies Raising Guidance",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_46300_StockPicks_1772456021000"
+      }
+    ]
+  },
+  {
+    "ticker": "ETN",
+    "why": "AI 電力配電 + 資料中心 UPS 龍頭。今日 -4.1% 提供優質進場點，距 52W 低 29% 有強勁基本面支撐。",
+    "outlook": "Eaton 在北美資料中心電力配電系統（PDU、UPS、開關）佔有率第一。AI 數據中心對電力品質要求極高，單一機房電力配電價值是傳統雲端的 3 倍以上。eMobility、Electrical Americas 雙引擎齊發。",
+    "reports": [
+      {
+        "title_en": "Fed's Favorite Inflation Indicator Due Thursday",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47420_MarketOutlook_1782301231000"
+      },
+      {
+        "title_en": "Interest -- and Assets -- are Growing in ESG",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47178_MarketOutlook_1780054053000"
+      },
+      {
+        "title_en": "The Argus Sustainable Growth Theme Model Portfolio",
+        "url": "https://finance.yahoo.com/research/reports/ARGUS_47162_ThematicPortfolio_1779968001000"
+      }
+    ]
+  }
+]
