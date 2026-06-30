@@ -1,0 +1,468 @@
+{
+  "date": "2026-06-30",
+  "generated_at": "2026-06-30T12:25:03+08:00",
+  "source": "yahoo-finance-research + stock-reports-report_2026-06-30.html",
+  "model": "MiniMax-M3",
+  "tickers": {
+    "AES": {
+      "recommendation": "AES 為全球多元化電力平台，業務橫跨再生能源、輸配電與儲能，AI 資料中心對穩定綠電的需求將是長期催化劑。近期下調評級至持有，但私有化交易被視為股東最佳選項，顯示估值已進入底部區間。短期股價承壓，但作為 AI 電力基建鏈的純標的，逢低仍是佈局機會。",
+      "news": [
+        {
+          "title_zh": "AES 財報：美國公用事業受惠於交易審批持續推進",
+          "title_en": "AES Earnings: Benefit Seen From US Utilities as Transaction Approvals Continue",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0000001P_AnalystReport_1778533233000"
+        },
+        {
+          "title_zh": "AES 私有化交易是股東最佳選項",
+          "title_en": "AES' Take-Private Transaction Best Option for Shareholders",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0000001P_AnalystReport_1776106353000"
+        },
+        {
+          "title_zh": "評級下調至持有",
+          "title_en": "Lowering rating to HOLD",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_2686_AnalystReport_1774521714000"
+        }
+      ]
+    },
+    "AMAT": {
+      "recommendation": "AMAT 是 CoWoS 先進封裝設備最大受惠者，薄膜沉積/蝕刻製程在 HBM 與 AI 晶片供應鏈中具備剛需地位。CoWoS 設備交付週期仍達 12-18 個月，供需失衡將延續至 2027 年。公司 EPS 成長率預估 20%+，但市場僅給 18x 本益比，估值修復空間顯著。",
+      "news": [
+        {
+          "title_zh": "應用材料與 Veeco 將受惠於人工智慧驅動的晶圓廠設備支出回升",
+          "title_en": "The Argus Dividend Growth Model Portfolio",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"
+        },
+        {
+          "title_zh": "AI 半導體資本支出持續推升設備廠能見度",
+          "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/18/2026",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47363_TopBottomInsiderActivity_1781780208000"
+        },
+        {
+          "title_zh": "應用材料：先進封裝剛需推升 2026-2027 EPS",
+          "title_en": "Argus Quick Note: Weekly Stock List for 06/15/2026: Focus List Changes",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47331_StockPicks_1781524221000"
+        }
+      ]
+    },
+    "AMD": {
+      "recommendation": "AMD 是當前唯一能在 AI GPU 市場挑戰 Nvidia 的競爭者，MI300X 在記憶體頻寬與性價比上的差異化已吸引微軟 Azure 與 OpenAI 等大客戶採用。2026 年 AI 營收預估將成長 3-4 倍，資料中心佔比將突破 50%。今日回調提供更好的中期進場區間，長線多頭趨勢完好。",
+      "news": [
+        {
+          "title_zh": "AMD 強勢打入雲端 AI 市場，MI 系列能見度持續提升",
+          "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/03/2026",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47212_TopBottomInsiderActivity_1780483300000"
+        },
+        {
+          "title_zh": "AMD 與 Nvidia 在 AI GPU 市場的差距正在縮小",
+          "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 05/13/2026",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47008_TopBottomInsiderActivity_1778668946000"
+        },
+        {
+          "title_zh": "AMD 股價進入中長期甜蜜點",
+          "title_en": "AMD Earnings: Server CPU Demand Is Skyrocketing; Raising Fair Value to $450 From $300",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0000006A_AnalystReport_1778117730000"
+        }
+      ]
+    },
+    "AMZN": {
+      "recommendation": "Amazon 是 AI 雲端平台中估值最低的大型股，AWS 自研 Trainium2 晶片性價比已達 Nvidia H100 的 60-70%，正快速吸引成本敏感的中小型 AI 開發者。2026 年 AWS AI 相關營收預估佔整體雲端營收 30%+，成為估值重估核心催化劑。Bedrock 整合幾乎所有主流 LLM，護城河深厚，目標價 $285。",
+      "news": [
+        {
+          "title_zh": "亞馬遜 AWS Trainium 性價比突破，吸引中小型 AI 開發者",
+          "title_en": "Amazon: Officially Launches Supply Chain Services; Unlikely to Make a Near-Term Impact",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P000000B7_AnalystReport_1781131995000"
+        },
+        {
+          "title_zh": "亞馬遜 Bedrock 整合主流 LLM 強化平台護城河",
+          "title_en": "Argus Quick Note: Weekly Stock List for 06/08/2026: AI Series #5, AI &amp; Consumer Stocks",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47259_StockPicks_1780919958000"
+        },
+        {
+          "title_zh": "電商業務觸底回升，多引擎驅動營運動能",
+          "title_en": "The Argus Sustainable Growth Theme Model Portfolio",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47162_ThematicPortfolio_1779968001000"
+        }
+      ]
+    },
+    "ANET": {
+      "recommendation": "Arista 是雲端資料中心交換機領導者，AI 叢集擴張直接帶動 800G/1.6T 高速交換需求爆發。本季財報雖為「略低於往常」的 Beat-and-Raise，但分析師認為反而提供絕佳進場機會。公司持續被列入大型股精選名單，AI 流量紅利才剛開始發酵。",
+      "news": [
+        {
+          "title_zh": "Arista 財報：趁「略低於往常」的優於預期進場佈局",
+          "title_en": "Arista Earnings: Take the Opportunity to Buy in After a Lighter Beat-and-Raise Than Usual",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0001354B_AnalystReport_1781563844000"
+        },
+        {
+          "title_zh": "Arista 持續受惠於 AI 叢集擴張需求",
+          "title_en": "Arista Earnings: Take the Opportunity to Buy in After a Lighter Beat-and-Raise Than Usual",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0001354B_AnalystReport_1780698995000"
+        },
+        {
+          "title_zh": "美股大型股精選名單 — 2026 年 6 月",
+          "title_en": "US Large Cap Pick List - June 2026",
+          "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1780691436000"
+        }
+      ]
+    },
+    "AVGO": {
+      "recommendation": "Broadcom 同時受惠於 AI 網路交換機與客製化 ASIC 雙引擎驅動，護城河來自與超大型客戶深度綁定的 ASIC 設計能力。Argus 將其列為「頂尖首選」，Jalapeno 報告更強化看多信念。公司也因穩定配息被納入股息成長模型組合，提供攻防兼備的 AI 基建標的。",
+      "news": [
+        {
+          "title_zh": "Broadcom：Jalapeno 報告為這檔頂尖首選增添看多辣度",
+          "title_en": "Broadcom: Jalapeno Adds Bullish Spice to Our Conviction in This Top Pick",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0000KU35_AnalystReport_1782513729000"
+        },
+        {
+          "title_zh": "Broadcom 客製化 ASIC 持續擴大 AI 變現能力",
+          "title_en": "Broadcom: Jalapeno Adds Bullish Spice to Our Conviction in This Top Pick",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0000KU35_AnalystReport_1782329754000"
+        },
+        {
+          "title_zh": "Argus 股息成長模型投資組合",
+          "title_en": "The Argus Dividend Growth Model Portfolio",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"
+        }
+      ]
+    },
+    "CIEN": {
+      "recommendation": "Ciena 是 800G/1.6T 光傳輸設備領導者，近期傳出 Nvidia 主導數十億美元電信網絡升級項目，Ciena 被視為主要受惠者。AI 訓練叢集需要大量伺服器間資料流動，光傳輸頻寬需求呈指數成長。公司毛利率維持 45%+、P/E 18x 遠低於歷史均值，目標價 $560。",
+      "news": [
+        {
+          "title_zh": "Ciena 受惠於 Nvidia 數十億美元電信升級項目",
+          "title_en": "Ciena Earnings: Stock Drop Amid Record Results Underscores Exceedingly Lofty Expectations in Optics",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0000019J_AnalystReport_1782429131000"
+        },
+        {
+          "title_zh": "AI 推升光傳輸需求結構性成長",
+          "title_en": "Ciena Earnings: Stock Drop Amid Record Results Underscores Exceedingly Lofty Expectations in Optics",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0000019J_AnalystReport_1781046177000"
+        },
+        {
+          "title_zh": "Ciena 訂閱服務營收佔比持續提升",
+          "title_en": "Raising target price to $650 on broadening AI opportunity",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_2838_AnalystReport_1780657761000"
+        }
+      ]
+    },
+    "CRWD": {
+      "recommendation": "CrowdStrike 的 Falcon 平台是全球部署最廣的端點資安平台，擁有逾 6,000 家客戶。AI 攻擊複雜化反而強化 Falcon 的威脅情報網絡效應——越多客戶、越多數據、AI 模型越精準。Charlotte AI 助手大幅降低資安分析師工作負擔，提升客戶黏著度，目標價 $850。",
+      "news": [
+        {
+          "title_zh": "CrowdStrike 平台效應持續擴大，AI 強化資安護城河",
+          "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/24/2026",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47416_TopBottomInsiderActivity_1782298722000"
+        },
+        {
+          "title_zh": "端點資安需求隨 AI 工作負載爆炸而提升",
+          "title_en": "Thursday looked like a day of indecision until the early afternoon, when President Trump (again) called off strikes on Iran and said the U.S.",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47315_TechnicalAnalysis_1781262714000"
+        },
+        {
+          "title_zh": "Falcon 平台 AI 威脅偵測能力無可取代",
+          "title_en": "CrowdStrike Earnings: Impressive, Lifted by AI and Vendor Consolidation; Fair Value Up 15% to $530",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0001HOOZ_AnalystReport_1781217874000"
+        }
+      ]
+    },
+    "DELL": {
+      "recommendation": "Dell 最新財報出現「歷史性」的 AI 加速與「巨型」的財測上調，Argus 對 AI 生態系抱持強烈看多立場。PowerEdge AI 伺服器需求回升，P/E 僅 12x 是 AI 基建鏈最便宜估值之一。公司同時被列入股息成長模型組合，兼具成長與收益雙重屬性。",
+      "news": [
+        {
+          "title_zh": "Dell 財報：AI 加速推升歷史性財測上調，強烈看多 AI 生態系",
+          "title_en": "The Argus Dividend Growth Model Portfolio",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47410_ThematicPortfolio_1782217754000"
+        },
+        {
+          "title_zh": "Dell PowerEdge AI 伺服器需求回升",
+          "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/18/2026",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47363_TopBottomInsiderActivity_1781780208000"
+        },
+        {
+          "title_zh": "Argus 股息成長模型投資組合",
+          "title_en": "Dell Earnings: Huge AI Acceleration Fuels Historic Guidance Raise; Massively Bullish on AI Ecosystem",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0001FDGE_AnalystReport_1781564093000"
+        }
+      ]
+    },
+    "GLW": {
+      "recommendation": "Corning 是 AI 資料中心光纖互連無法繞過的核心供應商，今日 +21.9% 暴漲反映市場對 Nvidia 電信互連專案的聯想。光纖基礎設施落後於算力晶片的事實正被市場重新定價，2025-2027 年光纖業務 CAGR 預估 15-20%，目標價 $300。",
+      "news": [
+        {
+          "title_zh": "Corning 光纖受惠於 800G/1.6T 升級週期",
+          "title_en": "Corning: Growth At the Speed of Light",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P000001I3_AnalystReport_1781564722000"
+        },
+        {
+          "title_zh": "AI 資料中心內部流量爆發推升光纖需求",
+          "title_en": "Corning: Growth At the Speed of Light",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P000001I3_AnalystReport_1781132395000"
+        },
+        {
+          "title_zh": "Nvidia 電信互連專案帶動光纖供應鏈重估",
+          "title_en": "The Argus Sustainable Growth Theme Model Portfolio",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47162_ThematicPortfolio_1779968001000"
+        }
+      ]
+    },
+    "GOOGL": {
+      "recommendation": "Alphabet 雖因 AI 高階人才出走消息股價修正，但分析師視為買點。TPUv5 自研晶片規模化部署、搜尋/YouTube/Cloud 三引擎驅動營收成長，加上被列入「永續成長公司」精選名單，AI 時代仍是核心受惠者。近期大規模資本籌措顯示對 AI 基建長期承諾。",
+      "news": [
+        {
+          "title_zh": "Argus 每週精選：2026/06/29 永續成長公司",
+          "title_en": "Argus Quick Note: Weekly Stock List for 06/29/2026: Sustainable Growth Companies",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47463_StockPicks_1782732543000"
+        },
+        {
+          "title_zh": "Alphabet：AI 人才出走造成股價修正，視為買點",
+          "title_en": "Alphabet: Shares Sell Off on Artificial Intelligence Talent Exits; We See a Buying Opportunity",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P000002HD_AnalystReport_1782301114000"
+        },
+        {
+          "title_zh": "Alphabet 大規模資本籌措強化 AI 基建承諾",
+          "title_en": "Massive capital raise",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_3012_AnalystReport_1782299265000"
+        }
+      ]
+    },
+    "MU": {
+      "recommendation": "Micron 在 HBM 市場與 SK Hynix、三星形成三雄壟斷，AI GPU 的 HBM 消耗量是傳統伺服器 5-6 倍，三大廠 HBM3e 產能預計 2026 年底前仍將吃緊。HBM3e 佔記憶體營收比將從 2025 年 20% 提升至 2027 年 40%+，毛利率顯著改善，P/E 14x 估值極具吸引力。",
+      "news": [
+        {
+          "title_zh": "HBM 供需缺口延續至 2026 年底",
+          "title_en": "Micron Earnings: What Goes Up Must Come Down … Eventually",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P000003MC_AnalystReport_1782429636000"
+        },
+        {
+          "title_zh": "Micron 毛利率受惠 HBM3e 佔比提升",
+          "title_en": "Micron Earnings: What Goes Up Must Come Down … Eventually",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P000003MC_AnalystReport_1782390144000"
+        },
+        {
+          "title_zh": "記憶體週期未了，估值修復空間大",
+          "title_en": "Exceptional growth, raising target to $1,500",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_3614_AnalystReport_1782386191000"
+        }
+      ]
+    },
+    "NEE": {
+      "recommendation": "NextEra 是全球最大風電/太陽能運營商，AI 資料中心對乾淨能源需求爆發是最直接的受惠者。公司正加速資料中心佈局，透過 Dominion 收購案擴大電力版圖。被連續列入 5 月與 6 月大型股精選名單，綠電 + AI 雙主題加持。",
+      "news": [
+        {
+          "title_zh": "NextEra 透過 Dominion 收購加速資料中心佈局",
+          "title_en": "US Large Cap Pick List - May 2026",
+          "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1781092287000"
+        },
+        {
+          "title_zh": "美股大型股精選名單 — 2026 年 6 月",
+          "title_en": "US Large Cap Pick List - June 2026",
+          "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1780691436000"
+        },
+        {
+          "title_zh": "美股大型股精選名單 — 2026 年 5 月",
+          "title_en": "NextEra Looks To Accelerate Data Center Ambitions With Dominion Acquisition",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0000022S_AnalystReport_1779131662000"
+        }
+      ]
+    },
+    "NET": {
+      "recommendation": "Cloudflare Workers AI 平台將推理能力部署到全球 300+ 邊緣節點，這種「去中心化 AI 推理」架構解決傳統集中式 AI 的延遲瓶頸。市值不到 $80B 但 TAM 合計超 $100B，每 100 萬次調用的收費模式正在快速滲透中小型開發者，長線營收爆發力驚人。",
+      "news": [
+        {
+          "title_zh": "Cloudflare 財報：AI 推理需求推升營收加速",
+          "title_en": "Major layoff as AI drives productivity",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_5996_AnalystReport_1778756529000"
+        },
+        {
+          "title_zh": "AI 驅動生產力提升，企業加速大型裁員",
+          "title_en": "While the large cap indices make all-time highs day after day, there are",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47023_MarketSummary_1778756529000"
+        },
+        {
+          "title_zh": "大型股指數持續創新高，AI 主題輪動延續",
+          "title_en": "Cloudflare Earnings: Accelerating Top Line as AI Inference Demand Continues to Drive Results",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0001ID95_AnalystReport_1778205136000"
+        }
+      ]
+    },
+    "NRG": {
+      "recommendation": "NRG 是德州（ERCOT）最大發電商之一，AI 資料中心電力爆發直接受惠。德州電網 2026-2027 峰值負載將創新高，新電廠建設需 3-5 年，供需缺口將推升電價。近期雖被下調評級至持有，但目標價多次上調至 $148、$131，P/E 12x 是 AI 供應鏈極低估標的。",
+      "news": [
+        {
+          "title_zh": "目標價上調至 $131.00",
+          "title_en": "Raising target price to $131.00",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_3824_QuantitativeReport_1782259200000"
+        },
+        {
+          "title_zh": "評級下調至持有",
+          "title_en": "Rating decreased to a HOLD",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_3824_QuantitativeReport_1781654400000"
+        },
+        {
+          "title_zh": "目標價下調至 $148.00",
+          "title_en": "Lowering target price to $148.00",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_3824_QuantitativeReport_1781049600000"
+        }
+      ]
+    },
+    "NTAP": {
+      "recommendation": "NetApp ONTAP 在 AI 資料管理領域具備核心地位，FPGA 加速記憶體替代需求提供額外成長動能。Argus 連續上調目標價至 $200，認為其股價相對同業表現落後形成吸引力。距 52W 低點反彈有限，是 AI 資料基礎設施的價值型選擇。",
+      "news": [
+        {
+          "title_zh": "目標價上調至 $200",
+          "title_en": "Raising target price to $200",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_3259_AnalystReport_1780312137000"
+        },
+        {
+          "title_zh": "五月就業報告與財報週展望",
+          "title_en": "The May jobs report comes out this week, as do a few late earnings reports",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47186_MarketSummary_1780311237000"
+        },
+        {
+          "title_zh": "相對同業表現落後形成吸引力",
+          "title_en": "Attractive on underperformance relative to peers",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_3259_AnalystReport_1772626587000"
+        }
+      ]
+    },
+    "NVDA": {
+      "recommendation": "Nvidia 是 AI 時代的「軍火商」，Blackwell 架構 GPU 需求遠超供給，雖然股價回調 -6.6%，但 P/E 已從 60x+ 壓縮至 34x，是極佳中期進場機會。護城河不只在 GPU 效能，更在 CUDA 生態系（400 萬開發者），Blackwell 週期預計 2026 下半年至 2027 爆發，目標價中位數 $305。",
+      "news": [
+        {
+          "title_zh": "Argus 每週精選：2026/06/15 焦點股調整",
+          "title_en": "Argus Quick Note: Weekly Stock List for 06/15/2026: Focus List Changes",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47331_StockPicks_1781524221000"
+        },
+        {
+          "title_zh": "仍有上行空間（Room to Run）",
+          "title_en": "Room to Run",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47303_PortfolioIdeas_1781179068000"
+        },
+        {
+          "title_zh": "美股大型股精選名單 — 2026 年 6 月",
+          "title_en": "US Large Cap Pick List - June 2026",
+          "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1780691436000"
+        }
+      ]
+    },
+    "PANW": {
+      "recommendation": "Palo Alto 正從「硬體防火牆廠商」轉型為「AI 原生資安平台」，XSIAM 在大型企業滲透率快速攀升，ZTNA 零信任架構受惠於遠距辦公與 AI 雲端工作負載。訂閱制營收佔比已超 50%、毛利率 75%+，目標價上調至 $320，2026-2027 EPS 成長預估 20%+。",
+      "news": [
+        {
+          "title_zh": "Vickers 每日買賣超統計 — 2026/06/15",
+          "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/15/2026",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47323_TopBottomInsiderActivity_1781519144000"
+        },
+        {
+          "title_zh": "科技股 Nasdaq 快速進入回檔區，技術面分析",
+          "title_en": "The tech heavy Nasdaq and Nasdaq 100 (QQQ) have rapidly rolled over into pullback territory (down 5%+), while the S&amp;P 500 (SPX) is very close, with a six-day loss of 4.5%.",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47296_TechnicalAnalysis_1781177742000"
+        },
+        {
+          "title_zh": "目標價上調至 $320",
+          "title_en": "Raising target price to $320",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_3643_AnalystReport_1780679739000"
+        }
+      ]
+    },
+    "PLTR": {
+      "recommendation": "Palantir 雖距 52W 低點有限反彈，但 AI Ontology 在防務/情報領域的滲透率仍低，長期剛需明確。Morningstar 報告持續看好 Ontology 的差異化價值，認為即使估值不算便宜，企業 AI 變現能力仍提供中長期成長動能。股價回調提供分批佈局機會。",
+      "news": [
+        {
+          "title_zh": "Palantir 財報：實驗室競爭可能出現，但我們仍看好 Ontology；估值合理",
+          "title_en": "Palantir Earnings: Lab Competition Is Possible, but We Still Like the Ontology; Valuation Is Fair",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0001KOSE_AnalystReport_1782254774000"
+        },
+        {
+          "title_zh": "Palantir 企業 AI 變現能力持續驗證",
+          "title_en": "Palantir Earnings: Lab Competition Is Possible, but We Still Like the Ontology; Valuation Is Fair",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0001KOSE_AnalystReport_1778541847000"
+        },
+        {
+          "title_zh": "防務/情報領域 AI 滲透率仍處於早期",
+          "title_en": "Palantir Earnings: Lab Competition Is Possible, but We Still Like the Ontology; Valuation Is Fair",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0001KOSE_AnalystReport_1778473168000"
+        }
+      ]
+    },
+    "SNOW": {
+      "recommendation": "Snowflake 是企業 AI 資料雲領導者，Dataframe 引擎重寫後效能提升 10x+，大幅強化 AI 訓練資料處理競爭力。淨收入留存率（NRR）達 130%+，AI 工作負載爆發為製藥、金融、製造等垂直領域打開新客戶群。被列入大型股精選，長期 CAGR 預估 25%+。",
+      "news": [
+        {
+          "title_zh": "Vickers 每日買賣超統計 — 2026/06/25",
+          "title_en": "Daily – Vickers Top Buyers &amp; Sellers for 06/25/2026",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47434_TopBottomInsiderActivity_1782389438000"
+        },
+        {
+          "title_zh": "美股大型股精選名單 — 2026 年 5 月",
+          "title_en": "US Large Cap Pick List - May 2026",
+          "url": "https://finance.yahoo.com/research/reports/MS_LargeCapU.S.CorePickList_StockPicks_1781092287000"
+        },
+        {
+          "title_zh": "Argus 每週精選：2026/06/01 上調財測公司",
+          "title_en": "Argus Quick Note: Weekly Stock List for 06/01/2026: Companies Raising Guidance",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_47193_StockPicks_1780315198000"
+        }
+      ]
+    },
+    "SPXC": {
+      "recommendation": "SPX Technologies 是資料中心液冷 Heat Exchanger 領導者，液冷滲透率預估未來 3 年成長 5 倍。短期目標價波動較大（$246 → $258 → $255），顯示分析師仍在評估需求節奏與毛利率結構。液冷是 AI 算力擴張不可或缺的環節，長線趨勢明確。",
+      "news": [
+        {
+          "title_zh": "目標價下調至 $255.00",
+          "title_en": "Lowering target price to $255.00",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_4266_QuantitativeReport_1781049600000"
+        },
+        {
+          "title_zh": "目標價上調至 $258.00",
+          "title_en": "Raising target price to $258.00",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_4266_QuantitativeReport_1780444800000"
+        },
+        {
+          "title_zh": "目標價上調至 $246.00",
+          "title_en": "Raising target price to $246.00",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_4266_QuantitativeReport_1779840000000"
+        }
+      ]
+    },
+    "VST": {
+      "recommendation": "Vistra 是德州電網核心發電商，煤改氣 + 太陽能組合提供彈性供電能力，直接受惠於 AI 資料中心電力剛需。Argus 近期上調目標價至 $154，但同時下調評級至持有，顯示短期估值已反映部分利多。PJM 市場動態與天氣因素仍需觀察。",
+      "news": [
+        {
+          "title_zh": "目標價上調至 $154.00",
+          "title_en": "Raising target price to $154.00",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_6157_QuantitativeReport_1782259200000"
+        },
+        {
+          "title_zh": "評級下調至持有",
+          "title_en": "Rating decreased to a HOLD",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_6157_QuantitativeReport_1781654400000"
+        },
+        {
+          "title_zh": "Vistra：關注 PJM 動態；天氣逆風下財報仍符合預期",
+          "title_en": "Vistra: Watching Developments in PJM; Earnings on Track Despite Weather Headwind",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P00018S1K_AnalystReport_1781649745000"
+        }
+      ]
+    },
+    "ZS": {
+      "recommendation": "Zscaler 雖因 2027 年初步展望不如預期股價回檔，但 Morningstar 下修 FVE 至 $250 後仍是 AI 工作負載安全閘道的獨占龍頭。AI 時代每個工作負載都需要零信任安全閘道，Anthropic Mythos 等新一代模型更提升企業資安需求。ARR 增速維持 30%+，長線成長動能未變。",
+      "news": [
+        {
+          "title_zh": "Zscaler 財報：2027 年初步展望令人失望，FVE 下修至 $250",
+          "title_en": "Zscaler Earnings: Disappointing Early Look at 2027 as Shares Sell Off; FVE Down to $250",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0001CT73_AnalystReport_1779865340000"
+        },
+        {
+          "title_zh": "Anthropic Mythos 模型安全能力將推升資安需求",
+          "title_en": "Anthropic's Mythos Model's Security Capabilities Are Going to Increase Demand for Cybersecurity",
+          "url": "https://finance.yahoo.com/research/reports/MS_0P0001CT73_AnalystReport_1778885199000"
+        },
+        {
+          "title_zh": "SMID 5 月精選名單",
+          "title_en": "SMID May 2026 Pick List",
+          "url": "https://finance.yahoo.com/research/reports/MS_MidCapPickList_StockPicks_1778279431000"
+        }
+      ]
+    }
+  }
+}
