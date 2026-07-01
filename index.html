@@ -1,125 +1,39 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 美股研究報告 | AI Infrastructure Stock Research</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #080810; color: #e8e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; min-height: 100vh; }
-.container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-header { text-align: center; padding: 40px 0; border-bottom: 1px solid #1e1e30; margin-bottom: 40px; }
-header h1 { font-size: 36px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
-header .subtitle { color: #8888aa; font-size: 16px; margin-top: 8px; }
-header .tagline { color: #6366f1; font-size: 14px; margin-top: 12px; font-weight: 500; }
-
-.latest-report { background: linear-gradient(135deg, #0f0f1a, #1a1a30); border: 1px solid #2a2a4a; border-radius: 16px; padding: 32px; margin-bottom: 40px; }
-.latest-report .label { font-size: 12px; color: #6366f1; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px; }
-.latest-report h2 { font-size: 24px; color: #fff; margin-bottom: 12px; }
-.latest-report .date { color: #8888bb; font-size: 14px; margin-bottom: 20px; }
-.latest-report .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 20px; }
-.latest-report .summary-item { background: #0a0a14; border-radius: 8px; padding: 14px; }
-.latest-report .summary-item .num { font-size: 24px; font-weight: 700; color: #22c55e; }
-.latest-report .summary-item .label { font-size: 12px; color: #6666aa; margin-top: 4px; }
-.latest-report .btn { display: inline-block; background: #6366f1; color: #fff; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 15px; transition: background 0.2s; }
-.latest-report .btn:hover { background: #4f46e5; }
-
-.archive h3 { font-size: 18px; color: #fff; margin-bottom: 16px; padding-left: 12px; border-left: 3px solid #6366f1; }
-.archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
-.archive-card { background: #0f0f1a; border: 1px solid #1a1a2e; border-radius: 10px; padding: 18px; transition: border-color 0.2s; }
-.archive-card:hover { border-color: #6366f1; }
-.archive-card .date { font-size: 12px; color: #6366f1; font-weight: 600; margin-bottom: 6px; }
-.archive-card .title { font-size: 14px; color: #e8e8f0; font-weight: 500; }
-.archive-card a { color: inherit; text-decoration: none; }
-.archive-card a:hover .title { color: #7dd3fc; }
-
-.categories { margin-top: 40px; }
-.categories h3 { font-size: 18px; color: #fff; margin-bottom: 16px; padding-left: 12px; border-left: 3px solid #22c55e; }
-.cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-.cat-item { background: #0f0f1a; border: 1px solid #1a1a2e; border-radius: 8px; padding: 14px; }
-.cat-item .icon { font-size: 20px; margin-bottom: 6px; }
-.cat-item .name { font-size: 13px; color: #ddd; font-weight: 500; }
-.cat-item .desc { font-size: 11px; color: #6666aa; margin-top: 2px; }
-
-footer { text-align: center; padding: 40px 0; color: #444466; font-size: 12px; border-top: 1px solid #1a1a2e; margin-top: 60px; }
-footer a { color: #6366f1; text-decoration: none; }
-footer a:hover { text-decoration: underline; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 美股研究報告門戶</title>
+    <style>
+        body { background-color: #080810; color: #e0e0e8; font-family: 'Inter', sans-serif; padding: 40px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #fff; text-align: center; }
+        .report-list { list-style: none; padding: 0; }
+        .report-item { 
+            background: #12121c; 
+            margin: 10px 0; 
+            padding: 20px; 
+            border-radius: 12px; 
+            border: 1px solid #2d2d3d; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            transition: 0.2s;
+        }
+        .report-item:hover { border-color: #4f46e5; transform: translateX(10px); }
+        .report-link { color: #4f46e5; text-decoration: none; font-weight: bold; font-size: 1.2em; }
+        .date { color: #a0a0b0; font-size: 0.9em; }
+    </style>
 </head>
 <body>
-<div class="container">
-
-<header>
-  <h1>🤖 AI 美股基礎建設研究報告</h1>
-  <div class="subtitle">AI Infrastructure Stock Research Report</div>
-  <div class="tagline">每日 AI 選股分析 · 覆蓋 11 大 AI 基建類別</div>
-</header>
-
-<section class="latest-report">
-  <div class="label">最新報告</div>
-  <h2>2026 年 6 月 30 日（週二）</h2>
-  <div class="date">📅 台北時間 2026-06-30｜🔥 AI 硬體大屠殺 vs 資安/光纖崛起：SMCI -20.6%、GLW +21.9%、PANW +15.9%</div>
-  <div class="summary">
-    <div class="summary-item">
-      <div class="num" style="color:#7dd3fc;">23 檔</div>
-      <div class="label">AI 精選進場標的</div>
+    <div class="container">
+        <h1>📂 AI 基礎建設研究報告存檔</h1>
+        <ul class="report-list">
+            <li class="report-item">
+                <a class="report-link" href="2026-07-01.html">🚀 2026-07-01 研究報告</a>
+                <span class="date">2026-07-01</span>
+            </li>
+        </ul>
     </div>
-    <div class="summary-item">
-      <div class="num" style="color:#ef4444;">SMCI -20.6%</div>
-      <div class="label">伺服器屠殺：SMCI 暴跌</div>
-    </div>
-    <div class="summary-item">
-      <div class="num" style="color:#22c55e;">GLW +21.9%</div>
-      <div class="label">光纖突破：Corning 創新高</div>
-    </div>
-    <div class="summary-item">
-      <div class="num" style="color:#22c55e;">PANW +15.9%</div>
-      <div class="label">資安崛起：三大資安龍頭齊漲</div>
-    </div>
-  </div>
-  <a class="btn" href="report_2026-06-30.html">📋 閱讀完整報告 →</a>
-</section>
-
-<section class="categories">
-  <h3>🎯 AI 基礎建設覆蓋範疇</h3>
-  <div class="cat-grid">
-    <div class="cat-item"><div class="icon">💾</div><div class="name">AI 晶片/GPU</div><div class="desc">NVDA, AMD, Intel, Qualcomm, Broadcom, Marvell, ARM</div></div>
-    <div class="cat-item"><div class="icon">🖥️</div><div class="name">AI 伺服器/雲端</div><div class="desc">Super Micro, Dell, HP, Microsoft, Amazon, Google</div></div>
-    <div class="cat-item"><div class="icon">⚡</div><div class="name">AI 電力/能源</div><div class="desc">Vistra, Constellation, Vertiv, NRG, NextEra</div></div>
-    <div class="cat-item"><div class="icon">🧊</div><div class="name">AI 散熱/液冷</div><div class="desc">SPX Technologies, Vertiv, Alfa Laval, Daikin</div></div>
-    <div class="cat-item"><div class="icon">📡</div><div class="name">AI 網路/光纖</div><div class="desc">Corning, Lumen, Ciena, Arista, Cisco</div></div>
-    <div class="cat-item"><div class="icon">💾</div><div class="name">AI 儲存/記憶體</div><div class="desc">Micron, NetApp, Pure Storage, Western Digital</div></div>
-    <div class="cat-item"><div class="icon">📦</div><div class="name">AI 先進封裝/CoWoS</div><div class="desc">Amkor, ASE Technology, Applied Materials</div></div>
-    <div class="cat-item"><div class="icon">🔐</div><div class="name">AI 資安/雲端</div><div class="desc">CrowdStrike, Cloudflare, Palo Alto, Zscaler</div></div>
-    <div class="cat-item"><div class="icon">🤖</div><div class="name">AI 軟體/資料分析</div><div class="desc">Palantir, Snowflake, Databricks, Scale AI</div></div>
-    <div class="cat-item"><div class="icon">☁️</div><div class="name">AI 雲端平台</div><div class="desc">Google, Microsoft, Amazon, Meta</div></div>
-    <div class="cat-item"><div class="icon">🏭</div><div class="name">AI 基礎建設其他</div><div class="desc">TSMC, Lam Research, KLA, Teradyne, ON Semi</div></div>
-  </div>
-</section>
-
-<section class="archive" style="margin-top:40px;">
-  <h3>📁 過往報告</h3>
-  <div class="archive-grid">
-    <div class="archive-card"><a href="report_2026-06-30.html"><div class="date">2026-06-30</div><div class="title">🔥 AI 硬體屠殺日｜SMCI -20.6%、GLW +21.9%、PANW +15.9%——資金大輪動至資安/光纖</div></a></div>
-    <div class="archive-card"><a href="2026-06-28.html"><div class="date">2026-06-28</div><div class="title">🔄 軟硬體輪動第二日｜機構低位承接 MSFT/AMZN，硬體回吐提供進場機會</div></a></div>
-    <div class="archive-card"><a href="2026-06-27.html"><div class="date">2026-06-27</div><div class="title">🔄 軟硬體大輪動｜SNOW +9.7%、MSFT +5.7% 軟體反彈，VRT -6.6%、MU -6.7% 硬體回吐</div></a></div>
-    <div class="archive-card"><a href="report_2026-06-26.html"><div class="date">2026-06-26</div><div class="title">🔥 大輪動：GLW +16%、INTC +12%、UMC +29%——資金棄 Mag 7 入 AI 實質基建</div></a></div>
-    <div class="archive-card"><a href="report_2026-06-25.html"><div class="date">2026-06-25</div><div class="title">🔥 大輪動：GLW +16%、INTC +12%、UMC +29%——資金棄 Mag 7 入 AI 實質基建</div></a></div>
-    <div class="archive-card"><a href="report_2026-06-24.html"><div class="date">2026-06-24</div><div class="title">市場大回調｜SMCI +8% 逆勢、VST +5.78% 電力基建崛起</div></a></div>
-    <div class="archive-card"><a href="report_2026-06-23.html"><div class="date">2026-06-23</div><div class="title">AI 半導體全線大漲｜ARM +28%、WDC +41%、電力基建爆發</div></a></div>
-    <div class="archive-card"><a href="report_2026-06-21.html"><div class="date">2026-06-21</div><div class="title">AI 電力主題啟動｜VST/CEG/VRT 三大電力基建齊漲</div></a></div>
-    <div class="archive-card"><a href="report_2026-06-20.html"><div class="date">2026-06-20</div><div class="title">AI 存儲超級周期｜MU 逼近歷史高點</div></a></div>
-    <div class="archive-card"><a href="report_2026-06-19.html"><div class="date">2026-06-19</div><div class="title">AI 散熱液冷基建｜VRT/SPXC 突破整理</div></a></div>
-    <div class="archive-card"><a href="report_2026-06-18.html"><div class="date">2026-06-18</div><div class="title">AI 先進封裝｜AMKR/ASX 落後補漲</div></a></div>
-    <div class="archive-card"><a href="report_2026-06-17.html"><div class="date">2026-06-17</div><div class="title">AI 基礎建設修正結束｜NVDA/SMCI 超跌反彈</div></a></div>
-  </div>
-</section>
-
-<footer>
-  <p>🤖 AI 美股基礎建設研究報告｜Generated by OpenClaw AI Agent</p>
-  <p>本報告僅供參考，不構成投資建議｜<a href="https://github.com/acstep/stock-reports">GitHub Repo</a></p>
-</footer>
-
-</div>
 </body>
 </html>
