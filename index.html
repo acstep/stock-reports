@@ -3,16 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 美股研究報告門戶</title>
+    <title>AI 美股研究報告 - 每日精選</title>
     <style>
-        body { background-color: #080810; color: #e0e0e8; font-family: 'Inter', sans-serif; padding: 40px; }
-        .container { max-width: 800px; margin: 0 auto; }
-        h1 { color: #fff; text-align: center; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #080810; 
+            color: #e0e0e8; 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+            padding: 40px 24px; 
+            min-height: 100vh;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { 
+            color: #fff; 
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #7c5cff 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle { 
+            color: #8b8ba3; 
+            text-align: center; 
+            margin-bottom: 32px;
+            font-size: 15px;
+        }
+        .hero {
+            background: linear-gradient(135deg, #1e1a3a 0%, #1a1a26 100%);
+            border: 1px solid #2a2a4a;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        .hero h2 { color: #7c5cff; margin-bottom: 12px; }
+        .hero p { color: #c0c0d0; line-height: 1.7; }
         .report-list { list-style: none; padding: 0; }
         .report-item { 
             background: #12121c; 
             margin: 10px 0; 
-            padding: 20px; 
+            padding: 18px 24px; 
             border-radius: 12px; 
             border: 1px solid #2d2d3d; 
             display: flex; 
@@ -20,20 +52,79 @@
             align-items: center;
             transition: 0.2s;
         }
-        .report-item:hover { border-color: #4f46e5; transform: translateX(10px); }
-        .report-link { color: #4f46e5; text-decoration: none; font-weight: bold; font-size: 1.2em; }
+        .report-item:hover { 
+            border-color: #7c5cff; 
+            transform: translateX(8px); 
+            background: #1a1a26;
+        }
+        .report-link { 
+            color: #7c5cff; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 1.1em;
+        }
+        .report-link:hover { color: #00d4ff; }
         .date { color: #a0a0b0; font-size: 0.9em; }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #7c5cff, #00d4ff);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.7em;
+            margin-left: 8px;
+            font-weight: 700;
+        }
+        .footer {
+            text-align: center;
+            color: #8b8ba3;
+            font-size: 12px;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #2a2a3a;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📂 AI 基礎建設研究報告存檔</h1>
+        <h1>📊 AI 基礎建設美股研究報告</h1>
+        <p class="subtitle">每日 12:00 台北時間自動生成 | AI 驅動選股 + 深度個股分析</p>
+        
+        <div class="hero">
+            <h2>🚀 今日最新報告（2026-07-03）</h2>
+            <p>今天是 2026 年最具戲劇性的「硬體→軟體」板塊輪動日。AI 應用層（資安、軟體、雲端平台）全面爆發，AI 軟體/資安平均漲幅 +15.78%；過去幾週漲多的硬體（記憶體、晶片、CoWoS 封裝）大幅回調，AI 記憶體板塊平均下跌 -17.07%。</p>
+            <p style="margin-top:12px;"><strong>關鍵催化劑：</strong>Palantir 與 NVIDIA 簽署主權 AI 合作（市值單日暴增 $22B）｜ Mag 7 6 月蒸發 $2.3T 估值殺｜韓股拖累記憶體</p>
+            <p style="margin-top:12px;"><strong>精選 50 檔：</strong>順勢追多（PLTR、CRWD、PANW、SNOW、DDOG、ZS、OKTA、S、MDB、VEEV、ADBE、WDAY）+ 黃金坑抄底（NVDA、CEG、MU、VRT、GLW、CIEN、SMCI、AVGO、AMAT、LRCX、KLAC、AMKR、STX、WDC）</p>
+        </div>
+        
+        <h3 style="color:#00d4ff; margin: 24px 0 16px;">📁 歷史報告</h3>
         <ul class="report-list">
             <li class="report-item">
-                <a class="report-link" href="2026-07-01.html">🚀 2026-07-01 研究報告</a>
-                <span class="date">2026-07-01</span>
+                <a class="report-link" href="2026-07-03.html">📈 2026-07-03 AI 基礎建設研究報告 <span class="badge">最新</span></a>
+                <span class="date">182KB</span>
+            </li>
+            <li class="report-item">
+                <a class="report-link" href="2026-07-01.html">📈 2026-07-01 AI 基礎建設研究報告 </a>
+                <span class="date">18KB</span>
+            </li>
+            <li class="report-item">
+                <a class="report-link" href="2026-06-28.html">📈 2026-06-28 AI 基礎建設研究報告 </a>
+                <span class="date">198KB</span>
+            </li>
+            <li class="report-item">
+                <a class="report-link" href="2026-06-27.html">📈 2026-06-27 AI 基礎建設研究報告 </a>
+                <span class="date">136KB</span>
+            </li>
+            <li class="report-item">
+                <a class="report-link" href="2026-06-16.html">📈 2026-06-16 AI 基礎建設研究報告 </a>
+                <span class="date">26KB</span>
             </li>
         </ul>
+        
+        <div class="footer">
+            <p>📅 自動推送至 GitHub Pages | 資料來源：Yahoo Finance、Barchart、Google News</p>
+            <p>分析模型：AI 基礎建設選股分析師 | 報告僅供參考，不構成投資建議</p>
+        </div>
     </div>
 </body>
 </html>
