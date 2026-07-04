@@ -1,0 +1,676 @@
+{
+  "date": "2026-07-04",
+  "generated_at": "2026-07-04T12:18:38+08:00",
+  "source": "yahoo-finance-research + stock-reports-2026-07-04.html",
+  "model": "MiniMax-M3",
+  "tickers": {
+    "AEP": {
+      "recommendation": "AEP 是美國中部最大電力公司，搭上 AI 資料中心用電長約順風車，公用事業防禦屬性提供下檔保護。雖然當前估值已逼近歷史高檔，但直供電合約鎖定可預期的現金流成長，是長線防禦性配置的核心持股。Argus 看好 AI 電力需求的結構性成長，建議留意永續投資主題的長線紅利。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：美國電力公司是美國最大電力公司之一",
+          "title_en": "American Electric Power is one of the largest electric companies in the U.S.",
+          "url": "https://finance.yahoo.com/research/reports/2684_Analyst%20Report_1781003391000"
+        },
+        {
+          "title_zh": "市場摘要：內部人情緒數據暗示 AI 與晶片股短期需謹慎",
+          "title_en": "Last week, we noted that 'one-week insider-sentiment sector data...suddenly suggests caution.'",
+          "url": "https://finance.yahoo.com/research/reports/47269_Market%20Summary_1781002491000"
+        },
+        {
+          "title_zh": "Argus 研究：永續影響力投資即是聰明投資",
+          "title_en": "Argus Research believes that Sustainable Impact investing is smart investing.",
+          "url": "https://finance.yahoo.com/research/reports/47463_Stock%20Picks_1782732543000"
+        }
+      ]
+    },
+    "AMAT": {
+      "recommendation": "AMAT 為 CoWoS 先進封裝與蝕刻設備的絕對瓶頸供應商，HBM 與 2nm 製程升級帶動設備剛需，大跌反而創造長線黃金坑。Argus 將其納入股息成長主題組合與每週精選名單，並追蹤到內部人偏多買盤。2027 年 2nm 量產將再啟一波設備更新週期，訂單能見度外溢。",
+      "news": [
+        {
+          "title_zh": "主題組合：在股市震盪中被忽略的股息收入機會",
+          "title_en": "Dividend income is often overlooked amid gyrations in the stock market.",
+          "url": "https://finance.yahoo.com/research/reports/47410_Thematic%20Portfolio_1782217754000"
+        },
+        {
+          "title_zh": "Vickers 內部人買賣龍虎榜（每日）",
+          "title_en": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions...",
+          "url": "https://finance.yahoo.com/research/reports/47363_Top/Bottom%20Insider%20Activity_1781780208000"
+        },
+        {
+          "title_zh": "Argus 最新投資組合精選名單（Focus List）",
+          "title_en": "Argus has published its latest Portfolio Selector, which features its popular Focus List.",
+          "url": "https://finance.yahoo.com/research/reports/47331_Stock%20Picks_1781524221000"
+        }
+      ]
+    },
+    "AMKR": {
+      "recommendation": "AMKR 是非台積電體系唯一能承接高複雜度 CoWoS 封裝的廠商，蘋果、輝達、AMD 訂單能見度極佳，目前大跌是黃金坑。Argus 連續三週發布定量報告給予 HOLD 評等與 $91 目標價，估值面與基本面出現背離。看好 AI 封測供需缺口延續至 2027 年。",
+      "news": [
+        {
+          "title_zh": "AMKR 定量報告：投資評等 HOLD、目標價 $91（3 天前）",
+          "title_en": "AMKOR TECHNOLOGY INC has an Investment Rating of HOLD; a target price of $91.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6072_Quantitative%20Report_1782864000000"
+        },
+        {
+          "title_zh": "AMKR 定量報告：投資評等 HOLD、目標價 $91（10 天前）",
+          "title_en": "AMKOR TECHNOLOGY INC has an Investment Rating of HOLD; a target price of $91.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6072_Quantitative%20Report_1782259200000"
+        },
+        {
+          "title_zh": "AMKR 定量報告：投資評等 HOLD、目標價 $91（17 天前）",
+          "title_en": "AMKOR TECHNOLOGY INC has an Investment Rating of HOLD; a target price of $91.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6072_Quantitative%20Report_1781654400000"
+        }
+      ]
+    },
+    "AMZN": {
+      "recommendation": "AMZN 透過 AWS Trainium 自研 AI 晶片降低對 Nvidia 依賴，AWS 營益率回升搭配電商利潤率擴張，AI 與零售雙引擎驅動。Argus 個股分析報告確認其美國電商龍頭地位，Bedrock 平台成為企業部署 LLM 首選。AI 應用層消費場景紅利持續釋放。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Amazon.com 是美國領先的電商龍頭",
+          "title_en": "Amazon.com is the leading U.S.",
+          "url": "https://finance.yahoo.com/research/reports/2710_Analyst%20Report_1777547024000"
+        },
+        {
+          "title_zh": "AI 從多個層面幫助消費品公司提升利潤",
+          "title_en": "AI is helping lift profits at consumer companies on multiple levels.",
+          "url": "https://finance.yahoo.com/research/reports/47259_Stock%20Picks_1780919958000"
+        },
+        {
+          "title_zh": "永續影響力投資在全球投資圈獲得關注",
+          "title_en": "Sustainable Impact Investing is gaining traction not only with Argus Research clients but also with the global investment community.",
+          "url": "https://finance.yahoo.com/research/reports/47162_Thematic%20Portfolio_1779968001000"
+        }
+      ]
+    },
+    "ANET": {
+      "recommendation": "ANET 是 Meta、Google、微軟資料中心網路骨幹供應商，400G/800G 交換機在雲端與超大規模需求爆發，估值回調後性價比凸顯。Argus 連續兩份分析師報告確認其雲端網路方案龍頭地位，搭配市場快訊看好油價回落帶動風險偏好回升。雲端資本支出維持高位支援營收持續成長。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Arista Networks 是雲端網路方案領先供應商（上月）",
+          "title_en": "Arista Networks is a leading supplier of cloud networking solutions for internet companies, cloud service providers, and next-generation data centers...",
+          "url": "https://finance.yahoo.com/research/reports/3688_Analyst%20Report_1778091857000"
+        },
+        {
+          "title_zh": "Argus 分析師報告：Arista Networks 是雲端網路方案領先供應商（4 個月前）",
+          "title_en": "Arista Networks is a leading supplier of cloud networking solutions for internet companies, cloud service providers, and next-generation data centers...",
+          "url": "https://finance.yahoo.com/research/reports/3688_Analyst%20Report_1771330288000"
+        },
+        {
+          "title_zh": "市場快訊：美伊和平協議預期升溫、油價下跌 7%",
+          "title_en": "The major indices are broadly higher at midday on Wednesday. Oil prices have plunged on optimism that a peace deal with Iran might be close. Crude oil is down 7% at $95 per barrel...",
+          "url": "https://finance.yahoo.com/research/reports/46949_Market%20Update_1778091857000"
+        }
+      ]
+    },
+    "CDNS": {
+      "recommendation": "CDNS 是全球 EDA 雙寡頭之一，AI 時代晶片設計複雜度提升反而拉動 EDA 工具需求，AI 加速模擬與驗證剛需推升單價。Argus 連續三週定量報告給予 BUY 評等，目標價從 $439 略下調至 $421，仍位於產業高位區間。看好 2nm 與 AI 加速器設計週期紅利。",
+      "news": [
+        {
+          "title_zh": "CDNS 定量報告：BUY 評等、目標價 $421（2 天前）",
+          "title_en": "Cadence Design Systems Inc has an Investment Rating of BUY; a target price of $421.000000...",
+          "url": "https://finance.yahoo.com/research/reports/3933_Quantitative%20Report_1782864000000"
+        },
+        {
+          "title_zh": "CDNS 定量報告：BUY 評等、目標價 $426（9 天前）",
+          "title_en": "Cadence Design Systems Inc has an Investment Rating of BUY; a target price of $426.000000...",
+          "url": "https://finance.yahoo.com/research/reports/3933_Quantitative%20Report_1782259200000"
+        },
+        {
+          "title_zh": "CDNS 定量報告：BUY 評等、目標價 $436（16 天前）",
+          "title_en": "Cadence Design Systems Inc has an Investment Rating of BUY; a target price of $436.000000...",
+          "url": "https://finance.yahoo.com/research/reports/3933_Quantitative%20Report_1781654400000"
+        }
+      ]
+    },
+    "CDW": {
+      "recommendation": "CDW 是企業採購 AI 硬體的必經渠道，AI PC 升級週期啟動帶動商業 PC 更新潮，估值合理現金流穩健。Argus 連續三週定量報告給予 HOLD 評等，目標價從 $127 提升至 $148，反映 AI 換機潮預期。防禦性配置適合在科技股波動時作為平衡部位。",
+      "news": [
+        {
+          "title_zh": "CDW 定量報告：HOLD 評等、目標價 $148（2 天前）",
+          "title_en": "CDW CORP/DE has an Investment Rating of HOLD; a target price of $148.000000...",
+          "url": "https://finance.yahoo.com/research/reports/5164_Quantitative%20Report_1782864000000"
+        },
+        {
+          "title_zh": "CDW 定量報告：HOLD 評等、目標價 $124（9 天前）",
+          "title_en": "CDW CORP/DE has an Investment Rating of HOLD; a target price of $124.000000...",
+          "url": "https://finance.yahoo.com/research/reports/5164_Quantitative%20Report_1782259200000"
+        },
+        {
+          "title_zh": "CDW 定量報告：HOLD 評等、目標價 $124（16 天前）",
+          "title_en": "CDW CORP/DE has an Investment Rating of HOLD; a target price of $124.000000...",
+          "url": "https://finance.yahoo.com/research/reports/5164_Quantitative%20Report_1781654400000"
+        }
+      ]
+    },
+    "CIEN": {
+      "recommendation": "CIEN 是 AI 資料中心光互連核心供應商，WaveLogic 8 800G 光傳輸晶片搭上亞馬遜、微軟長約，能見度延伸至 2028 年。Argus 分析師報告與市場摘要同步看好光傳輸景氣，板塊回調反而創造長線買點。看好 1.6T 升級週期動能延續。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Ciena 參與光傳輸、交換與全球服務市場",
+          "title_en": "Ciena participates in optical transport and switching, converged optical Ethernet solutions, carrier Ethernet, and global services for its customers...",
+          "url": "https://finance.yahoo.com/research/reports/2838_Analyst%20Report_1780657761000"
+        },
+        {
+          "title_zh": "市場摘要：博通拖累 Nasdaq，但市場等待最新就業數據",
+          "title_en": "Stocks turned in a mixed performance on Thursday, as Broadcom led the Nasdaq lower, the S&P 500 and Dow Jones Industrials were higher...",
+          "url": "https://finance.yahoo.com/research/reports/47241_Market%20Summary_1780656861000"
+        },
+        {
+          "title_zh": "精選股：2026 年至今股市波動劇烈",
+          "title_en": "To date, 2026 has been a volatile year for stocks.",
+          "url": "https://finance.yahoo.com/research/reports/46856_Stock%20Picks_1777289280000"
+        }
+      ]
+    },
+    "CRWD": {
+      "recommendation": "CRWD 是 AI 原生資安平台龍頭，Charlotte AI 降低誤判率 75%，Q2 財測超預期，技術面創歷史新高。Argus 個股分析報告確認其雲原生資安定位，搭配技術分析看好 6 月反彈動能延續。Falcon 平台網路效應護城河深，AI 時代資安剛需無可取代。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：CrowdStrike 提供雲原生企業資安與資料流程防護",
+          "title_en": "CrowdStrike provides cloud-native cybersecurity for enterprise IT and cloud data workflows.",
+          "url": "https://finance.yahoo.com/research/reports/6164_Analyst%20Report_1780679739000"
+        },
+        {
+          "title_zh": "技術分析：6 月股市收復模式、季度表現亮眼",
+          "title_en": "The stock market ended June in recovery mode -- and while the month showed mixed returns from a plethora of indices, it was an absolute slam-dunk of a quarter.",
+          "url": "https://finance.yahoo.com/research/reports/47486_Technical%20Analysis_1782904853000"
+        },
+        {
+          "title_zh": "技術分析：川普取消對伊朗空襲，市場反轉向上",
+          "title_en": "Thursday looked like a day of indecision until the early afternoon, when President Trump (again) called off strikes on Iran...",
+          "url": "https://finance.yahoo.com/research/reports/47315_Technical%20Analysis_1781262714000"
+        }
+      ]
+    },
+    "CSCO": {
+      "recommendation": "CSCO 是企業網路設備基礎設施龍頭，AI 園區網路與統一計算需求穩健，Cisco Circle 訂閱制轉型持續推進。Argus 分析師報告確認其全球通訊設備霸主地位，搭配投資組合精選名單與 Q1 強勁財報摘要。雖成長趨緩但現金流穩健，訂閱收入比重提升有助估值重估。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Cisco 是全球通訊設備龍頭",
+          "title_en": "Cisco is a worldwide leader in communications equipment.",
+          "url": "https://finance.yahoo.com/research/reports/2870_Analyst%20Report_1779125369000"
+        },
+        {
+          "title_zh": "Argus 投資組合精選：30 檔最佳標的（Focus List）",
+          "title_en": "The Portfolio Selector features the Argus Focus List, a group of 30 \"best idea\" stocks generated and regularly updated by Argus' analysts and investment policy committee.",
+          "url": "https://finance.yahoo.com/research/reports/47303_Portfolio%20Ideas_1781179068000"
+        },
+        {
+          "title_zh": "精選股：第一季財報季表現驚豔",
+          "title_en": "The first-quarter earnings season has been sensational.",
+          "url": "https://finance.yahoo.com/research/reports/47193_Stock%20Picks_1780315198000"
+        }
+      ]
+    },
+    "DELL": {
+      "recommendation": "DELL 為企業 IT 基礎建設最大整合供應商，AI 伺服器與存儲陣列需求旺盛，估值處於低位，雖然短期被 SMCI 醜聞拖累但自身基本面穩健。Argus 分析師報告確認其 25 年上市老牌企業實力，搭配股息主題組合與內部人追蹤。AI 訂單能見度延伸至 2027 年，修復空間大。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Dell 上市 25 年，企業 IT 整合龍頭",
+          "title_en": "After trading as a public company for 25 years, Dell Inc.",
+          "url": "https://finance.yahoo.com/research/reports/5957_Analyst%20Report_1780053669000"
+        },
+        {
+          "title_zh": "主題組合：股市震盪中被忽略的股息收入機會",
+          "title_en": "Dividend income is often overlooked amid gyrations in the stock market.",
+          "url": "https://finance.yahoo.com/research/reports/47410_Thematic%20Portfolio_1782217754000"
+        },
+        {
+          "title_zh": "Vickers 內部人買賣龍虎榜（每日）",
+          "title_en": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions...",
+          "url": "https://finance.yahoo.com/research/reports/47363_Top/Bottom%20Insider%20Activity_1781780208000"
+        }
+      ]
+    },
+    "DLO": {
+      "recommendation": "DLO 是拉美與新興市場支付基礎建設龍頭，受惠於 AI 電商滲透率提升與跨境支付爆發，目前估值修復中。雖然 Yahoo Finance 今日無最新分析師報告，但 AI 電商時代下 DLO 是看不見的支付基礎建設，新興市場網路覆蓋率提升是長期結構性紅利。建議持續追蹤營收貨幣化率與新興市場監管政策變化。",
+      "news": []
+    },
+    "GEV": {
+      "recommendation": "GEV 是 AI 基建最末端的電力壟斷者，數據中心申請電力排隊時間已延至 3-5 年，變壓器與輸配電設備成為硬瓶頸，搭配 SMR 小型模組化反應爐商業化形成雙重護城河。Argus 個股分析報告確認其全球電力設備龍頭地位，搭配內部人偏多買盤訊號。AI 的盡頭是電力，GEV 是最純受惠者。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：GE Vernova 是全球電力產業領導者",
+          "title_en": "GE Vernova is a global leader in the electric power industry, with products and services that generate, transfer, orchestrate, convert, and store electricity.",
+          "url": "https://finance.yahoo.com/research/reports/6199_Analyst%20Report_1777287827000"
+        },
+        {
+          "title_zh": "市場摘要：華爾街一年中最繁忙的一週",
+          "title_en": "This is one of the busiest weeks of the year on Wall Street.",
+          "url": "https://finance.yahoo.com/research/reports/46850_Market%20Summary_1777286927000"
+        },
+        {
+          "title_zh": "Vickers 內部人買賣龍虎榜（每日）",
+          "title_en": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions...",
+          "url": "https://finance.yahoo.com/research/reports/47226_Top/Bottom%20Insider%20Activity_1780568153000"
+        }
+      ]
+    },
+    "GLW": {
+      "recommendation": "GLW 特種光纖在 AI 集群光互連從選配變標配，800G/1.6T 光模組需求爆發，錯殺創造買點。雖然 Argus 暫無個股分析報告，但永續投資主題組合與內部人追蹤均顯示機構興趣。Google、微軟長約鎖定至 2027 年，特種光纖毛利率達 55%+，擴產動能強勁。",
+      "news": [
+        {
+          "title_zh": "永續影響力投資在全球投資圈獲得關注",
+          "title_en": "Sustainable Impact Investing is gaining traction not only with Argus Research clients but also with the global investment community.",
+          "url": "https://finance.yahoo.com/research/reports/47162_Thematic%20Portfolio_1779968001000"
+        },
+        {
+          "title_zh": "Vickers 內部人買賣龍虎榜（上月）",
+          "title_en": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions...",
+          "url": "https://finance.yahoo.com/research/reports/47148_Top/Bottom%20Insider%20Activity_1779884125000"
+        },
+        {
+          "title_zh": "Vickers 內部人買賣龍虎榜（上月較早）",
+          "title_en": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions...",
+          "url": "https://finance.yahoo.com/research/reports/47067_Top/Bottom%20Insider%20Activity_1779187845000"
+        }
+      ]
+    },
+    "GOOGL": {
+      "recommendation": "GOOGL 透過 Google Cloud AI 服務爆發、TPU 算力自主可控、Gemini 2.0 追擊 GPT 三箭齊發，估值仍低於歷史均值。Argus 個股分析報告確認其搜尋引擎霸主地位，搭配市場摘要看好經濟基本面穩健與談判持續。TPU + Cloud + Gemini 生態垂直整合，搜尋廣告現金流穩定資助 AI 研發。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Alphabet 擁有全球最大可搜尋網站索引",
+          "title_en": "Alphabet maintains the largest online index of websites accessible through automated search technology.",
+          "url": "https://finance.yahoo.com/research/reports/3012_Analyst%20Report_1782299265000"
+        },
+        {
+          "title_zh": "市場摘要：談判持續、經濟基本面穩健",
+          "title_en": "Economy on Solid Footing as Negotiations Continue The memorandum of understanding (MOU) between the U.S.",
+          "url": "https://finance.yahoo.com/research/reports/47417_Market%20Summary_1782299265000"
+        },
+        {
+          "title_zh": "Argus 研究：永續影響力投資即是聰明投資",
+          "title_en": "Argus Research believes that Sustainable Impact investing is smart investing.",
+          "url": "https://finance.yahoo.com/research/reports/47463_Stock%20Picks_1782732543000"
+        }
+      ]
+    },
+    "META": {
+      "recommendation": "META 是 AI 應用層最被低估的巨頭，LLaMA 4 訓練拉動 GPU 支出，廣告 AI 提升投放效率，AI 推薦引擎提升用戶時長與廣告單價。Argus 個股分析報告確認其社群網路霸主地位（Facebook/IG/WhatsApp/Reels/Threads）。雖有歐洲監管風險但估值已修復中，現金牛持續資助 AI 與元宇宙長期投資。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Meta 營運全球最大社群網路家族",
+          "title_en": "Meta Platforms operates the world's largest family of social networking websites, including the flagship Facebook site, Instagram, Facebook Messenger, WhatsApp, Reels, and Threads.",
+          "url": "https://finance.yahoo.com/research/reports/3592_Analyst%20Report_1777893329000"
+        },
+        {
+          "title_zh": "Argus 投資組合精選：30 檔最佳標的（Focus List）",
+          "title_en": "The Portfolio Selector features the Argus Focus List, a group of 30 \"best idea\" stocks generated and regularly updated by Argus' analysts and investment policy committee.",
+          "url": "https://finance.yahoo.com/research/reports/47303_Portfolio%20Ideas_1781179068000"
+        },
+        {
+          "title_zh": "市場展望：史上最大 IPO、馬斯克 SpaceX 即將上市",
+          "title_en": "In what is likely to be the largest IPO in history, Elon Musk's Space Exploration Technologies Corp.",
+          "url": "https://finance.yahoo.com/research/reports/47272_Market%20Outlook_1781004273000"
+        }
+      ]
+    },
+    "MSFT": {
+      "recommendation": "MSFT 是 AI 雲端平台最純受益者，Copilot 365 滲透率超預期，Azure AI 服務營收季增 31%，Nvidia GB200 優先供給 Azure。Argus 看好永續投資主題與股息成長模型，內部人追蹤連續偏多訊號。十年超級週期紅利持續釋放，Azure 市場份額持續侵蝕 AWS。",
+      "news": [
+        {
+          "title_zh": "Argus 研究：永續影響力投資即是聰明投資",
+          "title_en": "Argus Research believes that Sustainable Impact investing is smart investing.",
+          "url": "https://finance.yahoo.com/research/reports/47463_Stock%20Picks_1782732543000"
+        },
+        {
+          "title_zh": "主題組合：股市震盪中被忽略的股息收入機會",
+          "title_en": "Dividend income is often overlooked amid gyrations in the stock market.",
+          "url": "https://finance.yahoo.com/research/reports/47410_Thematic%20Portfolio_1782217754000"
+        },
+        {
+          "title_zh": "Vickers 內部人買賣龍虎榜（每日）",
+          "title_en": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions...",
+          "url": "https://finance.yahoo.com/research/reports/47323_Top/Bottom%20Insider%20Activity_1781519144000"
+        }
+      ]
+    },
+    "MU": {
+      "recommendation": "MU 是 HBM3e 供應瓶頸的最大受惠者，幾乎壟斷 HBM3e 供應，與 Nvidia/AMD 長約鎖定至 2027 年，報價上漲邏輯不變。Argus 個股分析報告確認其在美光最大記憶體製造商地位，搭配技術分析與市場摘要看好記憶體景氣復甦。目前大跌偏離基本面，是長線佈局良機。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Micron 是美國最大記憶體製造商",
+          "title_en": "Boise, Idaho-based Micron is the largest U.S.",
+          "url": "https://finance.yahoo.com/research/reports/3614_Analyst%20Report_1782386191000"
+        },
+        {
+          "title_zh": "技術分析：基本面與技術面訊號整合的投資觀點",
+          "title_en": "Argus Research has a long history as a leading fundamental research provider, but our analysts and strategists -- as well as our clients -- also value the investment signals generated from a technical perspective.",
+          "url": "https://finance.yahoo.com/research/reports/47390_Technical%20Analysis_1782125726000"
+        },
+        {
+          "title_zh": "市場摘要：Nasdaq 收低、道瓊走高、S&P 500 平盤整理",
+          "title_en": "Stocks posted mixed results on Wednesday, with the Nasdaq lower, the Dow Jones Industrial Average higher, and the S&P 500 just kinda' sitting there.",
+          "url": "https://finance.yahoo.com/research/reports/47427_Market%20Summary_1782385291000"
+        }
+      ]
+    },
+    "NEE": {
+      "recommendation": "NEE 是全球最大清潔能源發電商，太陽能與風電為資料中心提供 PPA 長約，Google、微軟皆已簽署，AI 資料中心用電需求驅動長期成長。Argus 個股分析報告確認其發電、輸電、配電綜合龍頭地位，搭配市場快訊看好公用事業防禦性。雖然成長性溫和但現金流穩健，適合防禦性配置。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：NextEra Energy 提供發電、輸電與配電服務",
+          "title_en": "Headquartered in Juno Beach, Florida, NextEra Energy provides generation, transmission, and distribution services.",
+          "url": "https://finance.yahoo.com/research/reports/2983_Analyst%20Report_1777054562000"
+        },
+        {
+          "title_zh": "市場快訊：週五盤中指數分歧、S&P 500 與 Nasdaq 上漲",
+          "title_en": "Stocks are a mixed bag at midday on Friday, with the S&P 500 and the Nasdaq up, but the Dow Jones Industrial Average down.",
+          "url": "https://finance.yahoo.com/research/reports/46845_Market%20Update_1777053662000"
+        },
+        {
+          "title_zh": "市場展望：2025 年 Q1 華爾街第一季結束",
+          "title_en": "The first quarter of 2025 on Wall Street is in the books.",
+          "url": "https://finance.yahoo.com/research/reports/46604_Market%20Outlook_1775042837000"
+        }
+      ]
+    },
+    "NET": {
+      "recommendation": "NET 是互聯網骨架級基礎建設，Workers AI 將 AI 推理推向邊緣，AI 時代 DDoS 攻擊增加反而有利業務，開發者生態持續擴大。Argus 兩份分析師報告確認其雲端網路服務定位，搭配市場摘要看好 AI 應用層紅利。資料共享網路正在形成護城河，營收曲線打開新成長空間。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Cloudflare 提供雲端網路服務、保護與加速（上月）",
+          "title_en": "Cloudflare provides cloud-based network services that protect internet apps and help them to run faster - without requiring clients to add hardware, install new software, or change code.",
+          "url": "https://finance.yahoo.com/research/reports/5996_Analyst%20Report_1778756529000"
+        },
+        {
+          "title_zh": "Argus 分析師報告：Cloudflare 提供雲端網路服務、保護與加速（4 個月前）",
+          "title_en": "Cloudflare provides cloud-based network services that protect internet apps and help them to run faster - without requiring clients to add hardware, install new software, or change code.",
+          "url": "https://finance.yahoo.com/research/reports/5996_Analyst%20Report_1770984188000"
+        },
+        {
+          "title_zh": "市場摘要：大盤指數創新高，但其他標的出現技術裂縫",
+          "title_en": "While the large cap indices make all-time highs day after day, there are technical cracks everywhere else.",
+          "url": "https://finance.yahoo.com/research/reports/47023_Market%20Summary_1778756529000"
+        }
+      ]
+    },
+    "NRG": {
+      "recommendation": "NRG 是美國電力市場具備區域定價權的發電與零售能源供應商，天然氣發電廠為資料中心提供基荷與備用電源，現金流穩健。Argus 連續三週定量報告給予 HOLD 評等，目標價從 $126 提升至 $139，反映 AI 電力需求預期。被電網板塊拖累拋售屬短線情緒，提供買點。",
+      "news": [
+        {
+          "title_zh": "NRG 定量報告：HOLD 評等、目標價 $139（2 天前）",
+          "title_en": "NRG ENERGY INC has an Investment Rating of HOLD; a target price of $139.000000...",
+          "url": "https://finance.yahoo.com/research/reports/3824_Quantitative%20Report_1782864000000"
+        },
+        {
+          "title_zh": "NRG 定量報告：HOLD 評等、目標價 $131（9 天前）",
+          "title_en": "NRG ENERGY INC has an Investment Rating of HOLD; a target price of $131.000000...",
+          "url": "https://finance.yahoo.com/research/reports/3824_Quantitative%20Report_1782259200000"
+        },
+        {
+          "title_zh": "NRG 定量報告：HOLD 評等、目標價 $126（16 天前）",
+          "title_en": "NRG ENERGY INC has an Investment Rating of HOLD; a target price of $126.000000...",
+          "url": "https://finance.yahoo.com/research/reports/3824_Quantitative%20Report_1781654400000"
+        }
+      ]
+    },
+    "NTAP": {
+      "recommendation": "NTAP 是企業級資料管理與雲端儲存整合專家，AI 訓練資料管理需求興起，FAS/AFF 系統需求穩定，估值處於低位防守性佳。Argus 兩份分析師報告覆蓋 NetApp 業務，搭配市場摘要看好就業數據與科技股財報。ONTAP AI 功能強化是長線成長動能。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：NetApp 企業儲存與雲端資料管理（30 天前）",
+          "title_en": "NetApp Inc.",
+          "url": "https://finance.yahoo.com/research/reports/3259_Analyst%20Report_1780312137000"
+        },
+        {
+          "title_zh": "Argus 分析師報告：NetApp 企業儲存與雲端資料管理（3 個月前）",
+          "title_en": "NetApp Inc.",
+          "url": "https://finance.yahoo.com/research/reports/3259_Analyst%20Report_1772626587000"
+        },
+        {
+          "title_zh": "市場摘要：5 月就業報告出爐、科技與零售股財報接續",
+          "title_en": "The May jobs report comes out this week, as do a few late earnings reports from some big tech and retail names.",
+          "url": "https://finance.yahoo.com/research/reports/47186_Market%20Summary_1780311237000"
+        }
+      ]
+    },
+    "NVDA": {
+      "recommendation": "NVDA 是 AI 算力唯一選擇，Blackwell B200 訂單已排至 2027 年，CUDA 生態鎖死護城河，今日相對抗跌展現龍頭剛性。Argus 將其列入投資組合精選名單與永續投資主題，內部人追蹤持續偏多。Hopper 需求維持高檔、Blackwell 放量在即，基本面無虞，目前為黃金坑佈局時機。",
+      "news": [
+        {
+          "title_zh": "Argus 最新投資組合精選名單（Focus List）",
+          "title_en": "Argus has published its latest Portfolio Selector, which features its popular Focus List.",
+          "url": "https://finance.yahoo.com/research/reports/47331_Stock%20Picks_1781524221000"
+        },
+        {
+          "title_zh": "Argus 投資組合精選：30 檔最佳標的（Focus List）",
+          "title_en": "The Portfolio Selector features the Argus Focus List, a group of 30 \"best idea\" stocks generated and regularly updated by Argus' analysts and investment policy committee.",
+          "url": "https://finance.yahoo.com/research/reports/47303_Portfolio%20Ideas_1781179068000"
+        },
+        {
+          "title_zh": "永續影響力投資在全球投資圈獲得關注",
+          "title_en": "Sustainable Impact Investing is gaining traction not only with Argus Research clients but also with the global investment community.",
+          "url": "https://finance.yahoo.com/research/reports/47162_Thematic%20Portfolio_1779968001000"
+        }
+      ]
+    },
+    "OKTA": {
+      "recommendation": "OKTA 是零信任架構核心構件，每個 AI Agent 都需要身份管理，Q3 指引超預期，是看不見的 AI 基礎建設。Argus 連續三週定量報告給予 HOLD 評等，目標價從 $122 提升至 $143，反映 AI 應用身份認證剛需。適合在 AI 資安組合中作為中型股配置。",
+      "news": [
+        {
+          "title_zh": "OKTA 定量報告：HOLD 評等、目標價 $143（3 天前）",
+          "title_en": "Okta Inc has an Investment Rating of HOLD; a target price of $143.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6631_Quantitative%20Report_1782864000000"
+        },
+        {
+          "title_zh": "OKTA 定量報告：HOLD 評等、目標價 $124（10 天前）",
+          "title_en": "Okta Inc has an Investment Rating of HOLD; a target price of $124.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6631_Quantitative%20Report_1782259200000"
+        },
+        {
+          "title_zh": "OKTA 定量報告：HOLD 評等、目標價 $122（17 天前）",
+          "title_en": "Okta Inc has an Investment Rating of HOLD; a target price of $122.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6631_Quantitative%20Report_1781654400000"
+        }
+      ]
+    },
+    "PANW": {
+      "recommendation": "PANW 是企業資安從點防禦走向平台化的最大受惠者，AI 攻擊事件暴增帶動 Prisma 與 Cortex ARR 增速維持 25%+，技術面突破新高。Argus 個股分析報告確認其整合式企業資安定位，搭配技術分析提醒短期超買訊號。AI 降低攻擊門檻同時也提升偵測門檻，護城河持續拓寬。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Palo Alto 提供整合式企業網路資安方案",
+          "title_en": "Palo Alto provides integrated internet security solutions for enterprise customers.",
+          "url": "https://finance.yahoo.com/research/reports/3643_Analyst%20Report_1780679739000"
+        },
+        {
+          "title_zh": "技術分析：Nasdaq 與 QQQ 進入回調區間（-5%+）、S&P 500 接近",
+          "title_en": "The tech heavy Nasdaq and Nasdaq 100 (QQQ) have rapidly rolled over into pullback territory (down 5%+), while the S&P 500 (SPX) is very close, with a six-day loss of 4.5%.",
+          "url": "https://finance.yahoo.com/research/reports/47296_Technical%20Analysis_1781177742000"
+        },
+        {
+          "title_zh": "Vickers 內部人買賣龍虎榜（每日）",
+          "title_en": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions...",
+          "url": "https://finance.yahoo.com/research/reports/47323_Top/Bottom%20Insider%20Activity_1781519144000"
+        }
+      ]
+    },
+    "PLTR": {
+      "recommendation": "PLTR 主權 AI 訂單爆發，Nvidia 合作印證政府國防 AI 剛需無周期性，單日市值暴增 $22B 反映資金搶進。Argus 兩份分析師報告確認其從政府客戶擴展至商業企業的資料整合平台定位，搭配技術分析看好財報季動能。Gov AI 滲透率才 8%，五年黃金增長期，AIP 平台將成企業標配。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Palantir 為政府與企業提供資料整合決策軟體（上月）",
+          "title_en": "Palantir develops and provides software that enables customers from government agencies to commercial enterprises to integrate data for decision-making and operations at scale.",
+          "url": "https://finance.yahoo.com/research/reports/6302_Analyst%20Report_1778065523000"
+        },
+        {
+          "title_zh": "Argus 分析師報告：Palantir 為政府與企業提供資料整合決策軟體（4 個月前）",
+          "title_en": "Palantir develops and provides software that enables customers from government agencies to commercial enterprises to integrate data for decision-making and operations at scale.",
+          "url": "https://finance.yahoo.com/research/reports/6302_Analyst%20Report_1770660708000"
+        },
+        {
+          "title_zh": "技術分析：股市進入財報季、企業需端出實質成績",
+          "title_en": "The stock market has entered earnings season on a sugar high, so corporate America better deliver the goods or else.",
+          "url": "https://finance.yahoo.com/research/reports/46825_Technical%20Analysis_1776942515000"
+        }
+      ]
+    },
+    "PTC": {
+      "recommendation": "PTC 是工業 AI 軟體龍頭，CAD/PLM 整合 AI 功能後付費率提升，製造業 AI 數位化資本支出維持高位。Argus 連續三週定量報告給予 BUY 評等，目標價維持 $124-$151 高位區間，反映 ARR 持續成長動能。SaaS 轉型加速，AI 功能拉動企業升級意願。",
+      "news": [
+        {
+          "title_zh": "PTC 定量報告：BUY 評等、目標價 $125（2 天前）",
+          "title_en": "PTC INC has an Investment Rating of BUY; a target price of $125.000000...",
+          "url": "https://finance.yahoo.com/research/reports/4194_Quantitative%20Report_1782864000000"
+        },
+        {
+          "title_zh": "PTC 定量報告：BUY 評等、目標價 $124（9 天前）",
+          "title_en": "PTC INC has an Investment Rating of BUY; a target price of $124.000000...",
+          "url": "https://finance.yahoo.com/research/reports/4194_Quantitative%20Report_1782259200000"
+        },
+        {
+          "title_zh": "PTC 定量報告：BUY 評等、目標價 $130（16 天前）",
+          "title_en": "PTC INC has an Investment Rating of BUY; a target price of $130.000000...",
+          "url": "https://finance.yahoo.com/research/reports/4194_Quantitative%20Report_1781654400000"
+        }
+      ]
+    },
+    "SE": {
+      "recommendation": "SE 是東南亞最大互聯網平台，Shopee AI 推薦引擎提升轉化率，Garena AI 遊戲場景創新。雖然 Yahoo Finance 今日無最新分析師報告，但東南亞 AI 數位化升級提升電商貨幣化率，網路覆蓋率提升是長期結構性紅利。建議追蹤東南亞 GDP 成長與行動支付滲透率，作為新興市場 AI 標的。",
+      "news": []
+    },
+    "SNOW": {
+      "recommendation": "SNOW 是 AI 模型訓練背後的資料基礎建設，DataFrame 引擎加速 ML 訓練，Q2 付費客戶數破歷史新高。Argus 個股分析報告確認其「AI 資料雲」定位，搭配市場摘要與內部人追蹤連續偏多。資料共享網路正在形成護城河，訂閱收入能見度高，AI 應用層紅利持續兌現。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Snowflake 自詡為 AI 資料雲公司",
+          "title_en": "Snowflake calls itself an AI data cloud company.",
+          "url": "https://finance.yahoo.com/research/reports/6355_Analyst%20Report_1780053669000"
+        },
+        {
+          "title_zh": "市場摘要：5 月最後交易日股市再次締造強勁月份",
+          "title_en": "Stocks did their thing on Thursday -- and with one more day in May, equities seemingly have put together yet another impressive month.",
+          "url": "https://finance.yahoo.com/research/reports/47175_Market%20Summary_1780052769000"
+        },
+        {
+          "title_zh": "Vickers 內部人買賣龍虎榜（每日）",
+          "title_en": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions...",
+          "url": "https://finance.yahoo.com/research/reports/47434_Top/Bottom%20Insider%20Activity_1782389438000"
+        }
+      ]
+    },
+    "SNPS": {
+      "recommendation": "SNPS 是全球 EDA 市場壟斷者之一，幾乎所有 AI 晶片都使用 Synopsys 工具設計，護城河極深，受惠於 2nm 與 AI 加速器設計複雜度提升。Argus 連續三週定量報告給予 BUY 評等，目標價從 $505 提升至 $527，創歷史新高。AI 晶片設計剛需無可替代，長期成長動能強勁。",
+      "news": [
+        {
+          "title_zh": "SNPS 定量報告：BUY 評等、目標價 $505（3 天前）",
+          "title_en": "SYNOPSYS INC has an Investment Rating of BUY; a target price of $505.000000...",
+          "url": "https://finance.yahoo.com/research/reports/4260_Quantitative%20Report_1782864000000"
+        },
+        {
+          "title_zh": "SNPS 定量報告：BUY 評等、目標價 $523（10 天前）",
+          "title_en": "SYNOPSYS INC has an Investment Rating of BUY; a target price of $523.000000...",
+          "url": "https://finance.yahoo.com/research/reports/4260_Quantitative%20Report_1782259200000"
+        },
+        {
+          "title_zh": "SNPS 定量報告：BUY 評等、目標價 $508（17 天前）",
+          "title_en": "SYNOPSYS INC has an Investment Rating of BUY; a target price of $508.000000...",
+          "url": "https://finance.yahoo.com/research/reports/4260_Quantitative%20Report_1781654400000"
+        }
+      ]
+    },
+    "SPXC": {
+      "recommendation": "SPXC 是數據中心環境控制系統龍頭，液冷 CD 系列滲透率提升，2025-2027 營收 CAGR 預計 18%。Argus 連續調升與下修目標價於 $220-$258 區間震盪，反映 AI 散熱需求長期成長邏輯。被錯殺創造買點，建議追蹤液冷出貨比重與資料中心建置進度。",
+      "news": [
+        {
+          "title_zh": "SPXC 定量報告：下調目標價至 $255.00（5 天前）",
+          "title_en": "Lowering target price to $255.00",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_4266_QuantitativeReport_1781049600000"
+        },
+        {
+          "title_zh": "SPXC 定量報告：上調目標價至 $258.00（12 天前）",
+          "title_en": "Raising target price to $258.00",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_4266_QuantitativeReport_1780444800000"
+        },
+        {
+          "title_zh": "SPXC 定量報告：上調目標價至 $246.00（19 天前）",
+          "title_en": "Raising target price to $246.00",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_4266_QuantitativeReport_1779840000000"
+        }
+      ]
+    },
+    "VRT": {
+      "recommendation": "VRT 是全球數據中心溫控與電力管理龍頭，液冷解決方案市場份額第一，2025-2027 訂單 CAGR 30%+，AI 散熱液冷滲透率提升邏輯不變。Argus 連續三週定量報告給予 BUY 評等，目標價從 $344 持續提升至 $398，創歷史新高。審計問題影響已反映，估值合理，是核心配置標的。",
+      "news": [
+        {
+          "title_zh": "VRT 定量報告：BUY 評等、目標價 $398（3 天前）",
+          "title_en": "Vertiv Holdings Co has an Investment Rating of BUY; a target price of $398.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6781_Quantitative%20Report_1782864000000"
+        },
+        {
+          "title_zh": "VRT 定量報告：BUY 評等、目標價 $378（10 天前）",
+          "title_en": "Vertiv Holdings Co has an Investment Rating of BUY; a target price of $378.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6781_Quantitative%20Report_1782259200000"
+        },
+        {
+          "title_zh": "VRT 定量報告：BUY 評等、目標價 $356（17 天前）",
+          "title_en": "Vertiv Holdings Co has an Investment Rating of BUY; a target price of $356.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6781_Quantitative%20Report_1781654400000"
+        }
+      ]
+    },
+    "WDAY": {
+      "recommendation": "WDAY 是人力資本管理雲端平台龍頭，Workday AI Assistant 提升 HR 效率，AI 功能全面嵌入 HCM 與財務雲，企業願意付費升級。Argus 連續三週定量報告給予 BUY 評等，目標價 $127-$155 區間，反映 ARR 持續成長。大企業黏性高、現金流穩健，AI 功能拉動付費率提升動能強勁。",
+      "news": [
+        {
+          "title_zh": "WDAY 定量報告：BUY 評等、目標價 $135（3 天前）",
+          "title_en": "Workday Inc has an Investment Rating of BUY; a target price of $135.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6383_Quantitative%20Report_1782864000000"
+        },
+        {
+          "title_zh": "WDAY 定量報告：BUY 評等、目標價 $127（10 天前）",
+          "title_en": "Workday Inc has an Investment Rating of BUY; a target price of $127.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6383_Quantitative%20Report_1782259200000"
+        },
+        {
+          "title_zh": "WDAY 定量報告：BUY 評等、目標價 $140（17 天前）",
+          "title_en": "Workday Inc has an Investment Rating of BUY; a target price of $140.000000...",
+          "url": "https://finance.yahoo.com/research/reports/6383_Quantitative%20Report_1781654400000"
+        }
+      ]
+    },
+    "WDC": {
+      "recommendation": "WDC 是全球企業級存儲雙雄之一，AI 訓練資料湖帶動大容量 HDD 與 SSD 需求，合併後成本協同效應顯現。Argus 個股分析報告確認其 DRAM 與 HDD 製造定位，搭配技術分析與市場摘要看好 NAND 報價觸底訊號。目前大跌創造價值窪地，是長線佈局良機。",
+      "news": [
+        {
+          "title_zh": "Argus 分析師報告：Western Digital 生產 DRAM 與 HDD 產品",
+          "title_en": "Western Digital produces dynamic random access memory-based HDDs.",
+          "url": "https://finance.yahoo.com/research/reports/3516_Analyst%20Report_1777893329000"
+        },
+        {
+          "title_zh": "技術分析：基本面與技術面訊號整合的投資觀點",
+          "title_en": "Argus Research has a long history as a leading fundamental research provider, but our analysts and strategists -- as well as our clients -- also value the investment signals generated from a technical perspective.",
+          "url": "https://finance.yahoo.com/research/reports/47390_Technical%20Analysis_1782125726000"
+        },
+        {
+          "title_zh": "市場摘要：約 1,500 家上市公司將公布上季財報",
+          "title_en": "The flood of earnings reports continues this week, with about 1,500 public companies reporting results for their last quarter.",
+          "url": "https://finance.yahoo.com/research/reports/46912_Market%20Summary_1777893329000"
+        }
+      ]
+    },
+    "ZS": {
+      "recommendation": "ZS 是零信任資安 ZTNA 龍頭，管理超過 300B 筆每日交易數據，AI 訓練獨家資料金礦，Q3 FY26 財測超預期。雖然 Yahoo Finance 上次分析師報告已超過一年（多為 Vickers 內部人追蹤），但訂閱制現金流穩健與平台 AI 威脅偵測新功能持續推進。建議追蹤最新季報與 AI 資安新功能推出進度，目前估值合理。",
+      "news": [
+        {
+          "title_zh": "Vickers 內部人買賣龍虎榜（一年前）",
+          "title_en": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions...",
+          "url": "https://finance.yahoo.com/research/reports/43004_Top/Bottom%20Insider%20Activity_1742554496000"
+        },
+        {
+          "title_zh": "Vickers 內部人買賣龍虎榜（兩年前）",
+          "title_en": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions...",
+          "url": "https://finance.yahoo.com/research/reports/39467_Top/Bottom%20Insider%20Activity_1711017455000"
+        },
+        {
+          "title_zh": "Vickers 內部人買賣龍虎榜（兩年前較早）",
+          "title_en": "The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions...",
+          "url": "https://finance.yahoo.com/research/reports/37719_Top/Bottom%20Insider%20Activity_1695205433000"
+        }
+      ]
+    }
+  }
+}
