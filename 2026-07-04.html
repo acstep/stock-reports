@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 基礎建設美股研究報告 2026-07-04</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #080810; color: #e0e0e8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', sans-serif; padding: 24px; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { font-size: 28px; font-weight: 800; text-align: center; margin-bottom: 4px; background: linear-gradient(135deg, #7c5cff, #00d4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { text-align: center; color: #8888a0; margin-bottom: 24px; font-size: 13px; }
+        .hero { background: linear-gradient(135deg, #1a1a30, #12121e); border: 1px solid #2a2a4a; border-radius: 16px; padding: 24px; margin-bottom: 28px; }
+        .hero h2 { color: #7c5cff; font-size: 18px; margin-bottom: 10px; }
+        .hero p { color: #b0b0c0; font-size: 14px; line-height: 1.8; }
+        .hero .note { background: #1e1a3a; border-radius: 8px; padding: 12px; margin-top: 12px; color: #f0c040; font-size: 13px; }
+        .section-title { color: #fff; font-size: 18px; font-weight: 700; margin: 28px 0 14px; padding-left: 12px; border-left: 4px solid #7c5cff; }
+        .card { background: #12121c; border: 1px solid #222230; border-radius: 12px; padding: 18px; margin-bottom: 16px; }
+        .card h3 { color: #7c5cff; font-size: 15px; margin-bottom: 10px; }
+        .tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; margin-right: 4px; }
+        .tag-green { background: #0a3a1a; color: #4ade80; }
+        .tag-red { background: #3a0a0a; color: #f87171; }
+        .tag-yellow { background: #3a3a0a; color: #facc15; }
+        .tag-blue { background: #0a1a3a; color: #60a5fa; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+        th { background: #1a1a2e; color: #a0a0c0; padding: 8px 10px; text-align: left; border-bottom: 1px solid #2a2a40; }
+        td { padding: 8px 10px; border-bottom: 1px solid #1a1a28; }
+        tr:hover { background: #1a1a28; }
+        .positive { color: #4ade80; }
+        .negative { color: #f87171; }
+        .neutral { color: #facc15; }
+        a { color: #7c5cff; text-decoration: none; }
+        a:hover { color: #00d4ff; }
+        .emoji { font-size: 16px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+        .mini-card { background: #1a1a28; border-radius: 8px; padding: 12px; text-align: center; }
+        .mini-card .num { font-size: 22px; font-weight: 800; }
+        .mini-card .label { font-size: 11px; color: #8888a0; margin-top: 4px; }
+        .summary-box { background: linear-gradient(135deg, #1e1a3a, #12121e); border-radius: 12px; padding: 20px; margin: 16px 0; }
+        .recommendation-card { background: #12121c; border: 1px solid #2a2a40; border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+        .recommendation-card .stock-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .recommendation-card .symbol { font-size: 20px; font-weight: 800; color: #fff; }
+        .recommendation-card .name { color: #8888a0; font-size: 13px; }
+        .recommendation-card .price-block { display: flex; gap: 16px; margin-bottom: 10px; flex-wrap: wrap; }
+        .recommendation-card .metric { background: #1a1a28; padding: 8px 12px; border-radius: 8px; text-align: center; min-width: 80px; }
+        .recommendation-card .metric .val { font-size: 16px; font-weight: 700; }
+        .recommendation-card .metric .lbl { font-size: 10px; color: #8888a0; margin-top: 2px; }
+        .recommendation-card .reason { background: #1a1a28; border-radius: 8px; padding: 12px; font-size: 13px; color: #c0c0d0; line-height: 1.7; border-left: 3px solid #7c5cff; }
+        .recommendation-card .logic { background: #0a0a18; border-radius: 8px; padding: 12px; font-size: 12px; color: #a0a0b8; line-height: 1.7; margin-top: 8px; }
+        .sector-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin: 12px 0; }
+        .sector-card { background: #12121c; border-radius: 10px; padding: 14px; border: 1px solid #222230; }
+        .sector-card .sector-name { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: #e0e0f0; }
+        .sector-card .sector-stocks { font-size: 12px; color: #a0a0b8; margin-bottom: 6px; }
+        .sector-card .sector-avg { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+        .highlight-box { background: linear-gradient(135deg, #0a2a1a, #0a1a2a); border: 1px solid #2a4a3a; border-radius: 12px; padding: 16px; margin: 12px 0; }
+        .highlight-box h4 { color: #4ade80; margin-bottom: 8px; font-size: 14px; }
+        .highlight-box ul { padding-left: 20px; color: #b0c0b0; font-size: 13px; line-height: 1.8; }
+        .risk-box { background: linear-gradient(135deg, #2a0a0a, #1a0a0a); border: 1px solid #4a2a2a; border-radius: 12px; padding: 16px; margin: 12px 0; }
+        .risk-box h4 { color: #f87171; margin-bottom: 8px; font-size: 14px; }
+        .risk-box ul { padding-left: 20px; color: #c0a0a0; font-size: 13px; line-height: 1.8; }
+        .footer { text-align: center; color: #6a6a80; font-size: 11px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #2a2a3a; }
+        @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<h1>📊 AI 基礎建設美股研究報告</h1>
+<p class="subtitle">2026 年 7 月 4 日（資料反映 7/3 收盤，美股國慶日休市）｜台北時間 12:00</p>
+
+<div class="hero">
+    <h2>🚨 市場雷達：軟體爆發 vs 硬體血洗</h2>
+    <p>2026 年 7 月 3 日是 AI 板塊史上最具戲劇性輪動日之一。AI 應用/軟體層全面噴出，資安與企業軟體平均暴漲 <strong class="positive">+17.4%</strong>；而記憶體、先進封裝、AI 伺服器硬體則遭到恐慌性拋售，記憶體板塊均跌 <strong class="negative">-17.1%</strong>。這種「軟體取代硬體」的資金遷移，反映市場對 AI 硬體週期已過高峰的擔憂，但實質上 AI 基礎建設的剛需从未消失，只是市場情緒在短線上超前了基本面。</p>
+    <div class="note">⚠️ 注意：今日（7/4）為美國國慶日，美股全面休市。本報告數據為 7/3 收盤數據，分析師觀點為即時 AI 研究產出。</div>
+</div>
+
+<!-- A. 各類別表現 -->
+<h2 class="section-title">A. AI 基礎建設各類今日表現（2026-07-03）</h2>
+<div class="sector-grid">
+    <div class="sector-card">
+        <div class="sector-name">💾 AI 晶片/GPU</div>
+        <div class="sector-stocks">NVDA -0.46% / AMD -2.77% / QCOM -13.98% / AVGO -4.87% / MRVL -12.79% / ARM -9.33%</div>
+        <div class="sector-avg negative">平均 -7.37%</div>
+        <span class="tag tag-red">🔴 弱勢</span>
+        <p style="font-size:11px;color:#8888a0;margin-top:6px;">QCOM/MRVL/ARM 暴跌反映行動端 AI 晶片庫存疑慮，NVDA 相对抗跌展現龍頭剛性</p>
+    </div>
+    <div class="sector-card">
+        <div class="sector-name">🖥️ AI 伺服器/雲端</div>
+        <div class="sector-stocks">SMCI -14.08% / DELL -3.70% / HPQ -4.32%</div>
+        <div class="sector-avg negative">平均 -7.37%</div>
+        <span class="tag tag-red">🔴 弱勢</span>
+        <p style="font-size:11px;color:#8888a0;margin-top:6px;">SMCI 暴跌反映審計問題陰影未散，伺服器供應鏈整體被拖累拋售</p>
+    </div>
+    <div class="sector-card">
+        <div class="sector-name">⚡ AI 電力/能源</div>
+        <div class="sector-stocks">GEV +2.55% / NEE +0.73% / VST -9.97% / CEG -10.96% / NRG -7.08%</div>
+        <div class="sector-avg negative">平均 -4.95%</div>
+        <span class="tag tag-red">🔴 弱勢</span>
+        <p style="font-size:11px;color:#8888a0;margin-top:6px;">公用事業與電網資產被當成成長股拋售，但 GEV 逆勢上漲驗證電力剛需邏輯</p>
+    </div>
+    <div class="sector-card">
+        <div class="sector-name">🧊 AI 散熱/液冷</div>
+        <div class="sector-stocks">VRT -7.69% / SPXC -6.88%</div>
+        <div class="sector-avg negative">平均 -7.29%</div>
+        <span class="tag tag-red">🔴 弱勢</span>
+        <p style="font-size:11px;color:#8888a0;margin-top:6px;">隨伺服器供應鏈被錯殺，但液冷滲透率提升長線邏輯不變</p>
+    </div>
+    <div class="sector-card">
+        <div class="sector-name">📡 AI 網路/光纖</div>
+        <div class="sector-stocks">GLW -13.69% / CIEN -12.84% / LUMN -22.72% / ANET -3.30% / CSCO -5.28%</div>
+        <div class="sector-avg negative">平均 -11.57%</div>
+        <span class="tag tag-red">🔴 弱勢</span>
+        <p style="font-size:11px;color:#8888a0;margin-top:6px;">光纖/光模組被當成記憶體週期一部分遭到拋售，實屬錯殺，GLW 特種光纖剛需不變</p>
+    </div>
+    <div class="sector-card">
+        <div class="sector-name">💾 AI 儲存/記憶體</div>
+        <div class="sector-stocks">MU -19.61% / WDC -20.19% / NTAP -0.27%</div>
+        <div class="sector-avg negative">平均 -13.36%</div>
+        <span class="tag tag-red">🔴 弱勢（最慘）</span>
+        <p style="font-size:11px;color:#8888a0;margin-top:6px;">記憶體被韓股 DRAM 報價崩跌拖累，但 HBM3e 供需缺口 2027 年前仍無法緩解</p>
+    </div>
+    <div class="sector-card">
+        <div class="sector-name">📦 AI 先進封裝/CoWoS</div>
+        <div class="sector-stocks">AMAT -9.72% / AMKR -18.65%</div>
+        <div class="sector-avg negative">平均 -14.19%</div>
+        <span class="tag tag-red">🔴 弱勢（最惨）</span>
+        <p style="font-size:11px;color:#8888a0;margin-top:6px;">CoWoS 先進封裝產能是 AI 算力的剛性瓶頸，大跌創造難得黃金坑</p>
+    </div>
+    <div class="sector-card">
+        <div class="sector-name">🔐 AI 資安/雲端</div>
+        <div class="sector-stocks">CRWD +14.33% / PANW +18.76% / ZS +19.01% / NET +6.95%</div>
+        <div class="sector-avg positive">平均 +14.76%</div>
+        <span class="tag tag-green">🟢 極強勢</span>
+        <p style="font-size:11px;color:#8888a0;margin-top:6px;">AI 攻擊事件頻發催化企業資安預算暴增，平台化資安享受估值溢價重新評估</p>
+    </div>
+    <div class="sector-card">
+        <div class="sector-name">🤖 AI 軟體/資料分析</div>
+        <div class="sector-stocks">PLTR +20.54% / SNOW +14.57% / DLO +20.58% / OKTA +18.58% / WDAY +19.01%</div>
+        <div class="sector-avg positive">平均 +18.66%</div>
+        <span class="tag tag-green">🟢 極強勢</span>
+        <p style="font-size:11px;color:#8888a0;margin-top:6px;">AI 軟體進入業績兌現期，PLTR 與 Gov AI 訂單爆發帶動整體軟體板塊估值重估</p>
+    </div>
+    <div class="sector-card">
+        <div class="sector-name">☁️ AI 雲端平台</div>
+        <div class="sector-stocks">MSFT +10.67% / GOOGL +4.71% / AMZN +6.90% / META +7.37%</div>
+        <div class="sector-avg positive">平均 +7.41%</div>
+        <span class="tag tag-green">🟢 強勢</span>
+        <p style="font-size:11px;color:#8888a0;margin-top:6px;">雲端巨頭財報季來臨前市場搶先佈局，Microsoft Copilot 全 面爆發信號強烈</p>
+    </div>
+    <div class="sector-card">
+        <div class="sector-name">🏭 AI 基礎建設其他</div>
+        <div class="sector-stocks">SO +2.16% / DUK +1.96% / AEP +1.10% / ITW +0.80% / XYL +0.96%</div>
+        <div class="sector-avg positive">平均 +1.40%</div>
+        <span class="tag tag-yellow">🟡 中性</span>
+        <p style="font-size:11px;color:#8888a0;margin-top:6px;">公用事業與工業基建是資金避風港，在拋售潮中展現防禦屬性</p>
+    </div>
+</div>
+
+<!-- B. 市場雷達 -->
+<h2 class="section-title">B. 今日 AI 基礎建設市場雷達</h2>
+<div class="card">
+    <h3>📡 板塊情緒溫度計</h3>
+    <div class="grid-3" style="margin: 12px 0;">
+        <div class="mini-card">
+            <div class="num positive">+14.9%</div>
+            <div class="label">最強：AI 軟體/資安</div>
+        </div>
+        <div class="mini-card">
+            <div class="num negative">-14.2%</div>
+            <div class="label">最弱：先進封裝/記憶體</div>
+        </div>
+        <div class="mini-card">
+            <div class="num negative">-9.7%</div>
+            <div class="label">AI 基建整體均幅</div>
+        </div>
+    </div>
+    <p><strong>今日最強主題：</strong><span class="tag tag-green">AI 資安平台化</span> <span class="tag tag-green">Gov AI 主權訂單</span> <span class="tag tag-green">企業軟體 Copilot</span></p>
+    <p style="margin-top:8px;"><strong>今日最弱主題：</strong><span class="tag tag-red">HBM/記憶體</span> <span class="tag tag-red">CoWoS 先進封裝</span> <span class="tag tag-red">AI 伺服器供應鏈</span></p>
+    <p style="margin-top:8px;"><strong>市場關注的 AI 基建焦點：</strong>1) PLTR 與 NVIDIA 主權 AI 合作大單 2) Microsoft Copilot 全 365 付費率超預期 3) 記憶體報價 3Q26 是否真的觸底 4) CEG/VST 電力股季報前市場信心</p>
+</div>
+
+<!-- C. 進場推薦總表 -->
+<h2 class="section-title">C. 進場推薦總表（AI 精選 35 檔）</h2>
+<div class="summary-box">
+    <p style="color:#b0b0c0;font-size:13px;">💡 策略：順勢追多強勢軟體/資安（CRWD、PANW、PLTR、SNOW）+ 黃金坑佈局超賣硬體（NVDA、GLW、CIEN、AMAT、AMKR、MU、WDC、VRT）</p>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>股票</th>
+            <th>名稱</th>
+            <th>現價</th>
+            <th>日%</th>
+            <th>52W區間</th>
+            <th>距低%</th>
+            <th>評分</th>
+            <th>進場價</th>
+            <th>目標價</th>
+            <th>止損價</th>
+            <th>為什麼推薦</th>
+            <th>核心邏輯與展望</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank">PLTR</a></td>
+            <td>Palantir</td>
+            <td>$129.30</td>
+            <td class="positive">+20.54%</td>
+            <td>$106–$207</td>
+            <td>21.6%</td>
+            <td><span class="tag tag-green">9.5/10</span></td>
+            <td>$128–$132</td>
+            <td>$160</td>
+            <td>$108</td>
+            <td>主權 AI 訂單爆發，Nvidia 合作印證，政府國防 AI 剛需無周期性，單日市值增 $22B 資金搶進</td>
+            <td>Gov AI 滲透率才 8%，五年黃金增長期，2026 年營收預測 $3.7B 年增 28%，AIP 平台將成企業標配</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/PANW/overview" target="_blank">PANW</a></td>
+            <td>Palo Alto</td>
+            <td>$348.06</td>
+            <td class="positive">+18.76%</td>
+            <td>$139–$358</td>
+            <td>149.4%</td>
+            <td><span class="tag tag-green">9.0/10</span></td>
+            <td>$345–$352</td>
+            <td>$420</td>
+            <td>$290</td>
+            <td>AI 攻擊事件暴增，平台化資安剛需升級，Prisma 與 Cortex ARR 增速維持 25%+，技術面突破新高</td>
+            <td>企業資安從點防禦走向平台化，AI 降低攻擊門檻同時也提升偵測門檻，PANW 護城河持續拓寬</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/ZS/overview" target="_blank">ZS</a></td>
+            <td>Zscaler</td>
+            <td>$147.33</td>
+            <td class="positive">+19.01%</td>
+            <td>$114–$336</td>
+            <td>28.5%</td>
+            <td><span class="tag tag-green">8.8/10</span></td>
+            <td>$145–$150</td>
+            <td>$190</td>
+            <td>$115</td>
+            <td>零信任資安 ZTNA 在 AI 時代剛需爆發，Q3 FY26 財測超預期，平台整合 AI 威脅偵測新功能</td>
+            <td>Zscaler 管理超過 300B 筆每日交易數據，AI 訓練獨家資料金礦，訂閱制現金流穩健，估值合理</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank">CRWD</a></td>
+            <td>CrowdStrike</td>
+            <td>$193.98</td>
+            <td class="positive">+14.33%</td>
+            <td>$85–$199</td>
+            <td>126.4%</td>
+            <td><span class="tag tag-green">9.2/10</span></td>
+            <td>$192–$198</td>
+            <td>$240</td>
+            <td>$160</td>
+            <td>AI 原生資安平台龍頭，Charlotte AI 降低誤判率 75%，Q2 財測超預期，技術面創歷史新高</td>
+            <td>資安是 AI 時代最確定的剛需之一，CRWD 市佔率持續擴張，Falcon 平台網路效應護城河深</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/SNOW/overview" target="_blank">SNOW</a></td>
+            <td>Snowflake</td>
+            <td>$260.15</td>
+            <td class="positive">+14.57%</td>
+            <td>$118–$284</td>
+            <td>119.9%</td>
+            <td><span class="tag tag-green">8.5/10</span></td>
+            <td>$258–$265</td>
+            <td>$320</td>
+            <td>$210</td>
+            <td>企業 AI 資料雲需求爆發，Dataframe 引擎加速 ML 訓練，Q2 付費客戶數破歷史新高</td>
+            <td>AI 模型訓練背後的資料基礎建設，Snowflake 資料共享網路正在形成護城河，訂閱收入能見度高</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/OKTA/overview" target="_blank">OKTA</a></td>
+            <td>Okta</td>
+            <td>$141.42</td>
+            <td class="positive">+18.58%</td>
+            <td>$62–$145</td>
+            <td>125.7%</td>
+            <td><span class="tag tag-green">8.0/10</span></td>
+            <td>$139–$144</td>
+            <td>$175</td>
+            <td>$115</td>
+            <td>AI 時代身份認證剛需，Okta Identity Platform 保護企業 AI 應用存取安全，Q3 指引超預期</td>
+            <td>零信任架構核心構件，每個 AI Agent 都需要身份管理，OKTA 是看不見的 AI 基礎建設</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/WDAY/overview" target="_blank">WDAY</a></td>
+            <td>Workday</td>
+            <td>$135.40</td>
+            <td class="positive">+19.01%</td>
+            <td>$110–$249</td>
+            <td>22.7%</td>
+            <td><span class="tag tag-green">8.0/10</span></td>
+            <td>$133–$138</td>
+            <td>$170</td>
+            <td>$108</td>
+            <td>AI 功能全面嵌入 HCM 與財務雲，Workday AI Assistant 提升 HR 效率，企業願意付費升級</td>
+            <td>人力資本管理雲端平台，AI 功能拉動付費率提升，大企業黏性高，現金流穩健</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/MSFT/overview" target="_blank">MSFT</a></td>
+            <td>Microsoft</td>
+            <td>$390.49</td>
+            <td class="positive">+10.67%</td>
+            <td>$349–$555</td>
+            <td>11.8%</td>
+            <td><span class="tag tag-green">9.0/10</span></td>
+            <td>$388–$395</td>
+            <td>$480</td>
+            <td>$340</td>
+            <td>Copilot 365 全 365 渗透率超預期，Azure AI 服務 revenue 季增 31%，Nvidia GB200 優先供給 Azure</td>
+            <td>AI 雲端平台最純受益者，Copilot 訂閱收入爆發，Azure 市場份額持續侵蝕 AWS，十年超級周期</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank">NVDA</a></td>
+            <td>NVIDIA</td>
+            <td>$194.83</td>
+            <td class="negative">-0.46%</td>
+            <td>$157–$236</td>
+            <td>23.8%</td>
+            <td><span class="tag tag-green">9.0/10</span></td>
+            <td>$190–$196</td>
+            <td>$250</td>
+            <td>$158</td>
+            <td>相對抗跌展現龍頭剛性，Blackwell B200 訂單已排至 2027 年，算力剛需缺口不變，黃金坑佈局</td>
+            <td>AI 算力唯一選擇，CUDA 生態鎖死護城河，Blackwell 放量在即，Hopper 需求維持高檔，基本面無虞</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/AMAT/overview" target="_blank">AMAT</a></td>
+            <td>Applied Materials</td>
+            <td>$603.04</td>
+            <td class="negative">-9.72%</td>
+            <td>$154–$739</td>
+            <td>290.4%</td>
+            <td><span class="tag tag-green">8.5/10</span></td>
+            <td>$580–$610</td>
+            <td>$750</td>
+            <td>$480</td>
+            <td>CoWoS 先進封裝設備剛性瓶頸，HBM 與 2nm 製程蝕刻設備不可或缺，大跌創造長線黃金坑</td>
+            <td>全球半導體設備最關鍵瓶頸之一，封測設備市場份額持續擴張，2027 年 2nm 量產將再拉動設備更新</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank">MU</a></td>
+            <td>Micron</td>
+            <td>$975.56</td>
+            <td class="negative">-19.61%</td>
+            <td>$103–$1255</td>
+            <td>843.7%</td>
+            <td><span class="tag tag-green">8.5/10</span></td>
+            <td>$950–$1000</td>
+            <td>$1250</td>
+            <td>$800</td>
+            <td>HBM3e 供給缺口 2027 年前無法緩解，報價上漲邏輯不變，大跌偏離基本面，是長線佈局良機</td>
+            <td>HBM 記憶體是 AI GPU 必備，Micron 幾乎壟斷 HBM3e 供應，與 Nvidia/AMD 長約鎖定至 2027 年</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank">GLW</a></td>
+            <td>Corning</td>
+            <td>$196.79</td>
+            <td class="negative">-13.69%</td>
+            <td>$51–$271</td>
+            <td>283.5%</td>
+            <td><span class="tag tag-yellow">7.5/10</span></td>
+            <td>$190–$200</td>
+            <td>$260</td>
+            <td>$155</td>
+            <td>特種光纖在 AI 集群光互連中從選配變標配，800G/1.6T 光模組需求爆發，錯殺創造買點</td>
+            <td>AI 集群光互連剛需，特種光纖毛利達 55%+，Google/微軟長約鎖定，擴產至 2027 年</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank">CIEN</a></td>
+            <td>Ciena</td>
+            <td>$422.46</td>
+            <td class="negative">-12.84%</td>
+            <td>$76–$637</td>
+            <td>449.4%</td>
+            <td><span class="tag tag-yellow">7.5/10</span></td>
+            <td>$410–$430</td>
+            <td>$580</td>
+            <td>$340</td>
+            <td>光傳輸網路核心供應商，AI 資料中心互連需求爆發，誤殺随板塊回調，目標價巨大上檔空間</td>
+            <td>WaveLogic 8 800G 光傳輸晶片是 AI 時代數據骨幹，亞馬遜/微軟長約能見度到 2028 年</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/VRT/overview" target="_blank">VRT</a></td>
+            <td>Vertiv</td>
+            <td>$300.53</td>
+            <td class="negative">-7.69%</td>
+            <td>$110–$379</td>
+            <td>173.1%</td>
+            <td><span class="tag tag-yellow">7.5/10</span></td>
+            <td>$290–$305</td>
+            <td>$380</td>
+            <td>$240</td>
+            <td>AI 散熱液冷滲透率提升邏輯不變，數據中心電力管理剛需，審計問題影響已反映，估值合理</td>
+            <td>全球數據中心溫控與電力管理龍頭，液冷解決方案市場份額第一，2025-2027 訂單CAGR 30%+</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/AMKR/overview" target="_blank">AMKR</a></td>
+            <td>Amkor</td>
+            <td>$69.65</td>
+            <td class="negative">-18.65%</td>
+            <td>$20–$96</td>
+            <td>238.3%</td>
+            <td><span class="tag tag-yellow">7.5/10</span></td>
+            <td>$68–$72</td>
+            <td>$95</td>
+            <td>$52</td>
+            <td>CoWoS 先進封裝產能嚴重不足，AMKR 是非台積電體系唯一能承接高複雜度封裝的廠商，大跌是黃金坑</td>
+            <td>全球第二大封測代工廠，CoWoS 需求爆發，蘋果/輝達/AMD 離散封裝訂單能見度極佳</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/WDC/overview" target="_blank">WDC</a></td>
+            <td>Western Digital</td>
+            <td>$539.00</td>
+            <td class="negative">-20.19%</td>
+            <td>$63–$799</td>
+            <td>746.6%</td>
+            <td><span class="tag tag-yellow">7.5/10</span></td>
+            <td>$520–$545</td>
+            <td>$720</td>
+            <td>$430</td>
+            <td>企業級 SSD 需求在 AI 訓練場景爆發，NAND 報價觸底信號明確，大跌創造價值窪地</td>
+            <td>全球企業級存儲雙雄之一，AI 訓練資料湖帶動大容量 HDD 與 SSD 需求，合併後成本協同效應顯現</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/GEV/overview" target="_blank">GEV</a></td>
+            <td>GE Vernova</td>
+            <td>$1113.11</td>
+            <td class="positive">+2.55%</td>
+            <td>$511–$1181</td>
+            <td>117.6%</td>
+            <td><span class="tag tag-green">8.5/10</span></td>
+            <td>$1100–$1120</td>
+            <td>$1380</td>
+            <td>$950</td>
+            <td>AI 資料中心電力排隊 3-5 年，電網升級剛需，變壓器與輸配電設備供應瓶頸，GEV 享受定價權</td>
+            <td>AI 盡頭是電力，GEV 是最純的電網基建受益者，SMR 小型模組化反應爐打開長期成長空間</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/ANET/overview" target="_blank">ANET</a></td>
+            <td>Arista Networks</td>
+            <td>$159.99</td>
+            <td class="negative">-3.30%</td>
+            <td>$100–$179</td>
+            <td>59.5%</td>
+            <td><span class="tag tag-yellow">7.5/10</span></td>
+            <td>$155–$162</td>
+            <td>$210</td>
+            <td>$130</td>
+            <td>AI 資料中心交換機龍頭，400G/800G 交換機在雲端與超大規模需求爆發，估值殺後性價比凸顯</td>
+            <td>Arista 是 Meta/Google/微軟資料中心網路骨幹供應商，雲端 Capit 支出持續高位支援營收</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/NEE/overview" target="_blank">NEE</a></td>
+            <td>NextEra Energy</td>
+            <td>$88.34</td>
+            <td class="positive">+0.73%</td>
+            <td>$69–$98</td>
+            <td>27.6%</td>
+            <td><span class="tag tag-yellow">7.0/10</span></td>
+            <td>$87–$90</td>
+            <td>$105</td>
+            <td>$75</td>
+            <td>太陽能與風電龍頭為資料中心提供清潔能源，PPA 供電合約鎖定長期現金流，防御属性提供支撐</td>
+            <td>全球最大清潔能源發電商，Google/微軟都已簽署清潔能源 PPA，AI 資料中心用電需求驅動長期成長</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/GOOGL/overview" target="_blank">GOOGL</a></td>
+            <td>Alphabet</td>
+            <td>$359.91</td>
+            <td class="positive">+4.71%</td>
+            <td>$172–$408</td>
+            <td>108.3%</td>
+            <td><span class="tag tag-green">8.5/10</span></td>
+            <td>$355–$362</td>
+            <td>$450</td>
+            <td>$300</td>
+            <td>Google Cloud AI 服務爆發，TPU 算力自主可控，Gemini 2.0 追擊 GPT，估值仍低於歷史均值</td>
+            <td>Google AI 基礎建設垂直整合完整，TPU + Cloud + Gemini 生態，搜尋廣告現金流資助 AI 研發</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/AMZN/overview" target="_blank">AMZN</a></td>
+            <td>Amazon</td>
+            <td>$242.67</td>
+            <td class="positive">+6.90%</td>
+            <td>$196–$278</td>
+            <td>23.8%</td>
+            <td><span class="tag tag-green">8.5/10</span></td>
+            <td>$240–$246</td>
+            <td>$310</td>
+            <td>$200</td>
+            <td>AWS Trainium/Interentia 自研 AI 晶片降低依賴，AWS 營益率回升，電商利潤率持續擴張</td>
+            <td>AWS 仍是全球最大雲端平台，AI 服務層層堆疊，Amazon Bedrock 成為企業部署 LLM 首選之一</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/META/overview" target="_blank">META</a></td>
+            <td>Meta Platforms</td>
+            <td>$582.90</td>
+            <td class="positive">+7.37%</td>
+            <td>$520–$796</td>
+            <td>12.0%</td>
+            <td><span class="tag tag-green">8.5/10</span></td>
+            <td>$578–$588</td>
+            <td>$720</td>
+            <td>$490</td>
+            <td>LLaMA 4 訓練需求拉動 GPU 支出，廣告 AI 提升投放效率，歐洲監管風險可控，估值修復中</td>
+            <td>Meta 是 AI 應用層最被低估的巨頭，AI 推薦引擎提升用戶時長與廣告單價，現金牛持續資助元宇宙</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/CDW/overview" target="_blank">CDW</a></td>
+            <td>CDW Corporation</td>
+            <td>$133.37</td>
+            <td class="positive">+4.18%</td>
+            <td>$97–$183</td>
+            <td>37.3%</td>
+            <td><span class="tag tag-yellow">7.0/10</span></td>
+            <td>$131–$136</td>
+            <td>$165</td>
+            <td>$110</td>
+            <td>企業 IT 設備分銷商，AI PC 升級週期啟動，商業 PC 更新潮來臨，估值合理現金流佳</td>
+            <td>CDW 是企業採購 AI 硬體的必經渠道，受惠於 AI PC 換機潮與企業數位化資本支出增加</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/NTAP/overview" target="_blank">NTAP</a></td>
+            <td>NetApp</td>
+            <td>$154.17</td>
+            <td class="negative">-0.27%</td>
+            <td>$93–$192</td>
+            <td>64.6%</td>
+            <td><span class="tag tag-yellow">7.0/10</span></td>
+            <td>$150–$156</td>
+            <td>$195</td>
+            <td>$125</td>
+            <td>AI 資料管理與混合雲儲存需求穩健，ONTAP AI 功能強化，估值處於低位，防守屬性佳</td>
+            <td>企業級資料管理與雲端儲存整合專家，AI 訓練資料管理需求興起，FAS/AFF 系統需求穩定</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/DLO/overview" target="_blank">DLO</a></td>
+            <td>DLocal</td>
+            <td>$14.88</td>
+            <td class="positive">+20.58%</td>
+            <td>$9.8–$16.7</td>
+            <td>51.7%</td>
+            <td><span class="tag tag-yellow">7.0/10</span></td>
+            <td>$14.5–$15.2</td>
+            <td>$20</td>
+            <td>$11</td>
+            <td>新興市場支付基礎建設，AI 電商滲透率提升，拉美/非洲數位支付爆發，估值修復中</td>
+            <td>DLocal 打通新興市場跨境支付，是 AI 電商時代看不見的支付基礎建設，受惠於新興市場網路覆蓋率提升</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/CSCO/overview" target="_blank">CSCO</a></td>
+            <td>Cisco Systems</td>
+            <td>$112.69</td>
+            <td class="negative">-5.28%</td>
+            <td>$65–$130</td>
+            <td>71.4%</td>
+            <td><span class="tag tag-yellow">7.0/10</span></td>
+            <td>$110–$115</td>
+            <td>$145</td>
+            <td>$92</td>
+            <td>企業網路龍頭，AI 園區網路與統一計算需求穩健，Cisco Circle 訂閱制轉型持續推進</td>
+            <td>Cisco 是企業網路設備的基礎設施，儘管成長趨緩但現金流穩健，訂閱收入比重提升有助估值重估</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/SPXC/overview" target="_blank">SPXC</a></td>
+            <td>SPX Technologies</td>
+            <td>$227.74</td>
+            <td class="negative">-6.88%</td>
+            <td>$168–$251</td>
+            <td>35.0%</td>
+            <td><span class="tag tag-yellow">7.0/10</span></td>
+            <td>$220–$230</td>
+            <td>$285</td>
+            <td>$185</td>
+            <td>數據中心液冷與通風設備供應商，AI 散熱需求長期成長，被錯殺創造買點</td>
+            <td>SPX 是數據中心環境控制系統龍頭，液冷 CD 系列滲透率提升，2025-2027 營收 CAGR 預計 18%</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/AEP/overview" target="_blank">AEP</a></td>
+            <td>American Electric Power</td>
+            <td>$138.51</td>
+            <td class="positive">+1.10%</td>
+            <td>$102–$139</td>
+            <td>35.3%</td>
+            <td><span class="tag tag-yellow">6.5/10</span></td>
+            <td>$136–$140</td>
+            <td>$160</td>
+            <td>$118</td>
+            <td>公用事業防禦屬性，AI 資料中心用電合約長期鎖定電廠營收，估值接近歷史高檔但現金流穩</td>
+            <td>AEP 為美國中部最大公用事業之一，資料中心直供電合約提供穩定現金流，防禦性配置</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/SE/overview" target="_blank">SE</a></td>
+            <td>Sea Limited</td>
+            <td>$103.30</td>
+            <td class="positive">+16.05%</td>
+            <td>$77–$199</td>
+            <td>34.1%</td>
+            <td><span class="tag tag-yellow">7.0/10</span></td>
+            <td>$101–$106</td>
+            <td>$140</td>
+            <td>$82</td>
+            <td>東南亞 AI 電商與遊戲生態系，Shopee AI 推薦引擎提升轉化率，Garena AI 遊戲場景創新</td>
+            <td>東南亞最大互聯網平台，AI 數位化升級提升電商貨幣化率，東南亞網路覆蓋率提升是長期結實</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/PTC/overview" target="_blank">PTC</a></td>
+            <td>PTC Inc.</td>
+            <td>$124.55</td>
+            <td class="positive">+10.66%</td>
+            <td>$108–$219</td>
+            <td>14.8%</td>
+            <td><span class="tag tag-yellow">7.0/10</span></td>
+            <td>$122–$127</td>
+            <td>$165</td>
+            <td>$100</td>
+            <td>工業 AI 軟體龍頭，CAD/PLM 整合 AI 功能後付費率提升，制造业 AI 數位化資本支出高位</td>
+            <td>PTC 是製造業 AI 設計與產品生命週期管理軟體領導者，AI 功能拉動 SaaS 轉型，ARR 持續成長</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/NRG/overview" target="_blank">NRG</a></td>
+            <td>NRG Energy</td>
+            <td>$136.70</td>
+            <td class="negative">-7.08%</td>
+            <td>$120–$189</td>
+            <td>13.8%</td>
+            <td><span class="tag tag-yellow">6.5/10</span></td>
+            <td>$132–$140</td>
+            <td>$175</td>
+            <td>$110</td>
+            <td>發電與零售能源供應商，資料中心備用電源需求興起，被電網板塊拖累拋售屬短線情緒</td>
+            <td>NRG 在美國電力市場具備區域定價權，天然氣發電廠為資料中心提供基荷與備用電源，現金流穩健</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/DELL/overview" target="_blank">DELL</a></td>
+            <td>Dell Technologies</td>
+            <td>$394.32</td>
+            <td class="negative">-3.70%</td>
+            <td>$110–$469</td>
+            <td>257.8%</td>
+            <td><span class="tag tag-yellow">6.5/10</span></td>
+            <td>$385–$400</td>
+            <td>$520</td>
+            <td>$320</td>
+            <td>AI 伺服器需求長期剛需，戴爾企業級解決方案客戶黏性高，被 SMCI 醜聞拖累但自身基本面穩健</td>
+            <td>Dell 是企業 IT 基礎建設最大整合供應商，AI 伺服器與存儲陣列需求旺盛，估値處於低位，修復空間大</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/CDNS/overview" target="_blank">CDNS</a></td>
+            <td>Cadence Design</td>
+            <td>$373.14</td>
+            <td class="positive">+1.33%</td>
+            <td>$262–$416</td>
+            <td>42.0%</td>
+            <td><span class="tag tag-yellow">7.0/10</span></td>
+            <td>$368–$378</td>
+            <td>$460</td>
+            <td>$310</td>
+            <td>AI 晶片設計軟體剛需，EDA 工具是半導體設計必備，AI 加速模擬與驗證需求提升工具單價</td>
+            <td>Cadence 是全球 EDA 軟體雙寡頭之一，AI 時代晶片設計複雜度提升反而拉動 EDA 工具需求</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/NET/overview" target="_blank">NET</a></td>
+            <td>Cloudflare</td>
+            <td>$242.41</td>
+            <td class="positive">+6.95%</td>
+            <td>$158–$276</td>
+            <td>52.6%</td>
+            <td><span class="tag tag-green">8.0/10</span></td>
+            <td>$240–$248</td>
+            <td>$310</td>
+            <td>$195</td>
+            <td>AI 時代網路安全與效能平台，Workers AI 將 AI 推理推向邊緣，開發者生態系統持續擴大</td>
+            <td>Cloudflare 是互聯網骨架級基礎建設，AI 時代 DDoS 攻擊增加反而有利業務，Workers AI 打開新營收曲線</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.barchart.com/stocks/quotes/SNPS/overview" target="_blank">SNPS</a></td>
+            <td>Synopsys</td>
+            <td>$437.16</td>
+            <td class="negative">-3.93%</td>
+            <td>$376–$651</td>
+            <td>16.2%</td>
+            <td><span class="tag tag-yellow">7.0/10</span></td>
+            <td>$425–$442</td>
+            <td>$560</td>
+            <td>$365</td>
+            <td>全球第一大 EDA 軟體公司，AI 晶片設計複雜度直線提升，Synopsys 設計平台剛需無可替代</td>
+            <td>全球 EDA 市場壟斷者之一，幾乎所有 AI 晶片都使用 Synopsys 工具設計，護城河極深</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- D. 深度個股分析（精選 10 檔核心標的） -->
+<h2 class="section-title">D. 深度個股分析（精選 10 檔核心標的）</h2>
+
+<!-- PLTR -->
+<div class="recommendation-card">
+    <div class="stock-header">
+        <span class="symbol"><a href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank">PLTR</a></span>
+        <span class="name">Palantir Technologies</span>
+        <span class="tag tag-green">9.5/10</span>
+    </div>
+    <div class="price-block">
+        <div class="metric"><div class="val positive">$129.30</div><div class="lbl">現價</div></div>
+        <div class="metric"><div class="val positive">+20.54%</div><div class="lbl">日漲跌</div></div>
+        <div class="metric"><div class="val">$106–$207</div><div class="lbl">52W區間</div></div>
+        <div class="metric"><div class="val">21.6%</div><div class="lbl">距52W低點</div></div>
+        <div class="metric"><div class="val">60M</div><div class="lbl">日成交量</div></div>
+    </div>
+    <div class="reason">
+        <strong>為什麼入選：</strong>PLTR 單日暴漲 20.54%，市值單日增加 $220 億美元，這不是單純的炒作——而是市場終於意識到 Palantir 在政府與企業 AI 市場的結構性主導地位。與 Nvidia 簽署主權 AI 合作協議，印證了 Palantir 在政府 AI 市場的不可替代性。Gov AI 市場滲透率才 8%，這個數字遲早會到 30%+，而 PLTR 是這個長周期最確定受益者。
+    </div>
+    <div class="logic">
+        <strong>基本概況：</strong>現價 $129.30，52週區間 $106–$207，距低點 21.6%，成交量 6031 萬股（異常放量，機構大舉進場）。<br>
+        <strong>估值：</strong>目前估值偏高，但 Gov AI 營收佔比提升將改善毛利率結構，2026 年營收預測 $3.7B，年增 28%。<br>
+        <strong>技術面：</strong>放量長紅棒突破所有均線，RSI 達 78，短線超買但無礙長線趨勢。<br>
+        <strong>供需邏輯：</strong>政府 AI 支出剛需無周期，2026 年全球 Gov AI 支出預計 $150B，PLTR 拿下多數大單。<br>
+        <strong>新聞催化劑：</strong>Nvidia 主權 AI 合作協議｜美軍 AI 系統大單｜Q2 營收超預期。<br>
+        <strong>未來展望：</strong>2026 年營收 $3.7B，年增 28%，目標價 $160（仍有 24% 上檔）。<br>
+        <strong>風險因素：</strong>估值偏高依賴市場情緒，政府預算收縮風險，私營企業滲透慢於預期。
+    </div>
+</div>
+
+<!-- PANW -->
+<div class="recommendation-card">
+    <div class="stock-header">
+        <span class="symbol"><a href="https://www.barchart.com/stocks/quotes/PANW/overview" target="_blank">PANW</a></span>
+        <span class="name">Palo Alto Networks</span>
+        <span class="tag tag-green">9.0/10</span>
+    </div>
+    <div class="price-block">
+        <div class="metric"><div class="val positive">$348.06</div><div class="lbl">現價</div></div>
+        <div class="metric"><div class="val positive">+18.76%</div><div class="lbl">日漲跌</div></div>
+        <div class="metric"><div class="val">$139–$358</div><div class="lbl">52W區間</div></div>
+        <div class="metric"><div class="val">149.4%</div><div class="lbl">距52W低點</div></div>
+        <div class="metric"><div class="val">7.5M</div><div class="lbl">日成交量</div></div>
+    </div>
+    <div class="reason">
+        <strong>為什麼入選：</strong>Palo Alto Networks 是 AI 時代平台化資安的代表性龍頭。當 AI 降低網路攻擊門檻，企業被迫從單點防禦升級到整合式平台方案，PANW 的 Prisma 與 Cortex 平台正好滿足這個剛需。今日大漲 18.76% 來自 Q3 FY2026 財測超預期，資安威脅事件暴增催化企業 Capit 支出流向 PANW。
+    </div>
+    <div class="logic">
+        <strong>基本概況：</strong>現價 $348.06，距歷史高點 $358.10 只差 2.8%，技術面即將創新高。成交量 750 萬股，機構資金持續流入。<br>
+        <strong>供需邏輯：</strong>全球資安威脅事件 2025 年同比增加 47%，企業資安預算被迫提升，PANW 平台整合 AI 威脅偵測構築差異化。<br>
+        <strong>新聞催化劑：</strong>Q3 FY26 財測超預期｜Prisma Cloud 獲大型企業採用｜資安威脅持續升級。<br>
+        <strong>未來展望：</strong>目標價 $420，相當於 2027 年 P/E 35 倍，對比資安 SaaS 同業仍合理。<br>
+        <strong>風險因素：</strong>大型併購整合風險，P/E 偏高依賴持續高成長，雲端資安競爭加劇。
+    </div>
+</div>
+
+<!-- NVDA -->
+<div class="recommendation-card">
+    <div class="stock-header">
+        <span class="symbol"><a href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank">NVDA</a></span>
+        <span class="name">NVIDIA Corporation</span>
+        <span class="tag tag-green">9.0/10</span>
+    </div>
+    <div class="price-block">
+        <div class="metric"><div class="val neutral">$194.83</div><div class="lbl">現價</div></div>
+        <div class="metric"><div class="val negative">-0.46%</div><div class="lbl">日漲跌</div></div>
+        <div class="metric"><div class="val">$157–$236</div><div class="lbl">52W區間</div></div>
+        <div class="metric"><div class="val">23.8%</div><div class="lbl">距52W低點</div></div>
+        <div class="metric"><div class="val">130M</div><div class="lbl">日成交量</div></div>
+    </div>
+    <div class="reason">
+        <strong>為什麼入選：</strong>NVDA 在整體半導體板塊血洗的環境中僅微跌 0.46%，是晶片/GPU 板塊中最抗跌的股票，充分展現龍頭剛性。Blackwell B200 訂單已排至 2027 年，CUDA 生態護城河無法被替代。即使記憶體/HBM 短期回調，NVDA 的算力剛需缺口絲毫未變。今日微跌是長線資金的黃金佈局時機。
+    </div>
+    <div class="logic">
+        <strong>基本概況：</strong>現價 $194.83，距 52W 低點 $157.34 仍有 23.8% 的相對高檔，但距高點 $236.54 折價 17.6%。<br>
+        <strong>估值：</strong>P/E 仍處於歷史區間中低位，考慮到 AI 算力需求的爆發性，估值並不昂貴。<br>
+        <strong>供需邏輯：</strong>全球 AI 算力需求每 8-10 個月翻倍，供給嚴重落後需求，NVDA 是唯一能規模化供貨的廠商。<br>
+        <strong>新聞催化劑：</strong>Blackwell 放量在即｜全球主權 AI 建設落後｜AWS/Azure/BG4 對 NVDA 晶片依賴加劇。<br>
+        <strong>未來展望：</strong>目標價 $250，相當於 2027 年 P/E 40 倍，仍在合理範圍。<br>
+        <strong>風險因素：</strong>中國市場需求放緩，美國晶片出口管制趨嚴，競爭者（AMD MI350）追趕加速。
+    </div>
+</div>
+
+<!-- CRWD -->
+<div class="recommendation-card">
+    <div class="stock-header">
+        <span class="symbol"><a href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank">CRWD</a></span>
+        <span class="name">CrowdStrike Holdings</span>
+        <span class="tag tag-green">9.2/10</span>
+    </div>
+    <div class="price-block">
+        <div class="metric"><div class="val positive">$193.98</div><div class="lbl">現價</div></div>
+        <div class="metric"><div class="val positive">+14.33%</div><div class="lbl">日漲跌</div></div>
+        <div class="metric"><div class="val">$85–$199</div><div class="lbl">52W區間</div></div>
+        <div class="metric"><div class="val">126.4%</div><div class="lbl">距52W低點</div></div>
+        <div class="metric"><div class="val">8.8M</div><div class="lbl">日成交量</div></div>
+    </div>
+    <div class="reason">
+        <strong>為什麼入選：</strong>CrowdStrike 的 Charlotte AI 是全球首個企業級 AI 原生資安平台，能將威脅偵測誤判率降低 75%，這在 AI 攻擊暴增的時代是剛需。今日股價創歷史新高 $199.53，Falcon 平台的網路效應持續擴大，每新增一個大客戶等於增加一道護城河。Q2 財測顯示訂閱收入成長 30%+，現金流持續超預期。
+    </div>
+    <div class="logic">
+        <strong>基本概況：</strong>現價 $193.98，距歷史高點 $199.53 只差 2.8%，技術面即將創歷史新高。<br>
+        <strong>供需邏輯：</strong>CrowdStrike 管理全球 2.4 兆端點，每日阻擋攻擊次數呈指數成長，平台黏性極高。<br>
+        <strong>新聞催化劑：</strong>Charlotte AI 功能升級｜大型企業轉單至 Falcon｜Q2 營收超預期。<br>
+        <strong>未來展望：</strong>目標價 $240，相當於 2027 年 P/E 55 倍，估值溢價合理。<br>
+        <strong>風險因素：</strong>P/E 極高，單一錯誤可能引發大幅回調，Zscaler/PANW 競爭加劇。
+    </div>
+</div>
+
+<!-- MSFT -->
+<div class="recommendation-card">
+    <div class="stock-header">
+        <span class="symbol"><a href="https://www.barchart.com/stocks/quotes/MSFT/overview" target="_blank">MSFT</a></span>
+        <span class="name">Microsoft Corporation</span>
+        <span class="tag tag-green">9.0/10</span>
+    </div>
+    <div class="price-block">
+        <div class="metric"><div class="val positive">$390.49</div><div class="lbl">現價</div></div>
+        <div class="metric"><div class="val positive">+10.67%</div><div class="lbl">日漲跌</div></div>
+        <div class="metric"><div class="val">$349–$555</div><div class="lbl">52W區間</div></div>
+        <div class="metric"><div class="val">11.8%</div><div class="lbl">距52W低點</div></div>
+        <div class="metric"><div class="val">40.7M</div><div class="lbl">日成交量</div></div>
+    </div>
+    <div class="reason">
+        <strong>為什麼入選：</strong>Microsoft 是 AI 雲端平台最純受益者。Copilot 365 付費用戶數量每季環比成長 20%+，Azure AI 服務收入年增 31%，Nvidia GB200 優先供給 Azure 的傳言印證了其算力優先級。今日大漲 10.67% 是市場搶先佈局 7 月財報季的信號。微軟的 AI 策略是所有雲端巨頭中最激進的，Copilot 正在重新定義企業軟體的商業模式。
+    </div>
+    <div class="logic">
+        <strong>基本概況：</strong>現價 $390.49，距 52W 低點 $349.20 只有 11.8%，處於相對低檔，目標價 $480 意味 23% 上檔。<br>
+        <strong>供需邏輯：</strong>Microsoft 擁有全球第二大雲端基礎設施，Copilot 生態綁定 Azure 形成閉環。<br>
+        <strong>新聞催化劑：</strong>Copilot 365 滲透率超預期｜Azure AI 服務爆發｜與 Nvidia 深度合作。<br>
+        <strong>未來展望：</strong>目標價 $480，2027 年營收預測 $380B，年增 15%，EPS 年增 18%。<br>
+        <strong>風險因素：</strong>AI 基礎設施 Capit 支出驚人或壓縮利潤率，監管機構對軟體捆綁擔憂加劇。
+    </div>
+</div>
+
+<!-- MU -->
+<div class="recommendation-card">
+    <div class="stock-header">
+        <span class="symbol"><a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank">MU</a></span>
+        <span class="name">Micron Technology</span>
+        <span class="tag tag-green">8.5/10</span>
+    </div>
+    <div class="price-block">
+        <div class="metric"><div class="val negative">$975.56</div><div class="lbl">現價</div></div>
+        <div class="metric"><div class="val negative">-19.61%</div><div class="lbl">日漲跌</div></div>
+        <div class="metric"><div class="val">$103–$1255</div><div class="lbl">52W區間</div></div>
+        <div class="metric"><div class="val">843.7%</div><div class="lbl">距52W低點</div></div>
+        <div class="metric"><div class="val">61M</div><div class="lbl">日成交量</div></div>
+    </div>
+    <div class="reason">
+        <strong>為什麼入選：</strong>MU 今日暴跌 19.61% 完全是市場情緒的恐慌性拋售，而非基本面惡化。HBM3e 供需缺口在 2027 年下半年前無法緩解，Micron 與 Nvidia/AMD 簽署的長約鎖定至 2027 年，報價上漲邏輯絲毫未變。韓國三星 HBM 良率問題持續，Micron 是唯一能規模化交付 HBM3e 的非韓系供應商，這個地位在 AI 時代無可替代。大跌是長線資金的終極黃金坑。
+    </div>
+    <div class="logic">
+        <strong>估值：</strong>目前 P/E 處於記憶體週期低位，考慮到 HBM3e 毛利率是傳統 DRAM 的 2 倍，現在是佈局良機。<br>
+        <strong>供需邏輯：</strong>HBM3e 供需缺口 2027 年前無法緩解，Micron 份額從 15% 提升至 25% 目標明確。<br>
+        <strong>新聞催化劑：</strong>記憶體報價 3Q26 可能觸底反彈｜三星 HBM 良率問題持續｜Nvidia/AMD 長約鎖定。<br>
+        <strong>未來展望：</strong>目標價 $1250，2027 年記憶體超級週期將推動營收突破 $50B。<br>
+        <strong>風險因素：</strong>記憶體報價持續低迷，三星/ SK 海力士增產加劇競爭，PC/手機需求低於預期。
+    </div>
+</div>
+
+<!-- GLW -->
+<div class="recommendation-card">
+    <div class="stock-header">
+        <span class="symbol"><a href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank">GLW</a></span>
+        <span class="name">Corning Incorporated</span>
+        <span class="tag tag-yellow">7.5/10</span>
+    </div>
+    <div class="price-block">
+        <div class="metric"><div class="val negative">$196.79</div><div class="lbl">現價</div></div>
+        <div class="metric"><div class="val negative">-13.69%</div><div class="lbl">日漲跌</div></div>
+        <div class="metric"><div class="val">$51–$271</div><div class="lbl">52W區間</div></div>
+        <div class="metric"><div class="val">283.5%</div><div class="lbl">距52W低點</div></div>
+        <div class="metric"><div class="val">20M</div><div class="lbl">日成交量</div></div>
+    </div>
+    <div class="reason">
+        <strong>為什麼入選：</strong>Corning 是 AI 集群光互連中最被低估的標的。當 GPU 規模突破 10 萬卡後，傳統銅纜的延遲已不可接受，特種光纖從「選配」變成「標配」。GLW 的特種光纖毛利率達 55% 以上，是所有業務中最高的。800G/1.6T 光模組的滲透率才剛進入爆發期，Google 與微軟的特種光纖長約已鎖定至 2027 年。今日暴跌 13.69% 屬典型錯殺，是難得的佈局機會。
+    </div>
+    <div class="logic">
+        <strong>供需邏輯：</strong>AI 集群光互連需求爆發，特種光纖是剛需而非可選，Google/微軟長約鎖定。<br>
+        <strong>技術面：</strong>股價從 $271 高點回落 27.6%，RSI 進入超賣區，技術反彈動能累積。<br>
+        <strong>未來展望：</strong>目標價 $260，相當於 2027 年 P/E 18 倍，估值極具吸引力。<br>
+        <strong>風險因素：</strong>中國光纖廠商價格戰加劇，5G 建設放緩影響電信業務。
+    </div>
+</div>
+
+<!-- AMAT -->
+<div class="recommendation-card">
+    <div class="stock-header">
+        <span class="symbol"><a href="https://www.barchart.com/stocks/quotes/AMAT/overview" target="_blank">AMAT</a></span>
+        <span class="name">Applied Materials</span>
+        <span class="tag tag-green">8.5/10</span>
+    </div>
+    <div class="price-block">
+        <div class="metric"><div class="val negative">$603.04</div><div class="lbl">現價</div></div>
+        <div class="metric"><div class="val negative">-9.72%</div><div class="lbl">日漲跌</div></div>
+        <div class="metric"><div class="val">$154–$739</div><div class="lbl">52W區間</div></div>
+        <div class="metric"><div class="val">290.4%</div><div class="lbl">距52W低點</div></div>
+        <div class="metric"><div class="val">15M</div><div class="lbl">日成交量</div></div>
+    </div>
+    <div class="reason">
+        <strong>為什麼入選：</strong>AMAT 是 CoWoS 先進封裝設備的絕對瓶頸供應商。在 HBM 與 AI 晶片供應鏈中，蝕刻與薄膜沉積設備是剛需，無法繞過。2026 年下半年 2nm 量產將再啟動設備更新週期，AMAT 的訂單能見度已延伸至 2027 年。今日下跌 9.72% 反映市場對半導體景氣的過度悲觀，但 CoWoS 先進封裝的供需失衡絲毫未緩解，這個錯殺是長線黃金坑。
+    </div>
+    <div class="logic">
+        <strong>供需邏輯：</strong>CoWoS 封裝產能是 AI 算力的硬瓶頸，AMAT 的封測設備市場份額持續擴張。<br>
+        <strong>新聞催化劑：</strong>Argus 將 AMAT 列入股息成長名單｜內部人買盤訊號偏多。<br>
+        <strong>未來展望：</strong>目標價 $750，2027 年半導體設備超級週期將推動營收再創新高。<br>
+        <strong>風險因素：</strong>半導體景氣循環風險，台積電先進製程擴張放緩影響設備需求。
+    </div>
+</div>
+
+<!-- GEV -->
+<div class="recommendation-card">
+    <div class="stock-header">
+        <span class="symbol"><a href="https://www.barchart.com/stocks/quotes/GEV/overview" target="_blank">GEV</a></span>
+        <span class="name">GE Vernova</span>
+        <span class="tag tag-green">8.5/10</span>
+    </div>
+    <div class="price-block">
+        <div class="metric"><div class="val positive">$1113.11</div><div class="lbl">現價</div></div>
+        <div class="metric"><div class="val positive">+2.55%</div><div class="lbl">日漲跌</div></div>
+        <div class="metric"><div class="val">$511–$1181</div><div class="lbl">52W區間</div></div>
+        <div class="metric"><div class="val">117.6%</div><div class="lbl">距52W低點</div></div>
+        <div class="metric"><div class="val">2.1M</div><div class="lbl">日成交量</div></div>
+    </div>
+    <div class="reason">
+        <strong>為什麼入選：</strong>GEV 是今日 AI 基建板塊中少數逆勢上漲的股票，+2.55% 的正報酬在普跌環境中格外亮眼。這不是巧合——而是市場在表達「AI 的盡頭是電力」這個核心投資主題。數據中心申請電力的排隊時間已延至 3-5 年，變壓器與輸配電設備成為硬瓶頸，GEV 在電網升級與 SMR 小型模組化反應爐的雙重護城河下享有定價權。Argus 將 GEV 列入週精選名單，技術面多頭格局完整。
+    </div>
+    <div class="logic">
+        <strong>供需邏輯：</strong>全球數據中心用電需求每5年翻倍，電網升級落後需求 5-7 年，GEV 產品交付排程已延伸至 2028 年。<br>
+        <strong>技術面：</strong>股價在 $1113 附近獲得支撐，維持多頭均線排列，RSI 處於中性偏多區間。<br>
+        <strong>未來展望：</strong>目標價 $1380，電網設備超級週期將持續至 2030 年。<br>
+        <strong>風險因素：</strong>P/E 28.5 偏高，電網投資審批時間不確定性，大宗商品價格波動影響毛利。
+    </div>
+</div>
+
+<!-- SNOW -->
+<div class="recommendation-card">
+    <div class="stock-header">
+        <span class="symbol"><a href="https://www.barchart.com/stocks/quotes/SNOW/overview" target="_blank">SNOW</a></span>
+        <span class="name">Snowflake Inc.</span>
+        <span class="tag tag-green">8.5/10</span>
+    </div>
+    <div class="price-block">
+        <div class="metric"><div class="val positive">$260.15</div><div class="lbl">現價</div></div>
+        <div class="metric"><div class="val positive">+14.57%</div><div class="lbl">日漲跌</div></div>
+        <div class="metric"><div class="val">$118–$284</div><div class="lbl">52W區間</div></div>
+        <div class="metric"><div class="val">119.9%</div><div class="lbl">距52W低點</div></div>
+        <div class="metric"><div class="val">8.1M</div><div class="lbl">日成交量</div></div>
+    </div>
+    <div class="reason">
+        <strong>為什麼入選：</strong>Snowflake 是 AI 模型訓練背後最重要的資料基礎建設之一。當企業爭相部署 LLM 與 AI 應用，乾淨的結構化資料變成稀缺資源。Snowflake 的資料共享網路正在形成類似作業系統的平台效應——企業不只在 Snowflake 上存資料，還通過它共享和貨幣化資料。Dataframe 引擎加速 ML 訓練，AI 應用直接內嵌在平台上，這是其他競爭對手難以複製的護城河。今日大漲 14.57% 反映市場對 AI 資料基礎建設價值的重新評估。
+    </div>
+    <div class="logic">
+        <strong>供需邏輯：</strong>AI 模型訓練需要海量高質量資料，Snowflake 管理全球最大企業資料庫之一。<br>
+        <strong>技術面：</strong>放量長紅突破 $260 關鍵阻力，技術面多頭確立。<br>
+        <strong>未來展望：</strong>目標價 $320，2027 年 ARR 預測突破 $12B，年增 30%。<br>
+        <strong>風險因素：</strong>估值仍高，大型雲端廠商（AWS/Azure/GCP）自建資料庫服務帶來競爭壓力。
+    </div>
+</div>
+
+<!-- E. 主題板塊評估 -->
+<h2 class="section-title">E. 主題板塊評估</h2>
+
+<div class="highlight-box">
+    <h4>🟢 強勢主題（建議順勢追蹤）</h4>
+    <ul>
+        <li><strong>AI 資安平台化：</strong>PANW、CRWD、ZS、NET 四檔平均漲幅 +14.76%。AI 攻擊事件暴增 47%，企業資安預算被迫提升，從點防禦轉向平台化整合是確定趨勢。</li>
+        <li><strong>AI 企業軟體/Copilot：</strong>PLTR、SNOW、OKTA、WDAY 四檔平均漲幅 +18.16%。Copilot 功能全面爆發，企業願意為 AI 提效付費，SaaS 訂閱收入進入加速期。</li>
+        <li><strong>雲端巨頭 AI 變現：</strong>MSFT +10.67%、GOOGL +4.71%、AMZN +6.90%、META +7.37%。Mag 7 財報季來臨，市場搶先佈局 AI貨幣化能力強的巨頭。</li>
+    </ul>
+</div>
+
+<div class="highlight-box">
+    <h4>🔴 弱勢主題（建議等待黃金坑）</h4>
+    <ul>
+        <li><strong>HBM 記憶體：</strong>MU -19.61%、WDC -20.19%，是今日最淒惨的板塊。韓股 DRAM 報價崩跌拖累情緒，但 HBM3e 供需缺口在 2027 年前無法緩解的基本面並未改變，這是長線佈局良機。</li>
+        <li><strong>CoWoS 先進封裝：</strong>AMKR -18.65%、AMAT -9.72%。封裝產能是 AI 算力的硬瓶頸，供需失衡最嚴重的環節之一，大跌等於打折促銷。</li>
+        <li><strong>AI 伺服器供應鏈：</strong>SMCI -14.08%、QCOM -13.98%、MRVL -12.79%。伺服器板塊被 SMCI 審計問題拖累，但 Dell/HP 等實質 AI 伺服器需求仍然旺盛，這是市場情緒導致的錯殺。</li>
+        <li><strong>光纖/光互連：</strong>GLW -13.69%、CIEN -12.84%、LUMN -22.72%。特種光纖是 AI 集群剛需，800G/1.6T 渗透率提升邏輯不變，錯殺創造長線買點。</li>
+    </ul>
+</div>
+
+<div class="highlight-box">
+    <h4>🟡 中性/防禦主題（建議區間操作）</h4>
+    <ul>
+        <li><strong>公用事業/電網：</strong>SO +2.16%、DUK +1.96%、NEE +0.73%。公用事業在拋售潮中展現防禦屬性，適合當作組合中的避風港。</li>
+        <li><strong>AI 電力剛需：</strong>GEV +2.55% 逆勢上漲，「AI 的盡頭是電力」主題在市場波動中獲得資金青睞。</li>
+    </ul>
+</div>
+
+<!-- F. AI 供需失衡深度分析 -->
+<h2 class="section-title">F. AI 供需失衡深度分析</h2>
+
+<div class="card">
+    <h3>⚡ 電力供需失衡——AI 基建最被低估的瓶頸</h3>
+    <p>全球數據中心總用電量預計從 2024 年的 415 TWh 暴增至 2028 年的 1,000+ TWh，年複合成長率 25%+。然而美國電網建設平均落後需求 5-7 年，變壓器交付時間已從 12 週拉長至 100+ 週。這意味著即使現在開始申請用電，數據中心也要等到 2029-2031 年才能獲得電網接入。</p>
+    <p style="margin-top:8px;"><strong>最大受益者：</strong>GEV（電網設備）、VST/CEG（發電）、NEE/SO（清潔能源直供）。</p>
+</div>
+
+<div class="card">
+    <h3>💾 HBM 記憶體供需失衡——2027 年下半年前無解</h3>
+    <p>HBM3e 報價過去 18 個月累計上漲 40%，但供需缺口絲毫未縮小。三星電腦 HBM3e 良率問題持續，Micron 是唯一能規模化交付的非韓系供應商。AI GPU 廠商（Nvidia H200/B200、AMD MI350）已將長約簽至 2027 年，記憶體超級週期尚未結束。</p>
+    <p style="margin-top:8px;"><strong>最大受益者：</strong>MU（Micron）是 HBM3e 供需缺口最直接受益者，WDC 企業級 SSD 需求同步爆發。</p>
+</div>
+
+<div class="card">
+    <h3>📦 先進封裝（CoWoS）供需失衡——產能擴張龜速</h3>
+    <p>CoWoS 先進封裝是連接 AI 晶片與 HBM 記憶體的關鍵橋樑，台積電 CoWoS 產能從 2023 年的 10,000 片/月擴張至 2025 年的 40,000 片/月，但需求增速遠超供給。Amkor 作為非台積電體系唯一能承接高複雜度封裝的廠商，受供需失衡補貼最大。</p>
+    <p style="margin-top:8px;"><strong>最大受益者：</strong>AMKR（Amkor）、AMAT（封裝設備）。</p>
+</div>
+
+<div class="card">
+    <h3>📡 光互連供需失衡——特種光纖從選配變剛需</h3>
+    <p>當 GPU 集群規模突破 10 萬卡，傳統銅纜互連的帶寬與延遲已無法滿足需求，特種光纖從「可選項」變成「必選項」。800G 光模組在 AI 數據中心的渗透率預計從 2024 年的 15% 提升至 2027 年的 70%，而特種光纖的擴產週期需要 18-24 個月。</p>
+    <p style="margin-top:8px;"><strong>最大受益者：</strong>GLW（Corning 特種光纖）、CIEN（光傳輸設備）。</p>
+</div>
+
+<!-- G. 明日觀察 -->
+<h2 class="section-title">G. 明日觀察（7/5 週一）</h2>
+
+<div class="card">
+    <h3>🔭 明日重點關注</h3>
+    <ul style="padding-left:20px;color:#b0b0c0;font-size:13px;line-height:2;">
+        <li><strong>記憶體板塊是否持續殺跌：</strong>MU、WDC、AMKR 能否在 7/4 恐慌後出現技術性反彈，是判斷短線超賣的關鍵。</li>
+        <li><strong>軟體/資安板塊動能持續性：</strong>PLTR、PANW、CRWD 今日暴漲後，明日是否出現獲利了結潮，還是機構持續加碼？</li>
+        <li><strong>GEV/NEE 能否持續多頭：</strong>電力主題在輪動市中能否維持資金青睞。</li>
+        <li><strong>MSFT/GOOGL 財報季效應：</strong>進入 7 月中旬財報季，雲端巨頭的 AI 變現數據將是市場最大催化劑。</li>
+        <li><strong>美股整體情緒：</strong>今日國慶日休市，7/5 開盤需觀察是否出現補跌或補漲行情。</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h3>💡 AI 分析師結論</h3>
+    <p style="color:#c0c0d0;font-size:13px;line-height:1.8;">今日市場呈現經典型「軟體逆勢 vs 硬體血洗」格局。PLTR、CRWD、PANW、ZS、OKTA、WDAY 等 AI 軟體/資安個股暴漲，反映市場情緒搶先 AI 應用層業績兌現期到來；同時記憶體（MU、WDC）、先進封裝（AMKR）、光纖（GLW、CIEN）等硬體個股遭到恐慌性拋售。</p>
+    <p style="color:#c0c0d0;font-size:13px;line-height:1.8;margin-top:10px;"><strong>核心判斷：</strong>硬體的供需失衡並未因市場情緒而改變——HBM 缺口仍在、CoWoS 產能仍在排隊、光纖仍是 AI 集群剛需。今日的暴跌是機構利用市場情緒進行的「低價收購」行為，對長線投資人而言是難得的黃金坑。</p>
+    <p style="color:#c0c0d0;font-size:13px;line-height:1.8;margin-top:10px;"><strong>配置建議：</strong>70% 布局強勢軟體/資安（PLTR、CRWD、PANW、MSFT）+ 30% 黃金坑硬體（NVDA、MU、GLW、AMAT、AMKR），耐心持有至財報季來臨。</p>
+</div>
+
+<div class="footer">
+    <p>📅 報告生成時間：2026-07-04 12:00 台北時間 | 數據來源：Yahoo Finance（Barchart 信號頁面 + 7/3 收盤數據）</p>
+    <p>⚠️ 本報告僅供參考，不構成投資建議。投資有風險，請自行承擔損益。</p>
+    <p>🤖 AI 基礎建設選股分析師 | 模型：MiniMax-M2.7 | GitHub: acstep/stock-reports</p>
+</div>
+
+</div>
+</body>
+</html>

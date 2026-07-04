@@ -1,6 +1,6 @@
 import re, json, sys
 
-DATE = "2026-06-28"
+DATE = "2026-07-01"
 HTML_PATH = f"/home/matt/.openclaw/workspace/stock-reports/{DATE}.html"
 OUT_PATH = f"/home/matt/.openclaw/workspace/stock-reports/_tickers_parsed.json"
 

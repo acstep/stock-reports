@@ -1,18 +1,21 @@
 {
   "AMAT": [
     {
+      "id": "id:entity:entity::ticker:AMAT",
       "title_en": "The Argus Dividend Growth Model Portfolio",
       "provider": "Argus Research",
       "date": "2026-06-23T12:29:14Z",
-      "url": "https://finance.yahoo.com/research/reports/47410_Thematic%20Portfolio_1782217754000"
+      "url": "https://finance.yahoo.com/research/reports/id:entity:entity::ticker:AMAT"
     },
     {
+      "id": "47363_Top/Bottom Insider Activity_1781780208000",
       "title_en": "Daily – Vickers Top Buyers & Sellers for 06/18/2026",
       "provider": "Argus Research",
       "date": "2026-06-18T10:56:48Z",
       "url": "https://finance.yahoo.com/research/reports/47363_Top%2FBottom%20Insider%20Activity_1781780208000"
     },
     {
+      "id": "47331_Stock Picks_1781524221000",
       "title_en": "Weekly Stock List",
       "provider": "Argus Research",
       "date": "2026-06-15T11:50:21Z",
@@ -21,18 +24,21 @@
   ],
   "AMD": [
     {
+      "id": "021baa64-abb1-46ff-a1ee-703fde81b1d1",
       "title_en": "Daily – Vickers Top Buyers & Sellers for 06/03/2026",
       "provider": "Argus Research",
       "date": "2026-06-03T10:41:40Z",
-      "url": "https://finance.yahoo.com/research/reports/47212_Top%2FBottom%20Insider%20Activity_1780483300000"
+      "url": "https://finance.yahoo.com/research/reports/021baa64-abb1-46ff-a1ee-703fde81b1d1"
     },
     {
+      "id": "47008_Top/Bottom Insider Activity_1778668946000",
       "title_en": "Daily – Vickers Top Buyers & Sellers for 05/13/2026",
       "provider": "Argus Research",
       "date": "2026-05-13T10:42:26Z",
       "url": "https://finance.yahoo.com/research/reports/47008_Top%2FBottom%20Insider%20Activity_1778668946000"
     },
     {
+      "id": "46949_Market Update_1778091857000",
       "title_en": "Market Update: AMD, BMY, EQR, F, OGE, PWR, PYPL, ANET, STRL",
       "provider": "Argus Research",
       "date": "2026-05-06T18:24:17Z",
@@ -41,18 +47,21 @@
   ],
   "GEV": [
     {
+      "id": "47226_Top/Bottom Insider Activity_1780568153000",
       "title_en": "Daily – Vickers Top Buyers & Sellers for 06/04/2026",
       "provider": "Argus Research",
       "date": "2026-06-04T10:15:53Z",
-      "url": "https://finance.yahoo.com/research/reports/ac3df377-a2b0-4050-9298-854a9ff8c527"
+      "url": "https://finance.yahoo.com/research/reports/47226_Top%2FBottom%20Insider%20Activity_1780568153000"
     },
     {
+      "id": "46988_Stock Picks_1778499423000",
       "title_en": "Weekly Stock List",
       "provider": "Argus Research",
       "date": "2026-05-11T11:37:03Z",
       "url": "https://finance.yahoo.com/research/reports/46988_Stock%20Picks_1778499423000"
     },
     {
+      "id": "6199_Analyst Report_1777287827000",
       "title_en": "Analyst Report: GE Vernova Inc",
       "provider": "Argus Research",
       "date": "2026-04-27T11:03:47Z",
@@ -61,18 +70,21 @@
   ],
   "GLW": [
     {
+      "id": "id:entity:entity::ticker:GLW",
       "title_en": "The Argus Sustainable Growth Theme Model Portfolio",
       "provider": "Argus Research",
       "date": "2026-05-28T11:33:21Z",
       "url": "https://finance.yahoo.com/research/reports/id:entity:entity::ticker:GLW"
     },
     {
+      "id": "47148_Top/Bottom Insider Activity_1779884125000",
       "title_en": "Daily – Vickers Top Buyers & Sellers for 05/27/2026",
       "provider": "Argus Research",
       "date": "2026-05-27T12:15:25Z",
       "url": "https://finance.yahoo.com/research/reports/47148_Top%2FBottom%20Insider%20Activity_1779884125000"
     },
     {
+      "id": "47067_Top/Bottom Insider Activity_1779187845000",
       "title_en": "Daily – Vickers Top Buyers & Sellers for 05/19/2026",
       "provider": "Argus Research",
       "date": "2026-05-19T10:50:45Z",
@@ -81,18 +93,21 @@
   ],
   "MU": [
     {
+      "id": "3614_Analyst Report_1782386191000",
       "title_en": "Analyst Report: Micron Technology Inc",
       "provider": "Argus Research",
       "date": "2026-06-25T11:16:31Z",
       "url": "https://finance.yahoo.com/research/reports/3614_Analyst%20Report_1782386191000"
     },
     {
+      "id": "47427_Market Summary_1782385291000",
       "title_en": "Market Digest: MU, PNW, SJM",
       "provider": "Argus Research",
       "date": "2026-06-25T11:01:31Z",
       "url": "https://finance.yahoo.com/research/reports/47427_Market%20Summary_1782385291000"
     },
     {
+      "id": "47390_Technical Analysis_1782125726000",
       "title_en": "Technical Assessment: Bullish in the Intermediate-Term",
       "provider": "Argus Research",
       "date": "2026-06-22T10:55:26Z",
@@ -101,18 +116,21 @@
   ],
   "PANW": [
     {
+      "id": "bcf1380b-37c4-4209-b273-61682f853247",
       "title_en": "Daily – Vickers Top Buyers & Sellers for 06/15/2026",
       "provider": "Argus Research",
       "date": "2026-06-15T10:25:44Z",
-      "url": "https://finance.yahoo.com/research/reports/47323_Top%2FBottom%20Insider%20Activity_1781519144000"
+      "url": "https://finance.yahoo.com/research/reports/bcf1380b-37c4-4209-b273-61682f853247"
     },
     {
+      "id": "47296_Technical Analysis_1781177742000",
       "title_en": "Technical Assessment: Bullish in the Intermediate-Term",
       "provider": "Argus Research",
       "date": "2026-06-11T11:35:42Z",
       "url": "https://finance.yahoo.com/research/reports/47296_Technical%20Analysis_1781177742000"
     },
     {
+      "id": "3643_Analyst Report_1780679739000",
       "title_en": "Analyst Report: Palo Alto Networks Inc",
       "provider": "Argus Research",
       "date": "2026-06-05T17:15:39Z",
@@ -121,18 +139,21 @@
   ],
   "PLTR": [
     {
+      "id": "6302_Analyst Report_1778065523000",
       "title_en": "Analyst Report: Palantir Technologies Inc",
       "provider": "Argus Research",
       "date": "2026-05-06T11:05:23Z",
       "url": "https://finance.yahoo.com/research/reports/6302_Analyst%20Report_1778065523000"
     },
     {
+      "id": "46942_Market Summary_1778065523000",
       "title_en": "Market Digest: CAH, SHOP, DXCM, PLTR, GFS",
       "provider": "Argus Research",
       "date": "2026-05-06T11:05:23Z",
       "url": "https://finance.yahoo.com/research/reports/46942_Market%20Summary_1778065523000"
     },
     {
+      "id": "46825_Technical Analysis_1776942515000",
       "title_en": "Technical Assessment: Bullish in the Intermediate-Term",
       "provider": "Argus Research",
       "date": "2026-04-23T11:08:35Z",
@@ -141,18 +162,21 @@
   ],
   "VRT": [
     {
+      "id": "6d74e526-b686-4e0a-9177-b3068f2f19ee",
       "title_en": "Raising target price to $378.00",
       "provider": "Argus Research",
       "date": "2026-06-24T00:00:00Z",
-      "url": "https://finance.yahoo.com/research/reports/6.4.4"
+      "url": "https://finance.yahoo.com/research/reports/6d74e526-b686-4e0a-9177-b3068f2f19ee"
     },
     {
+      "id": "6781_Quantitative Report_1781654400000",
       "title_en": "Raising target price to $356.00",
       "provider": "Argus Research",
       "date": "2026-06-17T00:00:00Z",
       "url": "https://finance.yahoo.com/research/reports/6781_Quantitative%20Report_1781654400000"
     },
     {
+      "id": "6781_Quantitative Report_1781049600000",
       "title_en": "Lowering target price to $344.00",
       "provider": "Argus Research",
       "date": "2026-06-10T00:00:00Z",
