@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 基礎建設研究報告 - 2026-07-05</title>
+    <style>
+        :root {
+            --bg-color: #080810;
+            --card-bg: #12121c;
+            --text-color: #e0e0e8;
+            --accent-color: #4f46e5;
+            --text-dim: #a0a0b0;
+            --green: #10b981;
+            --yellow: #f59e0b;
+            --red: #ef4444;
+            --border: #2a2a3a;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .date {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background-color: #1a1a2e;
+            color: var(--text-dim);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        .ticker-link {
+            color: #818cf8;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Roboto Mono', monospace;
+        }
+        .ticker-link:hover {
+            text-decoration: underline;
+        }
+        .badge {
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .badge-green { background-color: rgba(16, 185, 129, 0.2); color: var(--green); }
+        .badge-yellow { background-color: rgba(245, 158, 11, 0.2); color: var(--yellow); }
+        .badge-red { background-color: rgba(239, 68, 68, 0.2); color: var(--red); }
+        .price-up { color: var(--green); }
+        .price-down { color: var(--red); }
+        .analysis-card {
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .metric-item {
+            background: #1a1a2e;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            display: block;
+        }
+        .metric-value {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .highlight {
+            color: #c084fc;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            table { display: block; overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 AI 基礎建設深度研究報告</h1>
+            <div class="date">📅 報告日期：2026-07-05 | 台北時間 12:00 | 分析師：OpenClaw AI</div>
+        </header>
+
+        <!-- A. 類別表現 -->
+        <div class="section">
+            <div class="section-title">📊 AI 基建類別今日表現</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>AI 基建類別</th>
+                        <th>代表股票（當日表現）</th>
+                        <th>類別平均日%</th>
+                        <th>評估</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>💾 AI 晶片/GPU</td>
+                        <td>NVDA -0.46% / AMD -2.77% / AVGO -4.87% / MRVL -12.79% / ARM -9.33%</td>
+                        <td class="price-down">-6.04%</td>
+                        <td><span class="badge badge-red">🔴 弱勢</span></td>
+                    </tr>
+                    <tr>
+                        <td>🖥️ AI 伺服器/雲端</td>
+                        <td>SMCI -14.08% / DELL -3.7% / MSFT +10.67% / AMZN +6.9%</td>
+                        <td>-1.4%</td>
+                        <td><span class="badge badge-yellow">🟡 中性</span></td>
+                    </tr>
+                    <tr>
+                        <td>⚡ AI 電力/能源</td>
+                        <td>VST -9.97% / CEG -10.96% / VRT -7.69% / NEE +0.73%</td>
+                        <td class="price-down">-6.72%</td>
+                        <td><span class="badge badge-red">🔴 弱勢</span></td>
+                    </tr>
+                    <tr>
+                        <td>🧊 AI 散熱/液冷</td>
+                        <td>SPXC -6.88% / VRT -7.69%</td>
+                        <td class="price-down">-7.28%</td>
+                        <td><span class="badge badge-red">🔴 弱勢</span></td>
+                    </tr>
+                    <tr>
+                        <td>📡 AI 網路/光纖</td>
+                        <td>ANET -3.3% / CIEN -12.84% / GLW -13.69% / NET +6.95%</td>
+                        <td class="price-down">-5.47%</td>
+                        <td><span class="badge badge-red">🔴 弱勢</span></td>
+                    </tr>
+                    <tr>
+                        <td>💾 AI 儲存/記憶體</td>
+                        <td>MU -19.61% / WDC -20.19%</td>
+                        <td class="price-down">-19.9%</td>
+                        <td><span class="badge badge-red">🔴 弱勢</span></td>
+                    </tr>
+                    <tr>
+                        <td>📦 AI 先進封裝/CoWoS</td>
+                        <td>AMKR -18.65% / AMAT -9.72%</td>
+                        <td class="price-down">-14.18%</td>
+                        <td><span class="badge badge-red">🔴 弱勢</span></td>
+                    </tr>
+                    <tr>
+                        <td>🔐 AI 資安/雲端</td>
+                        <td>CRWD +14.33% / PANW +18.76% / ZS +19.01%</td>
+                        <td class="price-up">+17.36%</td>
+                        <td><span class="badge badge-green">🟢 強勢</span></td>
+                    </tr>
+                    <tr>
+                        <td>🤖 AI 軟體/資料分析</td>
+                        <td>PLTR +20.54% / SNOW +14.57%</td>
+                        <td class="price-up">+17.55%</td>
+                        <td><span class="badge badge-green">🟢 強勢</span></td>
+                    </tr>
+                    <tr>
+                        <td>☁️ AI 雲端平台</td>
+                        <td>GOOGL +4.71% / META +7.37%</td>
+                        <td class="price-up">+6.04%</td>
+                        <td><span class="badge badge-green">🟢 強勢</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- B. 市場雷達 -->
+        <div class="section">
+            <div class="section-title">📡 今日 AI 基礎建設市場雷達</div>
+            <div class="grid">
+                <div class="card">
+                    <h3>🌡️ 板塊情緒：極端分化</h3>
+                    <p>今日市場出現顯著的 <span class="highlight">「硬轉軟」</span> 輪動。硬體基礎建設（晶片、電力、儲存）全面回調，而 AI 應用層、安全層與雲端平台則強勢反彈。這顯示市場正在從單純的「建廠期」預期轉向「價值實踐期」。</p>
+                </div>
+                <div class="card">
+                    <h3>🔥 最強主題：AI 價值實踐 (AI Value Realization)</h3>
+                    <p>資安 (CRWD, PANW) 與 數據分析 (PLTR) 的暴漲表明，機構資金開始追求能將 AI 能力直接轉化為訂單與收入的軟體公司，而非僅僅提供工具的硬體商。</p>
+                </div>
+                <div class="card">
+                    <h3>⚠️ 最弱主題：週期性硬體 (Hardware Cycle)</h3>
+                    <p>記憶體 (MU, WDC) 與 封裝設備 (AMAT) 跌幅最大，反映出市場對半導體週期頂部的擔憂，以及對部分硬體公司估值過高的修正。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- C. 進場推薦總表 -->
+        <div class="section">
+            <div class="section-title">🎯 AI 基礎建設進場推薦總表</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>股票</th>
+                        <th>名稱</th>
+                        <th>現價</th>
+                        <th>日%</th>
+                        <th>距低%</th>
+                        <th>P/E</th>
+                        <th>評分</th>
+                        <th>為什麼推薦</th>
+                        <th>核心邏輯與展望</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/PLTR/overview">PLTR</a></td>
+                        <td>Palantir</td>
+                        <td>129.3</td>
+                        <td class="price-up">+20.54%</td>
+                        <td>21.6%</td>
+                        <td>-</td>
+                        <td>9.5</td>
+                        <td>AIP 平台爆發</td>
+                        <td>企業端 AI 落地最快，從工具轉向作業系統</td>
+                    </tr>
+                    <tr>
+                        <td><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/CRWD/overview">CRWD</a></td>
+                        <td>CrowdStrike</td>
+                        <td>193.98</td>
+                        <td class="price-up">+14.33%</td>
+                        <td>126.4%</td>
+                        <td>2146</td>
+                        <td>8.5</td>
+                        <td>AI 原生安全領導</td>
+                        <td>Falcon 平台在 AI 時代的不可替代性</td>
+                    </tr>
+                    <tr>
+                        <td><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/MSFT/overview">MSFT</a></td>
+                        <td>Microsoft</td>
+                        <td>390.49</td>
+                        <td class="price-up">+10.67%</td>
+                        <td>11.8%</td>
+                        <td>-</td>
+                        <td>9.0</td>
+                        <td>全棧 AI 生態</td>
+                        <td>Azure + Copilot 雙輪驅動，穩定性最強</td>
+                    </tr>
+                    <tr>
+                        <td><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/NVDA/overview">NVDA</a></td>
+                        <td>NVIDIA</td>
+                        <td>194.83</td>
+                        <td class="price-down">-0.46%</td>
+                        <td>23.8%</td>
+                        <td>-</td>
+                        <td>9.0</td>
+                        <td>算力絕對霸權</td>
+                        <td>B200 週期剛開始，短期回調是機會</td>
+                    </tr>
+                    <tr>
+                        <td><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/VRT/overview">VRT</a></td>
+                        <td>Vertiv</td>
+                        <td>300.53</td>
+                        <td class="price-down">-7.69%</td>
+                        <td>173.1%</td>
+                        <td>-</td>
+                        <td>8.0</td>
+                        <td>液冷剛需</td>
+                        <td>黑格爾定律下，散熱是唯一瓶頸</td>
+                    </tr>
+                    <tr>
+                        <td><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/AMD/overview">AMD</a></td>
+                        <td>AMD</td>
+                        <td>517.82</td>
+                        <td class="price-down">-2.77%</td>
+                        <td>287.9%</td>
+                        <td>150.6</td>
+                        <td>7.5</td>
+                        <td>唯一強對手</td>
+                        <td>Instinct 系列在多元化客戶中滲透率提升</td>
+                    </tr>
+                    <tr>
+                        <td><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/MU/overview">MU</a></td>
+                        <td>Micron</td>
+                        <td>975.56</td>
+                        <td class="price-down">-19.61%</td>
+                        <td>843.7%</td>
+                        <td>23.2</td>
+                        <td>7.0</td>
+                        <td>HBM 供應缺口</td>
+                        <td>雖然今日大跌，但 HBM3e 的長期需求依然強勁</td>
+                    </tr>
+                    <tr>
+                        <td><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/NET/overview">NET</a></td>
+                        <td>Cloudflare</td>
+                        <td>242.41</td>
+                        <td class="price-up">+6.95%</td>
+                        <td>52.6%</td>
+                        <td>-</td>
+                        <td>8.0</td>
+                        <td>Agentic Internet</td>
+                        <td>AI Agent 需要的邊緣算力與安全分發</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- D. 深度個股分析 -->
+        <div class="section">
+            <div class="section-title">🔍 深度個股分析</div>
+            
+            <!-- PLTR -->
+            <div class="card analysis-card">
+                <h2><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/PLTR/overview">PLTR</a> - Palantir Technologies</h2>
+                <div class="metric-grid">
+                    <div class="metric-item"><span class="metric-label">現價</span><span class="metric-value">129.3</span></div>
+                    <div class="metric-item"><span class="metric-label">日%</span><span class="metric-value price-up">+20.54%</span></div>
+                    <div class="metric-item"><span class="metric-label">距低%</span><span class="metric-value">21.6%</span></div>
+                    <div class="metric-item"><span class="metric-label">評分</span><span class="metric-value">9.5/10</span></div>
+                </div>
+                <p><strong>為什麼入選：</strong> PLTR 已經證明了其 AIP (AI Platform) 能在數週內為企業創造實際價值，而非僅僅是實驗。今日的 20% 暴漲反映了市場對其「AI 落地能力」的高度認可。</p>
+                <p><strong>供需邏輯：</strong> 企業端對「可落地的 AI 決策系統」需求遠超目前 PLTR 的交付能力。其 Bootcamps 模式極大縮短了銷售週期。</p>
+                <p><strong>展望與風險：</strong> 展望 2H26，隨著更多 Fortune 500 企業部署 AIP，收入將進入指數增長期。風險在於高估值對短期利空的敏感度。</p>
+            </div>
+
+            <!-- CRWD -->
+            <div class="card analysis-card">
+                <h2><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/CRWD/overview">CRWD</a> - CrowdStrike Holdings</h2>
+                <div class="metric-grid">
+                    <div class="metric-item"><span class="metric-label">現價</span><span class="metric-value">193.98</span></div>
+                    <div class="metric-item"><span class="metric-label">日%</span><span class="metric-value price-up">+14.33%</span></div>
+                    <div class="metric-item"><span class="metric-label">距低%</span><span class="metric-value">126.4%</span></div>
+                    <div class="metric-item"><span class="metric-label">評分</span><span class="metric-value">8.5/10</span></div>
+                </div>
+                <p><strong>為什麼入選：</strong> AI 時代，攻擊手段進化，因此 AI 原生安全防禦（Falcon）成為基礎設施的「剛需」。今日反彈顯示市場已消化此前的波動，重新關注其長期增長。</p>
+                <p><strong>供需邏輯：</strong> 零信任 (Zero Trust) 與 AI 安全的結合，使得單一廠商平台化 (Platformization) 成為企業首選，CRWD 領先於此趨勢。</p>
+                <p><strong>展望與風險：</strong> 隨著 2026 年 AI 代理 (AI Agents) 普及，端點安全將面臨新挑戰，CRWD 的更新速度將決定其天花板。</p>
+            </div>
+
+            <!-- VRT -->
+            <div class="card analysis-card">
+                <h2><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/VRT/overview">VRT</a> - Vertiv Holdings</h2>
+                <div class="metric-grid">
+                    <div class="metric-item"><span class="metric-label">現價</span><span class="metric-value">300.53</span></div>
+                    <div class="metric-item"><span class="metric-label">日%</span><span class="metric-value price-down">-7.69%</span></div>
+                    <div class="metric-item"><span class="metric-label">距低%</span><span class="metric-value">173.1%</span></div>
+                    <div class="metric-item"><span class="metric-label">評分</span><span class="metric-value">8.0/10</span></div>
+                </div>
+                <p><strong>為什麼入選：</strong> 算力增加 $\rightarrow$ 功耗增加 $\rightarrow$ 散熱壓力增加。VRT 是液冷基礎設施的絕對龍頭，無論誰贏得晶片戰爭，VRT 都能獲利。</p>
+                <p><strong>供需邏輯：</strong> B200 及其後繼者幾乎必須使用液冷。目前液冷部署速度遠慢於晶片交付速度，存在巨大的追趕空間。</p>
+                <p><strong>展望與風險：</strong> 短期受電力板塊整體回調影響，但基本面未變。風險在於傳統風冷方案的生命週期延長。</p>
+            </div>
+
+            <!-- MU -->
+            <div class="card analysis-card">
+                <h2><a class="ticker-link" href="https://www.barchart.com/stocks/quotes/MU/overview">MU</a> - Micron Technology</h2>
+                <div class="metric-grid">
+                    <div class="metric-item"><span class="metric-label">現價</span><span class="metric-value">975.56</span></div>
+                    <div class="metric-item"><span class="metric-label">日%</span><span class="metric-value price-down">-19.61%</span></div>
+                    <div class="metric-item"><span class="metric-label">距低%</span><span class="metric-value">843.7%</span></div>
+                    <div class="metric-item"><span class="metric-label">評分</span><span class="metric-value">7.0/10</span></div>
+                </div>
+                <p><strong>為什麼入選：</strong> HBM (高帶寬記憶體) 是 AI 晶片的「呼吸管」。沒有 HBM，GPU 就是廢鐵。MU 在 HBM3e 的產能擴張具有戰略意義。</p>
+                <p><strong>供需邏輯：</strong> 儘管今日大跌，但 2026-2027 年的 HBM 訂單基本已滿。記憶體價格的週期性雖然存在，但 AI 需求創造了新的底價。</p>
+                <p><strong>展望與風險：</strong> 注意 SK Hynix 在 7/10 的美國上市，可能會導致資金在記憶體板塊內重新分配。風險在於記憶體價格的高位震盪。</p>
+            </div>
+        </div>
+
+        <!-- E. 主題評估 -->
+        <div class="section">
+            <div class="section-title">💡 主題板塊評估</div>
+            <div class="grid">
+                <div class="card">
+                    <h3>🟢 AI 應用與安全 (強烈推薦)</h3>
+                    <p>目前處於「獲利兌現期」的起點。PLTR, CRWD, PANW 展現出極強的價格彈性。建議在回調時分批佈局。</p>
+                </div>
+                <div class="card">
+                    <h3>🟡 AI 雲端平台 (穩定持有)</h3>
+                    <p>MSFT, GOOGL, META 是 AI 的房東。雖然增長速度不如純 AI 股，但提供了極高的安全邊際。</p>
+                </div>
+                <div class="card">
+                    <h3>🔴 週期性硬體 (耐心等待)</h3>
+                    <p>MU, AMAT, SMCI 等公司今日慘烈，顯示出短期過熱。建議觀察 50 日均線支撐，不要急於抄底。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- F. 供需分析 -->
+        <div class="section">
+            <div class="section-title">⚖️ AI 供需失衡深度分析</div>
+            <div class="card">
+                <p>目前 AI 基礎建設的瓶頸已經從 <span class="highlight">「晶片算力」</span> 轉移到 <span class="highlight">「電力與散熱」</span>。雖然今日電力股回調，但這是估值修正而非需求消失。真正的供需失衡點在於：</p>
+                <ul>
+                    <li><strong>電力缺口：</strong> 數據中心對電力的需求增長速度遠超電網升級速度 $\rightarrow$ 催生 SMR (小型模組化反應爐) 需求。</li>
+                    <li><strong>冷卻瓶頸：</strong> 液冷基礎設施的安裝週期長達 6-12 個月 $\rightarrow$ 導致 B200 的實際部署速度受限。</li>
+                    <li><strong>數據飢渴：</strong> 高質量數據不足 $\rightarrow$ 促使 AI 公司投資合成數據與邊緣數據采集 (NET, PLTR)。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- G. 明日觀察 -->
+        <div class="section">
+            <div class="section-title">📅 明日觀察重點</div>
+            <div class="card">
+                <ul>
+                    <li><strong>SK Hynix (SKHY) 美股上市預期：</strong> 關注其對 MU 及其他記憶體股的資金抽血效應。</li>
+                    <li><strong>大盤輪動方向：</strong> 確認「硬轉軟」是否形成持續趨勢，或僅是短期技術性反彈。</li>
+                    <li><strong>Barchart 信號更新：</strong> 關注是否有新的 AI 低位突破標的出現。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
