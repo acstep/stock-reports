@@ -1,0 +1,88 @@
+{
+  "date": "2026-07-06",
+  "generated_at": "2026-07-06T14:38:00+08:00",
+  "source": "yahoo-finance-research + stock-reports-index.md (markdown)",
+  "model": "MiniMax-M3",
+  "tickers": {
+    "CRWD": {
+      "recommendation": "CrowdStrike 作為 AI 自動化防禦的領頭羊，雖然股價已逼近 52 週高點，但在六月底美股強勢反彈、整體板塊防禦性溢價持續擴大的背景下，機構買盤仍積極進場。Vickers 內部人士日報顯示大型內部人持續買進網安龍頭，印證市場信心堅實。整體而言，在 AI 威脅偵測需求遠超供給的結構性趨勢下，CRWD 仍是 AI 基礎建設中安全護城河的首選標的。",
+      "news": [
+        {
+          "title_zh": "六月份美股強勢收尾，第二季寫下亮眼季度報酬",
+          "title_en": "The stock market ended June in recovery mode -- and while the month showed mixed returns from a plethora of indices, it was an absolute slam-dunk of a quarter. The second quarter certainly benefited from some prescient timing, as the market bottomed on the second to last day of March following a four-week slide due to the war in Iran and the spike in global energy prices. Stocks ignited on March 31 and ripped higher, with the major indices peaking on June 2.",
+          "url": "https://finance.yahoo.com/research/reports/47486_Technical%20Analysis_1782904853000"
+        },
+        {
+          "title_zh": "Vickers 內部人士買賣日報：每日追蹤大額內部人交易",
+          "title_en": "The Vickers Top Buyers &amp; Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions.",
+          "url": "https://finance.yahoo.com/research/reports/47416_Top/Bottom%20Insider%20Activity_1782298722000"
+        },
+        {
+          "title_zh": "川普取消對伊朗軍事行動，原油崩跌、債券與股市噴發",
+          "title_en": "Thursday looked like a day of indecision until the early afternoon, when President Trump (again) called off strikes on Iran and said the U.S. will soon sign a deal with that country. Markets went ballistic, with crude oil tanking, Treasury bonds ripping, and stocks exploding. After about 40 headlines that a deal was close, the markets responded like the war in the Middle East is over and the Strait of Hormuz is open.",
+          "url": "https://finance.yahoo.com/research/reports/47315_Technical%20Analysis_1781262714000"
+        }
+      ]
+    },
+    "NEE": {
+      "recommendation": "NextEra Energy 憑藉 40GW 總發電容量與業界領先的風光再生能源占比（約三分之一），是 AI 資料中心電力缺口的天然受益者，公用事業轉型領軍者地位穩固。最新經濟報告指出通膨升溫、利率維持高檔，防禦性公用事業在板塊輪動中展現抗跌韌性，符合當前宏觀環境。不過消費信心跌至歷史新低為潛在風險，但 NEE 的再生能源擴張與電池儲能布局在中長期仍具強勁吸引力。",
+      "news": [
+        {
+          "title_zh": "NextEra Energy：佛州總部的再生能源與公用事業巨頭，旗下 FPL 為全美前三大垂直整合電力公司",
+          "title_en": "Headquartered in Juno Beach, Florida, NextEra Energy provides generation, transmission, and distribution services. It has more than 40 GW of total generating capacity, with about one-third of electricity contributed by renewable wind and solar sources. The company's largest electric utility is Florida Power &amp; Light, FPL, one of the largest vertically integrated electric utilities in the U.S., with approximately 6 million customer accounts.",
+          "url": "https://finance.yahoo.com/research/reports/2983_Analyst%20Report_1777054562000"
+        },
+        {
+          "title_zh": "週五美股走勢分歧，標普與那指收紅，但消費者信心指數跌至歷史新低",
+          "title_en": "Stocks are a mixed bag at midday on Friday, with the S&amp;P 500 and the Nasdaq up, but the Dow Jones Industrial Average down. The Index of Consumer Sentiment showed consumer sentiment ended April with a final reading of 49.8, above the 48.5 reading economists expected but marking the lowest level on record - below readings taken during the financial crisis, the COVID-19 pandemic, and when inflation spiked following Russia's invasion of Ukraine.",
+          "url": "https://finance.yahoo.com/research/reports/46845_Market%20Update_1777053662000"
+        },
+        {
+          "title_zh": "回顧 2025 Q1：地緣政治衝擊下，S&P 500 仍展現 V 型反轉韌性",
+          "title_en": "The first quarter of 2025 on Wall Street is in the books. The S&amp;P 500, which started higher in January, slumped in February and March and is down 4.6% for the year to date. The quarter is typically a positive one for equities, as the average gain for the period since 1980 has been 2.0%.",
+          "url": "https://finance.yahoo.com/research/reports/46604_Market%20Outlook_1775042837000"
+        }
+      ]
+    },
+    "PLTR": {
+      "recommendation": "Palantir 的政府（54%）+ 商用（46%）雙引擎布局，使其在 AI 商業化浪潮中站穩核心數據平台位置。最新月度經濟調查顯示非住宅固定投資 Q1 暴漲 10.4%，其中 AI 設備支出成長 17% 並帶動智財產品 +13%，直接印證 PLTR 的企業數位轉型核心邏輯。整體 IT 板塊 Q1 EPS 暴漲 56%（受惠於資訊科技高毛利特性），配合多家企業調升財測，將為 PLTR 估值提供強勁催化劑。",
+      "news": [
+        {
+          "title_zh": "Palantir 提供整合數據決策與營運的軟體服務，政府與企業雙引擎驅動成長",
+          "title_en": "Palantir develops and provides software that enables customers from government agencies to commercial enterprises to integrate data for decision-making and operations at scale. The company initially provided its software to the U.S. intelligence services before broadening its customer base. Palantir generates 54% of its revenue from its government segment and 46% from its commercial segment. Some 26% of revenue is generated outside the U.S.",
+          "url": "https://finance.yahoo.com/research/reports/6302_Analyst%20Report_1778065523000"
+        },
+        {
+          "title_zh": "脆弱的休戰：4月經濟、利率與美股月度調查，AI 資本支出暴漲 17% 成最大亮點",
+          "title_en": "A Fragile Truce: Our Monthly Survey of the Economy, Interest Rates, and Stocks April is typically one of the strongest stock months of the year, but performance in April 2026 was off the charts. The 10% April rally in the S&amp;P 500 and 15% rally in the Nasdaq Composite was fueled by the uneasy and fragile, yet still intact, truce between the U.S. and Iran.",
+          "url": "https://finance.yahoo.com/research/reports/46942_Market%20Summary_1778065523000"
+        },
+        {
+          "title_zh": "美股在「亢奮情緒」中進入財報季，企業獲利表現將是後市關鍵",
+          "title_en": "The stock market has entered earnings season on a sugar high, so corporate America better deliver the goods or else. Generally, a flat-to-weak market going into earnings season is preferable to a market that features rip-roaring stock prices.",
+          "url": "https://finance.yahoo.com/research/reports/46825_Technical%20Analysis_1776942515000"
+        }
+      ]
+    },
+    "SNOW": {
+      "recommendation": "Snowflake 的雲原生數據倉儲已成為 AI 模型訓練與企業數據整合的關鍵基礎，平台黏著度極高，符合高品質數據庫剛需的最新研究主題。Q1 財報季 IT 板塊獲利暴漲 56% 領跑大盤，且多家企業順勢調升財測，Snowflake 作為 AI 數據雲代表位列其中。Snowflake 25% 營收來自海外提供地理多元化緩衝，整體而言是 AI 數據基建的核心持倉首選。",
+      "news": [
+        {
+          "title_zh": "Vickers 內部人士買賣日報：每日追蹤大額交易紀錄",
+          "title_en": "The Vickers Top Buyers &amp; Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions.",
+          "url": "https://finance.yahoo.com/research/reports/47434_Top/Bottom%20Insider%20Activity_1782389438000"
+        },
+        {
+          "title_zh": "Q1 財報季精彩落幕，IT 板塊獲利暴漲 56%，多檔個股調升指引",
+          "title_en": "The first-quarter earnings season has been sensational. Many companies knocked it out of the park when delivering earnings and revenue numbers that well beyond expectations. With reports now in from about 96% of S&amp;P 500 companies, earnings have climbed a staggering 29% from last quarter. Information Technology, up 56%, and Communication Services, up 51%, have led the pack.",
+          "url": "https://finance.yahoo.com/research/reports/47193_Stock%20Picks_1780315198000"
+        },
+        {
+          "title_zh": "Snowflake 自詡為 AI 數據雲公司，雲原生數據倉儲為核心業務",
+          "title_en": "Snowflake calls itself an AI data cloud company. The company's core business is as a cloud-native data warehouse. Snowflake leverages the large public hyperscale cloud services to provide its Data Cloud to customers, enabling them to unify disparate data sources for the purposes of data engineering, and the development of artificial intelligence, applications, collaboration, and cybersecurity. Snowflake went public on September 16, 2020 at $120 per share. The company derives 25% of its revenue outside the U.S.",
+          "url": "https://finance.yahoo.com/research/reports/6355_Analyst%20Report_1780053669000"
+        }
+      ]
+    }
+  }
+}
