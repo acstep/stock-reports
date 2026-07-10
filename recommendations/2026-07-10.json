@@ -1,0 +1,68 @@
+{
+  "date": "2026-07-10",
+  "generated_at": "2026-07-10T14:34:56.126102",
+  "source": "yahoo-finance-research + index.html",
+  "model": "MiniMax-M3",
+  "tickers": {
+    "NVDA": {
+      "recommendation": "全球 AI 算力基礎。 建議低檔佈局。",
+      "news": [
+        {
+          "title_zh": "The markets soared in the first half of 2026, with the S&amp;P 500 up 9%. Can the momentum continue? At Argus, we think the bull still has some life. In fact, in our &quot;base case&quot; for the second half of the year, we see the S&amp;P 500 gaining another 5%-7%. We also have a &quot;bullish case,&quot; where more goes right, and a &quot;bearish case,&quot; where more goes wrong. As we start the back half of the year, we have tweaked our annual investment themes (originally publish in January), focusing on six that we expect will drive the stock market. Those six themes are AI Broadens Out; Energy Realignment; Upbeat Management Signals, Dividend Hikes; Upbeat Management Signals, Raising Guidance; Consumer Relief; and Rotation into Income. For this week's list, we dive into the first three themes and identify certain key stocks that we believe exemplify each theme.",
+          "title_en": "The markets soared in the first half of 2026, with the S&amp;P 500 up 9%. Can the momentum continue? At Argus, we think the bull still has some life. In fact, in our &quot;base case&quot; for the second half of the year, we see the S&amp;P 500 gaining another 5%-7%. We also have a &quot;bullish case,&quot; where more goes right, and a &quot;bearish case,&quot; where more goes wrong. As we start the back half of the year, we have tweaked our annual investment themes (originally publish in January), focusing on six that we expect will drive the stock market. Those six themes are AI Broadens Out; Energy Realignment; Upbeat Management Signals, Dividend Hikes; Upbeat Management Signals, Raising Guidance; Consumer Relief; and Rotation into Income. For this week's list, we dive into the first three themes and identify certain key stocks that we believe exemplify each theme.",
+          "url": "https://finance.yahoo.com/research/reports/47521_Stock%20Picks_1783337985000"
+        },
+        {
+          "title_zh": "Argus has published its latest Portfolio Selector, which features its popular Focus List. Each month, Director of Research Jim Kelleher, CFA, surveys the team of Argus Research industry analysts for their timeliest recommendations out of the company's fundamental universe of approximately 500 stocks. The Focus List typically includes 30 stocks: turnover is high, as Jim typically adds three or four new stocks per month. Below are the latest additions, all of which are rated BUY at Argus.",
+          "title_en": "Argus has published its latest Portfolio Selector, which features its popular Focus List. Each month, Director of Research Jim Kelleher, CFA, surveys the team of Argus Research industry analysts for their timeliest recommendations out of the company's fundamental universe of approximately 500 stocks. The Focus List typically includes 30 stocks: turnover is high, as Jim typically adds three or four new stocks per month. Below are the latest additions, all of which are rated BUY at Argus.",
+          "url": "https://finance.yahoo.com/research/reports/47331_Stock%20Picks_1781524221000"
+        },
+        {
+          "title_zh": "The Portfolio Selector features the Argus Focus List, a group of 30 &quot;best idea&quot; stocks generated and regularly updated by Argus' analysts and investment policy committee. It also includes the director of research’s monthly investment strategy column, stock recommendations and sector picks, economic forecasts, and an asset allocation model. This month, the Focus List additions are NVIDIA Corp (NVDA); Applied Materials Inc (AMAT); Maplebear Inc (CART); Lyft Inc (LYFT) and the Focus List deletions are Cisco Systems Inc (CSCO); Expedia Group Inc (EXPE); Meta Platforms Inc (META); Marvell Technology Inc (MRVL).",
+          "title_en": "The Portfolio Selector features the Argus Focus List, a group of 30 &quot;best idea&quot; stocks generated and regularly updated by Argus' analysts and investment policy committee. It also includes the director of research’s monthly investment strategy column, stock recommendations and sector picks, economic forecasts, and an asset allocation model. This month, the Focus List additions are NVIDIA Corp (NVDA); Applied Materials Inc (AMAT); Maplebear Inc (CART); Lyft Inc (LYFT) and the Focus List deletions are Cisco Systems Inc (CSCO); Expedia Group Inc (EXPE); Meta Platforms Inc (META); Marvell Technology Inc (MRVL).",
+          "url": "https://finance.yahoo.com/research/reports/47303_Portfolio%20Ideas_1781179068000"
+        }
+      ]
+    },
+    "AMD": {
+      "recommendation": "AMD 在數據中心 GPU 市場的份額正穩步擴張。 動能仍在。",
+      "news": [
+        {
+          "title_zh": "The Vickers Top Buyers &amp; Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions.",
+          "title_en": "The Vickers Top Buyers &amp; Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions.",
+          "url": "https://finance.yahoo.com/research/reports/47212_Top/Bottom%20Insider%20Activity_1780483300000"
+        },
+        {
+          "title_zh": "The Vickers Top Buyers &amp; Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions.",
+          "title_en": "The Vickers Top Buyers &amp; Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions.",
+          "url": "https://finance.yahoo.com/research/reports/47008_Top/Bottom%20Insider%20Activity_1778668946000"
+        },
+        {
+          "title_zh": "The major indices are broadly higher at midday on Wednesday. Oil prices have plunged on optimism that a peace deal with Iran might be close. Crude oil is down 7% at $95 per barrel. The yield on the 10-year note is at 4.36%, and the VIX volatility index is at 17.",
+          "title_en": "The major indices are broadly higher at midday on Wednesday. Oil prices have plunged on optimism that a peace deal with Iran might be close. Crude oil is down 7% at $95 per barrel. The yield on the 10-year note is at 4.36%, and the VIX volatility index is at 17.",
+          "url": "https://finance.yahoo.com/research/reports/46949_Market%20Update_1778091857000"
+        }
+      ]
+    },
+    "MU": {
+      "recommendation": "HBM 是 AI 算力的關鍵瓶頸。 估值相對合理。",
+      "news": [
+        {
+          "title_zh": "The Vickers Top Buyers &amp; Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions.",
+          "title_en": "The Vickers Top Buyers &amp; Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the transactions.",
+          "url": "https://finance.yahoo.com/research/reports/47513_Top/Bottom%20Insider%20Activity_1783334923000"
+        },
+        {
+          "title_zh": "Boise, Idaho-based Micron is the largest U.S. memory company and a leading global supplier of DRAM, NOR, and NAND memory. The company provides memory solutions for computing, communications, consumer, and industrial applications, and serves both wireless and embedded applications. In July 2013, Micron completed its acquisition of Elpida and the Rexchip assets, resulting in a significant boost to productive capacity and revenue opportunity.",
+          "title_en": "Boise, Idaho-based Micron is the largest U.S. memory company and a leading global supplier of DRAM, NOR, and NAND memory. The company provides memory solutions for computing, communications, consumer, and industrial applications, and serves both wireless and embedded applications. In July 2013, Micron completed its acquisition of Elpida and the Rexchip assets, resulting in a significant boost to productive capacity and revenue opportunity.",
+          "url": "https://finance.yahoo.com/research/reports/3614_Analyst%20Report_1782386191000"
+        },
+        {
+          "title_zh": "Stocks posted mixed results on Wednesday, with the Nasdaq lower, the Dow Jones Industrial Average higher, and the S&amp;P 500 just kinda' sitting there. Technology stocks continued to take a beating on fears of overspending on AI development. But that may well change today after Micron reported results (after the close on Thursday) that absolutely blew away expectations for earnings, sending the shares higher by 15% in the aftermarket.",
+          "title_en": "Stocks posted mixed results on Wednesday, with the Nasdaq lower, the Dow Jones Industrial Average higher, and the S&amp;P 500 just kinda' sitting there. Technology stocks continued to take a beating on fears of overspending on AI development. But that may well change today after Micron reported results (after the close on Thursday) that absolutely blew away expectations for earnings, sending the shares higher by 15% in the aftermarket.",
+          "url": "https://finance.yahoo.com/research/reports/47427_Market%20Summary_1782385291000"
+        }
+      ]
+    }
+  }
+}
