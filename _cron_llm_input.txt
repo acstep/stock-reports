@@ -1,0 +1,394 @@
+TICKERS TO PROCESS (52 total). For each, output 2-3 sentence Traditional Chinese AI recommendation (integrating the 'why' + 'outlook' + research theme) AND Traditional Chinese translation of each English title.
+
+
+### AAON
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: AAON INC has an Investment Rating of BUY; a target price of $126.000000; an Industry Subrating of High; a Management Subrating of High; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of High; and a Value Subrating of Medium.
+  2. EN: AAON INC has an Investment Rating of BUY; a target price of $145.000000; an Industry Subrating of High; a Management Subrating of High; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of High; and a Value Subrating of High.
+  3. EN: AAON INC has an Investment Rating of BUY; a target price of $148.000000; an Industry Subrating of High; a Management Subrating of High; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of High; and a Value Subrating of High.
+
+### AES
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: AES Corp., based in Arlington, Virginia, is an independent global power company. In addition, the company owns three regulated utilities in the U.S. It generates approximately 32,000 megawatts of electricity. AES has operations in 15 countries, including the United States, Chile,
+  2. EN: The major indices are higher at midday. Chip stocks are up and that's lifting the mood on Wall Street, this while investors wait to see what happens with the Iran and U.S. ceasefire. Crude oil is at $72 per barrel, the yield on the 10-year note is at 4.55%, and the VIX volatility
+  3. EN: AES Corp., based in Arlington, Virginia, is an independent global power company. In addition, the company owns three regulated utilities in the U.S. It generates approximately 32,000 megawatts of electricity. AES has operations in 15 countries, including the United States, Chile,
+
+### AMAT
+WHY: CoWoS 先進封裝設備剛性瓶頸，HBM 與 2nm 製程蝕刻設備不可或缺，大跌創造長線黃金坑
+OUTLOOK: 全球半導體設備最關鍵瓶頸之一，封測設備市場份額持續擴張，2027 年 2nm 量產將再拉動設備更新
+NEWS (3):
+  1. EN: Dividend income is often overlooked amid gyrations in the stock market. Consider that in 2024, market bulls were boasting about 24%-plus S&P 500 returns. No one was very focused on the broad market index's 1.2% dividend yield. But dividends are an important element of return, and
+  2. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  3. EN: Argus has published its latest Portfolio Selector, which features its popular Focus List. Each month, Director of Research Jim Kelleher, CFA, surveys the team of Argus Research industry analysts for their timeliest recommendations out of the company's fundamental universe of appr
+
+### AMD
+WHY: AMD -2.77% 跌幅溫和，MI300/MI325 在資料中心加速卡市占上升。...
+OUTLOOK: AMD 是 NVDA 之外唯一可以提供完整 AI 加速卡生態的公司。雖比 NVDA 弱，但作為二線選擇依然受惠。...
+NEWS (3):
+  1. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  2. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  3. EN: The major indices are broadly higher at midday on Wednesday. Oil prices have plunged on optimism that a peace deal with Iran might be close. Crude oil is down 7% at $95 per barrel. The yield on the 10-year note is at 4.36%, and the VIX volatility index is at 17.
+
+### AMKR
+WHY: CoWoS 先進封裝產能嚴重不足，AMKR 是非台積電體系唯一能承接高複雜度封裝的廠商，大跌是黃金坑
+OUTLOOK: 全球第二大封測代工廠，CoWoS 需求爆發，蘋果/輝達/AMD 離散封裝訂單能見度極佳
+NEWS (3):
+  1. EN: AMKOR TECHNOLOGY INC has an Investment Rating of HOLD; a target price of $69.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Med
+  2. EN: AMKOR TECHNOLOGY INC has an Investment Rating of HOLD; a target price of $91.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Hig
+  3. EN: AMKOR TECHNOLOGY INC has an Investment Rating of HOLD; a target price of $91.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of Hig
+
+### AMZN
+WHY: AWS Trainium/Interentia 自研 AI 晶片降低依賴，AWS 營益率回升，電商利潤率持續擴張
+OUTLOOK: AWS 仍是全球最大雲端平台，AI 服務層層堆疊，Amazon Bedrock 成為企業部署 LLM 首選之一
+NEWS (3):
+  1. EN: AI is helping lift profits at consumer companies on multiple levels. It allows companies to better understand their customers, which can improve target marketing and customization. Companies can hone menus, goods, and services to achieve broader appeal and to reach new audiences.
+  2. EN: Sustainable Impact Investing is gaining traction not only with Argus Research clients but also with the global investment community. As assets have flowed in over the past 40 years, Sustainable Investing has evolved. The discipline, originally known as Socially Responsible Invest
+  3. EN: Vickers Stock Research, a subsidiary of Argus Research Group, tracks and analyzes insider trading and institutional stock ownership trends. Form 13-Fs, which institutions must file to report their holdings, are due 45 days after the end of calendar quarters, and have now come in 
+
+### ANET
+WHY: AI 資料中心交換機龍頭，400G/800G 交換機在雲端與超大規模需求爆發，估值殺後性價比凸顯
+OUTLOOK: Arista 是 Meta/Google/微軟資料中心網路骨幹供應商，雲端 Capit 支出持續高位支援營收
+NEWS (3):
+  1. EN: The major indices are broadly higher at midday on Wednesday. Oil prices have plunged on optimism that a peace deal with Iran might be close. Crude oil is down 7% at $95 per barrel. The yield on the 10-year note is at 4.36%, and the VIX volatility index is at 17.
+  2. EN: Arista Networks is a leading supplier of cloud networking solutions for internet companies, cloud service providers, and next-generation data centers. It generates the largest portion of its revenue from switching products that incorporate its EOS software.
+  3. EN: The United States economy is full of innovation. It has to be. Manufacturing industries that dominated the economy decades ago - textiles, televisions, even automobiles to a large degree - have moved overseas, where labor and materials costs are lower. Yet the U.S. economy, even 
+
+### ARM
+(no report data — synthesize recommendation from research titles only)
+NEWS (0):
+
+### ASML
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: The stock market continues to bounce around heading into the end of the second quarter, as the month of June offered nothing more than whippy price action. The major indices appear to be consolidating within potential triangles, and those tend to be continuation patterns of the l
+  2. EN: Dividend income is often overlooked amid gyrations in the stock market. Consider that in 2024, market bulls were boasting about 24%-plus S&P 500 returns. No one was very focused on the broad market index's 1.2% dividend yield. But dividends are an important element of return, and
+  3. EN: On Monday, the major indices were tempered by a 5.5% jump in crude oil (WTI) prices, but the large-cap indices still rose from 0.3% to 0.6%. Technology (XLK +2.5%) and Energy (XLE +1.8%) were the only two sectors that rose. Utilities (XLU -3%) were the weakest, followed by Consum
+
+### ASX
+WHY: 日月光 +0.05% 今日幾乎平盤，相對抗跌。先進封裝領導者。...
+OUTLOOK: 日月光是全球最大封測廠，AI 晶片的 CoWoS 替代產能。...
+NEWS (0):
+
+### AVGO
+WHY: Broadcom -4.87%，客製化 ASIC 與 VMware 雙引擎。...
+OUTLOOK: Google TPU、Meta MTIA 訓練晶片都由 AVGO 設計，AI ASIC 市場的隱形冠軍。...
+NEWS (3):
+  1. EN: Wednesday looked like a repeat of Tuesday, as another jump in crude oil (WTI) and Treasury yields knocked the stock market lower until noon. Still, buying primarily in Information Technology stocks, namely the beaten-up semiconductors, actually led to a 1.2% gain in the XLK (IT),
+  2. EN: The markets soared in the first half of 2026, with the S&P 500 up 9%. Can the momentum continue? At Argus, we think the bull still has some life. In fact, in our "base case" for the second half of the year, we see the S&P 500 gaining another 5%-7%. We also have a "bullish case," 
+  3. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+
+### CEG
+WHY: Constellation Energy -10.96% 跌到 52W 低點附近（距低 4.6%），嚴重超跌。...
+OUTLOOK: AI 電力霸主，Meta 簽 20 年 PPA、Microsoft 三哩島重啟、AWS 簽 5 GW 核能。CEG 在 AI 電力鏈中的角色無法被取代，今天的低...
+NEWS (3):
+  1. EN: Dividend income is often overlooked amid gyrations in the stock market. Consider that in 2024, market bulls were boasting about 24%-plus S&P 500 returns. No one was very focused on the broad market index's 1.2% dividend yield. But dividends are an important element of return, and
+  2. EN: Constellation Energy is the nation's largest producer of carbon-free energy and a leading supplier of energy products and services, including sustainable energy solutions to homes, institutional customers, the public sector, community aggregations, and businesses, including three
+  3. EN: The major indices are lower at midday Tuesday, with the Nasdaq down more than 1%. Inflation is rising faster than expected. Headline CPI came in at 3.8% for April, in line with consensus but well above the 3.3% pace the month before. Core CPI was 2.8% for April, above the 2.7% fo
+
+### CIEN
+WHY: 光傳輸網路核心供應商，AI 資料中心互連需求爆發，誤殺随板塊回調，目標價巨大上檔空間
+OUTLOOK: WaveLogic 8 800G 光傳輸晶片是 AI 時代數據骨幹，亞馬遜/微軟長約能見度到 2028 年
+NEWS (3):
+  1. EN: Ciena participates in optical transport and switching, converged optical Ethernet solutions, carrier Ethernet, and global services for its customers. The addition of Nortel MEN in March 2010 more than doubled the revenue base.
+  2. EN: Stocks turned in a mixed performance on Thursday, as Broadcom led the Nasdaq lower, the S&P 500 and Dow Jones Industrials were higher, and now all of Wall Street has (maybe) moved on and is awaiting the latest jobs data.
+  3. EN: To date, 2026 has been a volatile year for stocks. The major indices started the year by moving higher, but that changed with the onset of the war with Iran on February 28. As oil prices began to climb rapidly, stock prices fell inversely. The Mag7 were out, but now seem to be ba
+
+### CRM
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: Salesforce is a cloud-based SaaS CRM software company, helping customers transform their businesses into agentic AI enterprises. It offers its software through its Agentforce Sales Cloud, Service Cloud, Marketing Cloud, and Commerce Cloud platforms, as well as its Data 360 and ot
+  2. EN: The May jobs report comes out this week, as do a few late earnings reports from some big tech and retail names. Last week, the Dow Jones Industrial Average rose 1%, the S&P 500 was up 1.4%, and the Nasdaq popped 2%. Year to date, all three indices are in positive territory, with 
+  3. EN: The Portfolio Selector features the Argus Focus List, a group of 30 "best idea" stocks generated and regularly updated by Argus' analysts and investment policy committee. It also includes the director of research’s monthly investment strategy column, stock recommendations and sec
+
+### CRWD
+WHY: AI 原生資安平台龍頭，Charlotte AI 降低誤判率 75%，Q2 財測超預期，技術面創歷史新高
+OUTLOOK: 資安是 AI 時代最確定的剛需之一，CRWD 市佔率持續擴張，Falcon 平台網路效應護城河深
+NEWS (3):
+  1. EN: The stock market ended June in recovery mode -- and while the month showed mixed returns from a plethora of indices, it was an absolute slam-dunk of a quarter. The second quarter certainly benefited from some prescient timing, as the market bottomed on the second to last day of M
+  2. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  3. EN: Thursday looked like a day of indecision until the early afternoon, when President Trump (again) called off strikes on Iran and said the U.S. will soon sign a deal with that country. Markets went ballistic, with crude oil tanking, Treasury bonds ripping, and stocks exploding. Aft
+
+### CSCO
+WHY: 企業網路龍頭，AI 園區網路與統一計算需求穩健，Cisco Circle 訂閱制轉型持續推進
+OUTLOOK: Cisco 是企業網路設備的基礎設施，儘管成長趨緩但現金流穩健，訂閱收入比重提升有助估值重估
+NEWS (3):
+  1. EN: The Portfolio Selector features the Argus Focus List, a group of 30 "best idea" stocks generated and regularly updated by Argus' analysts and investment policy committee. It also includes the director of research’s monthly investment strategy column, stock recommendations and sec
+  2. EN: The first-quarter earnings season has been sensational. Many companies knocked it out of the park when delivering earnings and revenue numbers that well beyond expectations. With reports now in from about 96% of S&P 500 companies, earnings have climbed a staggering 29% from last 
+  3. EN: Cisco is a worldwide leader in communications equipment. Originally created to provide routers and switches for Ethernet-based networks within enterprises, the company has expanded into collaboration, data center, service provider video, security, wireless, analytics, and other h
+
+### DELL
+WHY: AI 伺服器需求長期剛需，戴爾企業級解決方案客戶黏性高，被 SMCI 醜聞拖累但自身基本面穩健
+OUTLOOK: Dell 是企業 IT 基礎建設最大整合供應商，AI 伺服器與存儲陣列需求旺盛，估値處於低位，修復空間大
+NEWS (3):
+  1. EN: The markets soared in the first half of 2026, with the S&P 500 up 9%. Can the momentum continue? At Argus, we think the bull still has some life. In fact, in our "base case" for the second half of the year, we see the S&P 500 gaining another 5%-7%. We also have a "bullish case," 
+  2. EN: Dividend income is often overlooked amid gyrations in the stock market. Consider that in 2024, market bulls were boasting about 24%-plus S&P 500 returns. No one was very focused on the broad market index's 1.2% dividend yield. But dividends are an important element of return, and
+  3. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+
+### ETN
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: The Federal Reserve's favorite inflation indicator, the PCE Price Index, will be released by the BEA on Thursday. The index differs from the better-known Consumer Price Index (CPI) because its composition is changed more frequently and is quicker to reflect real-time pricing. In 
+  2. EN: Sustainable Impact Investing, or ESG investing, is gaining traction with the global investment community. According to the Global Sustainable Investment Association, global assets under management in Sustainable Investment strategies had grown to $30 trillion in 2022, up from $23
+  3. EN: Sustainable Impact Investing is gaining traction not only with Argus Research clients but also with the global investment community. As assets have flowed in over the past 40 years, Sustainable Investing has evolved. The discipline, originally known as Socially Responsible Invest
+
+### GEV
+WHY: AI 資料中心電力排隊 3-5 年，電網升級剛需，變壓器與輸配電設備供應瓶頸，GEV 享受定價權
+OUTLOOK: AI 盡頭是電力，GEV 是最純的電網基建受益者，SMR 小型模組化反應爐打開長期成長空間
+NEWS (3):
+  1. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  2. EN: AI is helping companies in the Industrial sector, and those same companies are helping AI. We hear a lot of talk about the technology supporting AI (such as data centers and high-speed chips). For its part, the Industrial sector is full of names supporting AI growth by supplying 
+  3. EN: GE Vernova is a global leader in the electric power industry, with products and services that generate, transfer, orchestrate, convert, and store electricity. The company is poised to benefit from extended growth in the demand for its products and services as emerging economies f
+
+### GLW
+WHY: 特種光纖在 AI 集群光互連中從選配變標配，800G/1.6T 光模組需求爆發，錯殺創造買點
+OUTLOOK: AI 集群光互連剛需，特種光纖毛利達 55%+，Google/微軟長約鎖定，擴產至 2027 年
+NEWS (3):
+  1. EN: Sustainable Impact Investing is gaining traction not only with Argus Research clients but also with the global investment community. As assets have flowed in over the past 40 years, Sustainable Investing has evolved. The discipline, originally known as Socially Responsible Invest
+  2. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  3. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+
+### GOOGL
+WHY: Google Cloud AI 服務爆發，TPU 算力自主可控，Gemini 2.0 追擊 GPT，估值仍低於歷史均值
+OUTLOOK: Google AI 基礎建設垂直整合完整，TPU + Cloud + Gemini 生態，搜尋廣告現金流資助 AI 研發
+NEWS (3):
+  1. EN: Last week was a sloppy four-day affair for the stock market, as the mega cap indices continue their sideways trek since peaking at all-time highs on June 2. The S&P 500 rose 1.8%, the Nasdaq was up 2%, the Nasdaq 100 gained 0.7%, the S&P MidCap 400 fell 0.2%, and the S&P Small Ca
+  2. EN: Argus Research believes that Sustainable Impact investing is smart investing. We recently updated our Sustainable Growth Theme Model Portfolio and added just one company (Nasdaq Inc.). That might seem like a small number, but the list does turn over and the current list does look
+  3. EN: Alphabet maintains the largest online index of websites accessible through automated search technology. It generates revenue through online advertising, cloud services, and consumer devices. Google is an operating segment of Alphabet. The company was founded in 1998 by Sergey Bri
+
+### HPQ
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: HP Inc. is a leading provider of PCs and printing solutions for businesses, enterprises, and consumers. The company also produces workstations, tablets, retail point-of-sale systems, calculators, and support services. The printing business offers commercial and consumer printers,
+  2. EN: The major indices are modestly higher at midday on Thursday. Negotiations between the U.S. and Iran are back and forth. Meanwhile, fresh inflation data confirmed that prices are rising, as expected, largely due to the war. And, of course, individual names are rising and falling a
+  3. EN: HP Inc. is a leading provider of PCs and printing solutions for businesses, enterprises, and consumers. The company also produces workstations, tablets, retail point-of-sale systems, calculators, and support services. The printing business offers commercial and consumer printers,
+
+### INTC
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: Vickers Stock Research, a subsidiary of Argus Research Group, tracks and analyzes insider trading and institutional stock ownership trends. Form 13-Fs, which institutions must file to report their holdings, are due 45 days after the end of calendar quarters, and have now come in 
+  2. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  3. EN: Intel supplies the computing industry with the chips, boards, systems, and software that are the primary components of computer architecture. Intel has also expanded through acquisitions, although these businesses are now being reviewed for possible sale. Intel formerly had the l
+
+### LRCX
+WHY: Lam Research -12.55%，HBM 製造設備龍頭。...
+OUTLOOK: HBM 與先進封裝都需要 Lam 的蝕刻與沉積設備。...
+NEWS (3):
+  1. EN: Dividend income is often overlooked amid gyrations in the stock market. Consider that in 2024, market bulls were boasting about 24%-plus S&P 500 returns. No one was very focused on the broad market index's 1.2% dividend yield. But dividends are an important element of return, and
+  2. EN: In yesterday's essay on our technical process, we noted the importance of market trends over various timeframes. Sector performance provides insight on the broad market, and looking at sector trends over various timeframes also provides insight on the market's past direction and 
+  3. EN: Lam Research supplies WFE and services that are vital to the production of semiconductors. It offers a range of products used in thin film deposition, plasma etch, photoresist strip, and wafer cleaning processes. Lam has grown its SAM to about 34% of total industry spending on WF
+
+### LUMN
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: LUMEN TECHNOLOGIES INC has an Investment Rating of SELL; a target price of $6.000000; an Industry Subrating of Medium; a Management Subrating of Low; a Safety Subrating of Low; a Financial Strength Subrating of Low; a Growth Subrating of Low; and a Value Subrating of Medium.
+  2. EN: LUMEN TECHNOLOGIES INC has an Investment Rating of HOLD; a target price of $7.000000; an Industry Subrating of Medium; a Management Subrating of Low; a Safety Subrating of Medium; a Financial Strength Subrating of Low; a Growth Subrating of Low; and a Value Subrating of Medium.
+  3. EN: LUMEN TECHNOLOGIES INC has an Investment Rating of HOLD; a target price of $9.000000; an Industry Subrating of Medium; a Management Subrating of Low; a Safety Subrating of Medium; a Financial Strength Subrating of Low; a Growth Subrating of Low; and a Value Subrating of Medium.
+
+### META
+WHY: LLaMA 4 訓練需求拉動 GPU 支出，廣告 AI 提升投放效率，歐洲監管風險可控，估值修復中
+OUTLOOK: Meta 是 AI 應用層最被低估的巨頭，AI 推薦引擎提升用戶時長與廣告單價，現金牛持續資助元宇宙
+NEWS (3):
+  1. EN: Elon Musk's SpaceX helped revive the IPO market in 2Q26 -- and may set the stage for a healthy second half of the year. Led by SpaceX, a total of 48 companies completed initial public offerings in 2Q26, up 45% compared to 33 in the first quarter, despite rising inflation and high
+  2. EN: The Portfolio Selector features the Argus Focus List, a group of 30 "best idea" stocks generated and regularly updated by Argus' analysts and investment policy committee. It also includes the director of research’s monthly investment strategy column, stock recommendations and sec
+  3. EN: In what is likely to be the largest IPO in history, Elon Musk's Space Exploration Technologies Corp. is expected to debut on the Nasdaq stock market this week under the ticker symbol SPCX.  SpaceX is expected to raise approximately $75 billion in capital, giving it a value in the
+
+### MRVL
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: The Portfolio Selector features the Argus Focus List, a group of 30 "best idea" stocks generated and regularly updated by Argus' analysts and investment policy committee. It also includes the director of research’s monthly investment strategy column, stock recommendations and sec
+  2. EN: Marvell Technology Group Ltd., formerly domiciled in Bermuda but now U.S.-based, is a fabless provider of high-performance application-specific standard products for storage, networking, connectivity, and other applications. Primary products include HDD and SSD controllers; compo
+  3. EN: The major indices are modestly higher at midday on Thursday. Negotiations between the U.S. and Iran are back and forth. Meanwhile, fresh inflation data confirmed that prices are rising, as expected, largely due to the war. And, of course, individual names are rising and falling a
+
+### MSFT
+WHY: Copilot 365 全 365 渗透率超預期，Azure AI 服務 revenue 季增 31%，Nvidia GB200 優先供給 Azure
+OUTLOOK: AI 雲端平台最純受益者，Copilot 訂閱收入爆發，Azure 市場份額持續侵蝕 AWS，十年超級周期
+NEWS (3):
+  1. EN: Argus Research believes that Sustainable Impact investing is smart investing. We recently updated our Sustainable Growth Theme Model Portfolio and added just one company (Nasdaq Inc.). That might seem like a small number, but the list does turn over and the current list does look
+  2. EN: Dividend income is often overlooked amid gyrations in the stock market. Consider that in 2024, market bulls were boasting about 24%-plus S&P 500 returns. No one was very focused on the broad market index's 1.2% dividend yield. But dividends are an important element of return, and
+  3. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+
+### MU
+WHY: HBM3e 供給缺口 2027 年前無法緩解，報價上漲邏輯不變，大跌偏離基本面，是長線佈局良機
+OUTLOOK: HBM 記憶體是 AI GPU 必備，Micron 幾乎壟斷 HBM3e 供應，與 Nvidia/AMD 長約鎖定至 2027 年
+NEWS (3):
+  1. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  2. EN: Boise, Idaho-based Micron is the largest U.S. memory company and a leading global supplier of DRAM, NOR, and NAND memory. The company provides memory solutions for computing, communications, consumer, and industrial applications, and serves both wireless and embedded applications
+  3. EN: Stocks posted mixed results on Wednesday, with the Nasdaq lower, the Dow Jones Industrial Average higher, and the S&P 500 just kinda' sitting there. Technology stocks continued to take a beating on fears of overspending on AI development. But that may well change today after Micr
+
+### NEE
+WHY: 太陽能與風電龍頭為資料中心提供清潔能源，PPA 供電合約鎖定長期現金流，防御属性提供支撐
+OUTLOOK: 全球最大清潔能源發電商，Google/微軟都已簽署清潔能源 PPA，AI 資料中心用電需求驅動長期成長
+NEWS (3):
+  1. EN: Headquartered in Juno Beach, Florida, NextEra Energy provides generation, transmission, and distribution services. It has more than 40 GW of total generating capacity, with about one-third of electricity contributed by renewable wind and solar sources. The company's largest elect
+  2. EN: Stocks are a mixed bag at midday on Friday, with the S&P 500 and the Nasdaq up, but the Dow Jones Industrial Average down. The Index of Consumer Sentiment showed consumer sentiment ended April with a final reading of 49.8, above the 48.5 reading economists expected but marking th
+  3. EN: The first quarter of 2025 on Wall Street is in the books. The S&P 500, which started higher in January, slumped in February and March and is down 4.6% for the year to date. The quarter is typically a positive one for equities, as the average gain for the period since 1980 has bee
+
+### NET
+WHY: AI 時代網路安全與效能平台，Workers AI 將 AI 推理推向邊緣，開發者生態系統持續擴大
+OUTLOOK: Cloudflare 是互聯網骨架級基礎建設，AI 時代 DDoS 攻擊增加反而有利業務，Workers AI 打開新營收曲線
+NEWS (3):
+  1. EN: Cloudflare provides cloud-based network services that protect internet apps and help them to run faster - without requiring clients to add hardware, install new software, or change code. Cloudflare's unified control plane across on-premise, cloud, hybrid, and SaaS data infrastruc
+  2. EN: While the large cap indices make all-time highs day after day, there are technical cracks everywhere else. This includes secondary indices, sectors, industries, and individual stocks. We have talked about poor market breadth, and perhaps the only thing we can say is that most mon
+  3. EN: Cloudflare provides cloud-based network services that protect internet apps and help them to run faster - without requiring clients to add hardware, install new software, or change code. Cloudflare's unified control plane across on-premise, cloud, hybrid, and Software-as-a-Servic
+
+### NRG
+WHY: 發電與零售能源供應商，資料中心備用電源需求興起，被電網板塊拖累拋售屬短線情緒
+OUTLOOK: NRG 在美國電力市場具備區域定價權，天然氣發電廠為資料中心提供基荷與備用電源，現金流穩健
+NEWS (3):
+  1. EN: NRG ENERGY INC has an Investment Rating of HOLD; a target price of $131.000000; an Industry Subrating of Medium; a Management Subrating of Medium; a Safety Subrating of High; a Financial Strength Subrating of High; a Growth Subrating of Medium; and a Value Subrating of Medium.
+  2. EN: NRG ENERGY INC has an Investment Rating of HOLD; a target price of $139.000000; an Industry Subrating of Medium; a Management Subrating of Medium; a Safety Subrating of High; a Financial Strength Subrating of High; a Growth Subrating of Medium; and a Value Subrating of Medium.
+  3. EN: NRG ENERGY INC has an Investment Rating of HOLD; a target price of $131.000000; an Industry Subrating of Medium; a Management Subrating of Medium; a Safety Subrating of High; a Financial Strength Subrating of High; a Growth Subrating of Medium; and a Value Subrating of Medium.
+
+### NTAP
+WHY: AI 資料管理與混合雲儲存需求穩健，ONTAP AI 功能強化，估值處於低位，防守屬性佳
+OUTLOOK: 企業級資料管理與雲端儲存整合專家，AI 訓練資料管理需求興起，FAS/AFF 系統需求穩定
+NEWS (3):
+  1. EN: NetApp Inc. is a pure-play data storage company, providing enterprise network storage and data management solutions, including storage hardware, software, and services. NTAP has a major converged-infrastructure partner in Cisco Systems Inc. and key data center partners, including
+  2. EN: The May jobs report comes out this week, as do a few late earnings reports from some big tech and retail names. Last week, the Dow Jones Industrial Average rose 1%, the S&P 500 was up 1.4%, and the Nasdaq popped 2%. Year to date, all three indices are in positive territory, with 
+  3. EN: NetApp Inc. is a pure-play data storage company, providing enterprise network storage and data management solutions, including storage hardware, software, and services. NetApp has a major converged-infrastructure partner in Cisco, and key data center partners, including Microsoft
+
+### NVDA
+WHY: 相對抗跌展現龍頭剛性，Blackwell B200 訂單已排至 2027 年，算力剛需缺口不變，黃金坑佈局
+OUTLOOK: AI 算力唯一選擇，CUDA 生態鎖死護城河，Blackwell 放量在即，Hopper 需求維持高檔，基本面無虞
+NEWS (3):
+  1. EN: The markets soared in the first half of 2026, with the S&P 500 up 9%. Can the momentum continue? At Argus, we think the bull still has some life. In fact, in our "base case" for the second half of the year, we see the S&P 500 gaining another 5%-7%. We also have a "bullish case," 
+  2. EN: Argus has published its latest Portfolio Selector, which features its popular Focus List. Each month, Director of Research Jim Kelleher, CFA, surveys the team of Argus Research industry analysts for their timeliest recommendations out of the company's fundamental universe of appr
+  3. EN: The Portfolio Selector features the Argus Focus List, a group of 30 "best idea" stocks generated and regularly updated by Argus' analysts and investment policy committee. It also includes the director of research’s monthly investment strategy column, stock recommendations and sec
+
+### OKTA
+WHY: AI 時代身份認證剛需，Okta Identity Platform 保護企業 AI 應用存取安全，Q3 指引超預期
+OUTLOOK: 零信任架構核心構件，每個 AI Agent 都需要身份管理，OKTA 是看不見的 AI 基礎建設
+NEWS (3):
+  1. EN: Okta Inc has an Investment Rating of HOLD; a target price of $156.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of High.
+  2. EN: Okta Inc has an Investment Rating of HOLD; a target price of $143.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of High.
+  3. EN: Okta Inc has an Investment Rating of HOLD; a target price of $124.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of Medium; and a Value Subrating of High.
+
+### ORCL
+WHY: Oracle -8% 距 52W 低點 4.2%，超跌。...
+OUTLOOK: Oracle Cloud Infrastructure 拿下多家 AI 新創（xAI、OpenAI 部分負載），AI 雲端新軍。...
+NEWS (3):
+  1. EN: Oracle Corp. is one of the world's largest independent enterprise software companies, with annualized revenue over $67 billion. Its software products include database, middleware, application, and cloud-based software designed for general business purposes and for specific indust
+  2. EN: Thursday looked like a day of indecision until the early afternoon, when President Trump (again) called off strikes on Iran and said the U.S. will soon sign a deal with that country. Markets went ballistic, with crude oil tanking, Treasury bonds ripping, and stocks exploding - an
+  3. EN: May was another very good month for stocks, as AI continues to work its magic -- spreading its tentacles further and further beyond the original winners. The S&P 500 rose 5.2%, the Nasdaq ripped higher by 8.4%, and the Nasdaq 100 surged 10.6%. The Technology Sector SPDR (XLK) soa
+
+### P
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: Everpure Inc has an Investment Rating of BUY; a target price of $84.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of High; and a Value Subrating of Medium.
+  2. EN: Everpure Inc has an Investment Rating of BUY; a target price of $85.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of High; and a Value Subrating of Medium.
+  3. EN: Everpure Inc has an Investment Rating of BUY; a target price of $82.000000; an Industry Subrating of High; a Management Subrating of Medium; a Safety Subrating of Medium; a Financial Strength Subrating of Medium; a Growth Subrating of High; and a Value Subrating of Medium.
+
+### PANW
+WHY: AI 攻擊事件暴增，平台化資安剛需升級，Prisma 與 Cortex ARR 增速維持 25%+，技術面突破新高
+OUTLOOK: 企業資安從點防禦走向平台化，AI 降低攻擊門檻同時也提升偵測門檻，PANW 護城河持續拓寬
+NEWS (3):
+  1. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  2. EN: The tech heavy Nasdaq and Nasdaq 100 (QQQ) have rapidly rolled over into pullback territory (down 5%+), while the S&P 500 (SPX) is very close, with a six-day loss of 4.5%. For the most past, intraday rallies continue to be used for raising cash -- and that's not a good look for t
+  3. EN: Palo Alto provides integrated internet security solutions for enterprise customers. The company's solutions are based on its 'next-generation' firewall and security platform and also include software applications for various enterprise security needs. The company shipped its firs
+
+### PLTR
+WHY: 主權 AI 訂單爆發，Nvidia 合作印證，政府國防 AI 剛需無周期性，單日市值增 $22B 資金搶進
+OUTLOOK: Gov AI 滲透率才 8%，五年黃金增長期，2026 年營收預測 $3.7B 年增 28%，AIP 平台將成企業標配
+NEWS (3):
+  1. EN: Palantir develops and provides software that enables customers from government agencies to commercial enterprises to integrate data for decision-making and operations at scale. The company initially provided its software to the U.S. intelligence services before broadening its cus
+  2. EN: A Fragile Truce: Our Monthly Survey of the Economy, Interest Rates, and Stocks April is typically one of the strongest stock months of the year, but performance in April 2026 was off the charts. The 10% April rally in the S&P 500 and 15% rally in the Nasdaq Composite was fueled b
+  3. EN: The stock market has entered earnings season on a sugar high, so corporate America better deliver the goods or else. Generally, a flat-to-weak market going into earnings season is preferable to a market that features rip-roaring stock prices. Does the market know something the re
+
+### PNRG
+(no report data — synthesize recommendation from research titles only)
+NEWS (0):
+
+### QCOM
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: Stocks rose on Thursday, with the S&P 500 up 1.02%, the Dow Jones Industrial Average higher by 1.62%, and the Nasdaq Composite ahead by 0.89%. The bullish mood was driven by earnings reports, an acceptable GDP report, and as the war in Iran seems to be fading in the mind of inves
+  2. EN: Qualcomm is a designer and manufacturer of advanced semiconductors for mobile phones and commercial wireless applications. It provides integrated solutions, including processors, GPS, WiFi, basebands, and other applications, for smartphones, tablets, and mobile PCs. Qualcomm has 
+  3. EN: Qualcomm is a designer and manufacturer of advanced semiconductors for mobile phones and commercial wireless applications. It provides integrated solutions, including processors, GPS, WiFi, basebands, and other applications, for smartphones, tablets, and mobile PCs. Qualcomm has 
+
+### S
+WHY: SentinelOne +17.05%，端點 AI 資安的純度最高。...
+OUTLOOK: SentinelOne 的 Purple AI 直接內建在端點保護，AI 自動化威脅偵測能力領先。...
+NEWS (3):
+  1. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  2. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  3. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+
+### SMCI
+WHY: Super Micro -14.08%，雖有台灣調查 Nvidia 晶片走私案利空，但 Barron 看好 DELL 將...
+OUTLOOK: SMCI 仍是 AI 伺服器的快速交付龍頭，利空僅短期。H200/B200 機架出貨動能仍在。...
+NEWS (3):
+  1. EN: Super Micro Computer, together with its subsidiaries, develops and manufactures high-performance server and storage solutions based on modular and open architectures. The company serves markets worldwide. Super Micro Computer provides modular blades and blade servers, workstation
+  2. EN: Stocks are higher at midday on Friday, with a healthy newsflow that includes earnings reports, a non-farm payrolls report that significantly beat expectations, and an update on consumer sentiment that showed consumers are feeling pain at the pump. Indeed, the University of Michig
+  3. EN: Super Micro Computer, together with its subsidiaries, develops and manufactures high-performance server and storage solutions based on modular and open architectures. The company serves markets across the Americas, Asia, Europe, and worldwide. Super Micro Computer provides modula
+
+### SNOW
+WHY: 企業 AI 資料雲需求爆發，Dataframe 引擎加速 ML 訓練，Q2 付費客戶數破歷史新高
+OUTLOOK: AI 模型訓練背後的資料基礎建設，Snowflake 資料共享網路正在形成護城河，訂閱收入能見度高
+NEWS (3):
+  1. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  2. EN: The first-quarter earnings season has been sensational. Many companies knocked it out of the park when delivering earnings and revenue numbers that well beyond expectations. With reports now in from about 96% of S&P 500 companies, earnings have climbed a staggering 29% from last 
+  3. EN: Snowflake calls itself an AI data cloud company. The company's core business is as a cloud-native data warehouse. Snowflake leverages the large public hyperscale cloud services to provide its Data Cloud to customers, enabling them to unify disparate data sources for the purposes 
+
+### SPXC
+WHY: 數據中心液冷與通風設備供應商，AI 散熱需求長期成長，被錯殺創造買點
+OUTLOOK: SPX 是數據中心環境控制系統龍頭，液冷 CD 系列滲透率提升，2025-2027 營收 CAGR 預計 18%
+NEWS (3):
+  1. EN: Lowering target price to $255.00
+  2. EN: Raising target price to $258.00
+  3. EN: Raising target price to $246.00
+
+### STX
+WHY: Seagate -20% 嚴重超跌，HAMR 技術領先。...
+OUTLOOK: 雖然不是 HBM 直接受惠者，但 AI 訓練資料儲存需要大容量硬碟，HAMR 技術讓 STX 在冷資料儲存佔優勢。...
+NEWS (3):
+  1. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  2. EN: U.S. stocks are trading near record highs - but despite the strong performance, they are being bested by global emerging stocks. A leading industrialized global stock market index, the ETF EAFE (EFA), is up 6% year to date, while the leading emerging market ETF (EEM) has gained 1
+  3. EN: Seagate Technology Holdings provides HDDs for the personal computer, enterprise server, storage, retail, and consumer device markets. In December 2011, Seagate completed the acquisition of Samsung Electronics Co.'s HDD business for $1.4 billion in cash and stock. In calendar 2014
+
+### TLN
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: Talen Energy Corp has an Investment Rating of HOLD; a target price of $348.000000; an Industry Subrating of Medium; a Management Subrating of Low; a Safety Subrating of Medium; a Financial Strength Subrating of Low; a Growth Subrating of Low; and a Value Subrating of Medium.
+  2. EN: Talen Energy Corp has an Investment Rating of HOLD; a target price of $403.000000; an Industry Subrating of Medium; a Management Subrating of Low; a Safety Subrating of Medium; a Financial Strength Subrating of Low; a Growth Subrating of Low; and a Value Subrating of Medium.
+  3. EN: Talen Energy Corp has an Investment Rating of HOLD; a target price of $433.000000; an Industry Subrating of Medium; a Management Subrating of Low; a Safety Subrating of Medium; a Financial Strength Subrating of Low; a Growth Subrating of Low; and a Value Subrating of High.
+
+### TSM
+(no report data — synthesize recommendation from research titles only)
+NEWS (3):
+  1. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  2. EN: Global economic growth is expected to dip in 2026 due to the Middle East conflict, but then pick up slightly in 2027, according to the latest World Economic Outlook from the International Monetary Fund. By the numbers, the world economy is expected to expand at a 3.1% rate in 202
+  3. EN: U.S. stocks are trading near record highs - but despite the strong performance, they are being bested by global emerging stocks. A leading industrialized global stock market index, the ETF EAFE (EFA), is up 6% year to date, while the leading emerging market ETF (EEM) has gained 1
+
+### VRT
+WHY: AI 散熱液冷滲透率提升邏輯不變，數據中心電力管理剛需，審計問題影響已反映，估值合理
+OUTLOOK: 全球數據中心溫控與電力管理龍頭，液冷解決方案市場份額第一，2025-2027 訂單CAGR 30%+
+NEWS (3):
+  1. EN: Vertiv Holdings Co has an Investment Rating of BUY; a target price of $363.000000; an Industry Subrating of High; a Management Subrating of High; a Safety Subrating of High; a Financial Strength Subrating of High; a Growth Subrating of High; and a Value Subrating of High.
+  2. EN: Vertiv Holdings Co has an Investment Rating of BUY; a target price of $398.000000; an Industry Subrating of High; a Management Subrating of High; a Safety Subrating of High; a Financial Strength Subrating of High; a Growth Subrating of High; and a Value Subrating of High.
+  3. EN: Vertiv Holdings Co has an Investment Rating of BUY; a target price of $378.000000; an Industry Subrating of High; a Management Subrating of High; a Safety Subrating of High; a Financial Strength Subrating of High; a Growth Subrating of High; and a Value Subrating of High.
+
+### VST
+WHY: Vistra -9.97%，但仍是 AI 電力龍頭之一。...
+OUTLOOK: Vistra 與 Meta 簽 20 年 PPA 鎖定 AI 電力需求，Comanche Peak 核電廠延役。雖然回檔，但 AI 電力需求曲線不變。...
+NEWS (3):
+  1. EN: VISTRA CORP has an Investment Rating of HOLD; a target price of $148.000000; an Industry Subrating of Medium; a Management Subrating of Medium; a Safety Subrating of High; a Financial Strength Subrating of High; a Growth Subrating of Medium; and a Value Subrating of Medium.
+  2. EN: VISTRA CORP has an Investment Rating of HOLD; a target price of $151.000000; an Industry Subrating of Medium; a Management Subrating of Medium; a Safety Subrating of High; a Financial Strength Subrating of High; a Growth Subrating of Medium; and a Value Subrating of Medium.
+  3. EN: VISTRA CORP has an Investment Rating of HOLD; a target price of $154.000000; an Industry Subrating of Medium; a Management Subrating of Medium; a Safety Subrating of High; a Financial Strength Subrating of High; a Growth Subrating of Medium; and a Value Subrating of Medium.
+
+### WDC
+WHY: 企業級 SSD 需求在 AI 訓練場景爆發，NAND 報價觸底信號明確，大跌創造價值窪地
+OUTLOOK: 全球企業級存儲雙雄之一，AI 訓練資料湖帶動大容量 HDD 與 SSD 需求，合併後成本協同效應顯現
+NEWS (3):
+  1. EN: Argus Research has a long history as a leading fundamental research provider, but our analysts and strategists -- as well as our clients -- also value the investment signals generated from a technical perspective. This daily Market Movers report is our primary technical thought-l
+  2. EN: The flood of earnings reports continues this week, with about 1,500 public companies reporting results for their last quarter. The April jobs report also will come out. Last week, the Dow Jones Industrial Average gained 0.5%, while the S&P 500 and the Nasdaq both rose 1%. Year to
+  3. EN: Western Digital produces dynamic random access memory-based HDDs. WDC's products are used in cloud and on-premises data centers, desktop and notebook PCs, enterprise storage, video surveillance, networking products, DVRs, point-of-sale devices, and set-top boxes. In May 2016, WDC
+
+### ZS
+WHY: 零信任資安 ZTNA 在 AI 時代剛需爆發，Q3 FY26 財測超預期，平台整合 AI 威脅偵測新功能
+OUTLOOK: Zscaler 管理超過 300B 筆每日交易數據，AI 訓練獨家資料金礦，訂閱制現金流穩健，估值合理
+NEWS (3):
+  1. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  2. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran
+  3. EN: The Vickers Top Buyers & Sellers is a daily report that identifies the five companies the largest insider purchase transactions based on the dollar value of the transactions as well as the five companies the largest insider sales transactions based on the dollar value of the tran

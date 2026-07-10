@@ -5,55 +5,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 基礎建設每日研究報告</title>
     <style>
-        body { background-color: #080810; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; }
-        .card { background: #12121e; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
-        h1, h2, h3 { color: #ffffff; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { padding: 12px; border: 1px solid #333; text-align: left; }
-        th { background: #1f1f2e; }
-        a { color: #4a9eff; text-decoration: none; }
-        .positive { color: #4caf50; }
-        .negative { color: #f44336; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #080810;
+            --card: #0f0f1a;
+            --card2: #141428;
+            --border: #1e1e3a;
+            --accent: #6c63ff;
+            --accent2: #00d4aa;
+            --green: #00e676;
+            --yellow: #ffd600;
+            --red: #ff5252;
+            --text: #e0e0f0;
+            --text2: #8888aa;
+        }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        .hero { text-align: center; padding: 40px 20px; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
+        .hero h1 { font-size: 2em; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+        .hero p { color: var(--text2); font-size: 1em; }
+        .date-badge { display: inline-block; background: var(--accent); color: white; padding: 5px 16px; border-radius: 20px; font-size: 0.85em; margin-top: 10px; }
+        .report-link { display: block; background: var(--card); border: 1px solid var(--accent); border-radius: 12px; padding: 20px; margin-bottom: 20px; text-decoration: none; transition: all 0.2s; }
+        .report-link:hover { border-color: var(--accent2); background: var(--card2); transform: translateY(-2px); }
+        .report-link h2 { color: var(--accent2); font-size: 1.2em; margin-bottom: 8px; }
+        .report-link p { color: var(--text2); font-size: 0.88em; }
+        .report-link .date { color: var(--accent); font-weight: 600; }
+        .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0; }
+        .summary-item { background: var(--card2); padding: 14px; border-radius: 10px; text-align: center; }
+        .summary-item .val { font-size: 1.3em; font-weight: 800; color: var(--accent2); }
+        .summary-item .label { font-size: 0.75em; color: var(--text2); margin-top: 4px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+        th { background: var(--card2); padding: 10px 8px; text-align: left; color: var(--text2); font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); }
+        td { padding: 10px 8px; border-bottom: 1px solid rgba(30,30,58,0.5); }
+        tr:hover td { background: rgba(108,99,255,0.05); }
+        .sym a { color: var(--accent); font-weight: 700; text-decoration: none; }
+        .sym a:hover { text-decoration: underline; }
+        .pos { color: var(--green); font-weight: 600; }
+        .neg { color: var(--red); font-weight: 600; }
+        .footer { text-align: center; padding: 24px; color: #555577; font-size: 0.78em; border-top: 1px solid var(--border); margin-top: 40px; }
+        @media (max-width: 768px) { .summary-grid { grid-template-columns: 1fr 1fr; } }
     </style>
 </head>
 <body>
-    <h1>AI 基礎建設每日研究報告 (2026-07-10)</h1>
-    <div class="card">
-        <h2>市場雷達</h2>
-        <p>今日市場顯示出強勁的技術反彈跡象，特別是晶片與記憶體板塊。投資人正在將資金重新配置至具有成長動能的 AI 基建標的。</p>
+<div class="container">
+
+<div class="hero">
+    <h1>🤖 AI 基礎建設美股研究報告</h1>
+    <p>頂級 AI 基礎建設選股分析 · 每日動態研究</p>
+    <div class="date-badge">📅 2026 年 7 月 10 日（台北時間）</div>
+</div>
+
+<!-- 今日摘要 -->
+<div class="card" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+    <h2 style="color: var(--accent2); margin-bottom: 16px;">📊 2026/07/10 市場摘要</h2>
+    <div class="summary-grid">
+        <div class="summary-item"><div class="val">+7.11%</div><div class="label">最強類別：AI 伺服器</div></div>
+        <div class="summary-item"><div class="val">-8.45%</div><div class="label">最弱類別：先進封裝設備</div></div>
+        <div class="summary-item"><div class="val">48 檔</div><div class="label">AI 基建精選標的</div></div>
+        <div class="summary-item"><div class="val">3 大</div><div class="label">核心主題機會</div></div>
     </div>
-    <div class="card">
-        <h2>今日精選標的</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>股票</th>
-                    <th>現價</th>
-                    <th>日%</th>
-                    <th>推薦邏輯</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="https://www.barchart.com/stocks/quotes/NVDA/overview">NVDA</a></td>
-                    <td>202.78</td>
-                    <td class="negative">-0.66%</td>
-                    <td>AI 算力壟斷者，近期回調提供長期佈局價值。</td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.barchart.com/stocks/quotes/AMD/overview">AMD</a></td>
-                    <td>546.72</td>
-                    <td class="positive">+5.67%</td>
-                    <td>挑戰 GPU 市場地位，技術面強勢突破。</td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.barchart.com/stocks/quotes/MU/overview">MU</a></td>
-                    <td>991.64</td>
-                    <td class="positive">+4.52%</td>
-                    <td>HBM 記憶體需求強勁，產業供需失衡的直接受益者。</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <p style="font-size: 0.88em; color: var(--text2); margin-top: 12px;">
+        <strong style="color: var(--accent2);">📈 強勢主題：</strong>AI 伺服器（ANET +10.85%、DELL +5.87%、HPQ +9.58%）、AI 資安（NET +11.97%、OKTA +5.97%）、AI 電力（CEG +6.02%、VST +3.15%）｜
+        <strong style="color: var(--red);">📉 弱勢主題：</strong>先進封裝設備（KLAC -13.78%、AMAT -9.79%）、光纖（Corning -12.80%）
+    </p>
+</div>
+
+<!-- 今日完整報告 -->
+<a class="report-link" href="report_2026-07-10.html">
+    <h2>📋 2026/07/10 完整研究報告</h2>
+    <p>深度覆蓋 48 檔 AI 基礎建設核心標的｜含 Barchart 即時數據｜AI 驅動個股分析｜進場推薦表｜深度個股報告｜供需失衡分析</p>
+    <p style="margin-top: 8px; color: var(--accent);">👉 點此查看完整報告 →</p>
+</a>
+
+<!-- 快速精選標的 -->
+<div class="card" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 20px;">
+    <h2 style="color: var(--accent2); margin-bottom: 12px;">🎯 快速精選（來自完整報告）</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>股票</th>
+                <th>名稱</th>
+                <th>現價</th>
+                <th>日%</th>
+                <th>距52W低</th>
+                <th>核心邏輯</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="sym"><a href="https://www.barchart.com/stocks/quotes/NVDA/overview">NVDA</a></td>
+                <td>NVIDIA</td>
+                <td>$202.78</td>
+                <td class="pos">+2.63%</td>
+                <td>25.2%</td>
+                <td>AI GPU 壟斷者；BofA 看好回調是買點</td>
+            </tr>
+            <tr>
+                <td class="sym"><a href="https://www.barchart.com/stocks/quotes/AMD/overview">AMD</a></td>
+                <td>AMD</td>
+                <td>$546.72</td>
+                <td class="pos">+5.67%</td>
+                <td>286%</td>
+                <td>GPU 替代機會；8/4 財報催化劑</td>
+            </tr>
+            <tr>
+                <td class="sym"><a href="https://www.barchart.com/stocks/quotes/AVGO/overview">AVGO</a></td>
+                <td>Broadcom</td>
+                <td>$401.11</td>
+                <td class="pos">+8.60%</td>
+                <td>48.8%</td>
+                <td>Apple $300億大單；ASIC 需求爆發</td>
+            </tr>
+            <tr>
+                <td class="sym"><a href="https://www.barchart.com/stocks/quotes/CEG/overview">CEG</a></td>
+                <td>Constellation Energy</td>
+                <td>$250.74</td>
+                <td class="pos">+6.02%</td>
+                <td style="color: var(--green);">9.7%</td>
+                <td>距52W低點最近！核電資料中心合約</td>
+            </tr>
+            <tr>
+                <td class="sym"><a href="https://www.barchart.com/stocks/quotes/NET/overview">NET</a></td>
+                <td>Cloudflare</td>
+                <td>$275.80</td>
+                <td class="pos">+11.97%</td>
+                <td>73.6%</td>
+                <td>OpenAI 合作；Scotiabank 升評</td>
+            </tr>
+            <tr>
+                <td class="sym"><a href="https://www.barchart.com/stocks/quotes/SPXC/overview">SPXC</a></td>
+                <td>SPX Technologies</td>
+                <td>$216.63</td>
+                <td class="neg">-6.51%</td>
+                <td>28.0%</td>
+                <td>今日大跌提供低接！液冷全球第一</td>
+            </tr>
+            <tr>
+                <td class="sym"><a href="https://www.barchart.com/stocks/quotes/VST/overview">VST</a></td>
+                <td>Vistra Corp</td>
+                <td>$157.98</td>
+                <td class="pos">+3.15%</td>
+                <td style="color: var(--green);">19.1%</td>
+                <td>距52W低點近；AI 電力缺口受益</td>
+            </tr>
+            <tr>
+                <td class="sym"><a href="https://www.barchart.com/stocks/quotes/MU/overview">MU</a></td>
+                <td>Micron</td>
+                <td>$991.64</td>
+                <td class="neg">-3.94%</td>
+                <td>859%</td>
+                <td>HBM4 需求爆發；P/E 21 是記憶體鏈最低</td>
+            </tr>
+            <tr>
+                <td class="sym"><a href="https://www.barchart.com/stocks/quotes/PLTR/overview">PLTR</a></td>
+                <td>Palantir</td>
+                <td>$129.04</td>
+                <td class="pos">+2.63%</td>
+                <td>21.3%</td>
+                <td>距52W低近；政府 AI 核心平台</td>
+            </tr>
+            <tr>
+                <td class="sym"><a href="https://www.barchart.com/stocks/quotes/AMAT/overview">AMAT</a></td>
+                <td>Applied Materials</td>
+                <td>$588.66</td>
+                <td class="neg">-9.56%</td>
+                <td>281%</td>
+                <td>今日大跌提供低接；先進封裝設備剛需</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- 三大核心主題 -->
+<div class="card" style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px;">
+    <h2 style="color: var(--accent2); margin-bottom: 12px;">⚡ 三大核心主題（2026 年下半年）</h2>
+    <h3 style="color: var(--accent); margin: 10px 0 6px;">主題一：AI 算力晶片</h3>
+    <p style="font-size: 0.85em; color: var(--text2);">NVDA（GPU 壟斷）、AMD（替代機會）、AVGO（ASIC 代工）、ARM（CPU 架構）、QCOM（Edge AI）、SNPS（EDA 軟體剛需）</p>
+    <h3 style="color: var(--accent); margin: 10px 0 6px;">主題二：AI 資料中心電力（最緊迫瓶頸）</h3>
+    <p style="font-size: 0.85em; color: var(--text2);">CEG（核電，距 52W 低 9.7%）、VST（距 52W 低 19%）、PNRG、NRG、ETN（電力設備）、NEE（再生能源）</p>
+    <h3 style="color: var(--accent); margin: 10px 0 6px;">主題三：AI 基礎設施硬體</h3>
+    <p style="font-size: 0.85em; color: var(--text2);">DELL/HPQ（AI 伺服器）、SPXC/VRT（液冷）、ANET（網路交換機）、MU/NTAP/STX（記憶體/儲存）、AMAT/AMKR/LRCX（半導體設備）</p>
+</div>
+
+<div class="footer">
+    <p>🤖 AI 美股研究報告｜AI 基礎建設選股分析引擎｜每日中午更新</p>
+    <p>數據來源：Barchart（已登入）+ Yahoo Finance｜2026/07/10</p>
+    <p style="margin-top: 6px;">⚠️ 本報告僅供研究參考，不構成任何投資建議。</p>
+</div>
+
+</div>
 </body>
 </html>
