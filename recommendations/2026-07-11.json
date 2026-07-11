@@ -1,6 +1,6 @@
 {
   "date": "2026-07-11",
-  "generated_at": "2026-07-11T12:05:00+08:00",
+  "generated_at": "2026-07-11T12:40:41+08:00",
   "source": "yahoo-finance-research + stock-reports-2026-07-11.html",
   "model": "MiniMax-M2.7-highspeed",
   "tickers": {
@@ -146,6 +146,371 @@
       "news_zh": [
         "GE Vernova 獲工業 AI 研究青睞，電網設備需求爆發",
         "AI 資料中心建設潮來臨，電力設備供應商訂單積壓創高"
+      ]
+    },
+    "AMAT": {
+      "score": "7.5",
+      "entry": "$160-180",
+      "target": "$200+",
+      "stop": "$148",
+      "recommendation": "Applied Materials 為半導體設備龍頭，專精薄膜沉積與蝕刻製程設備，在先進封裝技術領域具備領先地位。AI 晶片製造對先進製程設備需求殷切，AMAT 作為台積電、三星主要供應商直接受惠於 CoWoS 與 SoIC 先進封裝產能擴張。研究報告顯示 AMAT 獲選 Argus Focus List 追加名單，法人對其技術護城河與市場滲透率有高度信心。半導體設備景氣循環已觸底回升，晶圓廠資本支出重啟將帶動訂單增長。建議區間 $160-180 分批進場，停損設於 $148。",
+      "outlook": "半導體設備需求在 AI 應用驅動下進入新的上升週期，AMAT 先進封裝產品線為長期成長動能。",
+      "news": [
+        {
+          "title_zh": "Applied Materials 獲選 Argus Focus List，半導體設備景氣回升",
+          "title_en": "Argus adds Applied Materials to Focus List",
+          "url": "https://finance.yahoo.com/research/reports/47331_Stock%20Picks_1781524221000"
+        },
+        {
+          "title_zh": "AI 晶片先進封裝需求旺，AMAT 設備訂單看增",
+          "title_en": "AI chip advanced packaging demand boosts AMAT equipment orders",
+          "url": "https://finance.yahoo.com/research/reports/47410_Thematic%20Portfolio_1782217754000"
+        }
+      ]
+    },
+    "AMKR": {
+      "score": "6.0",
+      "entry": "$55-65",
+      "target": "$75+",
+      "stop": "$50",
+      "recommendation": "Amkor Technology 為全球第二大半導體封裝測試服務（OSAT）供應商，專精成熟節點封裝服務，受惠於中國半導體國產化趨勢。量化報告給予 HOLD 評等與 $69 目標價，反映市場對其營收能見度與毛利壓力之憂慮。先進封裝技術佈局落後於日月光、艾克爾等競爭對手，在 AI 晶片供應鏈中參與度有限。成熟製程封裝需求溫和增長，難以提供股價大幅上漲催化劑。中美貿易緊張對其中國客戶占比構成潛在風險。建議觀望或區間操作。",
+      "outlook": "AMKR 營運穩健但缺乏明確成長催化劑，估值修復需待營收出現實質復甦。",
+      "news": [
+        {
+          "title_zh": "Amkor 量化評等 HOLD，目標價 $69",
+          "title_en": "AMKOR HOLD rating, target $69",
+          "url": "https://finance.yahoo.com/research/reports/6072_Quantitative%20Report_1783468800000"
+        }
+      ]
+    },
+    "ANET": {
+      "score": "8.5",
+      "entry": "$310-340",
+      "target": "$380+",
+      "stop": "$290",
+      "recommendation": "Arista Networks 為雲端網路交換器領導廠商，為亞馬遜、微軟、Google 等超大雲端業者提供高效能資料中心網路設備。AI 訓練與推論工作負載對網路頻寬與延遲要求嚴苛，Arista 400GbE 與 800GbE 交換器需求爆發。軟體定義網路與雲端原生架構符合現代資料中心設計趨勢，市佔率持續擴張。相較於傳統網路設備商，Arista 在白盒交換器市場具備成本競爭力與彈性優勢。研究報告指出其為雲端網路解決方案供應商領導者，法人覆蓋正面。技術面均線多頭排列，建議拉回 $310-340 佈局。",
+      "outlook": "AI 資料中心建設潮將持續推升網路設備需求，Arista 作為白盒交換器龍頭具備長期成長潛力。",
+      "news": [
+        {
+          "title_zh": "Arista Networks 雲端交換器需求爆發，領導地位穩固",
+          "title_en": "Arista Networks leads cloud networking solutions",
+          "url": "https://finance.yahoo.com/research/reports/3688_Analyst%20Report_1778091857000"
+        }
+      ]
+    },
+    "ASX": {
+      "score": "5.5",
+      "entry": "$55-62",
+      "target": "$70+",
+      "stop": "$50",
+      "recommendation": "ASE Technology 為全球最大半導體封裝測試代工廠，受惠於先進封裝需求成長與半導體景氣回升。AI 晶片供應鏈對先進封裝需求殷切，ASE 作為台積電 CoWoS 供應鏈夥伴直接受惠。先進封裝技術（FoCoS、SoIC）取得國際大廠認證，訂單能見度佳。然股價已部分反映利多，估值處於合理區間上限。中國大陸成熟封裝業務面臨價格壓力，需持續觀察營收增長品質。建議區間操作。",
+      "outlook": "ASE 先進封裝佈局完整，AI 應用將成中期營收成長驅動引擎。",
+      "news": []
+    },
+    "AVGO": {
+      "score": "8.0",
+      "entry": "$145-165",
+      "target": "$185+",
+      "stop": "$135",
+      "recommendation": "Broadcom 為AI網通晶片核心供應商，涵蓋網路、WiFi、藍牙、乙太網路交換器ASIC等關鍵元件。VMware 整合進度順利，軟體業務營收佔比提升改善整體毛利率結構。AI資料中心對客製化ASIC需求爆發，亞馬遜、微軟自研晶片專案為 Broadcom 創造龐大市場。雲端業者網路基礎設施資本支出維持高檔，InfiniBand 與乙太網路解決方案市佔穩固。建議拉回 $145-165 佈局，目標價 $185+。",
+      "outlook": "AI ASIC 需求井噴，Broadcom 作為主要協力廠商將持續受惠於 CSP 資本支出成長。",
+      "news": []
+    },
+    "CRWD": {
+      "score": "7.0",
+      "entry": "$310-340",
+      "target": "$370+",
+      "stop": "$285",
+      "recommendation": "CrowdStrike 為端點資安龍頭，Falcon 平台市佔持續擴張，資安訂閱營收維持雙位數增長。AI 資安時代來臨，威脅偵測與事件回應需求增加，零信任架構採用率提升有利其平台變現。，俄羅斯與伊朗網路威脅加劇，企業資安預算上升對 CRWD 形成結構性利好。技術面處於高位整理區間，估值偏高抑制短線空間。建議長線投資人分批佈局，耐心等待營收增速回升。",
+      "outlook": "資安威脅態勢加劇與零信任架構普及為 CRWD 中長期成長動能，但估值需以時間換空間消化。",
+      "news": [
+        {
+          "title_zh": "CrowdStrike 資安平台需求穩健，Falcon 市佔持續擴張",
+          "title_en": "CrowdStrike Falcon platform market share expands",
+          "url": "https://finance.yahoo.com/research/reports/47486_Technical%20Analysis_1782904853000"
+        }
+      ]
+    },
+    "CSCO": {
+      "score": "5.5",
+      "entry": "$48-54",
+      "target": "$60+",
+      "stop": "$44",
+      "recommendation": "Cisco Systems 近期遭 Argus Focus List 除名，反映法人對其成長動能放緩之憂慮。網路設備市場成熟，雲端時代企業網路需求轉向軟體定義與安全整合，Cisco 傳統交換器與路由器業務承壓。資安、協作、資料中心產品線多元但缺乏突出催化劑，併購整合效果有待時間驗證。股息收益率具吸引力，提供下檔支撐但難以驅動資本利得。建議價值型投資者關注，趨勢型資金宜觀望。",
+      "outlook": "Cisco 轉型之路漫長，企業網路市場份額面臨白盒與軟體定義競爭者蠶食。",
+      "news": [
+        {
+          "title_zh": "Cisco 遭 Argus Focus List 除名，顯示法人對其成長動能存疑",
+          "title_en": "Cisco removed from Argus Focus List",
+          "url": "https://finance.yahoo.com/research/reports/47303_Portfolio%20Ideas_1781179068000"
+        }
+      ]
+    },
+    "DELL": {
+      "score": "7.2",
+      "entry": "$115-130",
+      "target": "$155+",
+      "stop": "$105",
+      "recommendation": "Dell Technologies 為全球PC與伺服器龍頭，AI伺服器需求復甦帶動資訊科技業務增長。Argus 研究報告指出 Dell 受惠於「AI應用擴散」與「管理層正向訊號」兩大主題，顯示法人關注度提升。PowerEdge AI 伺服器訂單能見度佳，毛利率因產品組合優化而改善。PC市場在庫存調整後溫和復甦，商用PC需求相對穩健。基礎設施解決方案（IS&S）業務為營收成長核心，伺服器與儲存需求在AI驅動下持續擴張。建議區間 $115-130 佈局。",
+      "outlook": "AI 伺服器換機潮與企業 IT 現代化將支撐 Dell 中長期營收動能。",
+      "news": [
+        {
+          "title_zh": "Dell 受惠 AI 應用擴散與管理層正向訊號，伺服器業務訂單看增",
+          "title_en": "Dell AI Broadens Out theme, positive management signals",
+          "url": "https://finance.yahoo.com/research/reports/47521_Stock%20Picks_1783337985000"
+        }
+      ]
+    },
+    "ENPH": {
+      "score": "5.0",
+      "entry": "$38-46",
+      "target": "$55+",
+      "stop": "$34",
+      "recommendation": "Enphase Energy 為家用微型逆變器領導廠商，受惠於美國住宅太陽能市場成長與電網獨立趨勢。量化報告給予 HOLD 評等與 $45-$52 目標價，顯示市場對其估值謹慎態度。太陽能逆變器市場競爭加劇，SolarEdge 等對手持續蠶食市場份額。利率環境影響住宅太陽能系統安裝意願，需求端增速放緩。品牌忠誠度與軟體服務提供部分護城河但不足以抵銷產業逆風。建議保守看待。",
+      "outlook": "住宅儲能需求長期看好，但短期估值偏高與競爭壓力抑制股價表現。",
+      "news": [
+        {
+          "title_zh": "Enphase 量化評等 HOLD，目標價 $45-$52",
+          "title_en": "ENPH HOLD rating, target $45-$52",
+          "url": "https://finance.yahoo.com/research/reports/5881_Quantitative%20Report_1783468800000"
+        }
+      ]
+    },
+    "GLW": {
+      "score": "6.0",
+      "entry": "$38-44",
+      "target": "$52+",
+      "stop": "$34",
+      "recommendation": "Corning 為光纖與特殊玻璃材料龍頭，光纖電纜需求受惠於資料中心互聯與電信基礎設施升級。永續投資主題興起，Corning 的環保玻璃產品與光纖基礎設施主題契合。研究報告顯示 ESG 資金對其青睞度提升，長期機構需求形成支撐。光纖市場供給側紀律良好，需求端由電信商 5G 部署與雲端業者資料中心建設雙重驅動。股價處於長期區間整理，突破 $44 需要實質營收加速訊號。建議區間操作。",
+      "outlook": "5G 與雲端基礎設施建設為 Corning 光纖業務中長期成長動能。",
+      "news": [
+        {
+          "title_zh": "Corning 受惠永續投資趨勢，環保玻璃與光纖產品需求看增",
+          "title_en": "Corning benefits from Sustainable Impact Investing trend",
+          "url": "https://finance.yahoo.com/research/reports/47162_Thematic%20Portfolio_1779968001000"
+        }
+      ]
+    },
+    "HPQ": {
+      "score": "5.5",
+      "entry": "$28-34",
+      "target": "$40+",
+      "stop": "$25",
+      "recommendation": "HP Inc. 為全球 PC 與印表機龍頭，PC 市場在庫存調整後出現溫和復甦訊號，商用換機需求相對穩健。印表機事業提供穩定現金流與耗材營收，利潤率優於預期。研究報告指出其為全球 PC 與列印解決方案主要供應商，市場地位穩固但缺乏明顯成長催化劑。AI PC 換機潮預期心理對股價有所支撐，但實質換機需求爆發需待軟體與硬體生態系統成熟。估值偏低但趨勢性資金興趣有限。建議價值型投資者關注。",
+      "outlook": "HP 營運穩健但缺乏成長催化劑，AI PC 換機潮為潛在上行風險。",
+      "news": [
+        {
+          "title_zh": "HP 為全球 PC 與列印解決方案主要供應商，市場地位穩固",
+          "title_en": "HP leads PCs and printing solutions globally",
+          "url": "https://finance.yahoo.com/research/reports/3060_Analyst%20Report_1779988477000"
+        }
+      ]
+    },
+    "LUMN": {
+      "score": "5.0",
+      "entry": "$14-18",
+      "target": "$22+",
+      "stop": "$12",
+      "recommendation": "Lumen Technologies 為美國電信與網路基礎設施服務商，營運重點在企業網路與資料傳輸服務。光纖網路資產為核心價值，但公司負債水準偏高，槓桿比率影響自由現金流。Edge 運算與 5G 時代企業數位化需求為潛在催化劑，惟電信產業競爭激烈，龍頭 AT&T 與 Verizon 主導市場。Lumen 積極拓展 AI 資料中心互聯服務，但營收佔比仍低。估值已反映經營困境，技術性反彈空間有限。建議觀望。",
+      "outlook": "Lumen 轉型之路挑戰重重，電信基礎設施主題提供長期底層支撐但缺乏短期催化劑。",
+      "news": []
+    },
+    "MRVL": {
+      "score": "6.5",
+      "entry": "$62-72",
+      "target": "$85+",
+      "stop": "$56",
+      "recommendation": "Marvell Technology 為資料中心半導體新星，專精客製化 ASIC 與高速傳輸介面晶片，受惠於雲端業者自研晶片趨勢。遭 Argus Focus List 刪除顯示短期成長預期有所調整，但基本面實力仍獲研究機構認可。雲端資料中心對客製化 AI 加速器需求爆發，Marvell 的 5nm 與 3nm 先進製程產品線覆蓋 Amazon Graviton、微軟 Maia 等專案。高速傳輸（CXL、SerDes）技術佈局完整，單位售價與毛利結構有望持續改善。拉回 $62-72 提供中長期佈局機會。",
+      "outlook": "Marvell ASIC 滲透率提升中，但遭 Focus List 除名反映短期估值已部分反映成長預期。",
+      "news": []
+    },
+    "NEE": {
+      "score": "7.0",
+      "entry": "$65-74",
+      "target": "$82+",
+      "stop": "$60",
+      "recommendation": "NextEra Energy 為全球最大風力與太陽能發電商，美國潔淨能源轉型主要受益者。拜登政府 IRA 法案提供稅收優惠，FPL 子公司規模效應明顯，成本控制優於同業。AI 資料中心對潔淨基載電力需求殷切，NextEra 長期電力採購協議（PPA）能見度高。儲能業務快速增長，風光配儲系統貢獻營收增量。基礎利率處於高档對估值形成壓制，但長線結構明確。技術面處於長期上升趨勢，適合防御性配置。",
+      "outlook": "美國潔淨能源龍頭將持續受惠於碳中和政策與企業 PPA 需求，營收成長可預測性高。",
+      "news": []
+    },
+    "NET": {
+      "score": "8.0",
+      "entry": "$95-110",
+      "target": "$135+",
+      "stop": "$85",
+      "recommendation": "Cloudflare 為全球邊緣運算與資安平台龍頭，網路效能與 DDoS 防護服務需求在網路威脅加劇下持續增長。AI 時代對邊緣推論與資料隱私保護需求爆發，Cloudflare Workers AI 平台提供差異化價值主張。企業數位化與零信任架構採用加速，ARK 產品線滲透率提升帶動平均營收擴大。過去十二個月股價表現落後大盤，提供估值修復機會。全球網路基礎設施佈局完整，在 200+ 個城市營運網路，規模效應明顯。建議區間 $95-110 佈局。",
+      "outlook": "邊緣運算與資安剛性需求支撑 Cloudflare 中長期營收，國際市場滲透率提升為成長催化劑。",
+      "news": []
+    },
+    "NRG": {
+      "score": "6.5",
+      "entry": "$58-66",
+      "target": "$78+",
+      "stop": "$52",
+      "recommendation": "NRG Energy 為美國最大零售電力與天然氣供應商，直接面對消費者的商業模式提供定價彈性與品牌溢價空間。夏季用電高峰與天然氣價格波動創造營收季節性動能，緊急備用發電資產提供現金流穩定性。公司積極布局潔淨能源發電資產，再生能源佔比逐年提升。電價上漲環境有利於電力零售商，消費者對品牌選擇有限忠誠度。建議區間操作，天然氣庫存去化節奏為短期觀察重點。",
+      "outlook": "NRG 具備電力零售彈性與發電資產雙重優勢，適合景氣循環投資。",
+      "news": []
+    },
+    "NTAP": {
+      "score": "7.5",
+      "entry": "$110-125",
+      "target": "$145+",
+      "stop": "$100",
+      "recommendation": "NetApp 為企業儲存與雲端資料管理領導廠商，受惠於 AI 訓練資料集規模爆發對高效能儲存系統需求。ONTAP 軟體平台提供跨雲端統一資料管理，與主要公有雲業者合作關係緊密。雲端智慧（Cloud Volumes）服務ARR快速增長，訂閱制營收佔比提升改善現金流品質。企業級儲存市場復甦，NVMe 全快閃陣列滲透率提升帶動毛利率改善。與競爭對手 Pure Storage、Dell EMC 相比，NetApp 在混合雲市場具備差異化優勢。建議拉回 $110-125 佈局。",
+      "outlook": "AI 資料湖與混合雲儲存需求將支撐 NetApp 中長期營收，軟體訂閱轉型提升毛利率。",
+      "news": []
+    },
+    "OKTA": {
+      "score": "7.5",
+      "entry": "$95-110",
+      "target": "$130+",
+      "stop": "$85",
+      "recommendation": "Okta 為全球最大獨立身份管理平台，零信任架構核心元件，受惠於企業遠距辦公與雲端採用加速。IAM 市場剛性需求明確，政府與金融機構合規要求為長期成長驅動。多元化產品線（Auth0、CIA）滲透企業用戶，客戶數與 Net Dollar Retention Rate 維持高檔。與微軟 Entra、 Ping Identity 競爭中市佔穩健擴張，管理層執行力獲市場認可。股價自高點回調提供估值吸引力，建議長線佈局。",
+      "outlook": "數位身份安全為資安核心，Okta 作為領導者將持續受惠於企業 IT 現代化趨勢。",
+      "news": []
+    },
+    "PANW": {
+      "score": "8.5",
+      "entry": "$280-310",
+      "target": "$360+",
+      "stop": "$260",
+      "recommendation": "Palo Alto Networks 為下一代防火牆與資安平台龍頭，平台化策略整合網路、雲端、端點安全，客戶黏著度極高。Prisma SASE 與 Cortex AI 資安平台獲大型企業青睞，訂閱制營收佔比突破 50%。企業資安預算在網路威脅加劇下持續上升，政府與金融機構需求穩健。先進資安AI（Xtium）提升威脅偵測效率，差異化技術護城河深厚。股價處於歷史高檔區間，估值已反映高成長預期，適合體質較佳的價值型投資人。",
+      "outlook": "Palo Alto 平台化策略成效顯著，Cortex AI 與 Prisma 為中長期營收成長引擎。",
+      "news": [
+        {
+          "title_zh": "Palo Alto 下一代防火牆領導地位穩固，企業資安預算持續上升",
+          "title_en": "Palo Alto leads next-generation firewall market",
+          "url": "https://finance.yahoo.com/research/reports/3643_Analyst%20Report_1780679739000"
+        }
+      ]
+    },
+    "PLTR": {
+      "score": "7.0",
+      "entry": "$22-28",
+      "target": "$35+",
+      "stop": "$18",
+      "recommendation": "Palantir 為政府與企業資料整合平台龍頭，政府業務營收占比 54%，在美國情報與國防市場具備寡占地位。Gotham 與 Foundry 平台協助機構做出資料驅動決策，AI 時代需求爆發。Boeing、AI 新創公司採用 Foundry 顯示商業業務國際化進展順利。研究報告指出其軟體能協助政府與企業大規模整合資料進行決策，市場應用場景持續擴大。創辦人 Peter Thiel 與 Alexander Karp 持股集中，內部人治理風險需關注。估值偏高但產業地位特殊，建議謹慎持有。",
+      "outlook": "Palantir 政府資料平台寡占地位穩固，商業業務國際化為下一階段成長催化劑。",
+      "news": [
+        {
+          "title_zh": "Palantir 資料整合平台獲政府與企業青睞，應用場景持續擴大",
+          "title_en": "Palantir data integration platform expands in government and commercial sectors",
+          "url": "https://finance.yahoo.com/research/reports/6302_Analyst%20Report_1778065523000"
+        }
+      ]
+    },
+    "QCOM": {
+      "score": "7.0",
+      "entry": "$155-175",
+      "target": "$200+",
+      "stop": "$142",
+      "recommendation": "Qualcomm 為全球最大手機基頻晶片設計公司，5G 專利授權組合提供穩定權利金現金流。Snapdragon 系列 SoC 在 Android 高階市場維持領先，AI 手機換機潮有望刺激出貨量增長。汽車與 IoT 應用為新營收驅動引擎，Snapdragon Ride 自動駕駛平台獲得車廠認證。專利授權業務在 5G 時代價值重估，與蘋果達成和解後訴訟風險降低。研究報告指出其半導體技術領先地位明確，但智慧財產權營收成長性受限於手機市場成熟度。建議區間 $155-175 操作。",
+      "outlook": "Qualcomm 汽車與 IoT 多元化策略成效待觀察，手機市場仍是核心營收來源。",
+      "news": [
+        {
+          "title_zh": "Qualcomm 5G 技術領導地位穩固，汽車與 IoT 新應用持續拓展",
+          "title_en": "Qualcomm leads in 5G semiconductors",
+          "url": "https://finance.yahoo.com/research/reports/3343_Analyst%20Report_1777633552000"
+        }
+      ]
+    },
+    "SMCI": {
+      "score": "6.5",
+      "entry": "$38-48",
+      "target": "$65+",
+      "stop": "$32",
+      "recommendation": "Super Micro Computer 為 AI 伺服器與高效能運算系統供應商，專精液冷與 GPU 伺服器解決方案。研究報告指出其為模組化開放架構伺服器與儲存方案領導廠商，Direct Liquid Cooling（DLC）技術受大型資料中心青睞。AI 訓練伺服器需求爆發，NVIDIA HGX 合作關係提供產能擴張基礎。然會計問題陰霾未完全散去，股價波動性顯著高於同業。建議風險承受度較高投資人區間操作，嚴守停損。",
+      "outlook": "SMCI AI 伺服器訂單能見度取決於會計問題解決進度，不確定性壓抑估值。",
+      "news": [
+        {
+          "title_zh": "Super Micro AI 伺服器與液冷技術需求暢旺，但會計問題引發市場疑慮",
+          "title_en": "Super Micro AI server and liquid cooling demand strong",
+          "url": "https://finance.yahoo.com/research/reports/4480_Analyst%20Report_1778266345000"
+        }
+      ]
+    },
+    "SNOW": {
+      "score": "7.0",
+      "entry": "$155-175",
+      "target": "$205+",
+      "stop": "$140",
+      "recommendation": "Snowflake 為雲端資料倉儲領導廠商，AI Data Cloud 平台協助企業整合多元資料源進行分析與 AI 模型訓練。研究報告指出其為雲端原生資料倉儲供應商，受惠於企業數位化與 AI 應用開發需求。Copilot 等 AI 功能提升產品差異化，客戶 Net Dollar Retention Rate 維持高檔。雲端資料市場競爭加劇，Databricks 與 BigQuery 構成威脅，但 Snowflake 在企業採用率與生態系統豐富度領先。建議拉回 $155-175 佈局。",
+      "outlook": "Snowflake 雲端資料平台在 AI 時代具備戰略價值，營收增速回穩為股價催化劑。",
+      "news": [
+        {
+          "title_zh": "Snowflake AI Data Cloud 平台需求暢旺，企業資料整合服務市佔擴張",
+          "title_en": "Snowflake AI Data Cloud platform expands enterprise data integration",
+          "url": "https://finance.yahoo.com/research/reports/6355_Analyst%20Report_1780053669000"
+        }
+      ]
+    },
+    "SPXC": {
+      "score": "6.5",
+      "entry": "$210-235",
+      "target": "$260+",
+      "stop": "$195",
+      "recommendation": "SPX Technologies 為工業零組件與感測器製造商，旗下業務涵蓋航空、國防、能源等高進入壁壘市場。量化報告目標價 $255-$258，顯示法人對其評價中性偏正面但近期無大幅上漲催化劑。營收以長期合約為主，需求能見度佳但成長性受限於既有市場份額。航太國防業務受惠於軍備支出增加與商用飛機交付量回升。生產效率優化與供應鏈管理為毛利率主要驅動。建議區間操作，等待更明確突破催化劑。",
+      "outlook": "SPXC 營運穩健但缺乏爆炸性成長動能，適合收益導向投資人。",
+      "news": [
+        {
+          "title_zh": "SPXC 量化報告目標價 $255-$258，評等中性",
+          "title_en": "SPXC target $255-$258, neutral rating",
+          "url": "https://finance.yahoo.com/research/reports/ARGUS_4266_QuantitativeReport_1781049600000"
+        }
+      ]
+    },
+    "WDC": {
+      "score": "7.0",
+      "entry": "$52-62",
+      "target": "$78+",
+      "stop": "$46",
+      "recommendation": "Western Digital 為全球最大硬碟機（HDD）製造商，分拆 NAND 業務後聚焦傳統 HDD 市場與企業級儲存。研究報告指出其受益於雲端業者對大容量 HDD 需求（AI 訓練資料需要大量冷資料儲存），企業級 HDD 價格與毛利率同步回升。分拆後資產負債表改善，財務彈性提升。固態硬碟（SSD）市場由三星、SK Hynix 等領導，WDC 在 NAND 落後加劇策略不確定性。建議區間 $52-62 操作，雲端資料中心 HDD 需求為主要催化劑。",
+      "outlook": "WDC 聚焦 HDD 策略受惠於資料儲存剛性需求，但 NAND 分拆後缺乏完整 SSD 解決方案。",
+      "news": [
+        {
+          "title_zh": "Western Digital HDD 需求回升，雲端資料中心為主要動能",
+          "title_en": "WDC HDD demand rebounds on cloud data center demand",
+          "url": "https://finance.yahoo.com/research/reports/3516_Analyst%20Report_1777893329000"
+        }
+      ]
+    },
+    "ZS": {
+      "score": "7.5",
+      "entry": "$150-170",
+      "target": "$200+",
+      "stop": "$138",
+      "recommendation": "Zscaler 為全球最大雲端資安閘道（Secure Access Service Edge，SASE）平台，零信任網路架構核心供應商。企業從傳統 VPN 轉向零信任架構趨勢明確，Zscaler 在雲端安全代理市場具備領導地位。研究報告指出其需求受惠於網路威脅加劇與企業 IT 現代化。AI 時代對安全連線與資料保護需求提升，Zscaler Threat Intelligence 威脅情報平台提供差異化價值。政府與金融機構合規要求嚴格，高進入壁壘支撑定價能力。建議長線投資人佈局。",
+      "outlook": "Zscaler 在 SASE 市場領導地位穩固，零信任架構滲透率提升為中長期成長催化劑。",
+      "news": []
+    },
+    "ETN": {
+      "score": "7.0",
+      "entry": "$250-275",
+      "target": "$310+",
+      "stop": "$235",
+      "recommendation": "Eaton Corporation 為全球電力管理與液壓傳動設備龍頭，受惠於電網基礎設施升級與工業自動化趨勢。AI 資料中心建設加速帶動不斷電系統（UPS）與配電設備需求，Eaton 作為電力管理解決方案供應商直接受惠。電氣化長線結構明確，電動車充電基礎設施為新營收驅動引擎。研究報告指出通膨環境下能源價格上漲壓力持續，顯示電力管理剛性需求穩健。精益製造與供應鏈優化提升毛利率，訂單積壓維持高檔。建議區間 $250-275 分批進場。",
+      "outlook": "Eaton 電力管理與電氣化業務雙引擎，AI 基礎設施建設潮為主要成長催化劑。",
+      "news": [
+        {
+          "title_zh": "Eaton 電力管理設備需求穩健，AI 資料中心建設潮受惠",
+          "title_en": "Eaton power management demand robust on AI data center buildout",
+          "url": "https://finance.yahoo.com/research/reports/47420_Market%20Outlook_1782301231000"
+        }
+      ]
+    },
+    "CIEN": {
+      "score": "7.5",
+      "entry": "$48-58",
+      "target": "$68+",
+      "stop": "$42",
+      "recommendation": "Ciena 為全球光纖傳輸設備領導廠商，專精光學傳輸與交換解決方案，受惠於電信與雲端業者光纖骨幹網路擴張。AI 時代對高速光纖傳輸需求爆發，400G 與 800G 光傳輸系統部署加速，Ciena WaveLogic 平台具備競爭優勢。5G 電信基礎設施建設與海纜升級為中長期成長動能。研究報告指出光學傳輸市場需求能見度高，Ciena 收購 Nortel MEN 業務後產品線完整度提升。與華為、Nokia 競爭中，Ciena 在美國市場具備政策支持優勢。建議區間 $48-58 佈局。",
+      "outlook": "Ciena 光纖傳輸設備在 AI 資料中心互聯與電信升級需求下前景看好，美國市場政策風險較低。",
+      "news": [
+        {
+          "title_zh": "Ciena 光纖傳輸設備市佔穩健，400G/800G 平台需求看增",
+          "title_en": "Ciena optical transport equipment market share stable",
+          "url": "https://finance.yahoo.com/research/reports/2838_Analyst%20Report_1780657761000"
+        }
       ]
     }
   }
