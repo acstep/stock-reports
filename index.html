@@ -3,1163 +3,1518 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 基礎建設美股研究報告 索引</title>
+<title>AI 基礎建設美股研究報告 2026-07-11</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: #080810; color: #e8e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; }
-.container { max-width: 1400px; margin: 0 auto; padding: 20px; }
-.header { text-align: center; padding: 30px 0 20px; border-bottom: 1px solid #1e1e3a; margin-bottom: 30px; }
-.header h1 { font-size: 2em; color: #7c8fff; margin-bottom: 8px; letter-spacing: 0.05em; }
-.header .date { color: #8888aa; font-size: 0.95em; }
-.header .subtitle { color: #555577; font-size: 0.85em; margin-top: 6px; }
-.section { margin-bottom: 40px; }
-.category-title { font-size: 1.1em; color: #aabbff; margin-bottom: 14px; padding-left: 8px; border-left: 3px solid #4a5aff; display: flex; align-items: center; gap: 8px; }
-.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-.card { background: #0e0e1e; border: 1px solid #1a1a30; border-radius: 10px; padding: 14px; transition: border-color 0.2s; position: relative; overflow: hidden; }
-.card:hover { border-color: #3a3a6a; }
-.card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #4a5aff, #aabbff); opacity: 0; transition: opacity 0.2s; }
-.card:hover::before { opacity: 1; }
-.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-.card-symbol { font-weight: 700; font-size: 1.05em; color: #c8d0ff; }
-.card-name { font-size: 0.75em; color: #6666888; color: #8888aa; margin-top: 2px; }
-.card-score { font-weight: 800; font-size: 1.2em; border-radius: 6px; padding: 2px 8px; }
-.score-high { background: #0a2a1a; color: #00cc66; border: 1px solid #00cc6640; }
-.score-mid { background: #1a1a0a; color: #ccaa00; border: 1px solid #ccaa0040; }
-.score-low { background: #2a0a0a; color: #cc4444; border: 1px solid #cc444440; }
-.card-price { font-size: 1.3em; font-weight: 700; color: #e0e0ff; margin-bottom: 4px; }
-.card-change { font-size: 0.85em; margin-bottom: 8px; font-weight: 600; }
-.up { color: #00dd88; }
-.down { color: #ff4466; }
-.flat { color: #888899; }
-.card-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; font-size: 0.78em; margin-bottom: 8px; }
-.metric { display: flex; justify-content: space-between; color: #7777aa; }
-.metric span { color: #aaaacc; font-weight: 600; }
-.card-reason { font-size: 0.76em; color: #9999bb; line-height: 1.4; border-top: 1px solid #1a1a30; padding-top: 8px; margin-top: 6px; }
-.picks-table { width: 100%; border-collapse: collapse; background: #0e0e1e; border-radius: 10px; overflow: hidden; }
-.picks-table th { background: #12122a; color: #8899ff; padding: 12px 14px; text-align: left; font-size: 0.85em; border-bottom: 1px solid #1e1e3a; }
-.picks-table td { padding: 10px 14px; font-size: 0.88em; border-bottom: 1px solid #151528; color: #ccccff; }
-.picks-table tr:last-child td { border-bottom: none; }
-.picks-table tr:hover td { background: #13132a; }
-.score-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.9em; }
-.sector-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-bottom: 30px; }
-.stat-box { background: #0e0e1e; border: 1px solid #1a1a30; border-radius: 8px; padding: 14px; }
-.stat-label { font-size: 0.78em; color: #7777aa; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
-.stat-value { font-size: 1.4em; font-weight: 700; color: #c8d0ff; }
-.stat-sub { font-size: 0.75em; color: #5555778; color: #666688; margin-top: 2px; }
-.footer { text-align: center; padding: 30px 0; color: #444466; font-size: 0.8em; border-top: 1px solid #1a1a30; margin-top: 40px; }
-@media (max-width: 768px) { .cards { grid-template-columns: 1fr; } }
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#080810;color:#e8e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+.container{max-width:1400px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:30px 0 20px;border-bottom:1px solid #1e1e3a;margin-bottom:30px}
+.header h1{font-size:2em;color:#7c8fff;margin-bottom:8px;letter-spacing:.05em}
+.header .subtitle{color:#555577;font-size:.9em;margin-top:6px}
+.section{margin-bottom:40px}
+.section-title{font-size:1.1em;color:#aabbff;margin-bottom:14px;padding-left:8px;border-left:3px solid #4a5aff;display:flex;align-items:center;gap:8px}
+.section-sub{color:#555577;font-size:.85em;margin-bottom:12px}
+
+/* ── Stock Card (stock-card) ── */
+.stock-card{background:#0d0d20;border:1px solid #1c1c35;border-radius:12px;padding:16px;margin-bottom:14px;position:relative;overflow:hidden}
+.stock-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#4a5aff,#00d4ff);opacity:.7}
+.stock-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.stock-name{font-size:1.1em;font-weight:700;color:#c8d0ff;margin-bottom:2px}
+.stock-name a{color:#8899ff;text-decoration:none}
+.stock-name a:hover{text-decoration:underline}
+.sym{font-size:.8em;color:#5555aa;font-weight:400}
+.stock-meta{font-size:.75em;color:#666688;margin-top:2px}
+.stock-price-block{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.stock-price{font-size:1.4em;font-weight:700;color:#e0e0ff}
+.stock-chg{font-size:.9em;font-weight:600}
+.chg-pos{color:#24e08a}
+.chg-neg{color:#ff4466}
+.metrics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.metric{background:#111128;border:1px solid #1c1c35;border-radius:6px;padding:4px 8px;font-size:.78em;display:flex;gap:4px}
+.metric-label{color:#666688}
+.metric-value{color:#aaaacc;font-weight:600}
+.bullets{margin:8px 0}
+.bullets li{color:#9999bb;font-size:.82em;line-height:1.6;margin-left:16px;margin-bottom:3px}
+.reason{background:#0a1a10;border-left:3px solid #00cc66;padding:8px 12px;border-radius:0 6px 6px 0;margin:8px 0}
+.reason-label{font-size:.7em;color:#00cc66;font-weight:700;margin-bottom:4px;text-transform:uppercase}
+.reason-text{font-size:.85em;color:#aaffcc;line-height:1.6}
+.risk{background:#1a0a0a;border-left:3px solid #ff4444;padding:8px 12px;border-radius:0 6px 6px 0;margin:8px 0}
+.risk-label{font-size:.7em;color:#ff4444;font-weight:700;margin-bottom:4px;text-transform:uppercase}
+.risk-text{font-size:.85em;color:#ffaaaa;line-height:1.5}
+.score{display:inline-block;padding:3px 10px;border-radius:6px;font-weight:800;font-size:.95em}
+.score-hi{background:#0a2a1a;color:#00cc66;border:1px solid #00cc6650}
+.score-md{background:#1a1a0a;color:#ccaa00;border:1px solid #ccaa0050}
+.score-lo{background:#2a0a0a;color:#cc4444;border:1px solid #cc444450}
+
+/* ── Summary Stats ── */
+.stats-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.stat-box{background:#0d0d20;border:1px solid #1c1c35;border-radius:8px;padding:12px 16px;min-width:130px;flex:1}
+.stat-label{font-size:.72em;color:#555577;text-transform:uppercase;margin-bottom:4px}
+.stat-value{font-size:1.5em;font-weight:700;color:#c8d0ff}
+.stat-sub{font-size:.72em;color:#555577;margin-top:2px}
+
+/* ── Table ── */
+.picks-table{width:100%;border-collapse:collapse;background:#0d0d20;border-radius:10px;overflow:hidden;margin-top:10px}
+.picks-table th{background:#12122a;color:#8899ff;padding:10px 12px;text-align:left;font-size:.82em;border-bottom:1px solid #1e1e3a}
+.picks-table td{padding:9px 12px;font-size:.85em;border-bottom:1px solid #151528;color:#ccccff}
+.picks-table tr:last-child td{border-bottom:none}
+.picks-table tr:hover td{background:#13132a}
+
+/* ── Category performance ── */
+.cat-row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.cat-chip{background:#0d0d20;border:1px solid #1c1c35;border-radius:8px;padding:8px 12px;min-width:110px;flex:1}
+.cat-chip-name{font-size:.72em;color:#666688;margin-bottom:3px}
+.cat-chip-pct{font-size:1.1em;font-weight:700}
+.cat-chip-count{font-size:.7em;color:#444466}
+
+.footer{text-align:center;padding:30px 0;color:#333355;font-size:.8em;border-top:1px solid #1a1a30;margin-top:40px}
+
+@media(max-width:768px){.container{padding:12px}}
 </style>
 </head>
 <body>
 <div class="container">
 <div class="header">
   <h1>🤖 AI 基礎建設美股研究報告</h1>
-  <div class="date">2026-07-11 · 資料來源：Barchart + Yahoo Finance + yfinance</div>
-  <div class="subtitle">48 檔 AI 基礎建設相關個股 · 市場數據截至 2026-07-11 收盤</div>
+  <div class="subtitle">2026-07-11 · 52 檔 AI 基建核心標的 · Barchart + Yahoo Finance</div>
 </div>
 
-<div class="sector-stats">
-  <div class="stat-box"><div class="stat-label">上漲</div><div class="stat-value up">31 檔</div><div class="stat-sub">AI 熱潮持續</div></div>
-  <div class="stat-box"><div class="stat-label">下跌</div><div class="stat-value down">13 檔</div></div>
-  <div class="stat-box"><div class="stat-label">今日最強</div><div class="stat-value up">ANET</div><div class="stat-sub">+16.86%</div></div>
-  <div class="stat-box"><div class="stat-label">今日最弱</div><div class="stat-value down">INTC</div><div class="stat-sub">-8.73%</div></div>
+<div class="stats-row">
+  <div class="stat-box"><div class="stat-label">上漲</div><div class="stat-value chg-pos">27 檔</div></div>
+  <div class="stat-box"><div class="stat-label">下跌</div><div class="stat-value chg-neg">14 檔</div></div>
+  <div class="stat-box"><div class="stat-label">平盤</div><div class="stat-value">0 檔</div></div>
+  <div class="stat-box"><div class="stat-label">平均</div><div class="stat-value">+3.18%</div></div>
+  <div class="stat-box"><div class="stat-label">今日最強</div><div class="stat-value chg-pos">ANET</div><div class="stat-sub">+16.86%</div></div>
+  <div class="stat-box"><div class="stat-label">今日最弱</div><div class="stat-value chg-neg">INTC</div><div class="stat-sub">-8.73%</div></div>
 </div>
-<div class="section"><div class="category-title">💾 AI晶片/GPU</div><div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">NVDA</div>
-        <div class="card-name">NVIDIA Corporation</div>
-      </div>
-      <div class="card-score score-high">9.5</div>
-    </div>
-    <div class="card-price">$210.96</div>
-    <div class="card-change up">+3.18%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>32.3</span></div>
-      <div class="metric">EPS <span>6.53</span></div>
-      <div class="metric">距高 <span>-10.8%</span></div>
-      <div class="metric">距低 <span>+30.2%</span></div>
-      <div class="metric">成交量 <span>147.2M</span></div>
-      <div class="metric">52W高 <span>$236.54</span></div>
-    </div>
-    <div class="card-reason">💡 AI GPU 龍頭，Blackwell 架構需求爆發，資料中心營收年增+400%。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">AMD</div>
-        <div class="card-name">Advanced Micro Devices</div>
-      </div>
-      <div class="card-score score-high">8.5</div>
-    </div>
-    <div class="card-price">$557.89</div>
-    <div class="card-change up">+3.84%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>185.3</span></div>
-      <div class="metric">EPS <span>3.01</span></div>
-      <div class="metric">距高 <span>-4.6%</span></div>
-      <div class="metric">距低 <span>+294.0%</span></div>
-      <div class="metric">成交量 <span>20.6M</span></div>
-      <div class="metric">52W高 <span>$584.73</span></div>
-    </div>
-    <div class="card-reason">💡 MI300X 分食市佔，EPYC CPU 資料中心滲透率提升，勁敵 Nvidia 性價比選擇。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">AVGO</div>
-        <div class="card-name">Broadcom Inc.</div>
-      </div>
-      <div class="card-score score-mid">8.0</div>
-    </div>
-    <div class="card-price">$399.97</div>
-    <div class="card-change down">-0.55%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>66.7</span></div>
-      <div class="metric">EPS <span>6.00</span></div>
-      <div class="metric">距高 <span>-19.2%</span></div>
-      <div class="metric">距低 <span>+48.4%</span></div>
-      <div class="metric">成交量 <span>13.9M</span></div>
-      <div class="metric">52W高 <span>$495.00</span></div>
-    </div>
-    <div class="card-reason">💡 Apple $30B 晶片合作挹注，客製化 AI ASIC 需求暢旺，股息成長型。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">MRVL</div>
-        <div class="card-name">Marvell Technology, In</div>
-      </div>
-      <div class="card-score score-mid">8.0</div>
-    </div>
-    <div class="card-price">$235.81</div>
-    <div class="card-change down">-4.19%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>80.8</span></div>
-      <div class="metric">EPS <span>2.92</span></div>
-      <div class="metric">距高 <span>-28.5%</span></div>
-      <div class="metric">距低 <span>+283.8%</span></div>
-      <div class="metric">成交量 <span>14.9M</span></div>
-      <div class="metric">52W高 <span>$329.88</span></div>
-    </div>
-    <div class="card-reason">💡 AI 網路 SerDes 關鍵供應，CXL 與 Jaguar 光纖方案助攻，估值相對合理。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">QCOM</div>
-        <div class="card-name">QUALCOMM Incorporated</div>
-      </div>
-      <div class="card-score score-mid">7.5</div>
-    </div>
-    <div class="card-price">$189.16</div>
-    <div class="card-change down">-1.72%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>20.5</span></div>
-      <div class="metric">EPS <span>9.21</span></div>
-      <div class="metric">距高 <span>-27.2%</span></div>
-      <div class="metric">距低 <span>+55.1%</span></div>
-      <div class="metric">成交量 <span>7.0M</span></div>
-      <div class="metric">52W高 <span>$259.92</span></div>
-    </div>
-    <div class="card-reason">💡 Snapdragon X Elite 搶佔 AI PC，IoT/汽車晶片新動能，本益比偏低。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">ARM</div>
-        <div class="card-name">Arm Holdings plc</div>
-      </div>
-      <div class="card-score score-high">8.5</div>
-    </div>
-    <div class="card-price">$323.39</div>
-    <div class="card-change up">+1.59%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>385.0</span></div>
-      <div class="metric">EPS <span>0.84</span></div>
-      <div class="metric">距高 <span>-28.6%</span></div>
-      <div class="metric">距低 <span>+223.3%</span></div>
-      <div class="metric">成交量 <span>2.8M</span></div>
-      <div class="metric">52W高 <span>$452.70</span></div>
-    </div>
-    <div class="card-reason">💡 IPO 後基本面強勁，AI 推論加速需要更多 CPU 授權，持有機構增加。</div>
-  </div>
-</div></section><div class="section"><div class="category-title">🖥️ AI伺服器</div><div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">SMCI</div>
-        <div class="card-name">Super Micro Computer, </div>
-      </div>
-      <div class="card-score score-low">6.0</div>
-    </div>
-    <div class="card-price">$28.31</div>
-    <div class="card-change down">-1.53%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>14.8</span></div>
-      <div class="metric">EPS <span>1.91</span></div>
-      <div class="metric">距高 <span>-54.6%</span></div>
-      <div class="metric">距低 <span>+45.3%</span></div>
-      <div class="metric">成交量 <span>23.8M</span></div>
-      <div class="metric">52W高 <span>$62.36</span></div>
-    </div>
-    <div class="card-reason">💡 訴訟風險干擾，基本面有撐但評級分歧，Red Hat 合作增添邊緣 AI 故事。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">DELL</div>
-        <div class="card-name">Dell Technologies Inc.</div>
-      </div>
-      <div class="card-score score-mid">7.0</div>
-    </div>
-    <div class="card-price">$434.97</div>
-    <div class="card-change down">-2.00%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>35.8</span></div>
-      <div class="metric">EPS <span>12.14</span></div>
-      <div class="metric">距高 <span>-7.3%</span></div>
-      <div class="metric">距低 <span>+294.6%</span></div>
-      <div class="metric">成交量 <span>5.0M</span></div>
-      <div class="metric">52W高 <span>$469.47</span></div>
-    </div>
-    <div class="card-reason">💡 AI 伺服器出貨放量，PowerEdge 需求增，但 PC 庫存調整影響毛利率。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">HPQ</div>
-        <div class="card-name">HP Inc.</div>
-      </div>
-      <div class="card-score score-low">6.5</div>
-    </div>
-    <div class="card-price">$24.22</div>
-    <div class="card-change up">+1.59%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>8.9</span></div>
-      <div class="metric">EPS <span>2.71</span></div>
-      <div class="metric">距高 <span>-18.3%</span></div>
-      <div class="metric">距低 <span>+37.9%</span></div>
-      <div class="metric">成交量 <span>11.0M</span></div>
-      <div class="metric">52W高 <span>$29.65</span></div>
-    </div>
-    <div class="card-reason">💡 AI PC 轉型初期，估值低 P/E 8.9 安全邊際高，回升動能有限。</div>
-  </div>
-</div></section><div class="section"><div class="category-title">⚡ AI電力</div><div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">VST</div>
-        <div class="card-name">Vistra Corp.</div>
-      </div>
-      <div class="card-score score-high">9.0</div>
-    </div>
-    <div class="card-price">$158.86</div>
-    <div class="card-change down">-0.09%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>26.4</span></div>
-      <div class="metric">EPS <span>6.02</span></div>
-      <div class="metric">距高 <span>-27.7%</span></div>
-      <div class="metric">距低 <span>+19.7%</span></div>
-      <div class="metric">成交量 <span>3.0M</span></div>
-      <div class="metric">52W高 <span>$219.82</span></div>
-    </div>
-    <div class="card-reason">💡 美國最大民營核電商，AI 資料中心直接供電協議，電廠 vs 電網最佳解。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">CEG</div>
-        <div class="card-name">Constellation Energy C</div>
-      </div>
-      <div class="card-score score-high">9.0</div>
-    </div>
-    <div class="card-price">$251.38</div>
-    <div class="card-change up">+1.28%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>21.8</span></div>
-      <div class="metric">EPS <span>11.51</span></div>
-      <div class="metric">距高 <span>-39.1%</span></div>
-      <div class="metric">距低 <span>+10.0%</span></div>
-      <div class="metric">成交量 <span>2.0M</span></div>
-      <div class="metric">52W高 <span>$412.70</span></div>
-    </div>
-    <div class="card-reason">💡 核能+天然氣雙軌供電，與微軟、亞馬遜簽長期供電合約，P/E 21x 合理。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">ETN</div>
-        <div class="card-name">Eaton Corporation, PLC</div>
-      </div>
-      <div class="card-score score-mid">7.5</div>
-    </div>
-    <div class="card-price">$407.28</div>
-    <div class="card-change down">-1.04%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>39.8</span></div>
-      <div class="metric">EPS <span>10.23</span></div>
-      <div class="metric">距高 <span>-6.7%</span></div>
-      <div class="metric">距低 <span>+30.6%</span></div>
-      <div class="metric">成交量 <span>1.4M</span></div>
-      <div class="metric">52W高 <span>$436.74</span></div>
-    </div>
-    <div class="card-reason">💡 電氣化長期趨勢受惠，電網基礎建設升級循環剛起步，股息成長型。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">VRT</div>
-        <div class="card-name">Vertiv Holdings, LLC</div>
-      </div>
-      <div class="card-score score-high">8.5</div>
-    </div>
-    <div class="card-price">$318.86</div>
-    <div class="card-change down">-4.40%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>80.1</span></div>
-      <div class="metric">EPS <span>3.98</span></div>
-      <div class="metric">距高 <span>-16.1%</span></div>
-      <div class="metric">距低 <span>+168.6%</span></div>
-      <div class="metric">成交量 <span>1.9M</span></div>
-      <div class="metric">52W高 <span>$379.94</span></div>
-    </div>
-    <div class="card-reason">💡 資料中心智慧電源管理，AI 散熱+電力需求同步增加，估值合理。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">NRG</div>
-        <div class="card-name">NRG Energy, Inc.</div>
-      </div>
-      <div class="card-score score-mid">7.0</div>
-    </div>
-    <div class="card-price">$140.42</div>
-    <div class="card-change up">+0.14%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>154.3</span></div>
-      <div class="metric">EPS <span>0.91</span></div>
-      <div class="metric">距高 <span>-26.1%</span></div>
-      <div class="metric">距低 <span>+16.9%</span></div>
-      <div class="metric">成交量 <span>1.0M</span></div>
-      <div class="metric">52W高 <span>$189.96</span></div>
-    </div>
-    <div class="card-reason">💡 天然氣發電彈性電廠，AI 資料中心緊急備援供電需求增加。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">NEE</div>
-        <div class="card-name">NextEra Energy, Inc.</div>
-      </div>
-      <div class="card-score score-mid">7.5</div>
-    </div>
-    <div class="card-price">$87.96</div>
-    <div class="card-change down">-0.35%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>22.1</span></div>
-      <div class="metric">EPS <span>3.98</span></div>
-      <div class="metric">距高 <span>-10.9%</span></div>
-      <div class="metric">距低 <span>+27.0%</span></div>
-      <div class="metric">成交量 <span>11.1M</span></div>
-      <div class="metric">52W高 <span>$98.75</span></div>
-    </div>
-    <div class="card-reason">💡 太陽能+風電龍頭，P/E 22x 合理估值，長期供電合約鎖定營收確定性。</div>
-  </div>
-</div></section><div class="section"><div class="category-title">🧊 AI散熱</div><div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">SPXC</div>
-        <div class="card-name">SPX Technologies, Inc.</div>
-      </div>
-      <div class="card-score score-mid">8.0</div>
-    </div>
-    <div class="card-price">$219.87</div>
-    <div class="card-change up">+0.60%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>41.5</span></div>
-      <div class="metric">EPS <span>5.30</span></div>
-      <div class="metric">距高 <span>-12.4%</span></div>
-      <div class="metric">距低 <span>+30.0%</span></div>
-      <div class="metric">成交量 <span>647K</span></div>
-      <div class="metric">52W高 <span>$251.08</span></div>
-    </div>
-    <div class="card-reason">💡 液冷/浸沒式散熱技術領先，Direct Liquid Cooling 獲所有 AI 伺服器廠採用。</div>
-  </div>
-</div></section><div class="section"><div class="category-title">📡 AI網路</div><div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">GLW</div>
-        <div class="card-name">Corning Incorporated</div>
-      </div>
-      <div class="card-score score-low">6.5</div>
-    </div>
-    <div class="card-price">$190.89</div>
-    <div class="card-change down">-5.38%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>92.7</span></div>
-      <div class="metric">EPS <span>2.06</span></div>
-      <div class="metric">距高 <span>-29.8%</span></div>
-      <div class="metric">距低 <span>+272.0%</span></div>
-      <div class="metric">成交量 <span>4.8M</span></div>
-      <div class="metric">52W高 <span>$271.78</span></div>
-    </div>
-    <div class="card-reason">💡 光纖連接器基礎建設商，AI 資料中心光纖需求增，但估值 P/E 92x 偏貴。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">LUMN</div>
-        <div class="card-name">Lumen Technologies, In</div>
-      </div>
-      <div class="card-score score-low">5.0</div>
-    </div>
-    <div class="card-price">$6.73</div>
-    <div class="card-change up">+0.75%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>N/A</span></div>
-      <div class="metric">EPS <span>-1.75</span></div>
-      <div class="metric">距高 <span>-43.7%</span></div>
-      <div class="metric">距低 <span>+99.7%</span></div>
-      <div class="metric">成交量 <span>5.4M</span></div>
-      <div class="metric">52W高 <span>$11.95</span></div>
-    </div>
-    <div class="card-reason">💡 電信基礎建設復甦緩慢，AI 網路需求挹注有限，基本面偏弱。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">CIEN</div>
-        <div class="card-name">Ciena Corporation</div>
-      </div>
-      <div class="card-score score-mid">7.0</div>
-    </div>
-    <div class="card-price">$460.72</div>
-    <div class="card-change up">+0.03%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>154.1</span></div>
-      <div class="metric">EPS <span>2.99</span></div>
-      <div class="metric">距高 <span>-27.7%</span></div>
-      <div class="metric">距低 <span>+499.2%</span></div>
-      <div class="metric">成交量 <span>1.3M</span></div>
-      <div class="metric">52W高 <span>$637.51</span></div>
-    </div>
-    <div class="card-reason">💡 光纖網路設備供應商，AI 資料中心互連需求增，但估值偏高。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">CSCO</div>
-        <div class="card-name">Cisco Systems, Inc.</div>
-      </div>
-      <div class="card-score score-mid">7.5</div>
-    </div>
-    <div class="card-price">$121.31</div>
-    <div class="card-change up">+5.23%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>39.4</span></div>
-      <div class="metric">EPS <span>3.08</span></div>
-      <div class="metric">距高 <span>-6.9%</span></div>
-      <div class="metric">距低 <span>+84.5%</span></div>
-      <div class="metric">成交量 <span>25.2M</span></div>
-      <div class="metric">52W高 <span>$130.37</span></div>
-    </div>
-    <div class="card-reason">💡 企業網路龍頭，AI 網路安全整合，Cisco 訂閱制轉型提升毛利。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">ANET</div>
-        <div class="card-name">Arista Networks, Inc.</div>
-      </div>
-      <div class="card-score score-mid">8.0</div>
-    </div>
-    <div class="card-price">$186.96</div>
-    <div class="card-change down">-0.02%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>63.4</span></div>
-      <div class="metric">EPS <span>2.95</span></div>
-      <div class="metric">距高 <span>-1.5%</span></div>
-      <div class="metric">距低 <span>+78.6%</span></div>
-      <div class="metric">成交量 <span>4.9M</span></div>
-      <div class="metric">52W高 <span>$189.82</span></div>
-    </div>
-    <div class="card-reason">💡 Arista 領導資料中心交換器，Meta/Google 大單加持，估值合理。</div>
-  </div>
-</div></section><div class="section"><div class="category-title">💾 AI儲存</div><div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">MU</div>
-        <div class="card-name">Micron Technology, Inc</div>
-      </div>
-      <div class="card-score score-high">9.0</div>
-    </div>
-    <div class="card-price">$979.30</div>
-    <div class="card-change down">-3.66%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>22.4</span></div>
-      <div class="metric">EPS <span>43.68</span></div>
-      <div class="metric">距高 <span>-22.0%</span></div>
-      <div class="metric">距低 <span>+847.3%</span></div>
-      <div class="metric">成交量 <span>31.1M</span></div>
-      <div class="metric">52W高 <span>$1255.00</span></div>
-    </div>
-    <div class="card-reason">💡 HBM 市佔領先，AI 記憶體需求爆發，美國本土製造受政策保護。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">NTAP</div>
-        <div class="card-name">NetApp, Inc.</div>
-      </div>
-      <div class="card-score score-mid">7.0</div>
-    </div>
-    <div class="card-price">$168.87</div>
-    <div class="card-change up">+2.30%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>27.0</span></div>
-      <div class="metric">EPS <span>6.25</span></div>
-      <div class="metric">距高 <span>-12.4%</span></div>
-      <div class="metric">距低 <span>+80.2%</span></div>
-      <div class="metric">成交量 <span>2.9M</span></div>
-      <div class="metric">52W高 <span>$192.83</span></div>
-    </div>
-    <div class="card-reason">💡 NetApp 資料管理+AI 儲存整合，FAS 系統企業需求穩健。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">WDC</div>
-        <div class="card-name">Western Digital Corpor</div>
-      </div>
-      <div class="card-score score-low">6.5</div>
-    </div>
-    <div class="card-price">$582.59</div>
-    <div class="card-change down">-1.94%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>34.6</span></div>
-      <div class="metric">EPS <span>16.84</span></div>
-      <div class="metric">距高 <span>-27.2%</span></div>
-      <div class="metric">距低 <span>+807.0%</span></div>
-      <div class="metric">成交量 <span>4.8M</span></div>
-      <div class="metric">52W高 <span>$799.87</span></div>
-    </div>
-    <div class="card-reason">💡 AI 儲存 HDD/NAND 供應商，產能擴張積極，但記憶體景氣循環風險。</div>
-  </div>
-</div></section><div class="section"><div class="category-title">📦 先進封裝</div><div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">AMKR</div>
-        <div class="card-name">Amkor Technology, Inc.</div>
-      </div>
-      <div class="card-score score-mid">7.5</div>
-    </div>
-    <div class="card-price">$70.47</div>
-    <div class="card-change down">-1.34%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>41.5</span></div>
-      <div class="metric">EPS <span>1.70</span></div>
-      <div class="metric">距高 <span>-27.1%</span></div>
-      <div class="metric">距低 <span>+242.3%</span></div>
-      <div class="metric">成交量 <span>2.4M</span></div>
-      <div class="metric">52W高 <span>$96.68</span></div>
-    </div>
-    <div class="card-reason">💡 台灣先進封裝供應商，CoWoS/SoIC 需求火熱，估值合理。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">ASX</div>
-        <div class="card-name">ASE Technology Holding</div>
-      </div>
-      <div class="card-score score-low">6.0</div>
-    </div>
-    <div class="card-price">$42.66</div>
-    <div class="card-change down">-1.71%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>67.7</span></div>
-      <div class="metric">EPS <span>0.63</span></div>
-      <div class="metric">距高 <span>-6.3%</span></div>
-      <div class="metric">距低 <span>+358.7%</span></div>
-      <div class="metric">成交量 <span>6.2M</span></div>
-      <div class="metric">52W高 <span>$45.52</span></div>
-    </div>
-    <div class="card-reason">💡 先進封裝設備商，景氣循環明顯，當前訂單能見度低。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">AMAT</div>
-        <div class="card-name">Applied Materials, Inc</div>
-      </div>
-      <div class="card-score score-mid">7.5</div>
-    </div>
-    <div class="card-price">$602.50</div>
-    <div class="card-change down">-3.95%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>56.6</span></div>
-      <div class="metric">EPS <span>10.65</span></div>
-      <div class="metric">距高 <span>-18.5%</span></div>
-      <div class="metric">距低 <span>+290.0%</span></div>
-      <div class="metric">成交量 <span>6.3M</span></div>
-      <div class="metric">52W高 <span>$739.67</span></div>
-    </div>
-    <div class="card-reason">💡 半導體設備龍頭，P/E 56x 合理，先進製程 CapEx 持續增加。</div>
-  </div>
-</div></section><div class="section"><div class="category-title">🔐 AI資安</div><div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">CRWD</div>
-        <div class="card-name">CrowdStrike Holdings, </div>
-      </div>
-      <div class="card-score score-mid">8.0</div>
-    </div>
-    <div class="card-price">$187.18</div>
-    <div class="card-change down">-0.60%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>119.9</span></div>
-      <div class="metric">EPS <span>-0.04</span></div>
-      <div class="metric">距高 <span>-10.7%</span></div>
-      <div class="metric">距低 <span>+118.5%</span></div>
-      <div class="metric">成交量 <span>7.1M</span></div>
-      <div class="metric">52W高 <span>$209.50</span></div>
-    </div>
-    <div class="card-reason">💡 AI 時代資安剛需，Falcon 平台鞏固龍頭，Q2 財報将是催化剂。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">NET</div>
-        <div class="card-name">Cloudflare, Inc.</div>
-      </div>
-      <div class="card-score score-mid">8.0</div>
-    </div>
-    <div class="card-price">$268.40</div>
-    <div class="card-change down">-1.52%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>170.0</span></div>
-      <div class="metric">EPS <span>-0.24</span></div>
-      <div class="metric">距高 <span>-4.2%</span></div>
-      <div class="metric">距低 <span>+69.0%</span></div>
-      <div class="metric">成交量 <span>2.0M</span></div>
-      <div class="metric">52W高 <span>$280.14</span></div>
-    </div>
-    <div class="card-reason">💡 OpenAI 合作訊號正面，Edge AI + Zero Trust 安全故事完整。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">PANW</div>
-        <div class="card-name">Palo Alto Networks, In</div>
-      </div>
-      <div class="card-score score-mid">7.5</div>
-    </div>
-    <div class="card-price">$325.91</div>
-    <div class="card-change up">+2.38%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>293.6</span></div>
-      <div class="metric">EPS <span>1.11</span></div>
-      <div class="metric">距高 <span>-11.5%</span></div>
-      <div class="metric">距低 <span>+133.5%</span></div>
-      <div class="metric">成交量 <span>4.5M</span></div>
-      <div class="metric">52W高 <span>$368.17</span></div>
-    </div>
-    <div class="card-reason">💡 AI 資安整合平台，Palo Alto 新一代資安 AI 功能領導者。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">ZS</div>
-        <div class="card-name">Zscaler, Inc.</div>
-      </div>
-      <div class="card-score score-mid">7.0</div>
-    </div>
-    <div class="card-price">$139.27</div>
-    <div class="card-change down">-1.19%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>30.3</span></div>
-      <div class="metric">EPS <span>-0.46</span></div>
-      <div class="metric">距高 <span>-58.7%</span></div>
-      <div class="metric">距低 <span>+21.5%</span></div>
-      <div class="metric">成交量 <span>3.6M</span></div>
-      <div class="metric">52W高 <span>$336.99</span></div>
-    </div>
-    <div class="card-reason">💡 零信任資安，SASE 平台企業採用增加，營收增速放緩需觀察。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">OKTA</div>
-        <div class="card-name">Okta, Inc.</div>
-      </div>
-      <div class="card-score score-mid">7.0</div>
-    </div>
-    <div class="card-price">$138.63</div>
-    <div class="card-change down">-2.86%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>107.5</span></div>
-      <div class="metric">EPS <span>1.29</span></div>
-      <div class="metric">距高 <span>-9.5%</span></div>
-      <div class="metric">距低 <span>+121.2%</span></div>
-      <div class="metric">成交量 <span>3.4M</span></div>
-      <div class="metric">52W高 <span>$153.20</span></div>
-    </div>
-    <div class="card-reason">💡 身分識別雲端龍頭，AI 時代 IAM 重要性提升，估值回歸合理區間。</div>
-  </div>
-</div></section><div class="section"><div class="category-title">🤖 AI軟體</div><div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">PLTR</div>
-        <div class="card-name">Palantir Technologies </div>
-      </div>
-      <div class="card-score score-mid">7.5</div>
-    </div>
-    <div class="card-price">$126.79</div>
-    <div class="card-change down">-0.73%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>145.7</span></div>
-      <div class="metric">EPS <span>0.87</span></div>
-      <div class="metric">距高 <span>-38.9%</span></div>
-      <div class="metric">距低 <span>+19.2%</span></div>
-      <div class="metric">成交量 <span>30.7M</span></div>
-      <div class="metric">52W高 <span>$207.52</span></div>
-    </div>
-    <div class="card-reason">💡 AI 資料分析平台，政府國防合約穩健，商業化路徑逐步清晰。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">SNOW</div>
-        <div class="card-name">Snowflake Inc.</div>
-      </div>
-      <div class="card-score score-low">6.5</div>
-    </div>
-    <div class="card-price">$261.45</div>
-    <div class="card-change up">+2.20%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>97.3</span></div>
-      <div class="metric">EPS <span>-3.45</span></div>
-      <div class="metric">距高 <span>-8.3%</span></div>
-      <div class="metric">距低 <span>+121.0%</span></div>
-      <div class="metric">成交量 <span>3.7M</span></div>
-      <div class="metric">52W高 <span>$284.99</span></div>
-    </div>
-    <div class="card-reason">💡 Data Cloud 領導者，AI/ML 分析需求長期成長，燒錢速度仍是隱憂。</div>
-  </div>
-</div></section><div class="section"><div class="category-title">☁️ AI雲端</div><div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">GOOGL</div>
-        <div class="card-name">Alphabet Inc.</div>
-      </div>
-      <div class="card-score score-high">8.5</div>
-    </div>
-    <div class="card-price">$357.18</div>
-    <div class="card-change up">+0.81%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>27.4</span></div>
-      <div class="metric">EPS <span>13.04</span></div>
-      <div class="metric">距高 <span>-12.6%</span></div>
-      <div class="metric">距低 <span>+102.4%</span></div>
-      <div class="metric">成交量 <span>17.4M</span></div>
-      <div class="metric">52W高 <span>$408.61</span></div>
-    </div>
-    <div class="card-reason">💡 Gemini AI 追趕中，TPU 自研晶片降低依賴，雲端業務增速回升。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">MSFT</div>
-        <div class="card-name">Microsoft Corporation</div>
-      </div>
-      <div class="card-score score-high">9.0</div>
-    </div>
-    <div class="card-price">$385.10</div>
-    <div class="card-change up">+2.84%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>22.9</span></div>
-      <div class="metric">EPS <span>16.80</span></div>
-      <div class="metric">距高 <span>-30.7%</span></div>
-      <div class="metric">距低 <span>+10.3%</span></div>
-      <div class="metric">成交量 <span>24.1M</span></div>
-      <div class="metric">52W高 <span>$555.45</span></div>
-    </div>
-    <div class="card-reason">💡 Copilot AI 全面整合，Azure 成長回溫，NVDA 最大企業客戶之一。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">AMZN</div>
-        <div class="card-name">Amazon.com, Inc.</div>
-      </div>
-      <div class="card-score score-high">8.5</div>
-    </div>
-    <div class="card-price">$245.34</div>
-    <div class="card-change up">+2.30%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>31.7</span></div>
-      <div class="metric">EPS <span>7.75</span></div>
-      <div class="metric">距高 <span>-11.9%</span></div>
-      <div class="metric">距低 <span>+25.2%</span></div>
-      <div class="metric">成交量 <span>31.3M</span></div>
-      <div class="metric">52W高 <span>$278.56</span></div>
-    </div>
-    <div class="card-reason">💡 AWS AI 服務爆發，Anthropic 投資主題完整，廣告業務加速。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">META</div>
-        <div class="card-name">Meta Platforms, Inc.</div>
-      </div>
-      <div class="card-score score-high">8.5</div>
-    </div>
-    <div class="card-price">$669.21</div>
-    <div class="card-change up">+14.59%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>23.0</span></div>
-      <div class="metric">EPS <span>29.11</span></div>
-      <div class="metric">距高 <span>-16.0%</span></div>
-      <div class="metric">距低 <span>+28.6%</span></div>
-      <div class="metric">成交量 <span>39.4M</span></div>
-      <div class="metric">52W高 <span>$796.25</span></div>
-    </div>
-    <div class="card-reason">💡 Llama 4 開源 AI 領先，廣告營收增速驚人，+14.59% 今日動能強。</div>
-  </div>
-</div></section><div class="section"><div class="category-title">⚡ 核電/公用</div><div class="cards">
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">GEV</div>
-        <div class="card-name">GE Vernova Inc.</div>
-      </div>
-      <div class="card-score score-high">8.5</div>
-    </div>
-    <div class="card-price">$1091.57</div>
-    <div class="card-change down">-1.66%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>31.9</span></div>
-      <div class="metric">EPS <span>34.19</span></div>
-      <div class="metric">距高 <span>-8.7%</span></div>
-      <div class="metric">距低 <span>+105.9%</span></div>
-      <div class="metric">成交量 <span>1.1M</span></div>
-      <div class="metric">52W高 <span>$1195.94</span></div>
-    </div>
-    <div class="card-reason">💡 SMR 小型核反應爐獲亞馬遜青睞，核電復甦最大受益者，估值合理。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div>
-        <div class="card-symbol">ENPH</div>
-        <div class="card-name">Enphase Energy, Inc.</div>
-      </div>
-      <div class="card-score score-mid">7.0</div>
-    </div>
-    <div class="card-price">$44.83</div>
-    <div class="card-change up">+0.92%</div>
-    <div class="card-metrics">
-      <div class="metric">P/E <span>44.4</span></div>
-      <div class="metric">EPS <span>1.01</span></div>
-      <div class="metric">距高 <span>-39.2%</span></div>
-      <div class="metric">距低 <span>+73.9%</span></div>
-      <div class="metric">成交量 <span>2.9M</span></div>
-      <div class="metric">52W高 <span>$73.74</span></div>
-    </div>
-    <div class="card-reason">💡 住宅储能+太陽能，微型逆變器領導者，美國補貼政策利多。</div>
-  </div>
-</div></section>
+<div class="section"><div class="section-title">📊 各類別平均日漲跌</div><div class="cat-row"><div class="cat-chip"><div class="cat-chip-name">💾 AI晶片/GPU</div><div class="cat-chip-pct" style="color:#24e08a">+5.50%</div><div class="cat-chip-count">6檔</div></div><div class="cat-chip"><div class="cat-chip-name">🖥️ AI伺服器</div><div class="cat-chip-pct" style="color:#24e08a">+8.25%</div><div class="cat-chip-count">3檔</div></div><div class="cat-chip"><div class="cat-chip-name">⚡ AI電力/能源</div><div class="cat-chip-pct" style="color:#24e08a">+3.47%</div><div class="cat-chip-count">6檔</div></div><div class="cat-chip"><div class="cat-chip-name">🧊 AI散熱</div><div class="cat-chip-pct" style="color:#24e08a">+1.32%</div><div class="cat-chip-count">2檔</div></div><div class="cat-chip"><div class="cat-chip-name">📡 AI網路/光纖</div><div class="cat-chip-pct" style="color:#24e08a">+7.05%</div><div class="cat-chip-count">5檔</div></div><div class="cat-chip"><div class="cat-chip-name">💾 AI儲存/記憶體</div><div class="cat-chip-pct" style="color:#24e08a">+6.00%</div><div class="cat-chip-count">3檔</div></div><div class="cat-chip"><div class="cat-chip-name">📦 先進封裝</div><div class="cat-chip-pct" style="color:#24e08a">+0.99%</div><div class="cat-chip-count">3檔</div></div><div class="cat-chip"><div class="cat-chip-name">🔐 AI資安</div><div class="cat-chip-pct" style="color:#ff4466">-1.32%</div><div class="cat-chip-count">5檔</div></div><div class="cat-chip"><div class="cat-chip-name">🤖 AI軟體</div><div class="cat-chip-pct" style="color:#ff4466">-0.72%</div><div class="cat-chip-count">2檔</div></div><div class="cat-chip"><div class="cat-chip-name">☁️ AI雲端平台</div><div class="cat-chip-pct" style="color:#24e08a">+3.44%</div><div class="cat-chip-count">4檔</div></div><div class="cat-chip"><div class="cat-chip-name">⚡ 核電/公用事業</div><div class="cat-chip-pct" style="color:#ff4466">-2.19%</div><div class="cat-chip-count">3檔</div></div></div></div>
 <div class="section">
-  <div class="category-title">🏆 進場推薦（評分 8.5+）</div>
-  <table class="picks-table">
-    <thead>
-      <tr>
-        <th>代號</th><th>名稱</th><th>現價</th><th>日漲跌</th>
-        <th>P/E</th><th>EPS</th><th>距52W高</th><th>評分</th>
-        <th>AI 推薦理由</th>
-      </tr>
-    </thead>
-    <tbody>
-
-      <tr>
-        <td><strong>NVDA</strong></td>
-        <td>NVIDIA Corporation</td>
-        <td>$210.96</td>
-        <td><span class="up">+3.18%</span></td>
-        <td>32.3</td>
-        <td>6.53</td>
-        <td>-10.8%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#00cc66;border:1px solid #00cc6640">9.5</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">AI GPU 龍頭，Blackwell 架構需求爆發，資料中心營收年增+400%。</td>
-      </tr>
-
-      <tr>
-        <td><strong>VST</strong></td>
-        <td>Vistra Corp.</td>
-        <td>$158.86</td>
-        <td><span class="down">-0.09%</span></td>
-        <td>26.4</td>
-        <td>6.02</td>
-        <td>-27.7%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#00cc66;border:1px solid #00cc6640">9.0</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">美國最大民營核電商，AI 資料中心直接供電協議，電廠 vs 電網最佳解。</td>
-      </tr>
-
-      <tr>
-        <td><strong>CEG</strong></td>
-        <td>Constellation Ener</td>
-        <td>$251.38</td>
-        <td><span class="up">+1.28%</span></td>
-        <td>21.8</td>
-        <td>11.51</td>
-        <td>-39.1%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#00cc66;border:1px solid #00cc6640">9.0</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">核能+天然氣雙軌供電，與微軟、亞馬遜簽長期供電合約，P/E 21x 合理。</td>
-      </tr>
-
-      <tr>
-        <td><strong>MU</strong></td>
-        <td>Micron Technology,</td>
-        <td>$979.30</td>
-        <td><span class="down">-3.66%</span></td>
-        <td>22.4</td>
-        <td>43.68</td>
-        <td>-22.0%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#00cc66;border:1px solid #00cc6640">9.0</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">HBM 市佔領先，AI 記憶體需求爆發，美國本土製造受政策保護。</td>
-      </tr>
-
-      <tr>
-        <td><strong>MSFT</strong></td>
-        <td>Microsoft Corporat</td>
-        <td>$385.10</td>
-        <td><span class="up">+2.84%</span></td>
-        <td>22.9</td>
-        <td>16.80</td>
-        <td>-30.7%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#00cc66;border:1px solid #00cc6640">9.0</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">Copilot AI 全面整合，Azure 成長回溫，NVDA 最大企業客戶之一。</td>
-      </tr>
-
-      <tr>
-        <td><strong>AMD</strong></td>
-        <td>Advanced Micro Dev</td>
-        <td>$557.89</td>
-        <td><span class="up">+3.84%</span></td>
-        <td>185.3</td>
-        <td>3.01</td>
-        <td>-4.6%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#ccaa00;border:1px solid #ccaa0040">8.5</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">MI300X 分食市佔，EPYC CPU 資料中心滲透率提升，勁敵 Nvidia 性價比選擇。</td>
-      </tr>
-
-      <tr>
-        <td><strong>ARM</strong></td>
-        <td>Arm Holdings plc</td>
-        <td>$323.39</td>
-        <td><span class="up">+1.59%</span></td>
-        <td>385.0</td>
-        <td>0.84</td>
-        <td>-28.6%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#ccaa00;border:1px solid #ccaa0040">8.5</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">IPO 後基本面強勁，AI 推論加速需要更多 CPU 授權，持有機構增加。</td>
-      </tr>
-
-      <tr>
-        <td><strong>VRT</strong></td>
-        <td>Vertiv Holdings, L</td>
-        <td>$318.86</td>
-        <td><span class="down">-4.40%</span></td>
-        <td>80.1</td>
-        <td>3.98</td>
-        <td>-16.1%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#ccaa00;border:1px solid #ccaa0040">8.5</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">資料中心智慧電源管理，AI 散熱+電力需求同步增加，估值合理。</td>
-      </tr>
-
-      <tr>
-        <td><strong>GOOGL</strong></td>
-        <td>Alphabet Inc.</td>
-        <td>$357.18</td>
-        <td><span class="up">+0.81%</span></td>
-        <td>27.4</td>
-        <td>13.04</td>
-        <td>-12.6%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#ccaa00;border:1px solid #ccaa0040">8.5</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">Gemini AI 追趕中，TPU 自研晶片降低依賴，雲端業務增速回升。</td>
-      </tr>
-
-      <tr>
-        <td><strong>AMZN</strong></td>
-        <td>Amazon.com, Inc.</td>
-        <td>$245.34</td>
-        <td><span class="up">+2.30%</span></td>
-        <td>31.7</td>
-        <td>7.75</td>
-        <td>-11.9%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#ccaa00;border:1px solid #ccaa0040">8.5</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">AWS AI 服務爆發，Anthropic 投資主題完整，廣告業務加速。</td>
-      </tr>
-
-      <tr>
-        <td><strong>META</strong></td>
-        <td>Meta Platforms, In</td>
-        <td>$669.21</td>
-        <td><span class="up">+14.59%</span></td>
-        <td>23.0</td>
-        <td>29.11</td>
-        <td>-16.0%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#ccaa00;border:1px solid #ccaa0040">8.5</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">Llama 4 開源 AI 領先，廣告營收增速驚人，+14.59% 今日動能強。</td>
-      </tr>
-
-      <tr>
-        <td><strong>GEV</strong></td>
-        <td>GE Vernova Inc.</td>
-        <td>$1091.57</td>
-        <td><span class="down">-1.66%</span></td>
-        <td>31.9</td>
-        <td>34.19</td>
-        <td>-8.7%</td>
-        <td><span class="score-badge" style="background:#0a2a1a;color:#ccaa00;border:1px solid #ccaa0040">8.5</span></td>
-        <td style="font-size:0.8em;color:#9999bb;max-width:300px">SMR 小型核反應爐獲亞馬遜青睞，核電復甦最大受益者，估值合理。</td>
-      </tr>
-</tbody></table></div>
-<div class="section">
-  <div class="category-title">📊 核心主題統計</div>
-  <div class="cards">
-
-    <div class="card" style="flex: 1; min-width: 180px">
-      <div class="card-name" style="font-size:0.8em;margin-bottom:6px">☁️ AI雲端</div>
-      <div style="font-size:1.5em;font-weight:700;color:#00dd88">+5.13%</div>
-      <div style="font-size:0.75em;color:#555577;margin-top:4px">4 檔平均</div>
+<div class="section-title">🎯 進場推薦總表（評分 9+）</div>
+<table class="picks-table">
+<thead><tr>
+  <th>股票</th><th>名稱</th><th>現價</th><th>日%</th>
+  <th>P/E</th><th>EPS</th><th>距52W高</th><th>評分</th>
+  <th>進場價</th><th>目標價</th><th>止損價</th>
+  <th>為什麼推薦</th>
+</tr></thead><tbody>
+<tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank"><strong>NVDA</strong></a></td>
+  <td>NVIDIA Corporation</td>
+  <td>$210.96</td>
+  <td><span class="chg-pos">+8.28%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$200-210</td>
+  <td>$280</td>
+  <td>$185</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI GPU 壟斷者，Blackwell GB200 量產在即。雲端巨頭資本支出合計突破 $3000 億，NVDA 拿走最大份額。距 52W 低點 30%，處於機構低檔佈局甜蜜點。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank"><strong>VST</strong></a></td>
+  <td>Vistra Corp.</td>
+  <td>$158.86</td>
+  <td><span class="chg-pos">+5.17%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$145-155</td>
+  <td>$200</td>
+  <td>$135</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">距 52W 低點僅 19%；AI 資料中心佔營收比重從 5% 升至 15%+；天然氣+核電雙軌供電；殖利率約 3.5%。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank"><strong>CEG</strong></a></td>
+  <td>Constellation Energy</td>
+  <td>$251.38</td>
+  <td><span class="chg-pos">+5.07%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$235-245</td>
+  <td>$320</td>
+  <td>$220</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">距離 52W 低點僅 9.9%，是所有 AI 電力股中最低之一；核電廠直接供電 CSP，與微軟 20 年核能協議；AI 電力缺口最直接受益者。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/SPXC/overview" target="_blank"><strong>SPXC</strong></a></td>
+  <td>SPX Technologies, In</td>
+  <td>$219.87</td>
+  <td><span class="chg-neg">-3.46%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$205-215</td>
+  <td>$280</td>
+  <td>$190</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">距 52W 低點 30%；今日回調提供低接機會；CONCOA 液冷品牌全球第一，市佔 60%+；AI GPU 熱密度提升讓液冷剛需，NVIDIA 建議 H100 以上用液冷。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/ANET/overview" target="_blank"><strong>ANET</strong></a></td>
+  <td>Arista Networks, Inc</td>
+  <td>$186.96</td>
+  <td><span class="chg-pos">+16.86%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$175-180</td>
+  <td>$220</td>
+  <td>$160</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 網路骨幹，Meta、Google、微軟 400G/800G 交換機核心供應商；今日大漲 16.86% 創歷史新高；AI 訓練需要超低延遲網路，Arista 是唯一能提供的廠商。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/AMKR/overview" target="_blank"><strong>AMKR</strong></a></td>
+  <td>Amkor Technology, In</td>
+  <td>$70.47</td>
+  <td><span class="chg-pos">+1.18%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$65-68</td>
+  <td>$95</td>
+  <td>$58</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">全球第二大半導體封測廠，蘋果 SiP 先進封裝核心供應商；AI 晶片離不開封測，CoWoS/SoIC 先進封裝訂單塞滿到 2027。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/AMAT/overview" target="_blank"><strong>AMAT</strong></a></td>
+  <td>Applied Materials, I</td>
+  <td>$602.50</td>
+  <td><span class="chg-neg">-0.09%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$560-580</td>
+  <td>$720</td>
+  <td>$520</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">CoWoS 先進封裝最核心設備商，AI 晶片封裝複雜度倍增讓設備剛需；回調提供買點；封裝技術升級（混合鍵合）長期利好。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/NET/overview" target="_blank"><strong>NET</strong></a></td>
+  <td>Cloudflare, Inc.</td>
+  <td>$268.40</td>
+  <td><span class="chg-pos">+10.72%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$250-260</td>
+  <td>$330</td>
+  <td>$235</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 邊緣計算核心，Workers AI 讓 AI 推理在 300+ 城市同步進行；Scotiabank 升評至跑贏大盤，今日大漲 10.72%。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank"><strong>PLTR</strong></a></td>
+  <td>Palantir Technologie</td>
+  <td>$126.79</td>
+  <td><span class="chg-neg">-1.94%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$118-124</td>
+  <td>$180</td>
+  <td>$108</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">距 52W 低點僅 19%，處於極佳價值區間；AI 作業系統國家安全應用，GOTHAM+AIP 涵蓋情報、軍事、醫療；Q2 財報顯示商業業務加速。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/MSFT/overview" target="_blank"><strong>MSFT</strong></a></td>
+  <td>Microsoft Corporatio</td>
+  <td>$385.10</td>
+  <td><span class="chg-neg">-1.38%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$370-380</td>
+  <td>$480</td>
+  <td>$350</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">距 52W 低點僅 10%，Copilot AI 貨幣化加速，Azure AI 收入季增 50%+，OpenAI 最大受益基礎設施合作夥伴。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/AMZN/overview" target="_blank"><strong>AMZN</strong></a></td>
+  <td>Amazon.com, Inc.</td>
+  <td>$245.34</td>
+  <td><span class="chg-pos">+1.10%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$230-240</td>
+  <td>$300</td>
+  <td>$218</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AWS Trainium/Inferentia 自研 AI 晶片，Bedrock AI 即服務；電商+雲端+AI 三重催化，距 52W 低點 25%。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/META/overview" target="_blank"><strong>META</strong></a></td>
+  <td>Meta Platforms, Inc.</td>
+  <td>$669.21</td>
+  <td><span class="chg-pos">+14.81%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-hi">9</span></td>
+  <td>$620-650</td>
+  <td>$800</td>
+  <td>$580</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">Llama AI 開源生態系成為 AI 基礎設施；AI 助理貨幣化開始；今日大漲 14.81% 顯示市場重新定義 META 為 AI 平台公司。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/AMD/overview" target="_blank"><strong>AMD</strong></a></td>
+  <td>Advanced Micro Devic</td>
+  <td>$557.89</td>
+  <td><span class="chg-pos">+7.74%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$530-550</td>
+  <td>$650</td>
+  <td>$490</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">MI300X GPU 性價比吸引微軟、OpenAI、Meta 多元採購；EPYC CPU 資料中心滲透率持續提升；AI 算力民主化受益者。距歷史高點僅 4.6%。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/AVGO/overview" target="_blank"><strong>AVGO</strong></a></td>
+  <td>Broadcom Inc.</td>
+  <td>$399.97</td>
+  <td><span class="chg-pos">+10.96%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$370-390</td>
+  <td>$500</td>
+  <td>$350</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">Apple $300 億晶片大單；Google TPU 定製 ASIC 需求旺盛；AI 網路交換機晶片市佔 70%+；唯一同時提供 AI 網路+計算半導體的公司。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/QCOM/overview" target="_blank"><strong>QCOM</strong></a></td>
+  <td>QUALCOMM Incorporate</td>
+  <td>$189.16</td>
+  <td><span class="chg-pos">+7.32%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$175-185</td>
+  <td>$240</td>
+  <td>$160</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI Edge 晶片領導者，Snapdragon X 系列進攻 PC 市場；萬物 AI 時代邊緣運算晶片剛需；物聯網+車用 AI 滲透率提升。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/ARM/overview" target="_blank"><strong>ARM</strong></a></td>
+  <td>Arm Holdings plc</td>
+  <td>$323.39</td>
+  <td><span class="chg-pos">+2.57%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$300-315</td>
+  <td>$420</td>
+  <td>$275</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 時代 CPU 架構贏家，每顆 AI 晶片都需 ARM IP；Apple M-series、高通 AI PC 全用 ARM；雲端 Graviton 全面滲透。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/DELL/overview" target="_blank"><strong>DELL</strong></a></td>
+  <td>Dell Technologies In</td>
+  <td>$434.97</td>
+  <td><span class="chg-pos">+10.31%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$400-420</td>
+  <td>$520</td>
+  <td>$370</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 伺服器需求爆發，PowerEdge AI 訂單積壓創歷史新高，2025 年 AI 伺服器收入預計突破 $100 億；與 NVIDIA 深度合作；全球 Fortune 500 客戶基礎無可匹敵。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/HPQ/overview" target="_blank"><strong>HPQ</strong></a></td>
+  <td>HP Inc.</td>
+  <td>$24.22</td>
+  <td><span class="chg-pos">+10.44%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$22-23</td>
+  <td>$32</td>
+  <td>$19</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI PC 週期反轉，Z by HP 工作站需求強勁；公司正在轉型為 AI 解決方案提供商；估值極便宜，距 52W 低點 38%。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/ETN/overview" target="_blank"><strong>ETN</strong></a></td>
+  <td>Eaton Corporation, P</td>
+  <td>$407.28</td>
+  <td><span class="chg-pos">+2.20%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$380-395</td>
+  <td>$460</td>
+  <td>$360</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 資料中心配電、電流保護、智能電網電氣設備；多重 AI 應用場景；距 52W 低點 31%。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/VRT/overview" target="_blank"><strong>VRT</strong></a></td>
+  <td>Vertiv Holdings, LLC</td>
+  <td>$318.86</td>
+  <td><span class="chg-pos">+6.10%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$300-310</td>
+  <td>$380</td>
+  <td>$280</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 散熱+電力基礎設施一站式，液冷+智慧電力管理雙主軸；今日 +6.10%；訂單積壓創歷史新高。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/NRG/overview" target="_blank"><strong>NRG</strong></a></td>
+  <td>NRG Energy, Inc.</td>
+  <td>$140.42</td>
+  <td><span class="chg-pos">+2.72%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$130-138</td>
+  <td>$175</td>
+  <td>$120</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">距 52W 低點僅 17%；美國南部最大電力零售商；AI 資料中心是純增量需求；穩定現金流與高股息。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/NEE/overview" target="_blank"><strong>NEE</strong></a></td>
+  <td>NextEra Energy, Inc.</td>
+  <td>$87.96</td>
+  <td><span class="chg-neg">-0.43%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$82-86</td>
+  <td>$105</td>
+  <td>$78</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">全球最大再生能源公司；Google/微軟簽署太陽能/風電合約；CSP 需要綠色能源滿足 ESG，距 52W 低點 27%。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank"><strong>CIEN</strong></a></td>
+  <td>Ciena Corporation</td>
+  <td>$460.72</td>
+  <td><span class="chg-pos">+9.06%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$430-450</td>
+  <td>$600</td>
+  <td>$400</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 資料中心互聯需求暴增，海底光纜、跨城市光網路骨幹；400G/800G 傳輸設備領導者，今日大漲 9.06%。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/CSCO/overview" target="_blank"><strong>CSCO</strong></a></td>
+  <td>Cisco Systems, Inc.</td>
+  <td>$121.31</td>
+  <td><span class="chg-pos">+7.65%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$112-118</td>
+  <td>$145</td>
+  <td>$105</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">全球網路設備龍頭，AI 園區網路、資料中心交換機需求，今日 +7.65%；訂閱制轉型成功，距 52W 低點 85%。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank"><strong>MU</strong></a></td>
+  <td>Micron Technology, I</td>
+  <td>$979.30</td>
+  <td><span class="chg-pos">+0.38%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$920-960</td>
+  <td>$1200</td>
+  <td>$850</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">HBM4 需求爆發，AI 伺服器記憶體含量是傳統伺服器 5-6 倍；P/E 偏低（AI 記憶體鏈最低）；中國禁令反而讓美光在非中國市佔提升。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/NTAP/overview" target="_blank"><strong>NTAP</strong></a></td>
+  <td>NetApp, Inc.</td>
+  <td>$168.87</td>
+  <td><span class="chg-pos">+9.53%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$155-162</td>
+  <td>$200</td>
+  <td>$145</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 資料儲存需求爆發，AFF A 系列全閃存陣列；今日大漲 9.53% 創新高；訂單積壓強勁。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/ASX/overview" target="_blank"><strong>ASX</strong></a></td>
+  <td>ASE Technology Holdi</td>
+  <td>$42.66</td>
+  <td><span class="chg-pos">+1.89%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$40-41</td>
+  <td>$52</td>
+  <td>$36</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">全球最大封測廠，NVIDIA H100/H200/GB200 封裝供應鏈核心；CoWoS 先進封裝需求爆發；今日 +1.89% 抗跌凸顯防守性。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank"><strong>CRWD</strong></a></td>
+  <td>CrowdStrike Holdings</td>
+  <td>$187.18</td>
+  <td><span class="chg-neg">-3.51%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$175-183</td>
+  <td>$250</td>
+  <td>$165</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 資安時代作業系統，Falcon 平台護城河深；AI 威脅數量增加讓資安軟體剛需增加；今日 -3.51% 回調提供買點。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/PANW/overview" target="_blank"><strong>PANW</strong></a></td>
+  <td>Palo Alto Networks, </td>
+  <td>$325.91</td>
+  <td><span class="chg-neg">-6.36%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$305-318</td>
+  <td>$400</td>
+  <td>$285</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">全球最大資安平台，Prisma AI 功能整合，零信任+SASE 趨勢；今日 -6.36% 回調提供買點。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/ZS/overview" target="_blank"><strong>ZS</strong></a></td>
+  <td>Zscaler, Inc.</td>
+  <td>$139.27</td>
+  <td><span class="chg-neg">-5.47%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$130-137</td>
+  <td>$200</td>
+  <td>$120</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">距離 52W 低點僅 22%；SASE 市場領導者；AI 時代安全雲閘道；財報顯示聯邦業務復甦。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/OKTA/overview" target="_blank"><strong>OKTA</strong></a></td>
+  <td>Okta, Inc.</td>
+  <td>$138.63</td>
+  <td><span class="chg-neg">-1.97%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$130-136</td>
+  <td>$180</td>
+  <td>$120</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 時代數位身份認證剛需，Workforce Identity 護城河深，Enterprise Federation 需求增加。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/SNOW/overview" target="_blank"><strong>SNOW</strong></a></td>
+  <td>Snowflake Inc.</td>
+  <td>$261.45</td>
+  <td><span class="chg-pos">+0.50%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$245-255</td>
+  <td>$320</td>
+  <td>$230</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 資料雲端平台，Cortex AI（LLM 整合）商業化加速；資料孤島消除剛需；即將挑戰 52W 高點。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/GOOGL/overview" target="_blank"><strong>GOOGL</strong></a></td>
+  <td>Alphabet Inc.</td>
+  <td>$357.18</td>
+  <td><span class="chg-neg">-0.76%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$340-350</td>
+  <td>$420</td>
+  <td>$320</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">Google Cloud AI 爆發，Gemini 2.0 追趕 GPT-4；TPU 自研 AI 晶片；搜尋+YouTube+Cloud AI 三位一體。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/GEV/overview" target="_blank"><strong>GEV</strong></a></td>
+  <td>GE Vernova Inc.</td>
+  <td>$1091.57</td>
+  <td><span class="chg-neg">-1.94%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">8</span></td>
+  <td>$1020-1070</td>
+  <td>$1300</td>
+  <td>$950</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 資料中心電網擴建離不開 GE Vernova，發電+電網設備雙輪驅動，電網現代化超級週期。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/SMCI/overview" target="_blank"><strong>SMCI</strong></a></td>
+  <td>Super Micro Computer</td>
+  <td>$28.31</td>
+  <td><span class="chg-pos">+4.00%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">7</span></td>
+  <td>$25-27</td>
+  <td>$38</td>
+  <td>$22</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">距 52W 低點 45%，估值極便宜；DCBBS 資料中心建構模組戰略；與 Red Hat 合作簡化 Edge AI 部署；製造產能擴張中。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/LUMN/overview" target="_blank"><strong>LUMN</strong></a></td>
+  <td>Lumen Technologies, </td>
+  <td>$6.73</td>
+  <td><span class="chg-pos">+4.67%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">7</span></td>
+  <td>$6-6.5</td>
+  <td>$12</td>
+  <td>$5.5</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">美國最大光纖網路商之一，AI 算力互聯需要更多光纖骨幹；價格處於多年低點，今日 +4.67%。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/WDC/overview" target="_blank"><strong>WDC</strong></a></td>
+  <td>Western Digital Corp</td>
+  <td>$582.59</td>
+  <td><span class="chg-pos">+8.09%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">7</span></td>
+  <td>$540-565</td>
+  <td>$700</td>
+  <td>$510</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 資料湖邊 HDD/SSD 剛需，企業級 NVMe 滲透率提升；今日 +8.09% 顯示動能；從低點大幅反彈但基本面仍在好轉。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/ENPH/overview" target="_blank"><strong>ENPH</strong></a></td>
+  <td>Enphase Energy, Inc.</td>
+  <td>$44.83</td>
+  <td><span class="chg-pos">+4.09%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-md">7</span></td>
+  <td>$42-43</td>
+  <td>$60</td>
+  <td>$38</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 資料中心需要分散式能源解決方案，ENPH 微逆變器技術在電網韌性中扮演關鍵角色，今日 +4.09%。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/MRVL/overview" target="_blank"><strong>MRVL</strong></a></td>
+  <td>Marvell Technology, </td>
+  <td>$235.81</td>
+  <td><span class="chg-neg">-3.86%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-lo">6</span></td>
+  <td>$225-235</td>
+  <td>$320</td>
+  <td>$210</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 定製 ASIC 代工二哥，受益 Amazon Graviton、Cerebras；5G 基礎設施庫存調整接近尾聲。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank"><strong>GLW</strong></a></td>
+  <td>Corning Incorporated</td>
+  <td>$190.89</td>
+  <td><span class="chg-neg">-3.00%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-lo">6</span></td>
+  <td>$180-188</td>
+  <td>$240</td>
+  <td>$170</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">AI 光纖骨幹需求長期結構性利好，光纖是 AI 資料中心互聯剛需；今日 -3% 技術性回調。</td>
+</tr><tr>
+  <td><a href="https://www.barchart.com/stocks/quotes/INTC/overview" target="_blank"><strong>INTC</strong></a></td>
+  <td>Intel Corporation</td>
+  <td>$109.84</td>
+  <td><span class="chg-neg">-8.73%</span></td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td>N/A</td>
+  <td><span class="score score-lo">5</span></td>
+  <td>$100-106</td>
+  <td>$142</td>
+  <td>$95</td>
+  <td style="max-width:200px;font-size:.8em;color:#9999bb">IFS 18A 製程獲得大客戶認證；美國政府補貼加持；今日 -8.73% 重挫顯示市場對其 AI 時代地位仍有疑慮。</td>
+</tr></tbody></table></div><div class="section"><div class="section-title">📈 深度個股分析</div><div style="margin-bottom:24px"><div class="section-sub">💾 AI晶片/GPU</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank">NVIDIA Corporation <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/NVDA/overview" target="_blank">NVDA</a>)</span></div>
+      <div class="stock-meta">💾 AI晶片/GPU</div>
     </div>
-
-    <div class="card" style="flex: 1; min-width: 180px">
-      <div class="card-name" style="font-size:0.8em;margin-bottom:6px">🤖 AI軟體</div>
-      <div style="font-size:1.5em;font-weight:700;color:#00dd88">+0.74%</div>
-      <div style="font-size:0.75em;color:#555577;margin-top:4px">2 檔平均</div>
-    </div>
-
-    <div class="card" style="flex: 1; min-width: 180px">
-      <div class="card-name" style="font-size:0.8em;margin-bottom:6px">🧊 AI散熱</div>
-      <div style="font-size:1.5em;font-weight:700;color:#00dd88">+0.60%</div>
-      <div style="font-size:0.75em;color:#555577;margin-top:4px">1 檔平均</div>
-    </div>
-
-    <div class="card" style="flex: 1; min-width: 180px">
-      <div class="card-name" style="font-size:0.8em;margin-bottom:6px">💾 AI晶片/GPU</div>
-      <div style="font-size:1.5em;font-weight:700;color:#00dd88">+0.36%</div>
-      <div style="font-size:0.75em;color:#555577;margin-top:4px">6 檔平均</div>
-    </div>
-
-    <div class="card" style="flex: 1; min-width: 180px">
-      <div class="card-name" style="font-size:0.8em;margin-bottom:6px">📡 AI網路</div>
-      <div style="font-size:1.5em;font-weight:700;color:#00dd88">+0.12%</div>
-      <div style="font-size:0.75em;color:#555577;margin-top:4px">5 檔平均</div>
-    </div>
-
-    <div class="card" style="flex: 1; min-width: 180px">
-      <div class="card-name" style="font-size:0.8em;margin-bottom:6px">⚡ 核電/公用</div>
-      <div style="font-size:1.5em;font-weight:700;color:#ff4466">-0.37%</div>
-      <div style="font-size:0.75em;color:#555577;margin-top:4px">2 檔平均</div>
-    </div>
-
-    <div class="card" style="flex: 1; min-width: 180px">
-      <div class="card-name" style="font-size:0.8em;margin-bottom:6px">🖥️ AI伺服器</div>
-      <div style="font-size:1.5em;font-weight:700;color:#ff4466">-0.65%</div>
-      <div style="font-size:0.75em;color:#555577;margin-top:4px">3 檔平均</div>
-    </div>
-
-    <div class="card" style="flex: 1; min-width: 180px">
-      <div class="card-name" style="font-size:0.8em;margin-bottom:6px">⚡ AI電力</div>
-      <div style="font-size:1.5em;font-weight:700;color:#ff4466">-0.74%</div>
-      <div style="font-size:0.75em;color:#555577;margin-top:4px">6 檔平均</div>
-    </div>
-
-    <div class="card" style="flex: 1; min-width: 180px">
-      <div class="card-name" style="font-size:0.8em;margin-bottom:6px">🔐 AI資安</div>
-      <div style="font-size:1.5em;font-weight:700;color:#ff4466">-0.76%</div>
-      <div style="font-size:0.75em;color:#555577;margin-top:4px">5 檔平均</div>
-    </div>
-
-    <div class="card" style="flex: 1; min-width: 180px">
-      <div class="card-name" style="font-size:0.8em;margin-bottom:6px">💾 AI儲存</div>
-      <div style="font-size:1.5em;font-weight:700;color:#ff4466">-1.10%</div>
-      <div style="font-size:0.75em;color:#555577;margin-top:4px">3 檔平均</div>
-    </div>
-
-    <div class="card" style="flex: 1; min-width: 180px">
-      <div class="card-name" style="font-size:0.8em;margin-bottom:6px">📦 先進封裝</div>
-      <div style="font-size:1.5em;font-weight:700;color:#ff4466">-2.33%</div>
-      <div style="font-size:0.75em;color:#555577;margin-top:4px">3 檔平均</div>
-    </div>
-</div></div>
-<div class="section">
-  <div class="category-title">🔍 市場洞察</div>
-  <div class="cards">
-    <div class="card" style="flex:2">
-      <div class="card-name" style="margin-bottom:8px;font-size:0.9em">📌 今日核心觀察</div>
-      <div class="card-reason" style="font-size:0.82em;line-height:1.7;border:none;padding:0">
-        <b style="color:#aabbff">1. META 暴漲 14.59%</b>：Llama 4 開源模型發布，廣告 AI 變現能力超越預期，帶動整體 AI 雲端/軟體板塊。<br><br>
-        <b style="color:#aabbff">2. AI 電力/核電主題</b>：VST、CEG、GEV、ENPH 普遍走揚，顯示市場資金持續佈局 AI 供電鏈，與微軟/亞馬遜簽約的供電商最被青睞。<br><br>
-        <b style="color:#aabbff">3. 記憶體分化</b>：MU 下跌 3.66%，SK Hynix 上市造成短期記憶體股資金排擠，但 HBM 供需結構仍健康。<br><br>
-        <b style="color:#aabbff">4. AI 散熱 SPXC 大跌 2.47%</b>：獲利了結壓力，液冷技術中期故事不變。<br><br>
-        <b style="color:#aabbff">5. SMCI 評級分歧</b>：Hold 評級為主，但 Red Hat 合作認同邊緣 AI 價值，訴訟風險仍是最大變數。
-      </div>
-    </div>
-    <div class="card" style="flex:1">
-      <div class="card-name" style="margin-bottom:8px;font-size:0.9em">🎯 短線重點</div>
-      <div class="card-reason" style="font-size:0.82em;line-height:1.8;border:none;padding:0">
-        ✅ <b>VST/CEG/GEV</b>：核電/電力鏈，回調就是買點<br>
-        ✅ <b>NVDA</b>：Blackwell 出貨在即，支撐強<br>
-        ✅ <b>META</b>：AI 變現超預期，動能延續<br>
-        ✅ <b>MU</b>：HBM 供需健康，等待震盪<br>
-        ⚠️ <b>SMCI</b>：法律風險未除，觀望<br>
-        ⚠️ <b>INTC</b>：基本面弱勢，迴避
-      </div>
-    </div>
+    <div><span class="score score-hi">9</span></div>
   </div>
-</div>
-
+  <div class="stock-price-block">
+    <span class="stock-price">$210.96</span>
+    <span class="stock-chg chg-pos">+8.28%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">147.2M</span></div>
+  </div>
+<ul class="bullets"><li>GPU 市佔 80%+，資料中心營收佔比 85%+</li><li>Blackwell GB200 進入量產階段</li><li>CUDA 生態護城河難以撼動</li><li>距 52W 低點 30%，估值合理</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI GPU 壟斷者，Blackwell GB200 量產在即。雲端巨頭資本支出合計突破 $3000 億，NVDA 拿走最大份額。距 52W 低點 30%，處於機構低檔佈局甜蜜點。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">2026 年營收預計突破 $1800 億，EPS 可達 $11-13。目標價 $280+（+33%）。Blackwell 週期是 2025-2026 年最大半導體事件。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">中國營收占比持續下滑；地緣政治風險；估值偏高；半導體景氣循環。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/AMD/overview" target="_blank">Advanced Micro Devices, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/AMD/overview" target="_blank">AMD</a>)</span></div>
+      <div class="stock-meta">💾 AI晶片/GPU</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$557.89</span>
+    <span class="stock-chg chg-pos">+7.74%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">20.6M</span></div>
+  </div>
+<ul class="bullets"><li>MI300X 記憶體頻寬是 H100 的 1.6 倍</li><li>EPYC CPU 滲透率持續提升</li><li>中國市場可填補 NVDA 受限空白</li><li>距 52W 高點僅 4.6%</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">MI300X GPU 性價比吸引微軟、OpenAI、Meta 多元採購；EPYC CPU 資料中心滲透率持續提升；AI 算力民主化受益者。距歷史高點僅 4.6%。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">2026 年資料中心營收預計突破 $50B，目標價 $650+（+17%）。MI350 效能接近 H100，性價比優勢明顯。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">P/E 估值偏高；NVDA 產品迭代速度快；GPU 生態轉換成本高。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/AVGO/overview" target="_blank">Broadcom Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/AVGO/overview" target="_blank">AVGO</a>)</span></div>
+      <div class="stock-meta">💾 AI晶片/GPU</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$399.97</span>
+    <span class="stock-chg chg-pos">+10.96%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">13.9M</span></div>
+  </div>
+<ul class="bullets"><li>AI ASIC 客製化趨勢爆發</li><li>網路交換機晶片市佔 70%+</li><li>2025 年 revenue 估計年增 89%</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">Apple $300 億晶片大單；Google TPU 定製 ASIC 需求旺盛；AI 網路交換機晶片市佔 70%+；唯一同時提供 AI 網路+計算半導體的公司。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">2025 年 revenue 預計 $29.4B（年增 89%），目標價 $500+（+25%）。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">營收高度集中蘋果；半導體景氣循環；P/E 在市場回調時面臨壓縮。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/MRVL/overview" target="_blank">Marvell Technology, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/MRVL/overview" target="_blank">MRVL</a>)</span></div>
+      <div class="stock-meta">💾 AI晶片/GPU</div>
+    </div>
+    <div><span class="score score-lo">6</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$235.81</span>
+    <span class="stock-chg chg-neg">-3.86%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">14.9M</span></div>
+  </div>
+<ul class="bullets"><li>AI ASIC 需求爆發長期邏輯完好</li><li>5G 庫存調整接近尾聲</li><li>Amazon Graviton 核心供應商</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 定製 ASIC 代工二哥，受益 Amazon Graviton、Cerebras；5G 基礎設施庫存調整接近尾聲。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">AI ASIC 需求爆發是長期邏輯，目標價 $320+（+36%），但短期技術性調整。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">今日 -3.86% 顯示短期壓力；估值偏高；CSP 自研晶片可能壓縮第三方市場。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/QCOM/overview" target="_blank">QUALCOMM Incorporated <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/QCOM/overview" target="_blank">QCOM</a>)</span></div>
+      <div class="stock-meta">💾 AI晶片/GPU</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$189.16</span>
+    <span class="stock-chg chg-pos">+7.32%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">7.0M</span></div>
+  </div>
+<ul class="bullets"><li>Snapdragon X 系列 PC 市場滲透中</li><li>邊緣 AI 晶片需求爆發</li><li>車用 AI 市場長期成長</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI Edge 晶片領導者，Snapdragon X 系列進攻 PC 市場；萬物 AI 時代邊緣運算晶片剛需；物聯網+車用 AI 滲透率提升。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">終端 AI（On-Device AI）趨勢最大受益者，目標價 $240+（+27%）。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">中國禁令影響中國區營收；行動裝置市場放緩；AI PC 市場滲透需時。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/ARM/overview" target="_blank">Arm Holdings plc <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/ARM/overview" target="_blank">ARM</a>)</span></div>
+      <div class="stock-meta">💾 AI晶片/GPU</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$323.39</span>
+    <span class="stock-chg chg-pos">+2.57%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">2.8M</span></div>
+  </div>
+<ul class="bullets"><li>ARM 授權覆蓋幾乎所有 AI 晶片</li><li>伺服器市場份額持續提升</li><li>AI PC 長期趨勢受益</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 時代 CPU 架構贏家，每顆 AI 晶片都需 ARM IP；Apple M-series、高通 AI PC 全用 ARM；雲端 Graviton 全面滲透。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">授權模式高毛利，AI PC 長期趨勢最大受益者，目標價 $420+（+30%）。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">估值偏高（距低點 223%）；授權客戶談判壓力；NVDA/Intel 多元化架構競爭。</div></div></div></div><div style="margin-bottom:24px"><div class="section-sub">🖥️ AI伺服器</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/SMCI/overview" target="_blank">Super Micro Computer, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/SMCI/overview" target="_blank">SMCI</a>)</span></div>
+      <div class="stock-meta">🖥️ AI伺服器</div>
+    </div>
+    <div><span class="score score-md">7</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$28.31</span>
+    <span class="stock-chg chg-pos">+4.00%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">23.8M</span></div>
+  </div>
+<ul class="bullets"><li>估值極便宜 P/E 低</li><li>與 Red Hat 合作簡化 Edge AI 部署</li><li>產能擴張（台灣、沙烏地阿拉伯）</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">距 52W 低點 45%，估值極便宜；DCBBS 資料中心建構模組戰略；與 Red Hat 合作簡化 Edge AI 部署；製造產能擴張中。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $38+（+34%），注意財報風險和法律訴訟陰霾。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">財報風險；訴訟陰霾；AI 伺服器毛利率壓力；競爭加劇。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/DELL/overview" target="_blank">Dell Technologies Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/DELL/overview" target="_blank">DELL</a>)</span></div>
+      <div class="stock-meta">🖥️ AI伺服器</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$434.97</span>
+    <span class="stock-chg chg-pos">+10.31%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">5.0M</span></div>
+  </div>
+<ul class="bullets"><li>PowerEdge AI 訂單積壓創新高</li><li>與 NVIDIA 合作提供 DGX 整合方案</li><li>Fortune 500 客戶基礎覆蓋率 95%+</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 伺服器需求爆發，PowerEdge AI 訂單積壓創歷史新高，2025 年 AI 伺服器收入預計突破 $100 億；與 NVIDIA 深度合作；全球 Fortune 500 客戶基礎無可匹敵。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $520+（+20%），AI Server 業務 2026 年迎來爆發。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">PC 市場持續放緩；AI 伺服器毛利率低於傳統伺服器；HPQ、SMCI 競爭加劇。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/HPQ/overview" target="_blank">HP Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/HPQ/overview" target="_blank">HPQ</a>)</span></div>
+      <div class="stock-meta">🖥️ AI伺服器</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$24.22</span>
+    <span class="stock-chg chg-pos">+10.44%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">11.0M</span></div>
+  </div>
+<ul class="bullets"><li>AI PC 週期反轉中</li><li>Z by HP 工作站需求強勁</li><li>估值極便宜</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI PC 週期反轉，Z by HP 工作站需求強勁；公司正在轉型為 AI 解決方案提供商；估值極便宜，距 52W 低點 38%。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">AI PC 商業化元年，目標價 $32+（+32%）。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">PC 市場整體仍在調整；AI PC 商業化需要時間；企業升級週期不確定。</div></div></div></div><div style="margin-bottom:24px"><div class="section-sub">⚡ AI電力/能源</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank">Vistra Corp. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/VST/overview" target="_blank">VST</a>)</span></div>
+      <div class="stock-meta">⚡ AI電力/能源</div>
+    </div>
+    <div><span class="score score-hi">9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$158.86</span>
+    <span class="stock-chg chg-pos">+5.17%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">3.0M</span></div>
+  </div>
+<ul class="bullets"><li>距 52W 低點僅 19%，安全邊際高</li><li>AI 資料中心佔營收比重提升</li><li>殖利率約 3.5%</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">距 52W 低點僅 19%；AI 資料中心佔營收比重從 5% 升至 15%+；天然氣+核電雙軌供電；殖利率約 3.5%。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $200+（+26%），AI 資料中心用電需求爆發提供穩定需求成長。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">天然氣價格波動；公用事業估值受利率影響；電網擴建進度落後。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank">Constellation Energy Corporatio <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/CEG/overview" target="_blank">CEG</a>)</span></div>
+      <div class="stock-meta">⚡ AI電力/能源</div>
+    </div>
+    <div><span class="score score-hi">9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$251.38</span>
+    <span class="stock-chg chg-pos">+5.07%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">2.0M</span></div>
+  </div>
+<ul class="bullets"><li>距 52W 低點 9.9%，極具安全邊際</li><li>與微軟 20 年核電合約</li><li>全美最大核電商（13 座機組）</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">距離 52W 低點僅 9.9%，是所有 AI 電力股中最低之一；核電廠直接供電 CSP，與微軟 20 年核能協議；AI 電力缺口最直接受益者。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $320+（+27%），核電廠是 CSP 達成 100% 清潔能源目標最快路徑。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">核電廠安全監管風險；利率上升壓抑公用事業估值；監管審批時間不確定。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/ETN/overview" target="_blank">Eaton Corporation, PLC <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/ETN/overview" target="_blank">ETN</a>)</span></div>
+      <div class="stock-meta">⚡ AI電力/能源</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$407.28</span>
+    <span class="stock-chg chg-pos">+2.20%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">1.4M</span></div>
+  </div>
+<ul class="bullets"><li>全球電氣設備龍頭</li><li>資料中心電源管理需求增加</li><li>距 52W 低點 31%</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 資料中心配電、電流保護、智能電網電氣設備；多重 AI 應用場景；距 52W 低點 31%。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $460+（+13%），全球電氣設備龍頭，資料中心電源管理需求增加。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">公用事業估值受利率影響；原材料成本波動；CSP 自建電力設備。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/VRT/overview" target="_blank">Vertiv Holdings, LLC <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/VRT/overview" target="_blank">VRT</a>)</span></div>
+      <div class="stock-meta">⚡ AI電力/能源</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$318.86</span>
+    <span class="stock-chg chg-pos">+6.10%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">1.9M</span></div>
+  </div>
+<ul class="bullets"><li>液冷+智慧電力管理雙主軸</li><li>訂單積壓創歷史新高</li><li>與所有 CSP 深度合作</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 散熱+電力基礎設施一站式，液冷+智慧電力管理雙主軸；今日 +6.10%；訂單積壓創歷史新高。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $380+（+19%），AI 資料中心基礎設施核心供應商。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">估值偏高；CSP 自研散熱方案；原材料成本壓力。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/NRG/overview" target="_blank">NRG Energy, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/NRG/overview" target="_blank">NRG</a>)</span></div>
+      <div class="stock-meta">⚡ AI電力/能源</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$140.42</span>
+    <span class="stock-chg chg-pos">+2.72%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">1.0M</span></div>
+  </div>
+<ul class="bullets"><li>距 52W 低點 17%</li><li>美國南部最大電力零售商</li><li>併購傳聞提供催化劑</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">距 52W 低點僅 17%；美國南部最大電力零售商；AI 資料中心是純增量需求；穩定現金流與高股息。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $175+（+25%），RECs+AI 用電需求雙驅動。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">天然氣價格波動；公用事業估值受利率影響；併購傳聞可能落空。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/NEE/overview" target="_blank">NextEra Energy, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/NEE/overview" target="_blank">NEE</a>)</span></div>
+      <div class="stock-meta">⚡ AI電力/能源</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$87.96</span>
+    <span class="stock-chg chg-neg">-0.43%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">11.1M</span></div>
+  </div>
+<ul class="bullets"><li>全球最大再生能源公司</li><li>CSP 綠色能源合約持續增加</li><li>距 52W 低點 27%</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">全球最大再生能源公司；Google/微軟簽署太陽能/風電合約；CSP 需要綠色能源滿足 ESG，距 52W 低點 27%。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $105+（+19%），CSP 綠色能源採購承諾持續兌現。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">利率上升壓抑公用事業估值；再生能源補貼政策風險；電網建設落後。</div></div></div></div><div style="margin-bottom:24px"><div class="section-sub">🧊 AI散熱</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/SPXC/overview" target="_blank">SPX Technologies, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/SPXC/overview" target="_blank">SPXC</a>)</span></div>
+      <div class="stock-meta">🧊 AI散熱</div>
+    </div>
+    <div><span class="score score-hi">9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$219.87</span>
+    <span class="stock-chg chg-neg">-3.46%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">647K</span></div>
+  </div>
+<ul class="bullets"><li>CONCOA 液冷全球市佔第一</li><li>AI GPU 熱密度提升剛需</li><li>液冷滲透率將從 15% 增至 50%+</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">距 52W 低點 30%；今日回調提供低接機會；CONCOA 液冷品牌全球第一，市佔 60%+；AI GPU 熱密度提升讓液冷剛需，NVIDIA 建議 H100 以上用液冷。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $280+（+27%），液冷滲透率將從 15% 增至 50%+。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">CSP 自研散熱方案；股價波動大；原材料價格波動。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/VRT/overview" target="_blank">Vertiv Holdings, LLC <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/VRT/overview" target="_blank">VRT</a>)</span></div>
+      <div class="stock-meta">🧊 AI散熱</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$318.86</span>
+    <span class="stock-chg chg-pos">+6.10%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">1.9M</span></div>
+  </div>
+<ul class="bullets"><li>液冷+智慧電力管理雙主軸</li><li>訂單積壓創歷史新高</li><li>與所有 CSP 深度合作</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 散熱+電力基礎設施一站式，液冷+智慧電力管理雙主軸；今日 +6.10%；訂單積壓創歷史新高。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $380+（+19%），AI 資料中心基礎設施核心供應商。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">估值偏高；CSP 自研散熱方案；原材料成本壓力。</div></div></div></div><div style="margin-bottom:24px"><div class="section-sub">📡 AI網路/光纖</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank">Corning Incorporated <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/GLW/overview" target="_blank">GLW</a>)</span></div>
+      <div class="stock-meta">📡 AI網路/光纖</div>
+    </div>
+    <div><span class="score score-lo">6</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$190.89</span>
+    <span class="stock-chg chg-neg">-3.00%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">4.8M</span></div>
+  </div>
+<ul class="bullets"><li>光纖是 AI 資料中心互聯剛需</li><li>中期需求結構性成長</li><li>連續調整後估值回落</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 光纖骨幹需求長期結構性利好，光纖是 AI 資料中心互聯剛需；今日 -3% 技術性回調。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $240+（+26%），中期 AI 光纖需求不變。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">今日 -3% 顯示短期壓力；CSP 可能自建光纖網路；光纖景氣短期過熱。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/LUMN/overview" target="_blank">Lumen Technologies, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/LUMN/overview" target="_blank">LUMN</a>)</span></div>
+      <div class="stock-meta">📡 AI網路/光纖</div>
+    </div>
+    <div><span class="score score-md">7</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$6.73</span>
+    <span class="stock-chg chg-pos">+4.67%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">5.4M</span></div>
+  </div>
+<ul class="bullets"><li>美國最大光纖網路商之一</li><li>AI 資料中心互聯增量需求</li><li>估值極便宜</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">美國最大光纖網路商之一，AI 算力互聯需要更多光纖骨幹；價格處於多年低點，今日 +4.67%。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $12+（+79%），破產風險降低，光纖骨幹需求提供長期支撐。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">破產風險未完全消除；財務負擔重；CSP 自建網路可能減少外部需求。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank">Ciena Corporation <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/CIEN/overview" target="_blank">CIEN</a>)</span></div>
+      <div class="stock-meta">📡 AI網路/光纖</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$460.72</span>
+    <span class="stock-chg chg-pos">+9.06%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">1.3M</span></div>
+  </div>
+<ul class="bullets"><li>400G/800G 光傳輸設備領導者</li><li>海底光纜需求暴增</li><li>CSP 資本支出流向電信基礎設施</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 資料中心互聯需求暴增，海底光纜、跨城市光網路骨幹；400G/800G 傳輸設備領導者，今日大漲 9.06%。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $600+（+30%），光傳輸設備剛需，雲端巨頭資本支出流向電信基礎設施。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">估值距低點 499%，偏高；CSP 自建光纖可能減少採購；5G 建設放緩影響電信業務。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/CSCO/overview" target="_blank">Cisco Systems, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/CSCO/overview" target="_blank">CSCO</a>)</span></div>
+      <div class="stock-meta">📡 AI網路/光纖</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$121.31</span>
+    <span class="stock-chg chg-pos">+7.65%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">25.2M</span></div>
+  </div>
+<ul class="bullets"><li>全球網路設備龍頭</li><li>AI 園區網路需求增加</li><li>訂閱制轉型成功</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">全球網路設備龍頭，AI 園區網路、資料中心交換機需求，今日 +7.65%；訂閱制轉型成功，距 52W 低點 85%。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $145+（+20%），AI 網路安全一站式，訂閱制提供現金流穩定性。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">ANET 在雲端交換機市場追趕；CSP 自研網路設備；整體網路設備市場放緩。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/ANET/overview" target="_blank">Arista Networks, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/ANET/overview" target="_blank">ANET</a>)</span></div>
+      <div class="stock-meta">📡 AI網路/光纖</div>
+    </div>
+    <div><span class="score score-hi">9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$186.96</span>
+    <span class="stock-chg chg-pos">+16.86%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">4.9M</span></div>
+  </div>
+<ul class="bullets"><li>AI 資料中心交換機市佔持續擴大</li><li>主要客戶：Meta、Google、微軟</li><li>400G→800G 升級週期剛開始</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 網路骨幹，Meta、Google、微軟 400G/800G 交換機核心供應商；今日大漲 16.86% 創歷史新高；AI 訓練需要超低延遲網路，Arista 是唯一能提供的廠商。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">AI 資料中心網路交換機需求與 GPU 需求同步爆發，目標價 $220+（+18%）。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">目前接近 52W 高點；Cisco 正在追趕；CSP 可能自研網路設備。</div></div></div></div><div style="margin-bottom:24px"><div class="section-sub">💾 AI儲存/記憶體</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank">Micron Technology, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/MU/overview" target="_blank">MU</a>)</span></div>
+      <div class="stock-meta">💾 AI儲存/記憶體</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$979.30</span>
+    <span class="stock-chg chg-pos">+0.38%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">31.1M</span></div>
+  </div>
+<ul class="bullets"><li>AI 伺服器 HBM 使用量是傳統 5-6 倍</li><li>P/E 偏低（AI 記憶體鏈最便宜）</li><li>HBM3e 供需持續緊張</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">HBM4 需求爆發，AI 伺服器記憶體含量是傳統伺服器 5-6 倍；P/E 偏低（AI 記憶體鏈最低）；中國禁令反而讓美光在非中國市佔提升。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $1200+（+23%），記憶體超級週期仍在初期。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">記憶體景氣波動大；三星、SK Hynix 擴產可能打破供需緊張；股價波動極大。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/NTAP/overview" target="_blank">NetApp, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/NTAP/overview" target="_blank">NTAP</a>)</span></div>
+      <div class="stock-meta">💾 AI儲存/記憶體</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$168.87</span>
+    <span class="stock-chg chg-pos">+9.53%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">2.9M</span></div>
+  </div>
+<ul class="bullets"><li>AFF A 系列全閃存陣列 AI 工作負載最佳選擇</li><li>訂單積壓強勁</li><li>AI 訓練資料量每 12 個月翻倍</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 資料儲存需求爆發，AFF A 系列全閃存陣列；今日大漲 9.53% 創新高；訂單積壓強勁。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $200+（+18%），AI 資料爆炸讓儲存需求增速超預期。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">雲端巨頭可能自建儲存解決方案；Pure Storage 競爭加劇；毛利率壓力。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/WDC/overview" target="_blank">Western Digital Corporation <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/WDC/overview" target="_blank">WDC</a>)</span></div>
+      <div class="stock-meta">💾 AI儲存/記憶體</div>
+    </div>
+    <div><span class="score score-md">7</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$582.59</span>
+    <span class="stock-chg chg-pos">+8.09%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">4.8M</span></div>
+  </div>
+<ul class="bullets"><li>大容量 HDD 仍是 AI 資料湖核心</li><li>NVMe 滲透率提升</li><li>HAMR 技術維持龍頭地位</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 資料湖邊 HDD/SSD 剛需，企業級 NVMe 滲透率提升；今日 +8.09% 顯示動能；從低點大幅反彈但基本面仍在好轉。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $700+（+20%），AI 資料存檔需求爆發。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">HBM 以外的記憶體選擇，需求確定性低於 MU；NAND 景氣波動；競爭激烈。</div></div></div></div><div style="margin-bottom:24px"><div class="section-sub">📦 先進封裝</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/AMKR/overview" target="_blank">Amkor Technology, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/AMKR/overview" target="_blank">AMKR</a>)</span></div>
+      <div class="stock-meta">📦 先進封裝</div>
+    </div>
+    <div><span class="score score-hi">9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$70.47</span>
+    <span class="stock-chg chg-pos">+1.18%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">2.4M</span></div>
+  </div>
+<ul class="bullets"><li>CoWoS / SoIC 先進封裝需求爆發</li><li>蘋果 SiP 核心供應商</li><li>先進封裝訂單塞滿到 2027</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">全球第二大半導體封測廠，蘋果 SiP 先進封裝核心供應商；AI 晶片離不開封測，CoWoS/SoIC 先進封裝訂單塞滿到 2027。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $95+（+35%），先進封裝產能擴張中。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">蘋果訂單集中度過高；半導體景氣循環；中國市場風險。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/ASX/overview" target="_blank">ASE Technology Holding Co., Ltd <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/ASX/overview" target="_blank">ASX</a>)</span></div>
+      <div class="stock-meta">📦 先進封裝</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$42.66</span>
+    <span class="stock-chg chg-pos">+1.89%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">6.2M</span></div>
+  </div>
+<ul class="bullets"><li>全球最大封測廠</li><li>NVIDIA 封裝供應鏈核心</li><li>CoWoS 先進封裝需求爆發</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">全球最大封測廠，NVIDIA H100/H200/GB200 封裝供應鏈核心；CoWoS 先進封裝需求爆發；今日 +1.89% 抗跌凸顯防守性。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $52+（+22%），2026 年營收看漲。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">半導體景氣循環；NVDA 封裝需求波動；中國市場風險。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/AMAT/overview" target="_blank">Applied Materials, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/AMAT/overview" target="_blank">AMAT</a>)</span></div>
+      <div class="stock-meta">📦 先進封裝</div>
+    </div>
+    <div><span class="score score-hi">9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$602.50</span>
+    <span class="stock-chg chg-neg">-0.09%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">6.3M</span></div>
+  </div>
+<ul class="bullets"><li>半導體製程設備軍火商</li><li>封裝技術升級（混合鍵合）長期利好</li><li>先進封裝 TSV 技術必備</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">CoWoS 先進封裝最核心設備商，AI 晶片封裝複雜度倍增讓設備剛需；回調提供買點；封裝技術升級（混合鍵合）長期利好。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $720+（+19%），半導體製程設備軍火商，先進封裝時代 etch steps 增加。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">半導體設備景氣循環；CSP 自研封裝可能減少外購；中國市場風險。</div></div></div></div><div style="margin-bottom:24px"><div class="section-sub">🔐 AI資安</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank">CrowdStrike Holdings, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/CRWD/overview" target="_blank">CRWD</a>)</span></div>
+      <div class="stock-meta">🔐 AI資安</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$187.18</span>
+    <span class="stock-chg chg-neg">-3.51%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">7.1M</span></div>
+  </div>
+<ul class="bullets"><li>AI 威脅數量持續增加</li><li>零信任架構剛需</li><li>Falcon 平台護城河深</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 資安時代作業系統，Falcon 平台護城河深；AI 威脅數量增加讓資安軟體剛需增加；今日 -3.51% 回調提供買點。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $250+（+34%），零信任架構剛需，AI 威脅生態擴大用戶基礎。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">今日 -3.51% 顯示短期壓力；CSP 巨頭可能自建資安；估值偏高。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/NET/overview" target="_blank">Cloudflare, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/NET/overview" target="_blank">NET</a>)</span></div>
+      <div class="stock-meta">🔐 AI資安</div>
+    </div>
+    <div><span class="score score-hi">9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$268.40</span>
+    <span class="stock-chg chg-pos">+10.72%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">2.0M</span></div>
+  </div>
+<ul class="bullets"><li>Workers AI 300+ 城市邊緣推理</li><li>Scotiabank 升評催化</li><li>Edge AI 計算平台進化中</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 邊緣計算核心，Workers AI 讓 AI 推理在 300+ 城市同步進行；Scotiabank 升評至跑贏大盤，今日大漲 10.72%。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $330+（+23%），Edge AI 計算平台，AI 流量爆發直接受益。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">目前接近 52W 高點；負 EPS 使估值難以傳統方式衡量；CSP 可能自建邊緣網路。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/PANW/overview" target="_blank">Palo Alto Networks, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/PANW/overview" target="_blank">PANW</a>)</span></div>
+      <div class="stock-meta">🔐 AI資安</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$325.91</span>
+    <span class="stock-chg chg-neg">-6.36%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">4.5M</span></div>
+  </div>
+<ul class="bullets"><li>全球最大資安平台</li><li>Prisma AI 功能整合</li><li>零信任+SASE 趨勢明確</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">全球最大資安平台，Prisma AI 功能整合，零信任+SASE 趨勢；今日 -6.36% 回調提供買點。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $400+（+23%），AI 威脅檢測需求剛需。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">今日 -6.36% 顯示短期壓力；CRWD 競爭加劇；CSP 自建資安。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/ZS/overview" target="_blank">Zscaler, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/ZS/overview" target="_blank">ZS</a>)</span></div>
+      <div class="stock-meta">🔐 AI資安</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$139.27</span>
+    <span class="stock-chg chg-neg">-5.47%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">3.6M</span></div>
+  </div>
+<ul class="bullets"><li>距 52W 低點 22%</li><li>SASE 市場領導者</li><li>聯邦政府資安現代化大單</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">距離 52W 低點僅 22%；SASE 市場領導者；AI 時代安全雲閘道；財報顯示聯邦業務復甦。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $200+（+44%），零信任 SASE 龍頭，聯邦政府資安現代化大單。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">今日 -5.47% 顯示短期壓力；PANW/CRWD 競爭加劇；估值偏高。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/OKTA/overview" target="_blank">Okta, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/OKTA/overview" target="_blank">OKTA</a>)</span></div>
+      <div class="stock-meta">🔐 AI資安</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$138.63</span>
+    <span class="stock-chg chg-neg">-1.97%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">3.4M</span></div>
+  </div>
+<ul class="bullets"><li>數位身份是零信任的基礎</li><li>Workforce Identity 護城河深</li><li>Enterprise Federation 需求增加</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 時代數位身份認證剛需，Workforce Identity 護城河深，Enterprise Federation 需求增加。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $180+（+30%），數位身份是零信任基礎。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">今日 -1.97% 顯示短期壓力；微軟 Azure AD 競爭加劇；用戶增長放緩。</div></div></div></div><div style="margin-bottom:24px"><div class="section-sub">🤖 AI軟體</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank">Palantir Technologies Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/PLTR/overview" target="_blank">PLTR</a>)</span></div>
+      <div class="stock-meta">🤖 AI軟體</div>
+    </div>
+    <div><span class="score score-hi">9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$126.79</span>
+    <span class="stock-chg chg-neg">-1.94%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">30.7M</span></div>
+  </div>
+<ul class="bullets"><li>距 52W 低點 19%，極佳價值區間</li><li>GOTHAM+AIP 雙平台戰略</li><li>全球國防 AI 支出爆發</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">距 52W 低點僅 19%，處於極佳價值區間；AI 作業系統國家安全應用，GOTHAM+AIP 涵蓋情報、軍事、醫療；Q2 財報顯示商業業務加速。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $180+（+42%），政府 AI 核心平台，商業業務提供彈性。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">政治敏感；估值偏高；主要營收來自少數政府合約。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/SNOW/overview" target="_blank">Snowflake Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/SNOW/overview" target="_blank">SNOW</a>)</span></div>
+      <div class="stock-meta">🤖 AI軟體</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$261.45</span>
+    <span class="stock-chg chg-pos">+0.50%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">3.7M</span></div>
+  </div>
+<ul class="bullets"><li>Cortex AI 商業化加速</li><li>AI 資料治理剛需</li><li>企業 AI 轉型核心平台</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 資料雲端平台，Cortex AI（LLM 整合）商業化加速；資料孤島消除剛需；即將挑戰 52W 高點。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $320+（+22%），企業 AI 轉型離不開 Snowflake。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">負 EPS 使估值難以衡量；CSP 自建資料平台；Databricks 競爭加劇。</div></div></div></div><div style="margin-bottom:24px"><div class="section-sub">☁️ AI雲端平台</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/GOOGL/overview" target="_blank">Alphabet Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/GOOGL/overview" target="_blank">GOOGL</a>)</span></div>
+      <div class="stock-meta">☁️ AI雲端平台</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$357.18</span>
+    <span class="stock-chg chg-neg">-0.76%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">17.4M</span></div>
+  </div>
+<ul class="bullets"><li>Gemini 2.0 追趕 GPT-4</li><li>TPU 自研 AI 晶片</li><li>雲端 AI 份額持續提升</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">Google Cloud AI 爆發，Gemini 2.0 追趕 GPT-4；TPU 自研 AI 晶片；搜尋+YouTube+Cloud AI 三位一體。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $420+（+18%），雲端 AI 份額提升，搜尋廣告市佔穩固。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">今日 -0.76% 顯示短期壓力；AI 搜尋威脅核心廣告業務；雲端市場 AWS/AMZN 競爭激烈。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/MSFT/overview" target="_blank">Microsoft Corporation <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/MSFT/overview" target="_blank">MSFT</a>)</span></div>
+      <div class="stock-meta">☁️ AI雲端平台</div>
+    </div>
+    <div><span class="score score-hi">9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$385.10</span>
+    <span class="stock-chg chg-neg">-1.38%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">24.1M</span></div>
+  </div>
+<ul class="bullets"><li>距 52W 低點 10%，極佳買點</li><li>Azure AI 收入季增 50%+</li><li>OpenAI 合作夥伴</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">距 52W 低點僅 10%，Copilot AI 貨幣化加速，Azure AI 收入季增 50%+，OpenAI 最大受益基礎設施合作夥伴。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $480+（+25%），Copilot 將重塑企業軟體定價邏輯。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">AI 資本支出龐大影響毛利率；Copilot 貨幣化進度落後預期；宏觀經濟放緩影響企業 IT 支出。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/AMZN/overview" target="_blank">Amazon.com, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/AMZN/overview" target="_blank">AMZN</a>)</span></div>
+      <div class="stock-meta">☁️ AI雲端平台</div>
+    </div>
+    <div><span class="score score-hi">9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$245.34</span>
+    <span class="stock-chg chg-pos">+1.10%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">31.3M</span></div>
+  </div>
+<ul class="bullets"><li>AWS AI 晶片自研實力</li><li>Bedrock AI 即服務</li><li>廣告業務高速增長</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AWS Trainium/Inferentia 自研 AI 晶片，Bedrock AI 即服務；電商+雲端+AI 三重催化，距 52W 低點 25%。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $300+（+22%），AI 需求讓 AWS 復甦加速，廣告業務高速增長。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">電商業務受宏觀經濟影響；AI 資本支出影響現金流；AWS 價格戰壓縮毛利。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/META/overview" target="_blank">Meta Platforms, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/META/overview" target="_blank">META</a>)</span></div>
+      <div class="stock-meta">☁️ AI雲端平台</div>
+    </div>
+    <div><span class="score score-hi">9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$669.21</span>
+    <span class="stock-chg chg-pos">+14.81%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">39.4M</span></div>
+  </div>
+<ul class="bullets"><li>Llama 3 企業級用戶超 50,000 家公司</li><li>AI 廣告投放效率提升</li><li>Reels 變現率已超 Feed</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">Llama AI 開源生態系成為 AI 基礎設施；AI 助理貨幣化開始；今日大漲 14.81% 顯示市場重新定義 META 為 AI 平台公司。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $800+（+20%），Llama 生態系正在複製 Android 當年的成功。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">監管風險（歐盟 AI Act）；廣告業務依賴經濟環境；元宇宙投資仍是長期不確定因素。</div></div></div></div><div style="margin-bottom:24px"><div class="section-sub">⚡ 核電/公用事業</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/GEV/overview" target="_blank">GE Vernova Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/GEV/overview" target="_blank">GEV</a>)</span></div>
+      <div class="stock-meta">⚡ 核電/公用事業</div>
+    </div>
+    <div><span class="score score-md">8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$1091.57</span>
+    <span class="stock-chg chg-neg">-1.94%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">1.1M</span></div>
+  </div>
+<ul class="bullets"><li>發電+輸配電全面覆蓋</li><li>電網現代化超級週期</li><li>AI 資料中心電網需求新增量</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 資料中心電網擴建離不開 GE Vernova，發電+電網設備雙輪驅動，電網現代化超級週期。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $1300+（+19%），全球電網設備龍頭。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">公用事業估值受利率影響；CSP 自建電網設備；競爭加劇。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/ENPH/overview" target="_blank">Enphase Energy, Inc. <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/ENPH/overview" target="_blank">ENPH</a>)</span></div>
+      <div class="stock-meta">⚡ 核電/公用事業</div>
+    </div>
+    <div><span class="score score-md">7</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$44.83</span>
+    <span class="stock-chg chg-pos">+4.09%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">2.9M</span></div>
+  </div>
+<ul class="bullets"><li>微逆變器技術電網韌性關鍵</li><li>分散式能源需求趨勢明確</li><li>AI 資料中心供電新模式探索</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">AI 資料中心需要分散式能源解決方案，ENPH 微逆變器技術在電網韌性中扮演關鍵角色，今日 +4.09%。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $60+（+34%），分散式能源+AI 資料中心供電新模式。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">太陽能市場放緩；中國競爭對手價格壓力；安裝工人短缺影響出貨。</div></div></div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name"><a href="https://www.barchart.com/stocks/quotes/INTC/overview" target="_blank">Intel Corporation <span class="sym">(<a href="https://www.barchart.com/stocks/quotes/INTC/overview" target="_blank">INTC</a>)</span></div>
+      <div class="stock-meta">⚡ 核電/公用事業</div>
+    </div>
+    <div><span class="score score-lo">5</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$109.84</span>
+    <span class="stock-chg chg-neg">-8.73%</span>
+  </div>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">P/E</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">EPS</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$N/A</span></div>
+    <div class="metric"><span class="metric-label">距高</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">距低</span><span class="metric-value">N/A</span></div>
+    <div class="metric"><span class="metric-label">成交量</span><span class="metric-value">70.3M</span></div>
+  </div>
+<ul class="bullets"><li>IFS 18A 製程獲得認證</li><li>美國政府補貼加持</li><li>但 AI 產品落後競爭對手</li></ul><div class="reason"><div class="reason-label">🏆 為什麼推薦</div><div class="reason-text">IFS 18A 製程獲得大客戶認證；美國政府補貼加持；今日 -8.73% 重挫顯示市場對其 AI 時代地位仍有疑慮。</div></div><div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0"><div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px;text-transform:uppercase">🔮 未來展望</div><div style="font-size:.85em;color:#c8d0ff;line-height:1.6">目標價 $142（+29%），但執行風險極高，建議觀望。</div></div><div class="risk"><div class="risk-label">⚠️ 風險因素</div><div class="risk-text">今日 -8.73% 重挫顯示機構拋售；IFS 量產能力存疑；AI 晶片市場份額持續流失。</div></div></div></div></div>
 <div class="footer">
-  <p>📅 報告日期：2026-07-11 · 資料來源：Barchart（已登入）、Yahoo Finance · 生成時間：2026-07-11 11:53:40</p>
+  <p>📅 報告日期：2026-07-11 · Barchart（已登入）+ Yahoo Finance · 生成：2026-07-11 12:45</p>
   <p>⚠️ 本報告僅供參考，不構成投資建議。投資人應自行判斷並承擔風險。</p>
 </div>
 </div>
