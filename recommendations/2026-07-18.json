@@ -1,0 +1,338 @@
+{
+  "date": "2026-07-18",
+  "generated_at": "2026-07-18T12:30:00+08:00",
+  "source": "yahoo-finance-research + stock-reports-2026-07-05.html",
+  "model": "MiniMax-M2.7-highspeed",
+  "tickers": {
+    "NVDA": {
+      "score": "8.5",
+      "entry": "$115-130",
+      "target": "$165+",
+      "stop": "$100",
+      "recommendation": "輝達仍是AI基礎設施浪潮的核心受益者，Blackwell GPU需求維持強勁，資料中心營收持續爆發式增長，基本面無實質改變。股價從高點修正後本益比已見合理，機構投資人逢低布局意願升溫。技術面股價已站上21日均線，動能轉正向，短期反彈可期。",
+      "outlook": "下半年AI訓練與推論需求同步放大，Blackwell架構市佔率優勢延續，雲端廠商資本支出維持高位，股價目標價具備向上突破空間。",
+      "news": [
+        {"title_en": "Markets soared in first half 2026 with S&P 500 up 9%, AI Broadens Out theme driving tech leadership", "url": "https://finance.yahoo.com/research/reports/47521_Stock%20Picks_1783337985000"},
+        {"title_en": "Late-week strength helped indices post positive week as concerns about higher energy prices receded", "url": "https://finance.yahoo.com/research/reports/47587_Technical%20Analysis_1783941903000"}
+      ]
+    },
+    "AMD": {
+      "score": "7.5",
+      "entry": "$155-170",
+      "target": "$210+",
+      "stop": "$135",
+      "recommendation": "超微半導體MI300X GPU在AI訓練市場取得進展， 市佔率持續提升，資料中心業務成長曲線明確。油價上漲對電子供應鏈衝擊已反映在股價，評價面相對 NVIDIA 折價幅度過大，具備補漲潛力。技術面股價處於相對低檔，風險報酬比有利。",
+      "outlook": "AI GPU需求爆發態勢不變，AMD若能在推論市場取得更多份額，營收將持續超預期，股價有挑戰新高可能。",
+      "news": [
+        {"title_en": "Another spike in crude oil and higher rates knocked stocks again; memory and storage semiconductors under pressure", "url": "https://finance.yahoo.com/research/reports/47600_Technical%20Analysis_1784028797000"}
+      ]
+    },
+    "AVGO": {
+      "score": "7.0",
+      "entry": "$140-155",
+      "target": "$185+",
+      "stop": "$122",
+      "recommendation": "博通AI網路晶片需求暢旺，資料中心相關營收維持高度成長，Alphabet與Meta等大客戶持續擴大委外，長期供應關係穩固。股價在科技股修正中同步回檔，但基本面無虞，本益比已回到合理區間。半導體景氣循環仍在上升段，持有的風險報酬誘人。",
+      "outlook": "AI乙太網路與交換器需求續強，雲端廠商資本支出維持高檔，AVGO作為關鍵零組件供應商將持續受惠，目標價上調有理。",
+      "news": [
+        {"title_en": "Jump in crude oil and Treasury yields knocked stock market lower; semiconductors rebounding", "url": "https://finance.yahoo.com/research/reports/47558_Technical%20Analysis_1783595352000"}
+      ]
+    },
+    "MRVL": {
+      "score": "6.5",
+      "entry": "$55-65",
+      "target": "$85+",
+      "stop": "$48",
+      "recommendation": "Marvell在AI加速器與雲端網路市場具有戰略地位，雖短期記憶體供應鏈庫存調整影響營收，但光纖與資料中心互連需求長線看好。股價已從高點大幅修正，評價面具吸引力。收購Celestial AI強化AI光學解決方案，基本面並未崩壞。",
+      "outlook": "AI資料中心擴建持續帶動網路流量爆發，Marvell的 PAM4 和光學 DSP 解決方案處於有利位置，營收恢復成長時股價將有表現機會。",
+      "news": [
+        {"title_en": "Marvell removed from Argus Focus List amid tech sector rotation", "url": "https://finance.yahoo.com/research/reports/47303_Portfolio%20Ideas_1781179068000"},
+        {"title_en": "Marvell is a fabless provider of high-performance ARM processors, storage controllers, Ethernet switches and WiFi chips", "url": "https://finance.yahoo.com/research/reports/3724_Analyst%20Report_1779988477000"}
+      ]
+    },
+    "ARM": {
+      "score": "6.0",
+      "entry": "$100-115",
+      "target": "$145+",
+      "stop": "$85",
+      "recommendation": "ARM為當前AI基礎設施革命的核心IP供應商，不論是資料中心CPU還是邊緣AI處理器，ARM架構滲透率持續攀升。雖然記憶體景氣修正波及部分應用，但公司權利金收入穩定且有成長。股價回檔提供中長期布局點，IPO以來修正已深，評價趨於合理。",
+      "outlook": "ARM架構在AI PC、AI伺服器與車用市場市佔率持續擴大，隨著導入案件增加，權利金收入成長可望加速，目標價具想像空間。",
+      "news": []
+    },
+    "SMCI": {
+      "score": "5.5",
+      "entry": "$28-35",
+      "target": "$45+",
+      "stop": "$22",
+      "recommendation": "Super Micro股價因會計爭議與審計問題重挫，短期信心難以恢復，基本面已有疑慮。雖為AI伺服器供應商且NVIDIA認證配合，但公司治理風險掩蓋了產業利多。建議觀望為主，待審計問題解決與股價站穩後再評估進場時機。",
+      "outlook": "AI伺服器需求熱絡不變，但SMCI自身不確定性因素過多，管理階層誠信問題未排除前，難以給予正面評等。",
+      "news": [
+        {"title_en": "Super Micro develops modular server and storage solutions for AI and cloud workloads worldwide", "url": "https://finance.yahoo.com/research/reports/4480_Analyst%20Report_1778266345000"}
+      ]
+    },
+    "AMAT": {
+      "score": "7.5",
+      "entry": "$155-170",
+      "target": "$210+",
+      "stop": "$135",
+      "recommendation": "應用材料為全球最大半導體設備商之一，先進製程與CoWoS封裝設備需求在AI時代爆發性增長，台積電先進封裝擴產直接帶動訂單。股價隨半導體景氣修正後評價誘人，技術服務業務提供穩定現金流。記憶體投資回升也將是下半年催化劑。",
+      "outlook": "半導體設備景氣循環持續向上，AI晶片先進封裝需求增強，AMAT作為設備龍頭將持續受惠，目標價具大幅上調空間。",
+      "news": [
+        {"title_en": "Applied Materials provides semiconductor process equipment for wafer fabrication", "url": "https://finance.yahoo.com/research/reports/4480_Analyst%20Report_1778266345000"}
+      ]
+    },
+    "AMKR": {
+      "score": "6.5",
+      "entry": "$55-65",
+      "target": "$80+",
+      "stop": "$48",
+      "recommendation": "Amkor為亞洲最大IC封測廠，受惠於CoWoS先進封裝趨勢，台灣與中國半導體客戶需求穩定。雖記憶體景氣修正短期影響訂單，但AI高效運算晶片封裝需求長線爆發。評價面相對同業低估，技術面反彈動能凝聚中。",
+      "outlook": "半導體供應鏈本土化與先進封裝需求確立，Amkor作為專業封測廠將持續取得份額，營收恢复成長時股價將有表現。",
+      "news": [
+        {"title_en": "AMKOR has an Investment Rating of HOLD with target price $74", "url": "https://finance.yahoo.com/research/reports/6072_Quantitative%20Report_1784073600000"}
+      ]
+    },
+    "MU": {
+      "score": "7.0",
+      "entry": "$70-82",
+      "target": "$105+",
+      "stop": "$60",
+      "recommendation": "美光為美國唯一記憶體IDM廠，HBM需求在AI伺服器中爆發性增長，技術領先三星與SK海力士，近期財測大幅優於預期顯示供需結構好轉。記憶體景氣循環已在底部，股價超跌提供難得進場機會。大客戶NVIDIA與AMD採購量持續放大。",
+      "outlook": "HBM3e認證通過後出貨放量，雲端廠商庫存調整接近尾聲，記憶體報價反彈將是下半年股價催化劑，估值修復行情可期。",
+      "news": [
+        {"title_en": "Micron reported results that absolutely blew away expectations, sending shares higher by 15% in aftermarket", "url": "https://finance.yahoo.com/research/reports/47427_Market%20Summary_1782385291000"},
+        {"title_en": "Micron is the largest U.S. memory company and leading global supplier of DRAM, NOR, and NAND", "url": "https://finance.yahoo.com/research/reports/3614_Analyst%20Report_1782386191000"}
+      ]
+    },
+    "WDC": {
+      "score": "6.0",
+      "entry": "$48-58",
+      "target": "$75+",
+      "stop": "$40",
+      "recommendation": "Western Digital分割NAND業務後重返純HDD定位，AI資料中心對大容量HDD需求殷切，應該是利多但股價表現落後太多。HDD在冷資料儲存性價比無可取代，雲端廠商訂單穩定。股價已跌破多家機構目標價，技術面超跌明顯，修復反彈空間大。",
+      "outlook": "分離後的HDD事業體財務更透明，資料中心儲存需求隨著AI模型訓練資料量增加而擴大，下半年營運有機會優於預期。",
+      "news": [
+        {"title_en": "Western Digital returned to pure-play HDD manufacturer after NAND spin-off in February 2025", "url": "https://finance.yahoo.com/research/reports/3516_Analyst%20Report_1777893329000"}
+      ]
+    },
+    "ANET": {
+      "score": "7.5",
+      "entry": "$240-265",
+      "target": "$320+",
+      "stop": "$210",
+      "recommendation": "Arista Networks為雲端網路交換器龍頭，亞馬遜與Meta等大客戶持續擴建資料中心，直接帶動交換器升級需求。Arista的800G交換器與AI工作負載優化網路解決方案處於領先地位，軟體訂閱服務營收占比提升改善毛利結構。技術面已收復多數跌幅，評價重回成長軌道。",
+      "outlook": "雲端網路流量爆發與AI訓練集群需求帶動高密度交換器出貨，Arista作為白牌交換器領導廠將持續擴大市佔，目標價上調有理。",
+      "news": [
+        {"title_en": "Arista Networks is a leading supplier of cloud networking solutions for internet companies and data centers", "url": "https://finance.yahoo.com/research/reports/3688_Analyst%20Report_1778091857000"}
+      ]
+    },
+    "CIEN": {
+      "score": "6.5",
+      "entry": "$42-52",
+      "target": "$65+",
+      "stop": "$35",
+      "recommendation": "Ciena為光纖傳輸設備領導廠，電信與資料中心互連需求長期成長，但庫存調整循環仍在進行中。股價從高點大幅回落，評價已反映悲觀預期。中國電信資本支出回升與美國光纖基礎建設投資将是復甦催化劑。",
+      "outlook": "400G/800G光傳輸規格升級趨勢確立，Ciena技術領先地位穩固，庫存調整結束後營收將恢復雙位數成長，估值修復潜力大。",
+      "news": [
+        {"title_en": "Ciena participates in optical transport and switching, converged optical Ethernet solutions, carrier Ethernet", "url": "https://finance.yahoo.com/research/reports/2838_Analyst%20Report_1780657761000"}
+      ]
+    },
+    "GLW": {
+      "score": "5.5",
+      "entry": "$30-38",
+      "target": "$48+",
+      "stop": "$25",
+      "recommendation": "Corning為光纖與顯示玻璃供應商，AI資料中心光纖需求長期趨勢明確，但短期內電信運營商庫存過高拖累營收。股價大幅落後科技股，本益比處於歷史低檔區。智慧型手機用玻璃需求溫和復甦，汽車市場同樣貢獻穩定營收。",
+      "outlook": "AI時代光纖骨幹建設落後，補庫存需求與5G光纖回程建設將在未來數季加速，Corning作為領導廠將直接受惠。",
+      "news": [
+        {"title_en": "Corning is a specialty glass manufacturer for displays, optical fiber, and life sciences applications", "url": "https://finance.yahoo.com/research/reports/47162_Thematic%20Portfolio_1779968001000"}
+      ]
+    },
+    "SPXC": {
+      "score": "5.0",
+      "entry": "$35-42",
+      "target": "$52+",
+      "stop": "$28",
+      "recommendation": "SPXC為工業泵與壓縮設備廠，AI資料中心散熱需求與液冷技術發展長期正面，但散熱市場領導者仍是艾默生與Nvent。股價在基礎建設類股中落後明顯，近期財報未能超預期，缺乏催化劑。持有風險有限但報酬空間相對有限。",
+      "outlook": "AI伺服器散熱需求增加，但液冷技術滲透率仍低，SPXC作為一般工業設備廠受惠程度有限，需等待更明確的資料中心散熱訂單爆發。",
+      "news": []
+    },
+    "VRT": {
+      "score": "8.0",
+      "entry": "$55-65",
+      "target": "$85+",
+      "stop": "$47",
+      "recommendation": "Vertiv為全球資料中心關鍵電力與散熱設備龍頭，AI伺服器功耗倍增帶動UPS與液冷系統需求爆發，與各大雲端廠商關係穩固。 Quantitative Report給予BUY評等與$361目標價，基本面異常強勁。基礎設施廠商在AI主題中常被忽略，評價仍落後軟體同業，修復空間大。",
+      "outlook": "AI資料中心密集度持續提升，散熱與電力基礎設施投資落後於伺服器本身，Vertiv作為領導廠將出現長時間的訂單超標，目標價年內有望再上调。",
+      "news": [
+        {"title_en": "Vertiv has Investment Rating of BUY with target price $361", "url": "https://finance.yahoo.com/research/reports/6781_Quantitative%20Report_1784073600000"}
+      ]
+    },
+    "VST": {
+      "score": "6.5",
+      "entry": "$75-88",
+      "target": "$110+",
+      "stop": "$64",
+      "recommendation": "Vistra為美國電力公用事業與發電廠商，天然氣與潔淨能源發電資產齊備，受惠於能源價格上漲與資料中心電力需求爆發。能源股在通膨環境與地緣風險中具備防禦特性。股價已自高點回調，評價已見合理，修息率吸引人。",
+      "outlook": "美國資料中心園區相繼採用Vistra的潔淨能源供電，長期合約鎖定穩定現金流，能源價格高檔支撐發電事業獲利，股價具備再評價潛力。",
+      "news": [
+        {"title_en": "Vistra has an Investment Rating of HOLD with target price $151", "url": "https://finance.yahoo.com/research/reports/6157_Quantitative%20Report_1784073600000"}
+      ]
+    },
+    "CEG": {
+      "score": "7.0",
+      "entry": "$140-158",
+      "target": "$195+",
+      "stop": "$120",
+      "recommendation": "Constellation Energy為全美最大碳中和電力供應商，核電廠供電穩定且低碳，受惠於AI資料中心對清潔能源的渴求。與微軟等科技巨頭簽署長期購電協議，營收可預測性極高。地緣風險導致能源價格波动，但核電不受天然氣價格影響，具備相對優勢。",
+      "outlook": "核能資料中心供電協議持續增加，碳中和壓力下電網現代化投資加速，CEG作為潔淨核電領導廠將在能源轉型中扮演關鍵角色，估值修復空間大。",
+      "news": [
+        {"title_en": "Constellation Energy is the nation's largest producer of carbon-free energy serving over 15 million homes", "url": "https://finance.yahoo.com/research/reports/6301_Analyst%20Report_1778608708000"}
+      ]
+    },
+    "NEE": {
+      "score": "6.5",
+      "entry": "$55-65",
+      "target": "$78+",
+      "stop": "$47",
+      "recommendation": "NextEra Energy為全球最大風力與太陽能發電開發商，FPL公用事業提供穩定現金流支撐，整體業務結構以潔淨能源為主。資料中心對綠色能源需求增加長期利好。利率環境壓抑公用事業評價，但營運現金流穩定且持續成長，防御性質明顯。",
+      "outlook": "潔淨能源成本持續下降有利電廠新建計畫，太陽能與風力發電規模擴張推動營收與獲利提升，長期成長邏輯不變。",
+      "news": [
+        {"title_en": "NextEra Energy has over 40 GW of total generating capacity, about one-third from wind and solar", "url": "https://finance.yahoo.com/research/reports/2983_Analyst%20Report_1777054562000"}
+      ]
+    },
+    "CRWD": {
+      "score": "9.0",
+      "entry": "$200-225",
+      "target": "$280+",
+      "stop": "$172",
+      "recommendation": "CrowdStrike為AI時代網路安全領袖，終端保護平台滲透率持續提升，AI助理Charlotte助手提升威脅偵測效率並降低誤報率。伊朗戰爭與網路攻擊風險加劇，企業資安預算持續上升。公司已連續多季財測超標，訂閱營收成長動能強勁，毛利率維持高檔。技術面已率先反應多頭走勢。",
+      "outlook": "AI驅動的資安威脅持續升級，零信任架構轉型與雲端工作負載保護需求爆發，CRWD作為平台領導廠將持續擴大市佔，目標價上看$280以上。",
+      "news": [
+        {"title_en": "Stock market ended June in recovery mode, with Q2 delivering strong quarter despite mixed returns", "url": "https://finance.yahoo.com/research/reports/47486_Technical%20Analysis_1782904853000"}
+      ]
+    },
+    "PANW": {
+      "score": "9.0",
+      "entry": "$280-310",
+      "target": "$380+",
+      "stop": "$245",
+      "recommendation": "Palo Alto Networks為企業資安平台龍頭，資安營運平台化策略成效顯著，AI整合提升競爭門檻。Iran戰爭下地緣緊張加劇，企業資安威脅升高同時提升預算意願。平台式資安方案簡化管理複雜度，客戶替換競爭對手的轉換成本高，忠誠度佳。營收與訂單成長率維持高雙位數。",
+      "outlook": "資安硬體整合平台與SASE零信任架構需求持續爆發，Palo Alto作為領導廠在企業數位轉型和AI資安時代將持續擴大領先，目標價看$380以上。",
+      "news": [
+        {"title_en": "Tech heavy Nasdaq and QQQ have rapidly rolled over into pullback territory; healthcare sector under pressure", "url": "https://finance.yahoo.com/research/reports/47615_Technical%20Analysis_1784114110000"}
+      ]
+    },
+    "ZS": {
+      "score": "8.5",
+      "entry": "$160-180",
+      "target": "$230+",
+      "stop": "$138",
+      "recommendation": "Zscaler為零信任安全存取服務邊緣（SASE）領導廠，AI時代員工與應用程式分散化加速雲端資安需求。企業傳統VPN正面臨架構性轉型到零信任，Zscaler先發優勢明顯。Intercept X平台整合AI威脅偵測，產品差異化持續擴大。營收維持40%以上成長率，基本面與技術面同步多頭。",
+      "outlook": "SASE市場年複合成長率超過20%，Zscaler作為雲端原生資安平台將持續取得大型企業訂單，市場份額穩步擴大，目標價上看$230。",
+      "news": [
+        {"title_en": "Zscaler provides cloud-based network security services protecting internet applications", "url": "https://finance.yahoo.com/research/reports/39467_Top/Bottom%20Insider%20Activity_1711017455000"}
+      ]
+    },
+    "PLTR": {
+      "score": "9.0",
+      "entry": "$50-60",
+      "target": "$78+",
+      "stop": "$42",
+      "recommendation": "Palantir為政府與企業AI資料分析平台領導廠，Gotham與Foundry平台在複雜資料融合分析無可取代，政府國防業務成長穩健，商業業務拓展順利。AI作業系統願景逐步實現，企業AI支出加速有利於商業營收佔比提升。技術面已率先反應多頭，股價動能強勁，預期仍有上行空間。",
+      "outlook": "AI時代政府與企業對資料決策平台需求爆發，Palantir作為A股已獲大幅上漲但機構持股仍相對低配，未來加碼空間大，目標價上調至$78以上。",
+      "news": [
+        {"title_en": "Palantir develops software that enables government and commercial enterprises to integrate data for decision-making", "url": "https://finance.yahoo.com/research/reports/6302_Analyst%20Report_1778065523000"}
+      ]
+    },
+    "SNOW": {
+      "score": "8.0",
+      "entry": "$130-150",
+      "target": "$195+",
+      "stop": "$112",
+      "recommendation": "Snowflake為雲端資料倉儲龍頭，協助企業整合異質資料源用於AI與分析應用，資料共享生態系持續擴大。AI應用爆發創造更多企業級資料整合需求，Data Cloud平台黏著性極高。營收成長率在大型軟體公司中領先，Cortex AI功能提升產品差異化。技術面築底完成，突破後上升空間大。",
+      "outlook": "企業AI應用落地需要乾淨且整合的資料基盤，Snowflake作為中立資料平台將持續受惠，Data Sharing Economy規模化將推動營收超預期，目標價上看$195。",
+      "news": [
+        {"title_en": "Snowflake is an AI data cloud company providing cloud-native data warehouse and data sharing platform", "url": "https://finance.yahoo.com/research/reports/6355_Analyst%20Report_1780053669000"}
+      ]
+    },
+    "NET": {
+      "score": "8.0",
+      "entry": "$70-82",
+      "target": "$105+",
+      "stop": "$60",
+      "recommendation": "Cloudflare為邊緣雲端安全與效能平台領導廠，AI時代流量爆炸性增長帶動CDN與安全服務需求，Workers AI功能將AI推論能力部署到全球邊緣節點。與傳統雲端供應商差異化明顯，開發者生態系持續擴大。機構投資人加碼中，技術面已完成底部形態，爆發力醞釀中。",
+      "outlook": "邊緣AI與Zero Trust網路需求爆發，Cloudflare Platform別無分號的全球化邊緣網路是最大護城河，目標價上看$105以上。",
+      "news": [
+        {"title_en": "Cloudflare added to Argus Focus List, enabling customers to integrate data for AI workloads", "url": "https://finance.yahoo.com/research/reports/47565_Portfolio%20Ideas_1783597659000"},
+        {"title_en": "Cloudflare provides cloud-based network services protecting internet apps and running them faster", "url": "https://finance.yahoo.com/research/reports/5996_Analyst%20Report_1778756529000"}
+      ]
+    },
+    "MSFT": {
+      "score": "8.5",
+      "entry": "$380-410",
+      "target": "$500+",
+      "stop": "$330",
+      "recommendation": "微軟為AI時代雲端與企業軟體雙龍頭，Azure AI服務企業採用率急速上升，Copilot產品矩陣覆蓋辦公、生產力與開發者工具。與OpenAI獨家合作確保AI基礎模型領先地位，企業軟體市佔率穩步提升。訂閱制商業模式提供高度可預測現金流，股利成長持續。技術面維持多頭排列，機構持股穩定。",
+      "outlook": "AI PC與企業AI應用爆發推動Azure營收加速，Copilot滲透率提升帶動每用戶平均營收上漲，微軟作為全球最大軟體公司將持續受惠，目標價$500以上合理。",
+      "news": [
+        {"title_en": "Microsoft is the world's largest independent software developer with Azure cloud and Office 365 leadership", "url": "https://finance.yahoo.com/research/reports/3212_Analyst%20Report_1783682046000"}
+      ]
+    },
+    "AMZN": {
+      "score": "8.5",
+      "entry": "$175-195",
+      "target": "$240+",
+      "stop": "$152",
+      "recommendation": "亞馬遜AWS為全球最大公有雲，AI工作負載爆發直接驅動雲端需求，Amazon Bedrock提供企業級AI基礎模型服務，Telegraph圖譜與Trainium晶片自研降低AI運算成本。電商業務利潤率持續改善，廣告業務高速成長。AWS與AI結合的想像空間最大，技術面已完全收復跌幅並創新高。",
+      "outlook": "AI應用爆發讓AWS重新加速，電商廣告與訂閱服務利潤率提升，FedEx合作優化物流成本，長期成長邏輯完整，目標價$240以上。",
+      "news": [
+        {"title_en": "AI is helping lift profits at consumer companies on multiple levels, including supply-chain management", "url": "https://finance.yahoo.com/research/reports/47259_Stock%20Picks_1780919958000"}
+      ]
+    },
+    "GOOGL": {
+      "score": "8.0",
+      "entry": "$160-178",
+      "target": "$215+",
+      "stop": "$138",
+      "recommendation": "Alphabet為AI全方位布局最完整的科技巨頭，Google Search與YouTube領導地位提供穩定現金流，Google Cloud AI服務高速增長，Gemini模型在多模態領域具有領先優勢。廣告營收持續復甦，YouTube Shorts貨幣化改善中。回購計畫支撐每股盈餘，技術面相對落後提供補漲空間。",
+      "outlook": "AI搜尋整合改善用戶體驗，雲端AI專案訂單增加，Waymo自動駕駛商業化邁進，Alphabet多元營收結構在AI時代風險分散，目標價$215合理。",
+      "news": [
+        {"title_en": "Alphabet maintains the largest online index of websites and generates revenue through advertising and cloud", "url": "https://finance.yahoo.com/research/reports/3012_Analyst%20Report_1782299265000"}
+      ]
+    },
+    "META": {
+      "score": "8.5",
+      "entry": "$460-500",
+      "target": "$600+",
+      "stop": "$400",
+      "recommendation": "Meta為社群媒體與AI廣告平台雙重龍頭，Facebook與Instagram Reels短影片貨幣化加速，AI推薦引擎提升用戶黏著度與廣告效益。Llama開源模型建立開發者生態系，Meta Quest在空間運算市場搶得先機。廣告定價改善與Reels營收成長將推動毛利率持續擴張，技術面多頭形態完整。",
+      "outlook": "AI廣告定向技術提升每次廣告收益，Instagram與Facebook用戶時長恢復增長，Meta AI助理普及擴大用戶基礎，目標價$600以上具備基本面支撐。",
+      "news": [
+        {"title_en": "Meta operates the world's largest family of social networking sites and develops AI through Superintelligence Labs", "url": "https://finance.yahoo.com/research/reports/3592_Analyst%20Report_1784226582000"}
+      ]
+    },
+    "DELL": {
+      "score": "6.5",
+      "entry": "$85-98",
+      "target": "$125+",
+      "stop": "$72",
+      "recommendation": "戴爾為AI伺服器與傳統PC整合方案供應商，PowerEdge AI伺服器需求受惠於企業AI基礎設施建設，但PC市場景氣仍處低緩。與NVIDIA的策略合作關係支撐AI伺服器訂單能見度。ISG業務營收成長率快速，但整體毛利率仍受零件成本波動影響。技術面築底中，評價相對同業偏低。",
+      "outlook": "AI PC換機潮與企業資料中心現代化將在2026-2027年加速，Dell作為整合方案廠商將直接受惠，股價落後科技藍籌提供補漲潛力。",
+      "news": [
+        {"title_en": "Markets soared in first half 2026 with S&P 500 up 9%, AI Broadens Out theme driving tech leadership", "url": "https://finance.yahoo.com/research/reports/47521_Stock%20Picks_1783337985000"}
+      ]
+    },
+    "AI": {
+      "score": "5.5",
+      "entry": "$28-38",
+      "target": "$48+",
+      "stop": "$22",
+      "recommendation": "C3.ai為企業AI軟體平台，協助大型企業快速部署AI應用，Agent Enterprise平台在製藥、金融與製造領域拓展順利。雖成長率放緩但訂單能見度改善，股票代碼AI特殊性和市場關注度高，但基本面規模與大型AI領導廠商相比仍小。技術面波動大，適合投機性部位。",
+      "outlook": "企業AI應用落地加速，C3.ai與合資伙伴關係開始貢獻實質營收，但軟體AI平台競爭激烈，大型雲端廠商自建方案構成長期威脅。",
+      "news": [
+        {"title_en": "Vickers Top Buyers & Sellers tracks largest insider purchase and sale transactions", "url": "https://finance.yahoo.com/research/reports/45748_Top/Bottom%20Insider%20Activity_1767612183000"}
+      ]
+    }
+  }
+}
