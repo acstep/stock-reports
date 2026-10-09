@@ -1,21 +1,21 @@
-# 私密認證 / 一次性腳本（不要 commit 到公開 repo）
+# 排除私密檔案（絕對不要 commit）
 .credentials.js
 .env
 .env.*
-fetch_bc_*.js
-fetch_signals.js
-barchart_*.js
-*_login.js
-*_signals_scrape.js
-*_watchlist.js
-*_explore.js
-generate_*.py
+*.token
 
-# Python / Node
+# 允許核心邏輯腳本
+!generate_report.py
+!generate_full_report.py
+!barchart_raw_dump.js
+!kline_generator.py
+!build_gallery.py
+!symbols.json
+
+# 排除暫存與環境檔案
 __pycache__/
 *.pyc
 node_modules/
-
-# OS
 .DS_Store
-Thumbs.db
+*.log
+/tmp/
