@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 基礎建設美股研究報告 2026-10-12</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#080810;color:#e8e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh}
+.container{max-width:1400px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:30px 0 20px;border-bottom:1px solid #1e1e3a;margin-bottom:30px}
+.header h1{font-size:2em;color:#7c8fff;margin-bottom:8px;letter-spacing:.05em}
+.header .subtitle{color:#555577;font-size:.9em;margin-top:6px}
+.section{margin-bottom:40px}
+.section-title{font-size:1.1em;color:#aabbff;margin-bottom:14px;padding-left:8px;border-left:3px solid #4a5aff;display:flex;align-items:center;gap:8px}
+.section-sub{color:#555577;font-size:.85em;margin-bottom:12px}
+
+/* ── Stock Card (stock-card) ── */
+.stock-card{background:#0d0d20;border:1px solid #1c1c35;border-radius:12px;padding:16px;margin-bottom:14px;position:relative;overflow:hidden}
+.stock-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#4a5aff,#00d4ff);opacity:.7}
+.stock-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px}
+.stock-name{font-size:1.1em;font-weight:700;color:#c8d0ff;margin-bottom:2px}
+.stock-name a{color:#8899ff;text-decoration:none}
+.stock-name a:hover{text-decoration:underline}
+.sym{font-size:.8em;color:#5555aa;font-weight:400}
+.stock-meta{font-size:.75em;color:#666688;margin-top:2px}
+.stock-price-block{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.stock-price{font-size:1.4em;font-weight:700;color:#e0e0ff}
+.stock-chg{font-size:.9em;font-weight:600}
+.chg-pos{color:#24e08a}
+.chg-neg{color:#ff4466}
+.metrics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.metric{background:#111128;border:1px solid #1c1c35;border-radius:6px;padding:4px 8px;font-size:.78em;display:flex;gap:4px}
+.metric-label{color:#666688}
+.metric-value{color:#aaaacc;font-weight:600}
+.bullets{margin:8px 0}
+.bullets li{color:#9999bb;font-size:.82em;line-height:1.6;margin-left:16px;margin-bottom:3px}
+.reason{background:#0a1a10;border-left:3px solid #00cc66;padding:8px 12px;border-radius:0 6px 6px 0;margin:8px 0}
+.reason-label{font-size:.7em;color:#00cc66;font-weight:700;margin-bottom:4px;text-transform:uppercase}
+.reason-text{font-size:.85em;color:#aaffcc;line-height:1.6}
+.risk{background:#1a0a0a;border-left:3px solid #ff4444;padding:8px 12px;border-radius:0 6px 6px 0;margin:8px 0}
+.risk-label{font-size:.7em;color:#ff4444;font-weight:700;margin-bottom:4px;text-transform:uppercase}
+.risk-text{font-size:.85em;color:#ffaaaa;line-height:1.5}
+.score{display:inline-block;padding:3px 10px;border-radius:6px;font-weight:800;font-size:.95em}
+.score-hi{background:#0a2a1a;color:#00cc66;border:1px solid #00cc6650}
+.score-md{background:#1a1a0a;color:#ccaa00;border:1px solid #ccaa0050}
+.score-lo{background:#2a0a0a;color:#cc4444;border:1px solid #cc444450}
+
+/* ── Summary Stats ── */
+.stats-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.stat-box{background:#0d0d20;border:1px solid #1c1c35;border-radius:8px;padding:12px 16px;min-width:130px;flex:1}
+.stat-label{font-size:.72em;color:#555577;text-transform:uppercase;margin-bottom:4px}
+.stat-value{font-size:1.5em;font-weight:700;color:#c8d0ff}
+.stat-sub{font-size:.72em;color:#555577;margin-top:2px}
+
+/* ── Table ── */
+.picks-table{width:100%;border-collapse:collapse;background:#0d0d20;border-radius:10px;overflow:hidden;margin-top:10px}
+.picks-table th{background:#12122a;color:#8899ff;padding:10px 12px;text-align:left;font-size:.82em;border-bottom:1px solid #1e1e3a}
+.picks-table td{padding:9px 12px;font-size:.85em;border-bottom:1px solid #151528;color:#ccccff}
+.picks-table tr:last-child td{border-bottom:none}
+.picks-table tr:hover td{background:#13132a}
+
+/* ── Category performance ── */
+.cat-row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.cat-chip{background:#0d0d20;border:1px solid #1c1c35;border-radius:8px;padding:8px 12px;min-width:110px;flex:1}
+.cat-chip-name{font-size:.72em;color:#666688;margin-bottom:3px}
+.cat-chip-pct{font-size:1.1em;font-weight:700}
+.cat-chip-count{font-size:.7em;color:#444466}
+
+.footer{text-align:center;padding:30px 0;color:#333355;font-size:.8em;border-top:1px solid #1a1a30;margin-top:40px}
+
+@media(max-width:768px){.container{padding:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>🤖 AI 基礎建設美股研究報告</h1>
+  <div class="subtitle">2026-10-12 · 42 檔追蹤標的 · Yahoo Finance + 主流財經媒體</div>
+  <div class="subtitle" style="margin-top:6px">報價為美東前一交易日收盤（台北時間盤前整理）；本報告僅供研究參考，非投資建議。</div>
+</div>
+<div class="section">
+  <div class="section-title">📊 今日總覽</div>
+  <div class="stats-row"><div class="stat-box"><div class="stat-label">上漲</div><div class="stat-value">0</div><div class="stat-sub">42 檔追蹤</div></div>
+<div class="stat-box"><div class="stat-label">下跌</div><div class="stat-value">14</div></div>
+<div class="stat-box"><div class="stat-label">平均日漲跌</div><div class="stat-value">+1.32%</div></div>
+<div class="stat-box"><div class="stat-label">今日最強</div><div class="stat-value">ZS</div><div class="stat-sub">7.80</div></div>
+<div class="stat-box"><div class="stat-label">今日最弱</div><div class="stat-value">HPQ</div><div class="stat-sub">-6.91</div></div></div>
+</div>
+<div class="section">
+  <div class="section-title">🎯 進場推薦總表</div>
+  <div style="overflow-x:auto"><table class="picks-table"><thead><tr><th>股票</th><th>現價</th><th>日%</th><th>P/E</th><th>EPS</th><th>距52W高</th><th>評分</th><th>進場價</th><th>目標價</th><th>止損價</th><th>為什麼推薦</th></tr></thead><tbody><tr><td><b>股票</b><br><span style="color:#666688;font-size:.78em">名稱</span></td><td>現價</td><td class="">日%</td><td>P/E（TTM）</td><td>EPS（TTM）</td><td>距52W高</td><td><span class="score score-md">評分</span></td><td>進場價</td><td>目標價</td><td>止損價</td><td>為什麼推薦</td></tr><tr><td><b>PLTR</b><br><span style="color:#666688;font-size:.78em">Palantir Technologies Inc.</span></td><td>209.05</td><td class="">5.17</td><td>178.14</td><td>1.17</td><td>-0.25%</td><td><span class="score score-hi">9.5</span></td><td>207.00</td><td>265.00</td><td>192.00</td><td>股價逼近歷史新高，外資券商接連大幅調升目標價，主權 AI 需求爆發</td></tr><tr><td><b>MU</b><br><span style="color:#666688;font-size:.78em">Micron Technology, Inc.</span></td><td>1029.00</td><td class="chg-neg">-0.66</td><td>13.87</td><td>74.21</td><td>-18.01%</td><td><span class="score score-hi">9.3</span></td><td>1025.00</td><td>1300.00</td><td>950.00</td><td>擴大庫藏股至 351.6 億美元，分析師喊出 3,000 美元天價，供需吃緊看至 2028</td></tr><tr><td><b>AVGO</b><br><span style="color:#666688;font-size:.78em">Broadcom Inc</span></td><td>361.54</td><td class="">0.39</td><td>46.17</td><td>7.83</td><td>-26.96%</td><td><span class="score score-hi">9.2</span></td><td>360.00</td><td>450.00</td><td>332.00</td><td>綁定 Google TPU 長期大單，傳與 OpenAI 洽談 Nexus 晶片及 500 億美元融資</td></tr><tr><td><b>MRVL</b><br><span style="color:#666688;font-size:.78em">Marvell Technology, Inc.</span></td><td>275.28</td><td class="">0.23</td><td>90.85</td><td>3.03</td><td>-16.55%</td><td><span class="score score-hi">9.0</span></td><td>273.00</td><td>350.00</td><td>253.00</td><td>投資人日大幅上修長期指引，FY31 營收上看 900 億美元，外資目標價升至 400 美元</td></tr><tr><td><b>NET</b><br><span style="color:#666688;font-size:.78em">Cloudflare, Inc.</span></td><td>360.93</td><td class="">5.57</td><td>-617.40</td><td>-0.58</td><td>-2.54%</td><td><span class="score score-hi">8.8</span></td><td>358.00</td><td>430.00</td><td>330.00</td><td>單日大漲 5.57%，接近歷史高點，Workers AI 企業級採用強勁，券商連番調升</td></tr><tr><td><b>ZS</b><br><span style="color:#666688;font-size:.78em">Zscaler, Inc.</span></td><td>233.73</td><td class="">7.80</td><td>-591.27</td><td>-0.40</td><td>-30.64%</td><td><span class="score score-hi">8.7</span></td><td>230.00</td><td>265.00</td><td>215.00</td><td>單日暴漲 7.8%，Investor Day 釋出長期 ARR 衝刺 100 億美元路徑，與 IBM 深度合作</td></tr><tr><td><b>NVDA</b><br><span style="color:#666688;font-size:.78em">NVIDIA Corporation</span></td><td>229.28</td><td class="chg-neg">-0.52</td><td>28.98</td><td>7.91</td><td>-5.79%</td><td><span class="score score-hi">8.6</span></td><td>228.00</td><td>260.00</td><td>212.00</td><td>洽購 Reflection AI，攜手微軟全力推動 AI Agent 落地筆電，市況維持絕對領先</td></tr><tr><td><b>CEG</b><br><span style="color:#666688;font-size:.78em">Constellation Energy Corp</span></td><td>298.07</td><td class="">4.56</td><td>29.04</td><td>10.26</td><td>-27.78%</td><td><span class="score score-hi">8.5</span></td><td>295.00</td><td>380.00</td><td>274.00</td><td>奪得 Google 為期 20 年的核電長約，重啟並擴增 890MW 核能算力供應鏈核心地位</td></tr><tr><td><b>MSFT</b><br><span style="color:#666688;font-size:.78em">Microsoft Corporation</span></td><td>535.07</td><td class="">2.38</td><td>29.81</td><td>17.95</td><td>-3.37%</td><td><span class="score score-hi">8.4</span></td><td>530.00</td><td>580.00</td><td>495.00</td><td>攜手輝達發表 Surface Laptop Ultra 筆電，大舉佈局邊緣端 AI Agent 生態</td></tr><tr><td><b>AMZN</b><br><span style="color:#666688;font-size:.78em">Amazon.com Inc</span></td><td>262.43</td><td class="">3.29</td><td>21.11</td><td>12.43</td><td>-8.62%</td><td><span class="score score-hi">8.3</span></td><td>260.00</td><td>300.00</td><td>242.00</td><td>傳接近以 70 億美元收購 Decart AI，強化 Trainium 自研晶片切換與算力生態</td></tr><tr><td><b>VST</b><br><span style="color:#666688;font-size:.78em">Vistra Corp.</span></td><td>161.48</td><td class="">3.42</td><td>27.28</td><td>5.92</td><td>-25.62%</td><td><span class="score score-hi">8.2</span></td><td>160.00</td><td>202.00</td><td>148.00</td><td>美國能源部承諾提供 42 億美元貸款升級核電廠，電力吃緊受惠者，券商初評買進</td></tr><tr><td><b>DELL</b><br><span style="color:#666688;font-size:.78em">Dell Technologies Inc</span></td><td>586.06</td><td class="">2.00</td><td>34.00</td><td>17.23</td><td>-1.59%</td><td><span class="score score-hi">8.1</span></td><td>580.00</td><td>650.00</td><td>540.00</td><td>距歷史高僅 1.59%，Evercore 目標價升至 650 美元，列入頂尖 AI 受惠名單</td></tr><tr><td><b>CRWD</b><br><span style="color:#666688;font-size:.78em">CrowdStrike Holdings, Inc.</span></td><td>275.04</td><td class="">4.57</td><td>4825.26</td><td>0.06</td><td>-4.16%</td><td><span class="score score-hi">8.0</span></td><td>272.00</td><td>315.00</td><td>253.00</td><td>迅速回擊微型收購維護股東權益，Flex 訂閱模式獲多家券商上調目標價至 325 美元</td></tr><tr><td><b>PANW</b><br><span style="color:#666688;font-size:.78em">Palo Alto Networks, Inc.</span></td><td>418.78</td><td class="">5.09</td><td>822.59</td><td>0.51</td><td>-3.13%</td><td><span class="score score-md">7.9</span></td><td>415.00</td><td>450.00</td><td>385.00</td><td>單日漲逾 5%，推出整合 Anthropic/OpenAI 之 AI 持續安全測試訂閱服務</td></tr><tr><td><b>GOOGL</b><br><span style="color:#666688;font-size:.78em">Alphabet Class A</span></td><td>351.66</td><td class="">0.97</td><td>17.64</td><td>19.93</td><td>-13.94%</td><td><span class="score score-md">7.8</span></td><td>350.00</td><td>420.00</td><td>325.00</td><td>推出 Gemini at Work 統一代理人，與 SpaceX 達成 290 億美元算力協議，但面臨訴訟</td></tr><tr><td><b>META</b><br><span style="color:#666688;font-size:.78em">Meta Platforms, Inc.</span></td><td>718.67</td><td class="chg-neg">-0.31</td><td>24.89</td><td>28.88</td><td>-7.84%</td><td><span class="score score-md">7.7</span></td><td>715.00</td><td>865.00</td><td>665.00</td><td>TD Cowen 重申目標價 865 美元，於歐美主要市場封殺 TikTok 廣告強化自身壁壘</td></tr><tr><td><b>ANET</b><br><span style="color:#666688;font-size:.78em">Arista Networks, Inc.</span></td><td>216.74</td><td class="">2.73</td><td>68.35</td><td>3.17</td><td>-0.31%</td><td><span class="score score-md">7.6</span></td><td>215.00</td><td>235.00</td><td>200.00</td><td>推出 SU-144 開放式 AI 機架架構，股價逼近新高，惟執行長有常態性賣股</td></tr><tr><td><b>AMD</b><br><span style="color:#666688;font-size:.78em">Advanced Micro Devices, Inc.</span></td><td>608.10</td><td class="chg-neg">-2.03</td><td>155.20</td><td>3.92</td><td>-7.66%</td><td><span class="score score-md">7.5</span></td><td>600.00</td><td>680.00</td><td>560.00</td><td>蘇姿丰表示 AI 需求嚴重供不應求，但近期遭女修士基金減持帶來短線波動</td></tr><tr><td><b>NRG</b><br><span style="color:#666688;font-size:.78em">NRG Energy Inc</span></td><td>107.97</td><td class="">1.55</td><td>28.58</td><td>3.78</td><td>-43.16%</td><td><span class="score score-md">7.4</span></td><td>106.00</td><td>169.00</td><td>99.00</td><td>高盛評為發電商首選給予 169 美元目標價，但 FERC 暫停採購計畫帶來監管雜音</td></tr><tr><td><b>SNOW</b><br><span style="color:#666688;font-size:.78em">Snowflake Inc.</span></td><td>368.89</td><td class="">7.42</td><td>-116.21</td><td>-3.17</td><td>-4.07%</td><td><span class="score score-md">7.3</span></td><td>365.00</td><td>400.00</td><td>338.00</td><td>單日強彈 7.42%，雲端資料倉儲需求回溫，但內部董事減持限制短期衝高爆發力</td></tr><tr><td><b>CSCO</b><br><span style="color:#666688;font-size:.78em">Cisco Systems Inc</span></td><td>118.39</td><td class="">3.05</td><td>35.57</td><td>3.33</td><td>-9.19%</td><td><span class="score score-md">7.2</span></td><td>117.00</td><td>135.00</td><td>109.00</td><td>獲券商上調評級至買入，AI 資料中心網路設備轉型逐步顯現成效</td></tr><tr><td><b>ETN</b><br><span style="color:#666688;font-size:.78em">Eaton Corporation PLC</span></td><td>429.65</td><td class="">1.21</td><td>43.13</td><td>9.96</td><td>-10.12%</td><td><span class="score score-md">7.1</span></td><td>425.00</td><td>490.00</td><td>398.00</td><td>美銀重申買入並給予 490 美元目標價，電網與資料中心電力需求持續支撐基本面</td></tr><tr><td><b>GLW</b><br><span style="color:#666688;font-size:.78em">Corning Incorporated</span></td><td>156.68</td><td class="">2.52</td><td>71.93</td><td>2.18</td><td>-42.35%</td><td><span class="score score-md">7.0</span></td><td>155.00</td><td>180.00</td><td>144.00</td><td>光纖線纜於 AI 機房需求回溫，獲分析機構升評，每季宣布固定發放股息</td></tr><tr><td><b>GEV</b><br><span style="color:#666688;font-size:.78em">GE Vernova Inc.</span></td><td>1004.73</td><td class="">0.54</td><td>28.72</td><td>34.98</td><td>-15.99%</td><td><span class="score score-md">6.8</span></td><td>1000.00</td><td>1150.00</td><td>930.00</td><td>小摩維持增持評級但下調目標價至 1150 美元，即將公布第三季財報觀望情緒濃</td></tr><tr><td><b>AMAT</b><br><span style="color:#666688;font-size:.78em">Applied Materials Inc</span></td><td>507.03</td><td class="chg-neg">-0.50</td><td>43.73</td><td>11.59</td><td>-31.45%</td><td><span class="score score-md">6.7</span></td><td>500.00</td><td>610.00</td><td>470.00</td><td>擴大先進封裝學術合作，但富國銀行下調目標價，半導體設備支出步調分歧</td></tr><tr><td><b>QCOM</b><br><span style="color:#666688;font-size:.78em">QUALCOMM Incorporated</span></td><td>175.50</td><td class="chg-neg">-0.29</td><td>20.31</td><td>8.64</td><td>-32.48%</td><td><span class="score score-md">6.6</span></td><td>173.00</td><td>195.00</td><td>162.00</td><td>執行長看好 2028 手機 AI 助理，惟正與 Arm 陷入重大專利侵權法律戰</td></tr><tr><td><b>OKTA</b><br><span style="color:#666688;font-size:.78em">Okta, Inc.</span></td><td>232.13</td><td class="">5.41</td><td>139.84</td><td>1.66</td><td>-0.36%</td><td><span class="score score-md">6.5</span></td><td>230.00</td><td>250.00</td><td>214.00</td><td>股價逼近新高且日漲 5.41%，但研究機構給予持平評級，認為估值已充分反映</td></tr><tr><td><b>SPXC</b><br><span style="color:#666688;font-size:.78em">SPX Technologies Inc</span></td><td>169.46</td><td class="">0.52</td><td>29.87</td><td>5.67</td><td>-32.51%</td><td><span class="score score-md">6.3</span></td><td>168.00</td><td>200.00</td><td>156.00</td><td>獲 Baird 給予強力買進，但小摩大砍目標價至 225 美元，機構看法分歧</td></tr><tr><td><b>CIEN</b><br><span style="color:#666688;font-size:.78em">Ciena Corporation</span></td><td>449.77</td><td class="">5.60</td><td>100.37</td><td>4.48</td><td>-29.45%</td><td><span class="score score-md">6.2</span></td><td>445.00</td><td>490.00</td><td>410.00</td><td>單日強彈 5.6%，光通訊同業帶動上漲，但近 48 小時無個別重大催化消息</td></tr><tr><td><b>NTAP</b><br><span style="color:#666688;font-size:.78em">NetApp Inc</span></td><td>237.15</td><td class="">2.64</td><td>33.47</td><td>7.09</td><td>-0.39%</td><td><span class="score score-md">6.2</span></td><td>235.00</td><td>255.00</td><td>220.00</td><td>股價位於 52 週高點附近展現韌性，但近 48 小時無重大基本面新聞</td></tr><tr><td><b>ASX</b><br><span style="color:#666688;font-size:.78em">ASE Technology Holding Co., Ltd.</span></td><td>46.43</td><td class="">2.59</td><td>54.33</td><td>0.85</td><td>-3.13%</td><td><span class="score score-md">6.1</span></td><td>46.00</td><td>50.00</td><td>42.50</td><td>先進封裝需求穩健支撐股價靠近高點，但近 48 小時無重大消息公佈</td></tr><tr><td><b>NEE</b><br><span style="color:#666688;font-size:.78em">NextEra Energy, Inc.</span></td><td>77.38</td><td class="">0.01</td><td>17.36</td><td>4.46</td><td>-21.64%</td><td><span class="score score-md">6.0</span></td><td>76.50</td><td>85.00</td><td>71.00</td><td>第三季財報定於 10/21 發布，Mizuho 砍降目標價至 80 美元，防禦性公用事業缺乏動能</td></tr><tr><td><b>AMKR</b><br><span style="color:#666688;font-size:.78em">Amkor Technology, Inc.</span></td><td>49.12</td><td class="chg-neg">-3.69</td><td>22.06</td><td>2.23</td><td>-49.19%</td><td><span class="score score-lo">5.8</span></td><td>48.00</td><td>55.00</td><td>44.50</td><td>股價自高點重挫近五成，日跌 3.69%，近 48 小時無重大消息，短期偏弱震盪</td></tr><tr><td><b>INTC</b><br><span style="color:#666688;font-size:.78em">Intel Corp</span></td><td>104.70</td><td class="chg-neg">-2.22</td><td>-49.38</td><td>-2.12</td><td>-26.45%</td><td><span class="score score-lo">5.7</span></td><td>102.00</td><td>115.00</td><td>96.00</td><td>日跌 2.22%，獲利轉虧尚未扭轉，近 48 小時無重大消息支撐買盤</td></tr><tr><td><b>ENPH</b><br><span style="color:#666688;font-size:.78em">Enphase Energy, Inc.</span></td><td>32.81</td><td class="chg-neg">-0.30</td><td>33.15</td><td>0.99</td><td>-55.51%</td><td><span class="score score-lo">5.5</span></td><td>32.00</td><td>38.00</td><td>29.50</td><td>距高點暴跌逾 55%，太陽能終端需求未見顯著拐點，近 48 小時無重大消息</td></tr><tr><td><b>HPQ</b><br><span style="color:#666688;font-size:.78em">HP Inc</span></td><td>30.20</td><td class="chg-neg">-6.91</td><td>11.51</td><td>2.62</td><td>-16.64%</td><td><span class="score score-lo">5.2</span></td><td>29.50</td><td>34.00</td><td>27.50</td><td>單日放量重挫 6.91%，傳統 PC 需求疲軟拖累，且近 48 小時無利多支撐</td></tr><tr><td><b>WDC</b><br><span style="color:#666688;font-size:.78em">Western Digital Corp</span></td><td>397.28</td><td class="">1.01</td><td>16.36</td><td>24.28</td><td>-50.33%</td><td><span class="score score-lo">5.1</span></td><td>390.00</td><td>460.00</td><td>360.00</td><td>競爭對手爭奪關鍵供應商 TDK 業務引發競爭疑慮，遭 Zacks 降評至持有</td></tr><tr><td><b>VRT</b><br><span style="color:#666688;font-size:.78em">Vertiv Holdings Co</span></td><td>242.78</td><td class="chg-neg">-0.39</td><td>54.94</td><td>4.42</td><td>-36.10%</td><td><span class="score score-lo">4.9</span></td><td>238.00</td><td>260.00</td><td>220.00</td><td>遭 GLJ Research 給予 Sell 評級與 188 美元低價，2027 EBITDA 預估不如預期</td></tr><tr><td><b>SMCI</b><br><span style="color:#666688;font-size:.78em">Super Micro Computer Inc</span></td><td>41.855</td><td class="chg-neg">-2.13</td><td>13.30</td><td>3.15</td><td>-26.05%</td><td><span class="score score-lo">4.8</span></td><td>41.00</td><td>45.00</td><td>37.50</td><td>前承包商認罪走私晶片帶來監管陰霾，執行長高檔減持 10 萬股壓抑信心</td></tr><tr><td><b>ARM</b><br><span style="color:#666688;font-size:.78em">ARM Holdings PLC</span></td><td>266.28</td><td class="chg-neg">-3.27</td><td>314.60</td><td>0.85</td><td>-41.18%</td><td><span class="score score-lo">4.5</span></td><td>260.00</td><td>300.00</td><td>240.00</td><td>面臨專利權利金判決與高通互告法律戰，機構拋售單日跌逾 3%，距高點跌逾 41%</td></tr><tr><td><b>LUMN</b><br><span style="color:#666688;font-size:.78em">Lumen Technologies, Inc.</span></td><td>5.28</td><td class="chg-neg">-5.04</td><td>-5.15</td><td>-1.03</td><td>-55.82%</td><td><span class="score score-lo">4.2</span></td><td>5.15</td><td>6.50</td><td>4.70</td><td>股價重挫 5.04% 探歷史新低，135 億美元高額負債壓垮市場，轉型短期難救急</td></tr></tbody></table></div>
+</div>
+<div class="section">
+  <div class="section-title">📈 深度個股分析</div>
+  
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">名稱 <span class="sym">(股票)</span></div>
+    </div>
+    <div><span class="score score-md">評分</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$現價</span>
+    <span class="stock-chg ">日%</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">P/E（TTM）</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">EPS（TTM）</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">N/A</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">距52W高</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">進場價</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">目標價</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">止損價</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">為什麼推薦</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Palantir Technologies Inc. <span class="sym">(PLTR)</span></div>
+    </div>
+    <div><span class="score score-hi">9.5</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$209.05</span>
+    <span class="stock-chg ">5.17</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">178.14</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">1.17</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$209.58</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-0.3%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">207.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">265.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">192.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">股價逼近歷史新高，外資券商接連大幅調升目標價，主權 AI 需求爆發</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Micron Technology, Inc. <span class="sym">(MU)</span></div>
+    </div>
+    <div><span class="score score-hi">9.3</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$1029.0</span>
+    <span class="stock-chg chg-neg">-0.66</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">13.87</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">74.21</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$1255.0</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-18.0%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">1025.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">1300.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">950.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">擴大庫藏股至 351.6 億美元，分析師喊出 3,000 美元天價，供需吃緊看至 2028</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Broadcom Inc <span class="sym">(AVGO)</span></div>
+    </div>
+    <div><span class="score score-hi">9.2</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$361.54</span>
+    <span class="stock-chg ">0.39</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">46.17</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">7.83</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$495.0</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-27.0%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">360.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">450.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">332.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">綁定 Google TPU 長期大單，傳與 OpenAI 洽談 Nexus 晶片及 500 億美元融資</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Marvell Technology, Inc. <span class="sym">(MRVL)</span></div>
+    </div>
+    <div><span class="score score-hi">9.0</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$275.28</span>
+    <span class="stock-chg ">0.23</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">90.85</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">3.03</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$329.88</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-16.6%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">273.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">350.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">253.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">投資人日大幅上修長期指引，FY31 營收上看 900 億美元，外資目標價升至 400 美元</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Cloudflare, Inc. <span class="sym">(NET)</span></div>
+    </div>
+    <div><span class="score score-hi">8.8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$360.93</span>
+    <span class="stock-chg ">5.57</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">-617.40</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">-0.58</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$370.35</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-2.5%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">358.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">430.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">330.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">單日大漲 5.57%，接近歷史高點，Workers AI 企業級採用強勁，券商連番調升</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Zscaler, Inc. <span class="sym">(ZS)</span></div>
+    </div>
+    <div><span class="score score-hi">8.7</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$233.73</span>
+    <span class="stock-chg ">7.80</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">-591.27</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">-0.40</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$336.99</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-30.6%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">230.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">265.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">215.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">單日暴漲 7.8%，Investor Day 釋出長期 ARR 衝刺 100 億美元路徑，與 IBM 深度合作</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">NVIDIA Corporation <span class="sym">(NVDA)</span></div>
+    </div>
+    <div><span class="score score-hi">8.6</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$229.28</span>
+    <span class="stock-chg chg-neg">-0.52</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">28.98</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">7.91</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$243.37</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-5.8%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">228.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">260.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">212.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">洽購 Reflection AI，攜手微軟全力推動 AI Agent 落地筆電，市況維持絕對領先</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Constellation Energy Corp <span class="sym">(CEG)</span></div>
+    </div>
+    <div><span class="score score-hi">8.5</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$298.07</span>
+    <span class="stock-chg ">4.56</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">29.04</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">10.26</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$412.7</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-27.8%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">295.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">380.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">274.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">奪得 Google 為期 20 年的核電長約，重啟並擴增 890MW 核能算力供應鏈核心地位</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Microsoft Corporation <span class="sym">(MSFT)</span></div>
+    </div>
+    <div><span class="score score-hi">8.4</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$535.07</span>
+    <span class="stock-chg ">2.38</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">29.81</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">17.95</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$553.72</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-3.4%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">530.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">580.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">495.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">攜手輝達發表 Surface Laptop Ultra 筆電，大舉佈局邊緣端 AI Agent 生態</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Amazon.com Inc <span class="sym">(AMZN)</span></div>
+    </div>
+    <div><span class="score score-hi">8.3</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$262.43</span>
+    <span class="stock-chg ">3.29</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">21.11</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">12.43</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$287.2</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-8.6%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">260.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">300.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">242.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">傳接近以 70 億美元收購 Decart AI，強化 Trainium 自研晶片切換與算力生態</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Vistra Corp. <span class="sym">(VST)</span></div>
+    </div>
+    <div><span class="score score-hi">8.2</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$161.48</span>
+    <span class="stock-chg ">3.42</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">27.28</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">5.92</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$217.1</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-25.6%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">160.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">202.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">148.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">美國能源部承諾提供 42 億美元貸款升級核電廠，電力吃緊受惠者，券商初評買進</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Dell Technologies Inc <span class="sym">(DELL)</span></div>
+    </div>
+    <div><span class="score score-hi">8.1</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$586.06</span>
+    <span class="stock-chg ">2.00</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">34.00</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">17.23</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$595.51</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-1.6%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">580.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">650.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">540.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">距歷史高僅 1.59%，Evercore 目標價升至 650 美元，列入頂尖 AI 受惠名單</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">CrowdStrike Holdings, Inc. <span class="sym">(CRWD)</span></div>
+    </div>
+    <div><span class="score score-hi">8.0</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$275.04</span>
+    <span class="stock-chg ">4.57</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">4825.26</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">0.06</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$286.99</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-4.2%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">272.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">315.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">253.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">迅速回擊微型收購維護股東權益，Flex 訂閱模式獲多家券商上調目標價至 325 美元</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Palo Alto Networks, Inc. <span class="sym">(PANW)</span></div>
+    </div>
+    <div><span class="score score-md">7.9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$418.78</span>
+    <span class="stock-chg ">5.09</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">822.59</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">0.51</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$432.33</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-3.1%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">415.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">450.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">385.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">單日漲逾 5%，推出整合 Anthropic/OpenAI 之 AI 持續安全測試訂閱服務</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Alphabet Class A <span class="sym">(GOOGL)</span></div>
+    </div>
+    <div><span class="score score-md">7.8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$351.66</span>
+    <span class="stock-chg ">0.97</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">17.64</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">19.93</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$408.61</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-13.9%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">350.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">420.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">325.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">推出 Gemini at Work 統一代理人，與 SpaceX 達成 290 億美元算力協議，但面臨訴訟</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Meta Platforms, Inc. <span class="sym">(META)</span></div>
+    </div>
+    <div><span class="score score-md">7.7</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$718.67</span>
+    <span class="stock-chg chg-neg">-0.31</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">24.89</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">28.88</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$779.82</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-7.8%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">715.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">865.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">665.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">TD Cowen 重申目標價 865 美元，於歐美主要市場封殺 TikTok 廣告強化自身壁壘</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Arista Networks, Inc. <span class="sym">(ANET)</span></div>
+    </div>
+    <div><span class="score score-md">7.6</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$216.74</span>
+    <span class="stock-chg ">2.73</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">68.35</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">3.17</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$217.41</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-0.3%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">215.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">235.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">200.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">推出 SU-144 開放式 AI 機架架構，股價逼近新高，惟執行長有常態性賣股</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Advanced Micro Devices, Inc. <span class="sym">(AMD)</span></div>
+    </div>
+    <div><span class="score score-md">7.5</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$608.1</span>
+    <span class="stock-chg chg-neg">-2.03</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">155.20</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">3.92</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$658.52</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-7.7%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">600.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">680.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">560.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">蘇姿丰表示 AI 需求嚴重供不應求，但近期遭女修士基金減持帶來短線波動</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">NRG Energy Inc <span class="sym">(NRG)</span></div>
+    </div>
+    <div><span class="score score-md">7.4</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$107.97</span>
+    <span class="stock-chg ">1.55</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">28.58</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">3.78</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$189.96</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-43.2%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">106.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">169.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">99.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">高盛評為發電商首選給予 169 美元目標價，但 FERC 暫停採購計畫帶來監管雜音</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Snowflake Inc. <span class="sym">(SNOW)</span></div>
+    </div>
+    <div><span class="score score-md">7.3</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$368.89</span>
+    <span class="stock-chg ">7.42</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">-116.21</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">-3.17</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$384.56</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-4.1%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">365.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">400.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">338.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">單日強彈 7.42%，雲端資料倉儲需求回溫，但內部董事減持限制短期衝高爆發力</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Cisco Systems Inc <span class="sym">(CSCO)</span></div>
+    </div>
+    <div><span class="score score-md">7.2</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$118.39</span>
+    <span class="stock-chg ">3.05</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">35.57</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">3.33</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$130.37</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-9.2%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">117.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">135.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">109.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">獲券商上調評級至買入，AI 資料中心網路設備轉型逐步顯現成效</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Eaton Corporation PLC <span class="sym">(ETN)</span></div>
+    </div>
+    <div><span class="score score-md">7.1</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$429.65</span>
+    <span class="stock-chg ">1.21</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">43.13</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">9.96</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$478.0</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-10.1%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">425.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">490.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">398.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">美銀重申買入並給予 490 美元目標價，電網與資料中心電力需求持續支撐基本面</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Corning Incorporated <span class="sym">(GLW)</span></div>
+    </div>
+    <div><span class="score score-md">7.0</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$156.68</span>
+    <span class="stock-chg ">2.52</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">71.93</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">2.18</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$271.78</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-42.4%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">155.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">180.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">144.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">光纖線纜於 AI 機房需求回溫，獲分析機構升評，每季宣布固定發放股息</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">GE Vernova Inc. <span class="sym">(GEV)</span></div>
+    </div>
+    <div><span class="score score-md">6.8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$1004.73</span>
+    <span class="stock-chg ">0.54</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">28.72</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">34.98</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$1195.94</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-16.0%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">1000.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">1150.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">930.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">小摩維持增持評級但下調目標價至 1150 美元，即將公布第三季財報觀望情緒濃</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Applied Materials Inc <span class="sym">(AMAT)</span></div>
+    </div>
+    <div><span class="score score-md">6.7</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$507.03</span>
+    <span class="stock-chg chg-neg">-0.50</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">43.73</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">11.59</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$739.67</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-31.5%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">500.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">610.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">470.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">擴大先進封裝學術合作，但富國銀行下調目標價，半導體設備支出步調分歧</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">QUALCOMM Incorporated <span class="sym">(QCOM)</span></div>
+    </div>
+    <div><span class="score score-md">6.6</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$175.5</span>
+    <span class="stock-chg chg-neg">-0.29</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">20.31</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">8.64</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$259.92</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-32.5%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">173.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">195.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">162.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">執行長看好 2028 手機 AI 助理，惟正與 Arm 陷入重大專利侵權法律戰</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Okta, Inc. <span class="sym">(OKTA)</span></div>
+    </div>
+    <div><span class="score score-md">6.5</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$232.13</span>
+    <span class="stock-chg ">5.41</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">139.84</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">1.66</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$232.98</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-0.4%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">230.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">250.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">214.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">股價逼近新高且日漲 5.41%，但研究機構給予持平評級，認為估值已充分反映</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">SPX Technologies Inc <span class="sym">(SPXC)</span></div>
+    </div>
+    <div><span class="score score-md">6.3</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$169.46</span>
+    <span class="stock-chg ">0.52</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">29.87</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">5.67</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$251.08</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-32.5%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">168.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">200.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">156.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">獲 Baird 給予強力買進，但小摩大砍目標價至 225 美元，機構看法分歧</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Ciena Corporation <span class="sym">(CIEN)</span></div>
+    </div>
+    <div><span class="score score-md">6.2</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$449.77</span>
+    <span class="stock-chg ">5.60</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">100.37</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">4.48</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$637.51</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-29.4%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">445.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">490.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">410.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">單日強彈 5.6%，光通訊同業帶動上漲，但近 48 小時無個別重大催化消息</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">NetApp Inc <span class="sym">(NTAP)</span></div>
+    </div>
+    <div><span class="score score-md">6.2</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$237.15</span>
+    <span class="stock-chg ">2.64</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">33.47</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">7.09</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$238.08</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-0.4%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">235.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">255.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">220.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">股價位於 52 週高點附近展現韌性，但近 48 小時無重大基本面新聞</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">ASE Technology Holding Co., Ltd. <span class="sym">(ASX)</span></div>
+    </div>
+    <div><span class="score score-md">6.1</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$46.43</span>
+    <span class="stock-chg ">2.59</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">54.33</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">0.85</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$47.93</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-3.1%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">46.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">50.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">42.50</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">先進封裝需求穩健支撐股價靠近高點，但近 48 小時無重大消息公佈</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">NextEra Energy, Inc. <span class="sym">(NEE)</span></div>
+    </div>
+    <div><span class="score score-md">6.0</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$77.38</span>
+    <span class="stock-chg ">0.01</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">17.36</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">4.46</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$98.75</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-21.6%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">76.50</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">85.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">71.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">第三季財報定於 10/21 發布，Mizuho 砍降目標價至 80 美元，防禦性公用事業缺乏動能</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Amkor Technology, Inc. <span class="sym">(AMKR)</span></div>
+    </div>
+    <div><span class="score score-lo">5.8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$49.12</span>
+    <span class="stock-chg chg-neg">-3.69</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">22.06</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">2.23</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$96.68</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-49.2%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">48.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">55.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">44.50</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">股價自高點重挫近五成，日跌 3.69%，近 48 小時無重大消息，短期偏弱震盪</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Intel Corp <span class="sym">(INTC)</span></div>
+    </div>
+    <div><span class="score score-lo">5.7</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$104.7</span>
+    <span class="stock-chg chg-neg">-2.22</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">-49.38</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">-2.12</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$142.35</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-26.4%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">102.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">115.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">96.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">日跌 2.22%，獲利轉虧尚未扭轉，近 48 小時無重大消息支撐買盤</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Enphase Energy, Inc. <span class="sym">(ENPH)</span></div>
+    </div>
+    <div><span class="score score-lo">5.5</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$32.81</span>
+    <span class="stock-chg chg-neg">-0.30</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">33.15</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">0.99</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$73.74</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-55.5%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">32.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">38.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">29.50</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">距高點暴跌逾 55%，太陽能終端需求未見顯著拐點，近 48 小時無重大消息</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">HP Inc <span class="sym">(HPQ)</span></div>
+    </div>
+    <div><span class="score score-lo">5.2</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$30.2</span>
+    <span class="stock-chg chg-neg">-6.91</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">11.51</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">2.62</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$36.23</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-16.6%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">29.50</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">34.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">27.50</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">單日放量重挫 6.91%，傳統 PC 需求疲軟拖累，且近 48 小時無利多支撐</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Western Digital Corp <span class="sym">(WDC)</span></div>
+    </div>
+    <div><span class="score score-lo">5.1</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$397.28</span>
+    <span class="stock-chg ">1.01</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">16.36</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">24.28</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$799.87</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-50.3%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">390.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">460.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">360.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">競爭對手爭奪關鍵供應商 TDK 業務引發競爭疑慮，遭 Zacks 降評至持有</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Vertiv Holdings Co <span class="sym">(VRT)</span></div>
+    </div>
+    <div><span class="score score-lo">4.9</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$242.78</span>
+    <span class="stock-chg chg-neg">-0.39</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">54.94</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">4.42</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$379.935</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-36.1%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">238.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">260.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">220.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">遭 GLJ Research 給予 Sell 評級與 188 美元低價，2027 EBITDA 預估不如預期</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Super Micro Computer Inc <span class="sym">(SMCI)</span></div>
+    </div>
+    <div><span class="score score-lo">4.8</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$41.855</span>
+    <span class="stock-chg chg-neg">-2.13</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">13.30</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">3.15</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$56.6</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-26.1%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">41.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">45.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">37.50</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">前承包商認罪走私晶片帶來監管陰霾，執行長高檔減持 10 萬股壓抑信心</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">ARM Holdings PLC <span class="sym">(ARM)</span></div>
+    </div>
+    <div><span class="score score-lo">4.5</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$266.28</span>
+    <span class="stock-chg chg-neg">-3.27</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">314.60</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">0.85</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$452.7</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-41.2%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">260.00</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">300.00</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">240.00</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">面臨專利權利金判決與高通互告法律戰，機構拋售單日跌逾 3%，距高點跌逾 41%</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+<div class="stock-card">
+  <div class="stock-header">
+    <div>
+      <div class="stock-name">Lumen Technologies, Inc. <span class="sym">(LUMN)</span></div>
+    </div>
+    <div><span class="score score-lo">4.2</span></div>
+  </div>
+  <div class="stock-price-block">
+    <span class="stock-price">$5.28</span>
+    <span class="stock-chg chg-neg">-5.04</span>
+  </div>
+  <div class="metrics"><div class="metric"><span class="metric-label">P/E</span><span class="metric-value">-5.15</span></div><div class="metric"><span class="metric-label">EPS</span><span class="metric-value">-1.03</span></div><div class="metric"><span class="metric-label">52W高</span><span class="metric-value">$11.95</span></div><div class="metric"><span class="metric-label">距高</span><span class="metric-value">-55.8%</span></div><div class="metric"><span class="metric-label">進場</span><span class="metric-value">5.15</span></div><div class="metric"><span class="metric-label">目標</span><span class="metric-value">6.50</span></div><div class="metric"><span class="metric-label">止損</span><span class="metric-value">4.70</span></div></div>
+  <div class="reason"><div class="reason-label">🏆 為什麼推薦</div>
+    <div class="reason-text">股價重挫 5.04% 探歷史新低，135 億美元高額負債壓垮市場，轉型短期難救急</div></div>
+  <div style="background:#0a0a1e;border-left:3px solid #4a5aff;padding:8px 12px;border-radius:0 6px 6px 0;margin:6px 0">
+    <div style="font-size:.7em;color:#8899ff;font-weight:700;margin-bottom:4px">🔮 未來展望</div>
+    <div style="font-size:.85em;color:#c8d0ff;line-height:1.6">None</div></div>
+  <div class="risk"><div class="risk-label">⚠️ 風險因素</div>
+    <div class="risk-text">None</div></div>
+  
+</div>
+</div>
+<div class="footer">以上為研究整理、僅供參考，非投資建議。 · acstep.github.io/stock-reports</div>
+</div>
+</body>
+</html>
